@@ -37,7 +37,7 @@
 
 ## Product Backlog URL
 
-[Miro Backlog Board](https://miro.com/app/board/uXjVOSSCpsI=/)
+[Trello Backlog Board](https://trello.com/b/YdTjWql2/ballad-of-devs)
 
 ---
 
