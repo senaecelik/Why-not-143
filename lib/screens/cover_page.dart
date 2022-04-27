@@ -24,10 +24,6 @@ class CoverPage extends StatelessWidget {
           SizedBox(
             height: 40.h,
           ),
-<<<<<<< Updated upstream
-=======
-        
->>>>>>> Stashed changes
           const _SubTitleWidget(),
           SizedBox(
             height: 40.h,
