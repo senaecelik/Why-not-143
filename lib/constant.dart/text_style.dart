@@ -11,6 +11,10 @@ class TextStyleConstant {
     fontWeight: FontWeight.w600,
     fontSize: 32.sp,
   );
+  TextStyle title1 = GoogleFonts.poppins(
+    fontWeight: FontWeight.w600,
+    fontSize: 22.sp,
+  );
   TextStyle title2 = GoogleFonts.poppins(
     fontWeight: FontWeight.w600,
     fontSize: 20.sp,

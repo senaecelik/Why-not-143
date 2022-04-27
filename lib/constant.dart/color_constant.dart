@@ -13,4 +13,5 @@ class ColorConstant {
   final Color azureishWhite = const Color(0xFFD9E4F6);
   final Color blueJeand = const Color(0xFF5AA9EF);
   final Color purple = const Color(0xffA85CF9);
+  final Color neutral = const Color(0xff64748B);
 }
