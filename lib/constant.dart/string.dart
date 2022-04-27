@@ -4,7 +4,7 @@ class StringConstant {
   StringConstant._init();
 
   ///Cover Page
-  String coverTitle = "Uygulama Adi";
+  String coverTitle = "Uygulama Adı Bulunuz";
   String coverSubTitle = "Uygulama Sloganı";
   String covetButtonText = "Başlayın";
 }
