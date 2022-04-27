@@ -24,9 +24,6 @@ class CoverPage extends StatelessWidget {
           SizedBox(
             height: 40.h,
           ),
-          SizedBox(
-            height: 5.h,
-          ),
           const _SubTitleWidget(),
           SizedBox(
             height: 40.h,
