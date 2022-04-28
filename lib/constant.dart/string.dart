@@ -6,5 +6,5 @@ class StringConstant {
   ///Cover Page
   String coverTitle = "Uygulama Adı Bulunuz";
   String coverSubTitle = "Uygulama Sloganı";
-  String covetButtonText = "Başlayın";
+  String coverButtonText = "Başlayın";
 }
