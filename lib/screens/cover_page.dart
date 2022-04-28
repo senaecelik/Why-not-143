@@ -30,8 +30,12 @@ class CoverPage extends StatelessWidget {
           ),
           Flexible(
               child: BlueButtonWidget(
-            text: StringConstant.instance.covetButtonText,
+
+         
+
+            text: StringConstant.instance.coverButtonText,
             page: OnBoard(),
+
           ))
         ],
       ),

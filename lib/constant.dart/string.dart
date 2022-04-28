@@ -6,7 +6,9 @@ class StringConstant {
   ///Cover Page
   String coverTitle = "Uygulama Adı Bulunuz";
   String coverSubTitle = "Uygulama Sloganı";
-  String covetButtonText = "Başlayın";
+
+  String coverButtonText = "Başlayın";
+
 
   //assets path
 
@@ -28,4 +30,5 @@ class StringConstant {
       "Başvurun barınak tarafından onay aldıktan sonra tek yapman gereken pati dostun ile buluşmak.";
 
   String onBoardPass = "Geç";
+
 }
