@@ -4,10 +4,11 @@ class StringConstant {
   StringConstant._init();
 
   ///Cover Page
+
   String coverTitle = "Patı Dostum";
   String coverSubTitle = "Can dostunu sahiplenmenin yeni yolu";
   String covetButtonText = "Başlayın";
-
+  
   ///Cover Page
   String onBoardTitle1 = "Bir pati seç!";
   String onBoardSubTitle1 =
@@ -23,12 +24,24 @@ class StringConstant {
 
   String onBoardPass = "Geç";
 
-
   //Home Page
 
   String homePage = "Anasayfa";
 
 
+  // Login and Register Page
 
+  String registerName = "Ad";
+  String loginEmail = "Email";
+  String loginPassword = "Şifre";
+  String loginForgotPass = "Şifremi Unuttum";
+  String loginSignUp = "Henüz bir hesabın yok mu?    Kayıt Ol ";
+  String loginTextOr = "ya da";
+  String loginSignInGoogle = "Google ile giriş yap";
+  String registerSignUp = "Kayıt Ol";
+  String loginSignIn = "Giriş Yap";
+  String loginTextFieldMail = "study@email.com";
+  String loginTextFieldPassword = "Your Password";
+  String registerTextFieldName = "Your Name";
 
 }

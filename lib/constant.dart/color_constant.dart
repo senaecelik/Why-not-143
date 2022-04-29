@@ -12,7 +12,9 @@ class ColorConstant {
   final Color peach = const Color(0xFFFCE2B6);
   final Color azureishWhite = const Color(0xFFD9E4F6);
   final Color blueJeand = const Color(0xFF5AA9EF);
-  final Color purple = const Color(0xffA85CF9);
+  final Color bayOfMany = const Color(0xff27487F);
   final Color neutral = const Color(0xff64748B);
   final Color lightGray = const Color(0xFFF3F5F8);
+  final Color primary700 = const Color(0xff27487F);
+  final Color neutral300 = const Color(0xffCBD5E1);
 }

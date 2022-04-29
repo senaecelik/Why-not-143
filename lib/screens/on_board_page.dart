@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
-
+import 'package:why_not_143_team/screens/login_page.dart';
 import '../constant.dart/color_constant.dart';
 import '../constant.dart/padding_constant.dart';
 import '../constant.dart/string.dart';
 import '../constant.dart/text_style.dart';
-import 'home_page.dart';
 
 class OnBoard extends StatefulWidget {
   const OnBoard({Key? key}) : super(key: key);
@@ -24,8 +23,8 @@ class _OnBoardState extends State<OnBoard> {
     return Scaffold(
         body: IntroductionScreen(
       onDone: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const HomePage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginPage()));
       },
       pages: getPages(),
       showNextButton: true,
@@ -122,7 +121,7 @@ class _DoneButton extends StatelessWidget {
       child: TextButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomePage()));
+                MaterialPageRoute(builder: (context) => const LoginPage()));
           },
           child: Icon(
             Icons.done,
@@ -162,7 +161,7 @@ class _SkipButton extends StatelessWidget {
     return TextButton(
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
+              MaterialPageRoute(builder: (context) => const LoginPage()));
         },
         child: Text(StringConstant.instance.onBoardPass,
             style: TextStyleConstant.instance.textLargeMedium

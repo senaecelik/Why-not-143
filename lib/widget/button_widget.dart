@@ -12,8 +12,7 @@ class BlueButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => page));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => page));
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
@@ -24,6 +23,7 @@ class BlueButtonWidget extends StatelessWidget {
           text,
           style: TextStyleConstant.instance.textLargeMedium
               .copyWith(color: ColorConstant.instance.white),
+          textAlign: TextAlign.center,
         ),
       ),
     );
