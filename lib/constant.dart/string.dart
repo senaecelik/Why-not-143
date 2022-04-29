@@ -8,7 +8,7 @@ class StringConstant {
   String coverTitle = "Patı Dostum";
   String coverSubTitle = "Can dostunu sahiplenmenin yeni yolu";
   String covetButtonText = "Başlayın";
-  
+
   ///Cover Page
   String onBoardTitle1 = "Bir pati seç!";
   String onBoardSubTitle1 =
@@ -28,7 +28,6 @@ class StringConstant {
 
   String homePage = "Anasayfa";
 
-
   // Login and Register Page
 
   String registerName = "Ad";
@@ -43,5 +42,5 @@ class StringConstant {
   String loginTextFieldMail = "study@email.com";
   String loginTextFieldPassword = "Your Password";
   String registerTextFieldName = "Your Name";
-
+  String dontHaveAcc = "Şimdilik üye olmadan devam et";
 }

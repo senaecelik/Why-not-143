@@ -6,6 +6,7 @@ import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/screens/home_page.dart';
+import 'package:why_not_143_team/screens/register_page.dart';
 import 'package:why_not_143_team/widget/button_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             forgotPassTextButton(),
             blueButtonWidget(),
             loginSignUpTextButton(),
+            skipTextButton(context),
             loginTextOr(),
             signInWithGoogleButton(),
           ],
@@ -42,9 +44,24 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  TextButton skipTextButton(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ));
+      },
+      child: Text(
+        StringConstant.instance.dontHaveAcc,
+        style: TextStyleConstant.instance.loginVerySmallMedium,
+      ),
+    );
+  }
+
   AppBar appBar() {
     return AppBar(
-      leading: const Icon(Icons.arrow_back),
       title: Text(
         StringConstant.instance.loginSignIn,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
@@ -147,7 +164,13 @@ class _LoginPageState extends State<LoginPage> {
 
   TextButton loginSignUpTextButton() {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const RegisterPage(),
+            ));
+      },
       child: Text(
         StringConstant.instance.loginSignUp,
         style: TextStyleConstant.instance.loginVerySmallMedium,
