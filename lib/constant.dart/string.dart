@@ -4,18 +4,11 @@ class StringConstant {
   StringConstant._init();
 
   ///Cover Page
-  String coverTitle = "Uygulama Adı Bulunuz";
-  String coverSubTitle = "Uygulama Sloganı";
 
-  String coverButtonText = "Başlayın";
-
-  //assets path
-
-  String onBoardImage1 = "assets/images/pet.png";
-  String onBoardImage2 = "assets/images/pet2.png";
-  String onBoardImage3 = "assets/images/pet3.png";
-  String loginImage = "assets/images/google.png";
-
+  String coverTitle = "Patı Dostum";
+  String coverSubTitle = "Can dostunu sahiplenmenin yeni yolu";
+  String covetButtonText = "Başlayın";
+  
   ///Cover Page
   String onBoardTitle1 = "Bir pati seç!";
   String onBoardSubTitle1 =
@@ -31,6 +24,11 @@ class StringConstant {
 
   String onBoardPass = "Geç";
 
+  //Home Page
+
+  String homePage = "Anasayfa";
+
+
   // Login and Register Page
 
   String registerName = "Ad";
@@ -45,4 +43,5 @@ class StringConstant {
   String loginTextFieldMail = "study@email.com";
   String loginTextFieldPassword = "Your Password";
   String registerTextFieldName = "Your Name";
+
 }
