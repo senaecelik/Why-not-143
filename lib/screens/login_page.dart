@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
@@ -172,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
       child: ElevatedButton.icon(
         onPressed: () {},
         icon: Tab(
-          icon: Image.asset(StringConstant.instance.loginImage),
+          icon: Image.asset(AssetPath.instance.loginImage),
           iconMargin: const EdgeInsets.all(30),
         ),
         label: Text(

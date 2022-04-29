@@ -9,4 +9,5 @@ class AssetPath {
   String onBoardImage1 = "assets/images/pet.png";
   String onBoardImage2 = "assets/images/pet2.png";
   String onBoardImage3 = "assets/images/pet3.png";
+  String loginImage = "assets/images/google.png";
 }
