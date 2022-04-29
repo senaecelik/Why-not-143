@@ -9,7 +9,7 @@ class TextStyleConstant {
 
   TextStyle largeTitle = GoogleFonts.poppins(
     fontWeight: FontWeight.w600,
-    fontSize: 32.sp,
+    fontSize: 36.sp,
   );
   TextStyle title1 = GoogleFonts.poppins(
     fontWeight: FontWeight.w600,
@@ -21,6 +21,10 @@ class TextStyleConstant {
   );
   TextStyle textLargeMedium = GoogleFonts.poppins(
     fontWeight: FontWeight.w600,
+    fontSize: 17.sp,
+  );
+  TextStyle textLargeRegular = GoogleFonts.poppins(
+    fontWeight: FontWeight.w500,
     fontSize: 17.sp,
   );
   TextStyle textSmallMedium = GoogleFonts.poppins(

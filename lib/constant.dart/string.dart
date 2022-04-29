@@ -4,15 +4,9 @@ class StringConstant {
   StringConstant._init();
 
   ///Cover Page
-  String coverTitle = "Uygulama Adi";
-  String coverSubTitle = "Uygulama Sloganı";
+  String coverTitle = "Patı Dostum";
+  String coverSubTitle = "Can dostunu sahiplenmenin yeni yolu";
   String covetButtonText = "Başlayın";
-
-  //assets path
-
-  String onBoardImage1 = "assets/images/pet.png";
-  String onBoardImage2 = "assets/images/pet2.png";
-  String onBoardImage3 = "assets/images/pet3.png";
 
   ///Cover Page
   String onBoardTitle1 = "Bir pati seç!";
@@ -28,4 +22,13 @@ class StringConstant {
       "Başvurun barınak tarafından onay aldıktan sonra tek yapman gereken pati dostun ile buluşmak.";
 
   String onBoardPass = "Geç";
+
+
+  //Home Page
+
+  String homePage = "Anasayfa";
+
+
+
+
 }

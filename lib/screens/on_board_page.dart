@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:why_not_143_team/constant.dart/asset_path.dart';
 
 import '../constant.dart/color_constant.dart';
 import '../constant.dart/padding_constant.dart';
@@ -9,7 +10,7 @@ import '../constant.dart/text_style.dart';
 import 'home_page.dart';
 
 class OnBoard extends StatefulWidget {
-  OnBoard({Key? key}) : super(key: key);
+  const OnBoard({Key? key}) : super(key: key);
 
   @override
   State<OnBoard> createState() => _OnBoardState();
@@ -59,7 +60,7 @@ class _OnBoardState extends State<OnBoard> {
           child: _OnBoardBodyWidget(
             title: StringConstant.instance.onBoardTitle1,
             subTitle: StringConstant.instance.onBoardSubTitle1,
-            path: StringConstant.instance.onBoardImage1,
+            path: AssetPath.instance.onBoardImage1,
             opacityLevel: opacityLevel,
             visible: visible,
           ),
@@ -73,7 +74,7 @@ class _OnBoardState extends State<OnBoard> {
             child: _OnBoardBodyWidget(
               title: StringConstant.instance.onBoardTitle2,
               subTitle: StringConstant.instance.onBoardSubTitle2,
-              path: StringConstant.instance.onBoardImage2,
+              path: AssetPath.instance.onBoardImage2,
               opacityLevel: opacityLevel,
               visible: visible,
             ),
@@ -86,7 +87,7 @@ class _OnBoardState extends State<OnBoard> {
             child: _OnBoardBodyWidget(
               title: StringConstant.instance.onBoardTitle3,
               subTitle: StringConstant.instance.onBoardSubTitle3,
-              path: StringConstant.instance.onBoardImage3,
+              path: AssetPath.instance.onBoardImage3,
               opacityLevel: opacityLevel,
               visible: visible,
             ),
