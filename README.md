@@ -13,27 +13,28 @@
 - [Sena Ercihan Çelik: Team Member/Developer](https://www.linkedin.com/in/senaecelik/)
 
 ## Ürün İsmi
-
---Movie App--
+**Pati Dostum**
 
 ## Ürün Açıklaması
-
-- Movie App uygulamamız ile insanların izlemek istediği filmlere ve dizilere daha kolay karar vermesini sağlayacağız. İçerisinde binlerce filmi barındıran uygulamamız aynı zamanda Netflix, Prime vb. platformlarda yayınlanıp yayınlanmadığını ve IMDB puanlarını da gösterecek.
+- Pati Dostum uygulamamız ile insanlar barınaktaki hayvanları sahiplenmek için barınak formunu hızlı bir şekilde doldurabilir ve olumlu ya da olumsuz sonucu kullanıcıya en kısa sürede bildirir.
+- Pati Dostum uygulaması ile kullanıcı kitlesi hayvanlar için oluşturulan sosyal sorumluluk projelerine dahil olabilir ve bu sosyal sorumluluk görevlerini yerine getirdiğinizde hayvanlar için mama gibi ödüller alabilirsiniz.
 
 ## Ürün Özellikleri
 
-- Filmleri türüne göre ayırma
-- Filmlerin yönetmen, aktör, aktris vb. bilgilerini posteriyle birlikte gösterme
-- IMDB ve Rotten Tomatoes puanlarını gösterme
-- Netflix'te ve Prime'da bulunurluğunu gösterme
+- Email-Password ve Google ile uygulamaya giriş 
+- Hayvaları kedi-köpek şeklinde ayırma
+- Hayvanların cinsini, yaşını, ağırlığı vb. bilgilerini resmi ile birlikte görsterme
+- Sahiplenmek istediğinde başvuru formu olan ad, soyad, adres, alerji vb. bilgileri doldurarak başvuru yapmasını sağlama
+
+- Sosyal sorumluluk projelerinin listesine ulaşma ve sosyal sorumluluk projelerine katılma
+- Katıldıkları proje görevlerini yaparak ödül kazanma
 
 ## Hedef Kitle
 
-- Netflix kullanıcıları
-- Prime kullanıcıları
-- Sinema severler
-- Dizi severler
-- 15 - 65 yaş arası kullanıcılar
+- Hayvanseverler
+- Barınak yetkilileri
+- Hayvansever dernekler, topluluklar
+- 18 - 65 yaş arası kullanıcılar
 
 ## Product Backlog URL
 
