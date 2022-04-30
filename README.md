@@ -16,8 +16,8 @@
 **Pati Dostum**
 
 ## Ürün Açıklaması
-- Pati Dostum uygulamamız ile insanların barınakta hayvanlar için hızlıca barınak formunu doldurabileceği ve olumlu ya da olumsuz sonucun hızlı bir şekilde gösterir.
-- Pati Dostum uygulaması ile Hayvanlar için oluşturulan sosyal sorumluluk projelerine dahil olabilir ve bu sosyal sorumluluk görevlerini yerine getirdiğinizde hayvanlar için mama gibi ödüller alabilirsiniz.
+- Pati Dostum uygulamamız ile insanlar barınaktaki hayvanları sahiplenmek için barınak formunu hızlı bir şekilde doldurabilir ve olumlu ya da olumsuz sonucu kullanıcıya en kısa sürede bildirir.
+- Pati Dostum uygulaması ile kullanıcı kitlesi hayvanlar için oluşturulan sosyal sorumluluk projelerine dahil olabilir ve bu sosyal sorumluluk görevlerini yerine getirdiğinizde hayvanlar için mama gibi ödüller alabilirsiniz.
 
 ## Ürün Özellikleri
 
