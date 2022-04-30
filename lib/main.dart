@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/route/route_constant.dart';
+import 'package:why_not_143_team/route/route_generator.dart';
 import 'package:why_not_143_team/screens/cover_page.dart';
 
 void main() {
@@ -21,14 +23,16 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (_) {
           return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              useInheritedMediaQuery: true,
-              theme: ThemeData(
-                appBarTheme: appBarTheme(),
-                brightness: Brightness.light,
-                primaryColor: ColorConstant.instance.yankeBlue,
-              ),
-              home: const CoverPage());
+            debugShowCheckedModeBanner: false,
+            useInheritedMediaQuery: true,
+            initialRoute: RouteConstant.coverScreenRoue,
+            onGenerateRoute: RouterGenerator.generateRoute,
+            theme: ThemeData(
+              appBarTheme: appBarTheme(),
+              brightness: Brightness.light,
+              primaryColor: ColorConstant.instance.yankeBlue,
+            ),
+          );
         });
   }
 

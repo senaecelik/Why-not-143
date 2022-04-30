@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
+import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/route/route_constant.dart';
 
 import '../constant.dart/string.dart';
 
@@ -17,6 +20,15 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   double? screenHeight, screenWidth;
   bool openMenu = false;
+  int defaultChoiceIndex = 0;
+  List<String> _choicesList = ['Tümü', 'Kedi', 'Köpek'];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    defaultChoiceIndex = 0;
+  }
 
   late final AnimationController _controller =
       AnimationController(duration: const Duration(seconds: 2), vsync: this);
@@ -40,13 +52,11 @@ class _HomePageState extends State<HomePage>
     screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-          body: Container(
-        child: Stack(
-          children: [
-            menu(context),
-            dashboard(context),
-          ],
-        ),
+          body: Stack(
+        children: [
+          menu(context),
+          dashboard(context),
+        ],
       )),
     );
   }
@@ -64,15 +74,12 @@ class _HomePageState extends State<HomePage>
         },
         icon: Icon(
           Icons.menu,
-          color: ColorConstant.instance.black,
+          color: ColorConstant.instance.yankeBlue,
         ),
       ),
       centerTitle: true,
-      title: Text(
-        StringConstant.instance.homePage,
-        style: TextStyleConstant.instance.textLargeRegular
-            .copyWith(color: ColorConstant.instance.black),
-      ),
+      title: Text(StringConstant.instance.homePage,
+          style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue)),
     );
   }
 
@@ -92,8 +99,8 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-  Container _homeBody(BuildContext context) {
-    return Container(
+  SizedBox _homeBody(BuildContext context) {
+    return SizedBox(
       height: screenHeight,
       width: screenWidth,
       child: Column(
@@ -105,27 +112,54 @@ class _HomePageState extends State<HomePage>
                 decoration: BoxDecoration(
                     color: ColorConstant.instance.lightGray,
                     borderRadius: openMenu
-                        ? BorderRadius.only(
+                        ? const BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))
                         : BorderRadius.circular(0)),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _homeAppBar(),
-                    const _SearchWidget()
-                    //TODO: Chip yapılmalı,
+                    const _SearchWidget(),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                      child: Wrap(
+                        spacing: 8,
+                        children: List.generate(_choicesList.length, (index) {
+                          return ChoiceChip(
+                            labelPadding: EdgeInsets.all(2.0),
+                            label: Text(_choicesList[index],
+                                style: TextStyleConstant
+                                    .instance.textSmallMedium
+                                    .copyWith(
+                                        color: ColorConstant.instance.white)),
+                            selected: defaultChoiceIndex == index,
+                            selectedColor: ColorConstant.instance.yankeBlue,
+                            onSelected: (value) {
+                              setState(() {
+                                defaultChoiceIndex =
+                                    value ? index : defaultChoiceIndex;
+                              });
+                            },
+                            padding: EdgeInsets.symmetric(horizontal: 4),
+                            elevation: 0,
+                          );
+                        }),
+                      ),
+                    ),
                   ],
                 )),
             Column(
               children: [
-//TODO: Hayvanlar listesi, geçici liste
+                //TODO: Hayvanlar listesi, geçici liste
 
-                Container(
+                SizedBox(
                   height: 250.h,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     children: [
                       Image.asset(AssetPath.instance.coverImage),
                       Image.asset(AssetPath.instance.coverImage),
@@ -144,7 +178,6 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-//TODO: Menu itemleri düzenlenmeli
   Widget menu(BuildContext context) {
     return SlideTransition(
       position: _offsetAnimation,
@@ -152,82 +185,48 @@ class _HomePageState extends State<HomePage>
         height: screenHeight,
         color: ColorConstant.instance.white,
         child: Padding(
-          padding: const EdgeInsets.only(left: 18.0),
+          padding: EdgeInsets.only(left: 18.w),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  const SizedBox(
-                    height: 80,
-                  ),
-                  const SizedBox(
-                    height: 66,
-                    width: 66,
-                    child: CircleAvatar(
-                        //  backgroundImage: AssetImage("assets/Avatar.png"),
-                        ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  const Text(
-                    "Eduardo illiamson",
-                  ),
-                  const Text(
-                    "San Fransico CA",
-                  ),
-                  const SizedBox(
-                    height: 48,
+                  SizedBox(
+                    height: 80.h,
                   ),
                   MenuItem(
-                    icons: Icons.wallet_travel_outlined,
-                    text: "Wallet",
-                    page: const HomePage(),
+                    icons: Icons.info_outline,
+                    text: StringConstant.instance.menuAbout,
+                    page: RouteConstant.homeScreenRoute,
                   ),
-                  const SizedBox(
-                    height: 14,
+                  SizedBox(
+                    height: 14.h,
                   ),
                   MenuItem(
                     icons: Icons.send,
-                    text: "Send Feedback",
-                    page: const HomePage(),
+                    text: StringConstant.instance.menuSendBack,
+                    page: RouteConstant.homeScreenRoute,
                   ),
-                  const SizedBox(
-                    height: 14,
+                  SizedBox(
+                    height: 14.h,
                   ),
                   MenuItem(
                     icons: Icons.star,
-                    text: "Rate Our App",
-                    page: const HomePage(),
+                    text: StringConstant.instance.menuRateOurApp,
+                    page: RouteConstant.homeScreenRoute,
                   ),
-                  const SizedBox(
-                    height: 14,
-                  ),
-                  MenuItem(
-                    icons: Icons.support,
-                    text: "View Our App",
-                    page: const HomePage(),
-                  ),
-                  const SizedBox(
-                    height: 14,
-                  ),
-                  MenuItem(
-                    icons: Icons.notifications,
-                    text: "Notification",
-                    page: const HomePage(),
-                  ),
-                  const SizedBox(
-                    height: 150,
+                  SizedBox(
+                    height: 150.h,
                   ),
                   Row(
                     children: [
                       MenuItem(
-                          text: "Log out",
-                          icons: Icons.logout,
-                          page: const HomePage())
+                        text: StringConstant.instance.logOut,
+                        icons: Icons.logout,
+                        page: RouteConstant.homeScreenRoute,
+                      ),
                     ],
                   )
                 ]),
@@ -247,11 +246,11 @@ class _SocialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Container(
         height: 200.h,
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 70.h, vertical: 30.w),
+        padding: EdgeInsets.symmetric(horizontal: 70.h),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
@@ -267,16 +266,16 @@ class _SocialCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "Sosyal sorumluluk projelerine katıl\nve ödüller kazan!",
+              StringConstant.instance.homeSocialText,
               style: TextStyleConstant.instance.textSmallMedium
                   .copyWith(color: ColorConstant.instance.white),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: 15.h,
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 90.w, vertical: 5.h),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: ColorConstant.instance.white)),
@@ -307,7 +306,7 @@ class _SearchWidget extends StatelessWidget {
           prefixIcon: const Icon(
             Icons.search,
           ),
-          hintText: "Pati bul",
+          hintText: StringConstant.instance.searchText,
           border: OutlineInputBorder(
               borderSide: BorderSide(color: ColorConstant.instance.black)),
         ),
@@ -317,10 +316,10 @@ class _SearchWidget extends StatelessWidget {
 }
 
 class MenuItem extends StatelessWidget {
-  String text;
-  IconData icons;
-  Widget page;
-  MenuItem(
+  final String text;
+  final IconData icons;
+  final String page;
+  const MenuItem(
       {Key? key, required this.text, required this.icons, required this.page})
       : super(key: key);
 
@@ -328,18 +327,19 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+        Navigator.pushNamed(context, page);
       },
       child: Row(
         children: [
           Icon(
             icons,
-            color: ColorConstant.instance.white,
+            color: ColorConstant.instance.yankeBlue,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               text,
+              style: TextStyleConstant.instance.textLargeRegular,
             ),
           ),
         ],

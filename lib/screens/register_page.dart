@@ -5,6 +5,7 @@ import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/screens/register_page.dart';
 import 'package:why_not_143_team/widget/button_widget.dart';
@@ -41,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: 327.w,
                 child: BlueButtonWidget(
                   text: StringConstant.instance.registerSignUp,
-                  page: const HomePage(),
+                  page: RouteConstant.homeScreenRoute
                 ),
               ),
             ),

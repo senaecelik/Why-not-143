@@ -5,6 +5,7 @@ import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/screens/register_page.dart';
 import 'package:why_not_143_team/widget/button_widget.dart';
@@ -27,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: appBar(),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             emailText(),
             emailTextField(),
@@ -155,9 +157,8 @@ class _LoginPageState extends State<LoginPage> {
         height: 58.h,
         width: 327.w,
         child: BlueButtonWidget(
-          text: StringConstant.instance.loginSignIn,
-          page: const HomePage(),
-        ),
+            text: StringConstant.instance.loginSignIn,
+            page: RouteConstant.homeScreenRoute),
       ),
     );
   }
@@ -165,11 +166,7 @@ class _LoginPageState extends State<LoginPage> {
   TextButton loginSignUpTextButton() {
     return TextButton(
       onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const RegisterPage(),
-            ));
+        Navigator.pushNamed(context, RouteConstant.registerScreenRoute);
       },
       child: Text(
         StringConstant.instance.loginSignUp,

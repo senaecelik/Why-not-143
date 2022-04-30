@@ -27,6 +27,16 @@ class StringConstant {
   //Home Page
 
   String homePage = "Anasayfa";
+  String homeSocialText =
+      "Sosyal sorumluluk projelerine katıl\nve ödüller kazan!";
+
+  String searchText = "Pati bul";
+
+  //Menu
+  String menuAbout = "Hakkımızda";
+  String menuSendBack = "Geri bildirim gönder";
+  String menuRateOurApp = "Uygulamamızı oyla";
+  String logOut = "Çıkış yap";
 
   // Login and Register Page
 

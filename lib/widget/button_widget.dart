@@ -4,7 +4,7 @@ import '../constant.dart/color_constant.dart';
 
 class BlueButtonWidget extends StatelessWidget {
   final String text;
-  final Widget page;
+  final String page;
   const BlueButtonWidget({Key? key, required this.text, required this.page})
       : super(key: key);
 
@@ -12,7 +12,7 @@ class BlueButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+        Navigator.pushNamed(context, page);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
