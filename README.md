@@ -10,7 +10,7 @@
 - [Selda Koçak: Scrum Master](https://www.linkedin.com/in/selda-kocak/)
 - [Ceyda Esen: Team Member/Developer](https://www.linkedin.com/in/ceyda-esen/)
 - [İsmail Çakıcı: Team Member/Developer](https://github.com/ismailcakici)
-- [Sena Ercihan Çeli: Team Member/Developer](https://www.linkedin.com/in/senaecelik/)
+- [Sena Ercihan Çelik: Team Member/Developer](https://www.linkedin.com/in/senaecelik/)
 
 ## Ürün İsmi
 
