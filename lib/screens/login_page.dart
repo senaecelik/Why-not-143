@@ -28,36 +28,170 @@ class _LoginPageState extends State<LoginPage> {
       appBar: appBar(),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             emailText(),
             emailTextField(),
             passwordText(),
-            passwordTextField(),
+            passTextField(),
             forgotPassTextButton(),
             blueButtonWidget(),
-            loginSignUpTextButton(),
+            dontHaveAccYet(context),
             skipTextButton(context),
             loginTextOr(),
-            signInWithGoogleButton(),
+            googleButton(),
           ],
         ),
       ),
     );
   }
 
-  TextButton skipTextButton(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomePage(),
-            ));
-      },
-      child: Text(
-        StringConstant.instance.dontHaveAcc,
-        style: TextStyleConstant.instance.loginVerySmallMedium,
+  Row forgotPassTextButton() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: PaddingConstant.instance.loginPadding,
+          child: TextButton(
+            onPressed: () {},
+            child: Text(
+              StringConstant.instance.loginForgotPass,
+              style: TextStyleConstant.instance.loginVerySmallMedium,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row skipTextButton(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: PaddingConstant.instance.loginPadding,
+          child: TextButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ));
+            },
+            child: Text(
+              StringConstant.instance.dontHaveAcc,
+              style: TextStyleConstant.instance.loginVerySmallMedium,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row dontHaveAccYet(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: PaddingConstant.instance.loginPadding,
+          child: TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, RouteConstant.registerScreenRoute);
+            },
+            child: Text(
+              StringConstant.instance.loginSignUp,
+              style: TextStyleConstant.instance.loginVerySmallMedium,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row loginTextOr() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: PaddingConstant.instance.loginPadding,
+          child: Text(
+            StringConstant.instance.loginTextOr,
+            style: TextStyleConstant.instance.loginVerySmallMedium
+                .copyWith(color: ColorConstant.instance.neutral),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Padding googleButton() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 327.w,
+        child: ElevatedButton.icon(
+          onPressed: () {},
+          icon: Tab(
+            icon: Image.asset(AssetPath.instance.loginImage),
+            iconMargin: const EdgeInsets.all(30),
+          ),
+          label: Text(
+            StringConstant.instance.loginSignInGoogle,
+            style: TextStyleConstant.instance.textLargeMedium,
+          ),
+          style: ElevatedButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            primary: ColorConstant.instance.white,
+            onPrimary: ColorConstant.instance.yankeBlue,
+            side:
+                BorderSide(width: 1.0, color: ColorConstant.instance.yankeBlue),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding passTextField() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          obscureText: true,
+          controller: passwordController,
+          decoration: InputDecoration(
+            hintText: StringConstant.instance.loginTextFieldPassword,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding emailTextField() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          keyboardType: TextInputType.emailAddress,
+          controller: emailController,
+          decoration: InputDecoration(
+            hintText: StringConstant.instance.loginTextFieldMail,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
       ),
     );
   }
@@ -73,140 +207,33 @@ class _LoginPageState extends State<LoginPage> {
 
   Padding emailText() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding1,
-      child: Row(
-        children: [
-          Text(
-            StringConstant.instance.loginEmail,
-            style: TextStyleConstant.instance.textSmallMedium,
-          ),
-        ],
-      ),
-    );
-  }
-
-  SizedBox emailTextField() {
-    return SizedBox(
-      height: 58.h,
-      width: 328.w,
-      child: TextField(
-        keyboardType: TextInputType.emailAddress,
-        controller: emailController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.loginTextFieldMail,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
+      padding: PaddingConstant.instance.loginPadding,
+      child: Text(
+        StringConstant.instance.loginEmail,
+        style: TextStyleConstant.instance.textSmallMedium,
       ),
     );
   }
 
   Padding passwordText() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding2,
-      child: Row(
-        children: [
-          Text(
-            StringConstant.instance.loginPassword,
-            style: TextStyleConstant.instance.textSmallMedium,
-          ),
-        ],
-      ),
-    );
-  }
-
-  SizedBox passwordTextField() {
-    return SizedBox(
-      height: 58.h,
-      width: 328.w,
-      child: TextField(
-        obscureText: true,
-        controller: passwordController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.loginTextFieldPassword,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-      ),
-    );
-  }
-
-  Padding forgotPassTextButton() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding3,
-      child: Row(
-        children: [
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              StringConstant.instance.loginForgotPass,
-              style: TextStyleConstant.instance.loginVerySmallMedium,
-            ),
-          ),
-        ],
+      padding: PaddingConstant.instance.loginPadding,
+      child: Text(
+        StringConstant.instance.loginPassword,
+        style: TextStyleConstant.instance.textSmallMedium,
       ),
     );
   }
 
   Padding blueButtonWidget() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding4,
+      padding: PaddingConstant.instance.loginPadding,
       child: SizedBox(
         height: 58.h,
         width: 327.w,
         child: BlueButtonWidget(
             text: StringConstant.instance.loginSignIn,
             page: RouteConstant.homeScreenRoute),
-      ),
-    );
-  }
-
-  TextButton loginSignUpTextButton() {
-    return TextButton(
-      onPressed: () {
-        Navigator.pushNamed(context, RouteConstant.registerScreenRoute);
-      },
-      child: Text(
-        StringConstant.instance.loginSignUp,
-        style: TextStyleConstant.instance.loginVerySmallMedium,
-      ),
-    );
-  }
-
-  Padding loginTextOr() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding5,
-      child: Text(
-        StringConstant.instance.loginTextOr,
-        style: TextStyleConstant.instance.loginVerySmallMedium
-            .copyWith(color: ColorConstant.instance.neutral),
-      ),
-    );
-  }
-
-  SizedBox signInWithGoogleButton() {
-    return SizedBox(
-      height: 58.h,
-      width: 327.w,
-      child: ElevatedButton.icon(
-        onPressed: () {},
-        icon: Tab(
-          icon: Image.asset(AssetPath.instance.loginImage),
-          iconMargin: const EdgeInsets.all(30),
-        ),
-        label: Text(
-          StringConstant.instance.loginSignInGoogle,
-          style: TextStyleConstant.instance.textLargeMedium,
-        ),
-        style: ElevatedButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          primary: ColorConstant.instance.white,
-          onPrimary: ColorConstant.instance.yankeBlue,
-          side: BorderSide(width: 1.0, color: ColorConstant.instance.yankeBlue),
-        ),
       ),
     );
   }

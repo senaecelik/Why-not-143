@@ -28,50 +28,100 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: appBar(),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             nameText(),
             nameTextField(),
             emailText(),
-            emailTextField(),
+            mailTextField(),
             passwordText(),
-            passwordTextField(),
-            Padding(
-              padding: PaddingConstant.instance.loginPadding6,
-              child: SizedBox(
-                height: 58.h,
-                width: 327.w,
-                child: BlueButtonWidget(
-                  text: StringConstant.instance.registerSignUp,
-                  page: RouteConstant.homeScreenRoute
-                ),
-              ),
-            ),
+            passTextField(),
+            blueButton(),
           ],
         ),
       ),
     );
   }
 
-  SizedBox passwordTextField() {
-    return SizedBox(
-      height: 58.h,
-      width: 328.w,
-      child: TextField(
-        obscureText: true,
-        controller: registerPasswordController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.loginTextFieldPassword,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
+  Padding passTextField() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          obscureText: true,
+          controller: registerPasswordController,
+          decoration: InputDecoration(
+            hintText: StringConstant.instance.loginTextFieldPassword,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
         ),
+      ),
+    );
+  }
+
+  Padding mailTextField() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          keyboardType: TextInputType.emailAddress,
+          controller: registerEmailController,
+          decoration: InputDecoration(
+            hintText: StringConstant.instance.loginTextFieldMail,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding nameTextField() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          controller: registerNameController,
+          decoration: InputDecoration(
+            hintText: StringConstant.instance.registerName,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding blueButton() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 327.w,
+        child: BlueButtonWidget(
+            text: StringConstant.instance.registerSignUp,
+            page: RouteConstant.homeScreenRoute),
       ),
     );
   }
 
   Padding passwordText() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding2,
+      padding: PaddingConstant.instance.loginPadding,
       child: Row(
         children: [
           Text(
@@ -83,26 +133,9 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  SizedBox emailTextField() {
-    return SizedBox(
-      height: 58.h,
-      width: 328.w,
-      child: TextField(
-        keyboardType: TextInputType.emailAddress,
-        controller: registerEmailController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.loginTextFieldMail,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-      ),
-    );
-  }
-
   Padding emailText() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding1,
+      padding: PaddingConstant.instance.loginPadding,
       child: Row(
         children: [
           Text(
@@ -114,25 +147,9 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  SizedBox nameTextField() {
-    return SizedBox(
-      height: 58.h,
-      width: 328.w,
-      child: TextField(
-        controller: registerNameController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.registerName,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-      ),
-    );
-  }
-
   Padding nameText() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding1,
+      padding: PaddingConstant.instance.loginPadding,
       child: Row(
         children: [
           Text(
