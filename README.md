@@ -1,6 +1,6 @@
 # **Takım İsmi**
 
-### **Why not 143**
+### **why not 143?**
 
 # Ürün İle İlgili Bilgiler
 
@@ -16,29 +16,30 @@
 **Pati Dostum**
 
 ## Ürün Açıklaması
-- Pati Dostum uygulamamız ile insanlar barınaktaki hayvanları sahiplenmek için barınak formunu hızlı bir şekilde doldurabilir ve olumlu ya da olumsuz sonucu kullanıcıya en kısa sürede bildirir.
-- Pati Dostum uygulaması ile kullanıcı kitlesi hayvanlar için oluşturulan sosyal sorumluluk projelerine dahil olabilir ve bu sosyal sorumluluk görevlerini yerine getirdiğinizde hayvanlar için mama gibi ödüller alabilirsiniz.
+Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır. Uygulamamız sektörde benzerlerinden farklı olarak belediyeler ve belediyelere bağlı barınaklarla entegre çalışacak; barınaklardan güncel veri çekerek son kullanıcıya bilgi sağlayacaktır. Böylece hayvan sahiplenmek isteyen ancak barınağa çeşitli nedenlerle gitmeyen insanlar da hayvanları görebilecek, haklarında bilgi edinebilecektir. Yine uygulama üzerinden barınaklara bağış/ya da fiziksel yardım gönderilmesi için barınak bilgileri paylaşılacaktır. Kullanıcılar hayvan sahiplendikten sonra da hayvan bakımı için oluşturulan forumda bilgi paylaşımı yapabilecek be böylece uygulamada kullanıcıların sürekliliği sağlanacaktır. 
 
 ## Ürün Özellikleri
 
-- Email-Password ve Google ile uygulamaya giriş 
-- Hayvaları kedi-köpek şeklinde ayırma
-- Hayvanların cinsini, yaşını, ağırlığı vb. bilgilerini resmi ile birlikte görsterme
-- Sahiplenmek istediğinde başvuru formu olan ad, soyad, adres, alerji vb. bilgileri doldurarak başvuru yapmasını sağlama
-
-- Sosyal sorumluluk projelerinin listesine ulaşma ve sosyal sorumluluk projelerine katılma
-- Katıldıkları proje görevlerini yaparak ödül kazanma
+- Kullanıcılar kendilerine en yakın barınak ve barınaktaki hayvanları görebilir, hayvanlar hakkında detaylı bilgi (yaş, cinsiyet, hastalık) edinebilirler. (Uygulamada pilot olarak 1 barınak ile entegre sağlanmıştır.)
+- Kullanıcılar hayvan sahiplendirme formunu doldurarak barınak yetkililerine iletebilir, başvuruları barınaklar tarafından değerlendirildikten sonra onay maili ve pati dostunu alabilmesi için yer, saat, tarih bilgisi veya olumsuz bulunduğuna dair mail alabilirler.
+- Hayvanlar cinse göre filtrelenebilir.
+- Uygulama üzerinden her barınak özelinde barınak ihtiyaçları görünür, kullanıcılar isteklerine göre barınakların hesaplarına bağış yapabilir ya da barınakların güncel ihtiyaçlarını görerek barınak hesaplarına maddi yardım ya da direkt barınak adreslerine erzak/tıbbi malzeme yardımı gönderebilirler.
+- Barınak yetkilileri tarafından sürekli güncellenen barınak ihtiyaçlarını kullanıcılar görerek, ilgili barınak hesaplarına ulaşabilir, bağış yapabilir ya da barınak adreslerine ihtiyaçları (mama/tıbbi malzeme vs.) gönderebilirler.
+- Kullanıcılar; hayvan bakımına dair her bilginin paylaşılacağı foruma katkı sağlayabilir, kullanıcılar birbirlerine soru sorabilir ve yanıtlayabilirler.
 
 ## Hedef Kitle
 
 - Hayvanseverler
-- Barınak yetkilileri
+- Hayvan sahiplenmek isteyen ancak barınağa direkt gitmek istemeyenler
+- Barınak yetkilileri, belediyeler
 - Hayvansever dernekler, topluluklar
 - 18 - 65 yaş arası kullanıcılar
 
 ## Product Backlog URL
 
-[Trello Backlog Board](https://trello.com/b/YdTjWql2/ballad-of-devs)
+[Trello Backlog Board] - **why not 143?**
+
+ https://trello.com/invite/b/YdTjWql2/5c76480dbd8c024a4fa257ac269704f5/why-not-143
 
 ---
 
