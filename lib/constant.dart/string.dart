@@ -53,4 +53,7 @@ class StringConstant {
   String loginTextFieldPassword = "Your Password";
   String registerTextFieldName = "Your Name";
   String dontHaveAcc = "Şimdilik üye olmadan devam et";
+  String resetPass = "Şifremi Sıfırla!";
+  String forgotPassLabel =
+      "Şifreni sıfırlaman için kayıtlı e-mail adresine yeni şifre göndereceğiz.";
 }

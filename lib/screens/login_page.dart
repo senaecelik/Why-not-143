@@ -54,7 +54,9 @@ class _LoginPageState extends State<LoginPage> {
         Padding(
           padding: PaddingConstant.instance.loginPadding,
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, RouteConstant.forgotPassRoute);
+            },
             child: Text(
               StringConstant.instance.loginForgotPass,
               style: TextStyleConstant.instance.loginVerySmallMedium,
