@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "402341437062",
+    "project_id": "pati-dostum",
+    "storage_bucket": "pati-dostum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402341437062:android:5d95cb06c2c1c72300fb07",
+        "android_client_info": {
+          "package_name": "com.senaecelik.why_not_143_team"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402341437062-gaqt36c6omen75qp4s4kvoohrruefn1q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.senaecelik.why_not_143_team",
+            "certificate_hash": "285b9d015846ec6cee9ecc61d307f7e587ef5a77"
+          }
+        },
+        {
+          "client_id": "402341437062-hci656ob9ivrt2j03dcgm5mih9slqjsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN5PnUwvFgzpbS-phC2MoraY5M2whybZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402341437062-hci656ob9ivrt2j03dcgm5mih9slqjsv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

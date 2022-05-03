@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:why_not_143_team/constant.dart/asset_path.dart';
+import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
-import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
+import 'package:why_not_143_team/services/firebase_auth_method.dart';
 
 import '../constant.dart/string.dart';
 
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage>
   double? screenHeight, screenWidth;
   bool openMenu = false;
   int defaultChoiceIndex = 0;
-  List<String> _choicesList = ['Tümü', 'Kedi', 'Köpek'];
+  final List<String> _choicesList = ['Tümü', 'Kedi', 'Köpek'];
 
   @override
   void initState() {
@@ -93,43 +93,46 @@ class _HomePageState extends State<HomePage>
         color: ColorConstant.instance.white,
         elevation: 15,
         borderRadius:
-            openMenu ? const BorderRadius.all(const Radius.circular(20)) : null,
+            openMenu ? const BorderRadius.all(Radius.circular(20)) : null,
         child: SingleChildScrollView(child: _homeBody(context)),
       ),
     );
   }
 
   SizedBox _homeBody(BuildContext context) {
+    
     return SizedBox(
-      height: screenHeight,
-      width: screenWidth,
-      child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-                height: MediaQuery.of(context).size.height / 4,
-                decoration: BoxDecoration(
-                    color: ColorConstant.instance.lightGray,
-                    borderRadius: openMenu
-                        ? const BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20))
-                        : BorderRadius.circular(0)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _homeAppBar(),
-                    const _SearchWidget(),
+        height: screenHeight,
+        width: screenWidth,
+        child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                  height: MediaQuery.of(context).size.height / 4,
+                  decoration: BoxDecoration(
+                      color: ColorConstant.instance.lightGray,
+                      borderRadius: openMenu
+                          ? const BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))
+                          : BorderRadius.circular(0)),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _homeAppBar(),
+                 
+
+                        /*const _SearchWidget(),
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 25),
                       child: Wrap(
                         spacing: 8,
                         children: List.generate(_choicesList.length, (index) {
                           return ChoiceChip(
-                            labelPadding: EdgeInsets.all(2.0),
+                            labelPadding: const EdgeInsets.all(2.0),
                             label: Text(_choicesList[index],
                                 style: TextStyleConstant
                                     .instance.textSmallMedium
@@ -143,15 +146,15 @@ class _HomePageState extends State<HomePage>
                                     value ? index : defaultChoiceIndex;
                               });
                             },
-                            padding: EdgeInsets.symmetric(horizontal: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
                             elevation: 0,
                           );
                         }),
                       ),
                     ),
                   ],
-                )),
-            Column(
+                )),*/
+                        /*Column(
               children: [
                 //TODO: Hayvanlar listesi, geçici liste
 
@@ -173,9 +176,9 @@ class _HomePageState extends State<HomePage>
                 ),
                 const _SocialCard()
               ],
-            )
-          ]),
-    );
+            )*/
+                      ]))
+            ]));
   }
 
   Widget menu(BuildContext context) {
@@ -222,10 +225,26 @@ class _HomePageState extends State<HomePage>
                   ),
                   Row(
                     children: [
-                      MenuItem(
-                        text: StringConstant.instance.logOut,
-                        icons: Icons.logout,
-                        page: RouteConstant.homeScreenRoute,
+                      InkWell(
+                        onTap: () {
+                          context.read<FirebaseAuthMethods>().signOut(context);
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.logout_outlined,
+                              color: ColorConstant.instance.yankeBlue,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                StringConstant.instance.logOut,
+                                style:
+                                    TextStyleConstant.instance.textLargeRegular,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   )

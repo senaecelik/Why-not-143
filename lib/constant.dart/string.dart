@@ -44,7 +44,7 @@ class StringConstant {
   String loginEmail = "Email";
   String loginPassword = "Şifre";
   String loginForgotPass = "Şifremi Unuttum";
-  String loginSignUp = "Henüz bir hesabın yok mu?    Kayıt Ol ";
+  String loginSignUp = "Henüz bir hesabın yok mu?";
   String loginTextOr = "ya da";
   String loginSignInGoogle = "Google ile giriş yap";
   String registerSignUp = "Kayıt Ol";

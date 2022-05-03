@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
+import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
+import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/services/firebase_auth_method.dart';
+import 'package:why_not_143_team/widget/general_button.dart';
 
-import '../constant.dart/padding_constant.dart';
-import '../constant.dart/text_style.dart';
-import '../route/route_constant.dart';
-import '../widget/button_widget.dart';
-
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
   @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  final emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    super.dispose();
+  }
+
+  void resetPassword() async {
+    context
+        .read<FirebaseAuthMethods>()
+        .resetPassword(emailController.text, context);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController();
     return Scaffold(
       appBar: appBar(),
       body: SingleChildScrollView(
@@ -25,7 +43,9 @@ class ForgotPassword extends StatelessWidget {
             labelText(),
             emailText(),
             emailTextField(emailController),
-            blueButtonWidget(),
+            GeneralButton(
+                function: resetPassword,
+                text: StringConstant.instance.resetPass)
           ],
         ),
       ),
@@ -64,26 +84,13 @@ class ForgotPassword extends StatelessWidget {
           keyboardType: TextInputType.emailAddress,
           controller: emailController,
           decoration: InputDecoration(
-            hintText: StringConstant.instance.loginTextFieldMail,
+            hintText: StringConstant.instance.resetPass,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide:
                     BorderSide(color: ColorConstant.instance.neutral300)),
           ),
         ),
-      ),
-    );
-  }
-
-  Padding blueButtonWidget() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: 327.w,
-        child: BlueButtonWidget(
-            text: StringConstant.instance.resetPass,
-            page: RouteConstant.homeScreenRoute),
       ),
     );
   }
