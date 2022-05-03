@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:why_not_143_team/constant.dart/asset_path.dart';
+import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
-import 'package:why_not_143_team/route/route_constant.dart';
-import 'package:why_not_143_team/screens/home_page.dart';
-import 'package:why_not_143_team/screens/register_page.dart';
-import 'package:why_not_143_team/widget/button_widget.dart';
+import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:why_not_143_team/widget/general_button.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -22,6 +20,23 @@ class _RegisterPageState extends State<RegisterPage> {
   final registerNameController = TextEditingController();
   final registerEmailController = TextEditingController();
   final registerPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    registerEmailController.dispose();
+    registerPasswordController.dispose();
+    registerNameController.dispose();
+    super.dispose();
+  }
+
+  void signUpUser() async {
+    context.read<FirebaseAuthMethods>().signUpWithEmail(
+        name: registerNameController.text,
+        email: registerEmailController.text,
+        password: registerPasswordController.text,
+        context: context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +52,9 @@ class _RegisterPageState extends State<RegisterPage> {
             mailTextField(),
             passwordText(),
             passTextField(),
-            blueButton(),
+            GeneralButton(
+                function: signUpUser,
+                text: StringConstant.instance.registerSignUp)
           ],
         ),
       ),
@@ -106,17 +123,23 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  Padding blueButton() {
+  Padding loginButton() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: 327.w,
-        child: BlueButtonWidget(
-            text: StringConstant.instance.registerSignUp,
-            page: RouteConstant.homeScreenRoute),
-      ),
-    );
+        padding: PaddingConstant.instance.loginPadding,
+        child: InkWell(
+            onTap: signUpUser,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: ColorConstant.instance.yankeBlue),
+              child: Text(
+                StringConstant.instance.registerSignUp,
+                style: TextStyleConstant.instance.textLargeMedium
+                    .copyWith(color: ColorConstant.instance.white),
+                textAlign: TextAlign.center,
+              ),
+            )));
   }
 
   Padding passwordText() {

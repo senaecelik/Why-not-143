@@ -21,11 +21,10 @@ class RouterGenerator {
       case RouteConstant.loginScreenRoute:
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case RouteConstant.homeScreenRoute:
-
+        return MaterialPageRoute(builder: (_) => const HomePage());
       case RouteConstant.registerScreenRoute:
         return MaterialPageRoute(builder: (_) => const RegisterPage());
 
-        return MaterialPageRoute(builder: (_) => const HomePage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

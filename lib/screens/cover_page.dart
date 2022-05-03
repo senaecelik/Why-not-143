@@ -5,8 +5,7 @@ import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
-import 'package:why_not_143_team/screens/on_board_page.dart';
-import '../widget/button_widget.dart';
+import 'package:why_not_143_team/widget/button_widget.dart';
 
 class CoverPage extends StatelessWidget {
   const CoverPage({Key? key}) : super(key: key);
@@ -14,7 +13,7 @@ class CoverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _coverPageBody(context),
+      body: SingleChildScrollView(child: _coverPageBody(context)),
     );
   }
 
@@ -32,41 +31,35 @@ class CoverPage extends StatelessWidget {
                   fit: BoxFit.cover)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _appName(),
-              _getStartedButton()
-            ],
+            children: [_appName(), _getStartedButton()],
           ),
         )
-
       ],
     );
   }
 
   Flexible _getStartedButton() {
     return Flexible(
-                flex: 2,
-                child: BlueButtonWidget(
-                  text: StringConstant.instance.covetButtonText,
-                  page: RouteConstant.onBoardScreenRoute,
-                ));
+        flex: 2,
+        child: BlueButtonWidget(
+          text: StringConstant.instance.covetButtonText,
+          page: RouteConstant.onBoardScreenRoute,
+        ));
   }
 
   Expanded _appName() {
     return Expanded(
-              flex: 2,
-              child: Stack(
-                alignment: Alignment.topCenter,
-                children: [
-                  Padding(
-                      padding: PaddingConstant.instance.appNamePadding,
-                      child: const _TitleWidget()),
-                  Positioned(
-                      left: 40,
-                      child: Image.asset(AssetPath.instance.appLogo)),
-                ],
-              ),
-            );
+      flex: 2,
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Padding(
+              padding: PaddingConstant.instance.appNamePadding,
+              child: const _TitleWidget()),
+          Positioned(left: 40, child: Image.asset(AssetPath.instance.appLogo)),
+        ],
+      ),
+    );
   }
 }
 

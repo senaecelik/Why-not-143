@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
-import 'package:why_not_143_team/screens/login_page.dart';
 import '../constant.dart/color_constant.dart';
 import '../constant.dart/padding_constant.dart';
 import '../constant.dart/string.dart';

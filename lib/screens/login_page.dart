@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
-import 'package:why_not_143_team/screens/home_page.dart';
-import 'package:why_not_143_team/screens/register_page.dart';
-import 'package:why_not_143_team/widget/button_widget.dart';
+import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:why_not_143_team/widget/general_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -21,6 +21,25 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void anon() {
+    context.read<FirebaseAuthMethods>().anon(context).then(
+        (value) => Navigator.pushNamed(context, RouteConstant.homeScreenRoute));
+  }
+
+  void logInUser() {
+    context.read<FirebaseAuthMethods>().loginWithEmail(
+        email: emailController.text,
+        password: passwordController.text,
+        context: context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +55,12 @@ class _LoginPageState extends State<LoginPage> {
             passwordText(),
             passTextField(),
             forgotPassTextButton(),
-            blueButtonWidget(),
+            GeneralButton(
+                function: logInUser, text: StringConstant.instance.loginSignIn),
             dontHaveAccYet(context),
-            skipTextButton(context),
             loginTextOr(),
             googleButton(),
+            skipTextButton(context),
           ],
         ),
       ),
@@ -71,43 +91,51 @@ class _LoginPageState extends State<LoginPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: PaddingConstant.instance.loginPadding,
-          child: TextButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ));
-            },
-            child: Text(
-              StringConstant.instance.dontHaveAcc,
-              style: TextStyleConstant.instance.loginVerySmallMedium,
-            ),
+        ElevatedButton(
+          onPressed: anon,
+          child: Text(
+            StringConstant.instance.dontHaveAcc,
+            style: TextStyleConstant.instance.textLargeMedium,
+          ),
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 72, vertical: 18),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            primary: ColorConstant.instance.white,
+            onPrimary: ColorConstant.instance.yankeBlue,
+            side:
+                BorderSide(width: 1.0, color: ColorConstant.instance.yankeBlue),
           ),
         ),
       ],
     );
   }
 
-  Row dontHaveAccYet(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: PaddingConstant.instance.loginPadding,
-          child: TextButton(
-            onPressed: () {
+  Widget dontHaveAccYet(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            StringConstant.instance.loginSignUp,
+            style: TextStyleConstant.instance.loginVerySmallMedium,
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          InkWell(
+            onTap: () {
               Navigator.pushNamed(context, RouteConstant.registerScreenRoute);
             },
             child: Text(
-              StringConstant.instance.loginSignUp,
+              StringConstant.instance.registerSignUp,
               style: TextStyleConstant.instance.loginVerySmallMedium,
             ),
-          ),
-        ),
-      ],
+          )
+        ],
+      ),
     );
   }
 
@@ -134,7 +162,9 @@ class _LoginPageState extends State<LoginPage> {
         height: 58.h,
         width: 327.w,
         child: ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: () {
+            context.read<FirebaseAuthMethods>().signInWithGoogle(context);
+          },
           icon: Tab(
             icon: Image.asset(AssetPath.instance.loginImage),
             iconMargin: const EdgeInsets.all(30),
@@ -200,6 +230,12 @@ class _LoginPageState extends State<LoginPage> {
 
   AppBar appBar() {
     return AppBar(
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
       title: Text(
         StringConstant.instance.loginSignIn,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
@@ -227,16 +263,22 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Padding blueButtonWidget() {
+  Padding loginButton() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: 327.w,
-        child: BlueButtonWidget(
-            text: StringConstant.instance.loginSignIn,
-            page: RouteConstant.homeScreenRoute),
-      ),
-    );
+        padding: PaddingConstant.instance.loginPadding,
+        child: InkWell(
+            onTap: logInUser,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: ColorConstant.instance.yankeBlue),
+              child: Text(
+                StringConstant.instance.loginSignIn,
+                style: TextStyleConstant.instance.textLargeMedium
+                    .copyWith(color: ColorConstant.instance.white),
+                textAlign: TextAlign.center,
+              ),
+            )));
   }
 }
