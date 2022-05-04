@@ -29,7 +29,6 @@ class StringConstant {
   String homePage = "Anasayfa";
   String homeSocialText =
       "Sosyal sorumluluk projelerine katıl\nve ödüller kazan!";
-
   String searchText = "Pati bul";
 
   //Menu
@@ -49,13 +48,11 @@ class StringConstant {
   String loginSignInGoogle = "Google ile giriş yap";
   String registerSignUp = "Kayıt Ol";
   String loginSignIn = "Giriş Yap";
-  String loginTextFieldMail = "study@email.com";
-  String loginTextFieldPassword = "Your Password";
-  String registerTextFieldName = "Your Name";
+  String loginTextFieldMail = "patidostum@email.com";
+  String loginTextFieldPassword = "Şifreniz";
+  String registerTextFieldName = "Adınız";
   String dontHaveAcc = "Şimdilik üye olmadan devam et";
   String resetPass = "Şifremi Sıfırla!";
   String forgotPassLabel =
       "Şifreni sıfırlaman için kayıtlı e-mail adresine yeni şifre göndereceğiz.";
-
-  
 }
