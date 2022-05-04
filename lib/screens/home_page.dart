@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
+import 'package:why_not_143_team/screens/form_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 
 import '../constant.dart/string.dart';
@@ -25,7 +26,6 @@ class _HomePageState extends State<HomePage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     defaultChoiceIndex = 0;
   }
@@ -100,7 +100,6 @@ class _HomePageState extends State<HomePage>
   }
 
   SizedBox _homeBody(BuildContext context) {
-    
     return SizedBox(
         height: screenHeight,
         width: screenWidth,
@@ -108,76 +107,75 @@ class _HomePageState extends State<HomePage>
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                  height: MediaQuery.of(context).size.height / 4,
-                  decoration: BoxDecoration(
-                      color: ColorConstant.instance.lightGray,
-                      borderRadius: openMenu
-                          ? const BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20))
-                          : BorderRadius.circular(0)),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _homeAppBar(),
-                 
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _homeAppBar(),
+                    const _SearchWidget(),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => FormPage())));
+                        },
+                        child: Text("form")),
 
-                        /*const _SearchWidget(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 25, vertical: 25),
-                      child: Wrap(
-                        spacing: 8,
-                        children: List.generate(_choicesList.length, (index) {
-                          return ChoiceChip(
-                            labelPadding: const EdgeInsets.all(2.0),
-                            label: Text(_choicesList[index],
-                                style: TextStyleConstant
-                                    .instance.textSmallMedium
-                                    .copyWith(
-                                        color: ColorConstant.instance.white)),
-                            selected: defaultChoiceIndex == index,
-                            selectedColor: ColorConstant.instance.yankeBlue,
-                            onSelected: (value) {
-                              setState(() {
-                                defaultChoiceIndex =
-                                    value ? index : defaultChoiceIndex;
-                              });
-                            },
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            elevation: 0,
-                          );
-                        }),
-                      ),
-                    ),
-                  ],
+                    /*const _SearchWidget(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 25, vertical: 25),
+                  child: Wrap(
+                    spacing: 8,
+                    children: List.generate(_choicesList.length, (index) {
+                      return ChoiceChip(
+                        labelPadding: const EdgeInsets.all(2.0),
+                        label: Text(_choicesList[index],
+                            style: TextStyleConstant
+                                .instance.textSmallMedium
+                                .copyWith(
+                                    color: ColorConstant.instance.white)),
+                        selected: defaultChoiceIndex == index,
+                        selectedColor: ColorConstant.instance.yankeBlue,
+                        onSelected: (value) {
+                          setState(() {
+                            defaultChoiceIndex =
+                                value ? index : defaultChoiceIndex;
+                          });
+                        },
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        elevation: 0,
+                      );
+                    }),
+                  ),
+                ),
+              ],
                 )),*/
-                        /*Column(
+                    /*Column(
               children: [
                 //TODO: Hayvanlar listesi, geçici liste
 
                 SizedBox(
-                  height: 250.h,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    children: [
-                      Image.asset(AssetPath.instance.coverImage),
-                      Image.asset(AssetPath.instance.coverImage),
-                      Image.asset(AssetPath.instance.coverImage),
-                      Image.asset(AssetPath.instance.coverImage),
-                    ],
-                  ),
+              height: 250.h,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                children: [
+                  Image.asset(AssetPath.instance.coverImage),
+                  Image.asset(AssetPath.instance.coverImage),
+                  Image.asset(AssetPath.instance.coverImage),
+                  Image.asset(AssetPath.instance.coverImage),
+                ],
+              ),
                 ),
                 SizedBox(
-                  height: 10.h,
+              height: 10.h,
                 ),
                 const _SocialCard()
               ],
             )*/
-                      ]))
+                  ])
             ]));
   }
 
@@ -227,7 +225,11 @@ class _HomePageState extends State<HomePage>
                     children: [
                       InkWell(
                         onTap: () {
-                          context.read<FirebaseAuthMethods>().signOut(context);
+                          context
+                              .read<FirebaseAuthMethods>()
+                              .signOut(context)
+                              .then((value) => Navigator.pushNamed(
+                                  context, RouteConstant.coverScreenRoue));
                         },
                         child: Row(
                           children: [
@@ -257,7 +259,7 @@ class _HomePageState extends State<HomePage>
 }
 
 //TODO: Responsive
-class _SocialCard extends StatelessWidget {
+/* class _SocialCard extends StatelessWidget {
   const _SocialCard({
     Key? key,
   }) : super(key: key);
@@ -309,7 +311,7 @@ class _SocialCard extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 class _SearchWidget extends StatelessWidget {
   const _SearchWidget({

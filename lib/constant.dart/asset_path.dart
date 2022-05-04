@@ -4,7 +4,7 @@ class AssetPath {
   AssetPath._init();
 
   //assets path
-  String coverImage = "assets/images/cover.jpg";
+  String coverImage = "assets/images/dog.zip";
   String appLogo = "assets/images/logo.png";
   String onBoardImage1 = "assets/images/pet.png";
   String onBoardImage2 = "assets/images/pet2.png";
