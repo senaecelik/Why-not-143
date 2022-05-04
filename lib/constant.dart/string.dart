@@ -26,7 +26,7 @@ class StringConstant {
 
   //Home Page
 
-  String homePage = "Anasayfa";
+  String homePage = "Pati'n seni bekliyor";
   String homeSocialText =
       "Sosyal sorumluluk projelerine katıl\nve ödüller kazan!";
   String searchText = "Pati bul";

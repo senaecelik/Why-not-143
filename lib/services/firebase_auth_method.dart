@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/utils/show_snack_bar.dart';
 
 class FirebaseAuthMethods {
@@ -26,6 +27,12 @@ class FirebaseAuthMethods {
     try {
       var user = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      if (!_auth.currentUser!.emailVerified) {
+        await sendEmailVerification(context);
+        Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+      } else {
+        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+      }
       await sendEmailVerification(context);
       await _firestore.collection("Person").doc(user.user!.uid).set({
         'email': email,
@@ -65,6 +72,9 @@ class FirebaseAuthMethods {
 
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
+        Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+      } else {
+        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);
@@ -86,8 +96,11 @@ class FirebaseAuthMethods {
         UserCredential userCredential =
             await _auth.signInWithCredential(credential);
         if (userCredential.user != null) {
-          if (userCredential.additionalUserInfo!.isNewUser) {}
+          if (userCredential.additionalUserInfo!.isNewUser) {
+            
+          }
         }
+        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);
@@ -112,7 +125,7 @@ class FirebaseAuthMethods {
     }
   }
 
-  Future<void> anon(BuildContext context) async {
+  Future<void> anonymously(BuildContext context) async {
     try {
       await _auth.signInAnonymously();
     } on FirebaseAuthException catch (e) {

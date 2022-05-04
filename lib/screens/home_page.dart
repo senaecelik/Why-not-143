@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     defaultChoiceIndex = 0;
   }
@@ -107,75 +106,67 @@ class _HomePageState extends State<HomePage>
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                  height: MediaQuery.of(context).size.height / 4,
-                  decoration: BoxDecoration(
-                      color: ColorConstant.instance.lightGray,
-                      borderRadius: openMenu
-                          ? const BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20))
-                          : BorderRadius.circular(0)),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _homeAppBar(),
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _homeAppBar(),
+                  const _SearchWidget(),
 
-                        /*const _SearchWidget(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 25, vertical: 25),
-                      child: Wrap(
-                        spacing: 8,
-                        children: List.generate(_choicesList.length, (index) {
-                          return ChoiceChip(
-                            labelPadding: const EdgeInsets.all(2.0),
-                            label: Text(_choicesList[index],
-                                style: TextStyleConstant
-                                    .instance.textSmallMedium
-                                    .copyWith(
-                                        color: ColorConstant.instance.white)),
-                            selected: defaultChoiceIndex == index,
-                            selectedColor: ColorConstant.instance.yankeBlue,
-                            onSelected: (value) {
-                              setState(() {
-                                defaultChoiceIndex =
-                                    value ? index : defaultChoiceIndex;
-                              });
-                            },
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            elevation: 0,
-                          );
-                        }),
-                      ),
-                    ),
-                  ],
+                    /*const _SearchWidget(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 25, vertical: 25),
+                  child: Wrap(
+                    spacing: 8,
+                    children: List.generate(_choicesList.length, (index) {
+                      return ChoiceChip(
+                        labelPadding: const EdgeInsets.all(2.0),
+                        label: Text(_choicesList[index],
+                            style: TextStyleConstant
+                                .instance.textSmallMedium
+                                .copyWith(
+                                    color: ColorConstant.instance.white)),
+                        selected: defaultChoiceIndex == index,
+                        selectedColor: ColorConstant.instance.yankeBlue,
+                        onSelected: (value) {
+                          setState(() {
+                            defaultChoiceIndex =
+                                value ? index : defaultChoiceIndex;
+                          });
+                        },
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        elevation: 0,
+                      );
+                    }),
+                  ),
+                ),
+              ],
                 )),*/
-                        /*Column(
+                    /*Column(
               children: [
                 //TODO: Hayvanlar listesi, geçici liste
 
                 SizedBox(
-                  height: 250.h,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    children: [
-                      Image.asset(AssetPath.instance.coverImage),
-                      Image.asset(AssetPath.instance.coverImage),
-                      Image.asset(AssetPath.instance.coverImage),
-                      Image.asset(AssetPath.instance.coverImage),
-                    ],
-                  ),
+              height: 250.h,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                children: [
+                  Image.asset(AssetPath.instance.coverImage),
+                  Image.asset(AssetPath.instance.coverImage),
+                  Image.asset(AssetPath.instance.coverImage),
+                  Image.asset(AssetPath.instance.coverImage),
+                ],
+              ),
                 ),
                 SizedBox(
-                  height: 10.h,
+              height: 10.h,
                 ),
                 const _SocialCard()
               ],
             )*/
-                      ]))
+                  ])
             ]));
   }
 
@@ -259,7 +250,7 @@ class _HomePageState extends State<HomePage>
 }
 
 //TODO: Responsive
-class _SocialCard extends StatelessWidget {
+/* class _SocialCard extends StatelessWidget {
   const _SocialCard({
     Key? key,
   }) : super(key: key);
@@ -311,7 +302,7 @@ class _SocialCard extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 class _SearchWidget extends StatelessWidget {
   const _SearchWidget({

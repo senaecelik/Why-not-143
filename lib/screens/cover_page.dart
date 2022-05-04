@@ -23,15 +23,14 @@ class CoverPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
+        SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _appName(),
-              Lottie.asset(AssetPath.instance.coverImage),
-              
+              _animatedLogo(),
               _getStartedButton()
             ],
           ),
@@ -39,6 +38,8 @@ class CoverPage extends StatelessWidget {
       ],
     );
   }
+
+  SizedBox _animatedLogo() => SizedBox(child: Lottie.asset(AssetPath.instance.coverImage));
 
   Flexible _getStartedButton() {
     return Flexible(
