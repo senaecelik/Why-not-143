@@ -31,6 +31,7 @@ class CoverPage extends StatelessWidget {
             children: [
               _appName(),
               Lottie.asset(AssetPath.instance.coverImage),
+              
               _getStartedButton()
             ],
           ),
