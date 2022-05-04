@@ -224,7 +224,7 @@ class _HomePageState extends State<HomePage>
                   Row(
                     children: [
                       InkWell(
-                        onTap: () async {
+                        onTap: () {
                           context
                               .read<FirebaseAuthMethods>()
                               .signOut(context)
