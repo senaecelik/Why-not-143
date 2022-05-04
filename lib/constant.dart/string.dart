@@ -56,4 +56,6 @@ class StringConstant {
   String resetPass = "Şifremi Sıfırla!";
   String forgotPassLabel =
       "Şifreni sıfırlaman için kayıtlı e-mail adresine yeni şifre göndereceğiz.";
+
+  
 }

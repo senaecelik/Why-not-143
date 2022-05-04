@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
@@ -25,13 +26,13 @@ class CoverPage extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(AssetPath.instance.coverImage),
-                  fit: BoxFit.cover)),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [_appName(), _getStartedButton()],
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _appName(),
+              Lottie.asset(AssetPath.instance.coverImage),
+              _getStartedButton()
+            ],
           ),
         )
       ],
