@@ -35,10 +35,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void logInUser() {
-    context.read<FirebaseAuthMethods>().loginWithEmail(
-        email: emailController.text,
-        password: passwordController.text,
-        context: context);
+    context
+        .read<FirebaseAuthMethods>()
+        .loginWithEmail(
+            email: emailController.text,
+            password: passwordController.text,
+            context: context)
+        .then((value) =>
+            Navigator.pushNamed(context, RouteConstant.homeScreenRoute));
   }
 
   @override
@@ -163,7 +167,9 @@ class _LoginPageState extends State<LoginPage> {
         width: 327.w,
         child: ElevatedButton.icon(
           onPressed: () {
-            context.read<FirebaseAuthMethods>().signInWithGoogle(context);
+            context.read<FirebaseAuthMethods>().signInWithGoogle(context).then(
+                (value) => Navigator.pushNamed(
+                    context, RouteConstant.homeScreenRoute));
           },
           icon: Tab(
             icon: Image.asset(AssetPath.instance.loginImage),
@@ -261,24 +267,5 @@ class _LoginPageState extends State<LoginPage> {
         style: TextStyleConstant.instance.textSmallMedium,
       ),
     );
-  }
-
-  Padding loginButton() {
-    return Padding(
-        padding: PaddingConstant.instance.loginPadding,
-        child: InkWell(
-            onTap: logInUser,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: ColorConstant.instance.yankeBlue),
-              child: Text(
-                StringConstant.instance.loginSignIn,
-                style: TextStyleConstant.instance.textLargeMedium
-                    .copyWith(color: ColorConstant.instance.white),
-                textAlign: TextAlign.center,
-              ),
-            )));
   }
 }
