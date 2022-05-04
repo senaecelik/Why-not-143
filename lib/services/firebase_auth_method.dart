@@ -97,8 +97,9 @@ class FirebaseAuthMethods {
   Future<void> signOut(BuildContext context) async {
     try {
       await _auth.signOut();
+      await GoogleSignIn().signOut();
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showSnackBar(context, e.message!); // Displaying the error message
     }
   }
 
