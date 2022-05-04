@@ -100,7 +100,6 @@ class _HomePageState extends State<HomePage>
   }
 
   SizedBox _homeBody(BuildContext context) {
-    
     return SizedBox(
         height: screenHeight,
         width: screenWidth,
@@ -122,7 +121,6 @@ class _HomePageState extends State<HomePage>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _homeAppBar(),
-                 
 
                         /*const _SearchWidget(),
                     Padding(
@@ -226,8 +224,12 @@ class _HomePageState extends State<HomePage>
                   Row(
                     children: [
                       InkWell(
-                        onTap: () {
-                          context.read<FirebaseAuthMethods>().signOut(context);
+                        onTap: () async {
+                          context
+                              .read<FirebaseAuthMethods>()
+                              .signOut(context)
+                              .then((value) => Navigator.pushNamed(
+                                  context, RouteConstant.coverScreenRoue));
                         },
                         child: Row(
                           children: [

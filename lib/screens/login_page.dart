@@ -35,10 +35,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void logInUser() {
-    context.read<FirebaseAuthMethods>().loginWithEmail(
-        email: emailController.text,
-        password: passwordController.text,
-        context: context);
+    context
+        .read<FirebaseAuthMethods>()
+        .loginWithEmail(
+            email: emailController.text,
+            password: passwordController.text,
+            context: context)
+        .then((value) =>
+            Navigator.pushNamed(context, RouteConstant.homeScreenRoute));
   }
 
   @override
@@ -91,20 +95,26 @@ class _LoginPageState extends State<LoginPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ElevatedButton(
-          onPressed: anon,
-          child: Text(
-            StringConstant.instance.dontHaveAcc,
-            style: TextStyleConstant.instance.textLargeMedium,
-          ),
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 72, vertical: 18),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            primary: ColorConstant.instance.white,
-            onPrimary: ColorConstant.instance.yankeBlue,
-            side:
-                BorderSide(width: 1.0, color: ColorConstant.instance.yankeBlue),
+        Padding(
+          padding: PaddingConstant.instance.loginPadding,
+          child: SizedBox(
+            height: 58.h,
+            width: 315.w,
+            child: ElevatedButton(
+              onPressed: anon,
+              child: Text(
+                StringConstant.instance.dontHaveAcc,
+                style: TextStyleConstant.instance.textLargeMedium,
+              ),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                primary: ColorConstant.instance.white,
+                onPrimary: ColorConstant.instance.yankeBlue,
+                side: BorderSide(
+                    width: 1.0, color: ColorConstant.instance.yankeBlue),
+              ),
+            ),
           ),
         ),
       ],
