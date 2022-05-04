@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
+import 'package:why_not_143_team/screens/form_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 
 import '../constant.dart/string.dart';
@@ -111,7 +112,15 @@ class _HomePageState extends State<HomePage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _homeAppBar(),
-                  const _SearchWidget(),
+                    const _SearchWidget(),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => FormPage())));
+                        },
+                        child: Text("form")),
 
                     /*const _SearchWidget(),
                 Padding(
