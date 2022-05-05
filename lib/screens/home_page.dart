@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage>
   _homeAppBar() {
     return AppBar(
       leadingWidth: 80,
-      backgroundColor: ColorConstant.instance.lightGray,
+      backgroundColor: Colors.transparent,
       elevation: 0,
       leading: IconButton(
         onPressed: () {
@@ -113,6 +113,8 @@ class _HomePageState extends State<HomePage>
                   children: [
                     _homeAppBar(),
                     const _SearchWidget(),
+
+
                     ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -121,6 +123,7 @@ class _HomePageState extends State<HomePage>
                                   builder: ((context) => FormPage())));
                         },
                         child: Text("form")),
+
 
                     /*const _SearchWidget(),
                 Padding(
