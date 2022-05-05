@@ -120,8 +120,9 @@ class _HomePageState extends State<HomePage>
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => FormPage())));
+                                  builder: ((context) => const FormPage())));
                         },
+                        // ignore: prefer_const_constructors
                         child: Text("form")),
 
 

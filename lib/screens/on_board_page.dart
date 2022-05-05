@@ -119,7 +119,8 @@ class _DoneButton extends StatelessWidget {
           shape: BoxShape.circle, color: ColorConstant.instance.yankeBlue),
       child: TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+            Navigator.pushReplacementNamed(
+                context, RouteConstant.loginScreenRoute);
           },
           child: Icon(
             Icons.done,
@@ -158,7 +159,8 @@ class _SkipButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () {
-          Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+          Navigator.pushReplacementNamed(
+              context, RouteConstant.loginScreenRoute);
         },
         child: Text(StringConstant.instance.onBoardPass,
             style: TextStyleConstant.instance.textLargeMedium

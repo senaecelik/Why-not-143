@@ -36,9 +36,10 @@ class FirebaseAuthMethods {
           email: email, password: password);
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
-        Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+        Navigator.pushReplacementNamed(context, RouteConstant.loginScreenRoute);
       } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
       await sendEmailVerification(context);
       await _firestore.collection("Person").doc(user.user!.uid).set({
@@ -81,7 +82,7 @@ class FirebaseAuthMethods {
         await sendEmailVerification(context);
         Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
       } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushReplacementNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
       showToast(context, e.message!);
@@ -105,7 +106,8 @@ class FirebaseAuthMethods {
         if (userCredential.user != null) {
           if (userCredential.additionalUserInfo!.isNewUser) {}
         }
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
     } on FirebaseAuthException catch (e) {
       showToast(context, e.message!);
@@ -133,6 +135,8 @@ class FirebaseAuthMethods {
   Future<void> anonymously(BuildContext context) async {
     try {
       await _auth.signInAnonymously();
+      Navigator.pushNamedAndRemoveUntil(context, RouteConstant.homeScreenRoute,
+          (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
       showToast(context, e.message!);
     }

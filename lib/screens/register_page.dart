@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -6,9 +5,6 @@ import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
-import 'package:why_not_143_team/screens/cover_page.dart';
-import 'package:why_not_143_team/screens/home_page.dart';
-import 'package:why_not_143_team/screens/login_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/widget/general_button.dart';
