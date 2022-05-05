@@ -29,9 +29,10 @@ class FirebaseAuthMethods {
           email: email, password: password);
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
-        Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+        Navigator.pushReplacementNamed(context, RouteConstant.loginScreenRoute);
       } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
       await sendEmailVerification(context);
       await _firestore.collection("Person").doc(user.user!.uid).set({
@@ -74,7 +75,7 @@ class FirebaseAuthMethods {
         await sendEmailVerification(context);
         Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
       } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushReplacementNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);
@@ -96,11 +97,10 @@ class FirebaseAuthMethods {
         UserCredential userCredential =
             await _auth.signInWithCredential(credential);
         if (userCredential.user != null) {
-          if (userCredential.additionalUserInfo!.isNewUser) {
-            
-          }
+          if (userCredential.additionalUserInfo!.isNewUser) {}
         }
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);
@@ -128,6 +128,8 @@ class FirebaseAuthMethods {
   Future<void> anonymously(BuildContext context) async {
     try {
       await _auth.signInAnonymously();
+      Navigator.pushNamedAndRemoveUntil(context, RouteConstant.homeScreenRoute,
+          (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);
     }
