@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/utils/show_snack_bar.dart';
+import 'package:why_not_143_team/utils/show_toast_message.dart';
 
 class FirebaseAuthMethods {
   final FirebaseAuth _auth;
@@ -42,11 +43,11 @@ class FirebaseAuthMethods {
       return user.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        showSnackBar(context, 'The password provided is too weak.');
+        showToast(context, 'Şifre çok zayıf.');
       } else if (e.code == 'email-already-in-use') {
-        showSnackBar(context, 'The account already exists for that email.');
+        showToast(context, 'Bu e-posta için zaten kayıtlı bir hesap var.');
       }
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
     return null;
   }
@@ -55,9 +56,9 @@ class FirebaseAuthMethods {
   Future<void> sendEmailVerification(BuildContext context) async {
     try {
       _auth.currentUser!.sendEmailVerification();
-      showSnackBar(context, "Email doğrulama gönderildi!");
+      showToast(context, "Email doğrulama gönderildi!");
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -77,7 +78,7 @@ class FirebaseAuthMethods {
         Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -96,14 +97,12 @@ class FirebaseAuthMethods {
         UserCredential userCredential =
             await _auth.signInWithCredential(credential);
         if (userCredential.user != null) {
-          if (userCredential.additionalUserInfo!.isNewUser) {
-            
-          }
+          if (userCredential.additionalUserInfo!.isNewUser) {}
         }
         Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -112,16 +111,16 @@ class FirebaseAuthMethods {
       await _auth.signOut();
       await GoogleSignIn().signOut();
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!); // Displaying the error message
+      showToast(context, e.message!); // Displaying the error message
     }
   }
 
   Future<void> resetPassword(String email, BuildContext context) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
-      showSnackBar(context, "Gönderildi");
+      showToast(context, "Gönderildi");
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -129,7 +128,7 @@ class FirebaseAuthMethods {
     try {
       await _auth.signInAnonymously();
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 }

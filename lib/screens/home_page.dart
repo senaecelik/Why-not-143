@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage>
   _homeAppBar() {
     return AppBar(
       leadingWidth: 80,
-      backgroundColor: ColorConstant.instance.lightGray,
+      backgroundColor: Colors.transparent,
       elevation: 0,
       leading: IconButton(
         onPressed: () {
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _homeAppBar(),
-                  const _SearchWidget(),
+                    const _SearchWidget(),
 
                     /*const _SearchWidget(),
                 Padding(
