@@ -30,11 +30,13 @@ class StringConstant {
   String homeSocialText =
       "Sosyal sorumluluk projelerine katıl\nve ödüller kazan!";
   String searchText = "Pati bul";
+  String homeDonateText = "Patilere yardımda bulunmak ister misin?";
+  String homeDonateText2 = "Yardım et";
 
   //Menu
   String menuAbout = "Hakkımızda";
-  String menuSendBack = "Geri bildirim gönder";
-  String menuRateOurApp = "Uygulamamızı oyla";
+  String menuSendBack = "Geri bildirim";
+  String menuRateOurApp = "Puan ver";
   String logOut = "Çıkış yap";
 
   // Login and Register Page

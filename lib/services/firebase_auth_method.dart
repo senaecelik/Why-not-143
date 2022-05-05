@@ -4,13 +4,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
-import 'package:why_not_143_team/utils/show_snack_bar.dart';
+import 'package:why_not_143_team/utils/show_toast_message.dart';
 
 class FirebaseAuthMethods {
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
   FirebaseAuthMethods(this._auth, this._firestore);
 
+  /*FirebaseAuthException içerisinde bazı error code lar var fakat ingilizce 
+    e.code == 'weak-password' ise şifre zayıf yazıyoruz bunun gibi özelliştiriyoruz.
+    e.code == 'weak-password'
+
+    Şu referans olabilir -> https://gist.github.com/nikhilmufc7/6b74a3c12a6e2d3284942d40ff583e37
+  
+   */
   User get user => _auth.currentUser!;
 
   //State Persistence
@@ -43,11 +50,11 @@ class FirebaseAuthMethods {
       return user.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        showSnackBar(context, 'The password provided is too weak.');
+        showToast(context, 'Şifre çok zayıf.');
       } else if (e.code == 'email-already-in-use') {
-        showSnackBar(context, 'The account already exists for that email.');
+        showToast(context, 'Bu e-posta için zaten kayıtlı bir hesap var.');
       }
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
     return null;
   }
@@ -56,9 +63,9 @@ class FirebaseAuthMethods {
   Future<void> sendEmailVerification(BuildContext context) async {
     try {
       _auth.currentUser!.sendEmailVerification();
-      showSnackBar(context, "Email doğrulama gönderildi!");
+      showToast(context, "Email doğrulama gönderildi!");
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -78,7 +85,7 @@ class FirebaseAuthMethods {
         Navigator.pushReplacementNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -103,7 +110,7 @@ class FirebaseAuthMethods {
             RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -112,16 +119,16 @@ class FirebaseAuthMethods {
       await _auth.signOut();
       await GoogleSignIn().signOut();
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!); // Displaying the error message
+      showToast(context, e.message!); // Displaying the error message
     }
   }
 
   Future<void> resetPassword(String email, BuildContext context) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
-      showSnackBar(context, "Gönderildi");
+      showToast(context, "Gönderildi");
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 
@@ -131,7 +138,7 @@ class FirebaseAuthMethods {
       Navigator.pushNamedAndRemoveUntil(context, RouteConstant.homeScreenRoute,
           (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!);
+      showToast(context, e.message!);
     }
   }
 }
