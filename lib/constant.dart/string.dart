@@ -5,18 +5,18 @@ class StringConstant {
 
   ///Cover Page
 
-  String coverTitle = "Patı Dostum";
+  String coverTitle = "Pati Dostum";
   String coverSubTitle = "Can dostunu sahiplenmenin yeni yolu";
   String covetButtonText = "Başlayın";
 
   ///Cover Page
   String onBoardTitle1 = "Bir pati seç!";
   String onBoardSubTitle1 =
-      "Pati Dostum sayesinde sana en yakın barınaktaki patileri görebilir, bakımları için bağış yapabilir veya sahiplenebilirsin.";
+      "Pati Dostum sayesinde sana en yakın barınaktaki patileri görebilirsin.";
 
-  String onBoardTitle2 = "Başvuru yap";
+  String onBoardTitle2 = "Başvuru yap ve Sahiplen";
   String onBoardSubTitle2 =
-      "Patiyi sahiplenmek için yapman gereken sadece form doldurmak ve bizden haber beklemek.";
+      "Pati dostunu sahiplenmek için yapman gereken sadece form doldurarak ilk adımı atabilirsin";
 
   String onBoardTitle3 = "Sahiplen";
   String onBoardSubTitle3 =
