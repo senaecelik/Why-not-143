@@ -15,7 +15,7 @@ class BlueButtonWidget extends StatelessWidget {
         Navigator.pushNamed(context, page);
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 16),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: ColorConstant.instance.yankeBlue),
