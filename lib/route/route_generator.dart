@@ -4,6 +4,7 @@ import 'package:why_not_143_team/screens/cover_page.dart';
 import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/screens/login_page.dart';
 import 'package:why_not_143_team/screens/on_board_page.dart';
+import 'package:why_not_143_team/screens/profile_page.dart';
 import 'package:why_not_143_team/screens/register_page.dart';
 import 'package:why_not_143_team/screens/forgot_pass.dart';
 
@@ -16,6 +17,8 @@ class RouterGenerator {
       case RouteConstant.coverScreenRoue:
         return MaterialPageRoute(builder: (_) => const CoverPage());
 
+      case RouteConstant.profileRoute:
+        return MaterialPageRoute(builder: (_) => const ProfilePage());
       case RouteConstant.onBoardScreenRoute:
         return MaterialPageRoute(builder: (_) => const OnBoard());
       case RouteConstant.loginScreenRoute:
