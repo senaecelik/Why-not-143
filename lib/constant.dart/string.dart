@@ -34,6 +34,7 @@ class StringConstant {
   String homeDonateText2 = "Yardım et";
 
   //Menu
+  String menuPerson = "Anonim";
   String menuAbout = "Hakkımızda";
   String menuSendBack = "Geri bildirim";
   String menuRateOurApp = "Puan ver";
@@ -57,4 +58,10 @@ class StringConstant {
   String resetPass = "Şifremi Sıfırla!";
   String forgotPassLabel =
       "Şifreni sıfırlaman için kayıtlı e-mail adresine yeni şifre göndereceğiz.";
+
+  // Profile Page
+
+  String appBarName = "Profil";
+  String profileName = "Marvin MacKinney";
+  String profileMail = "marvin@email.com";
 }
