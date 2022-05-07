@@ -48,6 +48,7 @@ dependencies:
 
   flutter_inappwebview: ^5.4.3+4
 
+  
   flutter_native_splash: ^2.1.6
 
 flutter_native_splash:

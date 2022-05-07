@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +11,7 @@ import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/form_page.dart';
 import 'package:why_not_143_team/screens/profile_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
+import 'package:why_not_143_team/utils/show_toast_message.dart';
 
 import '../constant.dart/string.dart';
 
@@ -103,6 +105,7 @@ class _HomePageState extends State<HomePage>
   }
 
   SizedBox _homeBody(BuildContext context) {
+    final firebaseUser = context.watch<User?>();
     return SizedBox(
         height: screenHeight,
         width: screenWidth,
@@ -115,17 +118,24 @@ class _HomePageState extends State<HomePage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _homeAppBar(),
-                    const _SearchWidget(),
-                    ElevatedButton(
+                     if (firebaseUser != null)
+                      ElevatedButton(
+                          onPressed: () async {
+                            await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => const FormPage())));
+                          },
+                          // ignore: prefer_const_constructors
+                          child: Text("Patim ol"))
+                    else
+                      ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => const FormPage())));
+                          Navigator.pushNamed(
+                              context, RouteConstant.loginScreenRoute);
                         },
-                        // ignore: prefer_const_constructors
-                        child: Text("form")),
-
+                        child: Text("Patim ol"),
+                      ),
                     /*const _SearchWidget(),
                 Padding(
                   padding: const EdgeInsets.symmetric(

@@ -29,10 +29,6 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void anonymously() {
-    context.read<FirebaseAuthMethods>().anonymously(context);
-  }
-
   void logInUser() {
     context.read<FirebaseAuthMethods>().loginWithEmail(
         email: emailController.text,
@@ -136,8 +132,8 @@ class _LoginPageState extends State<LoginPage> {
         height: 58.h,
         width: 327.w,
         child: ElevatedButton.icon(
-          onPressed: () {
-            context.read<FirebaseAuthMethods>().signInWithGoogle(context);
+          onPressed: () async {
+            await context.read<FirebaseAuthMethods>().signInWithGoogle(context);
           },
           icon: Tab(
             icon: Image.asset(AssetPath.instance.loginImage),
