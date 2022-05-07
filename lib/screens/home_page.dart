@@ -195,6 +195,7 @@ class _HomePageState extends State<HomePage>
   }
 
   Widget menu(BuildContext context) {
+    final firebaseUser = context.watch<User?>();
     return SlideTransition(
       position: _offsetAnimation,
       child: Container(
@@ -223,11 +224,17 @@ class _HomePageState extends State<HomePage>
                   SizedBox(
                     height: 16.h,
                   ),
-                  MenuItem(
-                    icons: Icons.person,
-                    text: StringConstant.instance.menuPerson,
-                    page: RouteConstant.profileRoute,
-                  ),
+                  firebaseUser != null
+                      ? MenuItem(
+                          icons: Icons.person,
+                          text: "${firebaseUser.displayName}",
+                          page: RouteConstant.profileRoute,
+                        )
+                      : MenuItem(
+                          icons: Icons.person,
+                          text: StringConstant.instance.menuPerson,
+                          page: RouteConstant.profileRoute,
+                        ),
                   SizedBox(
                     height: 16.h,
                   ),
