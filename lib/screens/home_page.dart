@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
+import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/form_page.dart';
+import 'package:why_not_143_team/screens/profile_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/utils/show_toast_message.dart';
 
@@ -115,8 +118,7 @@ class _HomePageState extends State<HomePage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _homeAppBar(),
-                    const _SearchWidget(),
-                    if (firebaseUser != null)
+                     if (firebaseUser != null)
                       ElevatedButton(
                           onPressed: () async {
                             await Navigator.push(
@@ -202,12 +204,31 @@ class _HomePageState extends State<HomePage>
           child: Align(
             alignment: Alignment.centerLeft,
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   SizedBox(
                     height: 80.h,
+                  ),
+                  Padding(
+                    padding: PaddingConstant.instance.loginPadding,
+                    child: SizedBox(
+                      height: 75.h,
+                      width: 75.w,
+                      child: Image.asset(AssetPath.instance.menuPerson),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  MenuItem(
+                    icons: Icons.person,
+                    text: StringConstant.instance.menuPerson,
+                    page: RouteConstant.profileRoute,
+                  ),
+                  SizedBox(
+                    height: 16.h,
                   ),
                   MenuItem(
                     icons: Icons.info_outline,
@@ -215,7 +236,7 @@ class _HomePageState extends State<HomePage>
                     page: RouteConstant.homeScreenRoute,
                   ),
                   SizedBox(
-                    height: 14.h,
+                    height: 16.h,
                   ),
                   MenuItem(
                     icons: Icons.send,
@@ -223,7 +244,7 @@ class _HomePageState extends State<HomePage>
                     page: RouteConstant.homeScreenRoute,
                   ),
                   SizedBox(
-                    height: 14.h,
+                    height: 16.h,
                   ),
                   MenuItem(
                     icons: Icons.star,

@@ -11,4 +11,5 @@ class AssetPath {
   String onBoardImage2 = "assets/images/pet3.png";
   String loginImage = "assets/images/google.png";
   String logoPaw = "assets/images/paw_logo.png";
+  String menuPerson = "assets/images/person.png";
 }
