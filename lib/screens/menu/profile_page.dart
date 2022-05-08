@@ -1,20 +1,24 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
-import 'package:why_not_143_team/screens/login_page.dart';
-import 'package:why_not_143_team/screens/register_page.dart';
+import '../../constant.dart/color_constant.dart';
+import '../../constant.dart/string.dart';
 
-import '../constant.dart/color_constant.dart';
-import '../constant.dart/string.dart';
-
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  @override
   Widget build(BuildContext context) {
+    final _firebaseUser = context.watch<User?>();
     return Scaffold(
       appBar: appBar(context),
       body: Center(
@@ -23,7 +27,7 @@ class ProfilePage extends StatelessWidget {
             SizedBox(
               height: 150.h,
               width: 150.w,
-              child: Image.asset(AssetPath.instance.menuPerson),
+              child: Image.network("${_firebaseUser!.photoURL}"),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 30),
@@ -33,7 +37,7 @@ class ProfilePage extends StatelessWidget {
                   const Icon(Icons.person),
                   SizedBox(width: 10.w),
                   Text(
-                    StringConstant.instance.profileName,
+                    "${_firebaseUser.displayName}",
                     style: TextStyleConstant.instance.textLargeRegular,
                   ),
                 ],
@@ -47,7 +51,7 @@ class ProfilePage extends StatelessWidget {
                   const Icon(Icons.mail),
                   SizedBox(width: 10.w),
                   Text(
-                    StringConstant.instance.profileMail,
+                    "${_firebaseUser.email}",
                     style: TextStyleConstant.instance.textSmallRegular,
                   ),
                 ],

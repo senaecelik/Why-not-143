@@ -64,4 +64,25 @@ class StringConstant {
   String appBarName = "Profil";
   String profileName = "Marvin MacKinney";
   String profileMail = "marvin@email.com";
+
+  //Geri Bildirim
+
+  String feedBack = "Geri Bildirim";
+  String feedBackSub =
+      "Geri bildirimde bulunarak Pati Dostum'a daha iyi hale getirmemize katkı sağlayabilirsiniz.";
+  String feedBackCaption = "Bildirim başlığı";
+  String feedBackCaptionSub = 'Bildiriminizin başlığını girin';
+  String feedBackMessage = 'Mesajınızı girin';
+  String feedBackSend = 'Gönder';
+
+  //Hakkımızda
+  String about = "Hakkımızda";
+  String aboutUs = "Biz kimiz?";
+  String contactUs = "İletişim";
+  String aboutText =
+      "Canlarımıza  yardımda bulunmak ve barınaklarımıza destek vermek için   başladığımız bu  proje sizlere rahat bir uygulama kullanımı sağlamak adına başladığımız  proje kapsamında uygulamamızı sizlere sunmuş bulunmaktayız. Bizler, tüm canların yardımına destek vermek amacıyla toplanmış, küçük dokunuşlarla büyük değişimleri destekleyen, yardımlaşmayı seven küçük bir topluluğuz.";
+  String contactText =
+      "Bizimle fikirlerinizi paylaşmak, yardım ve öneride bulunmak, sizde küçük bir adımla büyük etkiler yaratmak isterseniz bize ulaşmaktan çekinmeyin.";
+
+  String emailUs = "candostu@example.com";
 }

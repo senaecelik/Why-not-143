@@ -10,7 +10,7 @@ import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/route/route_generator.dart';
-import 'package:why_not_143_team/screens/cover_page.dart';
+import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 
@@ -61,6 +61,7 @@ class MyApp extends StatelessWidget {
 
   AppBarTheme appBarTheme() {
     return AppBarTheme(
+      
       backgroundColor: Colors.transparent,
       centerTitle: true,
       systemOverlayStyle: SystemUiOverlayStyle.light,

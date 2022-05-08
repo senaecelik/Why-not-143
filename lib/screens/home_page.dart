@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,9 +11,9 @@ import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/form_page.dart';
-import 'package:why_not_143_team/screens/profile_page.dart';
+import 'package:why_not_143_team/screens/menu/profile_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
-import 'package:why_not_143_team/utils/show_toast_message.dart';
+import 'package:why_not_143_team/widget/menu_item_widget.dart';
 
 import '../constant.dart/string.dart';
 
@@ -24,45 +26,208 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<Offset> _offsetAnimation;
+  late int defaultChoiceIndex;
+
   double? screenHeight, screenWidth;
   bool openMenu = false;
-  int defaultChoiceIndex = 0;
   final List<String> _choicesList = ['Tümü', 'Kedi', 'Köpek'];
 
   @override
   void initState() {
-    super.initState();
     defaultChoiceIndex = 0;
+    _controller =
+        AnimationController(duration: const Duration(seconds: 2), vsync: this);
+    _offsetAnimation = Tween<Offset>(
+      begin: Offset.zero,
+      end: const Offset(1.5, 0.0),
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInCubic,
+    ));
+    super.initState();
   }
-
-  late final AnimationController _controller =
-      AnimationController(duration: const Duration(seconds: 2), vsync: this);
-  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
-    begin: Offset.zero,
-    end: const Offset(1.5, 0.0),
-  ).animate(CurvedAnimation(
-    parent: _controller,
-    curve: Curves.easeInCubic,
-  ));
 
   @override
   void dispose() {
     _controller.dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final _firebaseUser = context.watch<User?>();
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
-      child: Scaffold(
-          body: Stack(
-        children: [
-          menu(context),
-          dashboard(context),
-        ],
-      )),
+        child: Scaffold(
+            body: Stack(children: [
+      _menu(_firebaseUser, context),
+      AnimatedPositioned(
+          top: openMenu ? 0.1 * screenHeight! : 0,
+          bottom: openMenu ? 0.2 * screenWidth! : 0,
+          left: openMenu ? 0.5 * screenWidth! : 0,
+          duration: const Duration(milliseconds: 500),
+          child: Material(
+            color: ColorConstant.instance.white,
+            elevation: 15,
+            borderRadius:
+                openMenu ? const BorderRadius.all(Radius.circular(20)) : null,
+            child: SingleChildScrollView(
+              child: SizedBox(
+                height: screenHeight,
+                width: screenWidth,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _homeAppBar(),
+                        if (_firebaseUser != null)
+                          ElevatedButton(
+                              onPressed: () async {
+                                await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((context) =>
+                                            const FormPage())));
+                              },
+                              child: Text("Patim ol"))
+                        else
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, RouteConstant.loginScreenRoute);
+                            },
+                            child: Text("Patim ol"),
+                          ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ))
+    ])));
+  }
+
+  SlideTransition _menu(User? _firebaseUser, BuildContext context) {
+    String? photoUrl = _firebaseUser!.photoURL;
+    String? userName = _firebaseUser.displayName;
+    return SlideTransition(
+      position: _offsetAnimation,
+      child: Container(
+        height: screenHeight,
+        color: ColorConstant.instance.white,
+        child: Padding(
+          padding: EdgeInsets.only(left: 18.w),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  _firebaseUser != null
+                      ? Padding(
+                          padding: PaddingConstant.instance.loginPadding,
+                          child: SizedBox(
+                            height: 75.h,
+                            width: 75.w,
+                            child: Image.network(photoUrl!),
+                          ),
+                        )
+                      : SizedBox(
+                          height: 75.h,
+                          width: 75.w,
+                          child: Image.asset(AssetPath.instance.menuPerson),
+                        ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  if (_firebaseUser != null)
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, RouteConstant.profileRoute);
+                      },
+                      child: MenuItem(
+                        icons: Icons.person,
+                        text: userName!,
+                        page: RouteConstant.profileRoute,
+                      ),
+                    )
+                  else
+                    MenuItem(
+                      icons: Icons.person,
+                      text: StringConstant.instance.menuPerson,
+                      page: RouteConstant.profileRoute,
+                    ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  MenuItem(
+                    icons: Icons.info_outline,
+                    text: StringConstant.instance.menuAbout,
+                    page: RouteConstant.aboutScreenRoute,
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  MenuItem(
+                    icons: Icons.send,
+                    text: StringConstant.instance.menuSendBack,
+                    page: RouteConstant.feedBackScreenRoute,
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  MenuItem(
+                    icons: Icons.star,
+                    text: StringConstant.instance.menuRateOurApp,
+                    page: RouteConstant.homeScreenRoute,
+                  ),
+                  SizedBox(
+                    height: 150.h,
+                  ),
+                  Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          context
+                              .read<FirebaseAuthMethods>()
+                              .signOut(context)
+                              .then((value) => Navigator.pushNamed(
+                                  context, RouteConstant.coverScreenRoue));
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.logout_outlined,
+                              color: ColorConstant.instance.yankeBlue,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                StringConstant.instance.logOut,
+                                style:
+                                    TextStyleConstant.instance.textLargeRegular,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ]),
+          ),
+        ),
+      ),
     );
   }
 
@@ -87,25 +252,9 @@ class _HomePageState extends State<HomePage>
           style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue)),
     );
   }
+}
 
-  Widget dashboard(BuildContext context) {
-    return AnimatedPositioned(
-      top: openMenu ? 0.1 * screenHeight! : 0,
-      bottom: openMenu ? 0.2 * screenWidth! : 0,
-      left: openMenu ? 0.5 * screenWidth! : 0,
-      duration: const Duration(milliseconds: 500),
-      child: Material(
-        color: ColorConstant.instance.white,
-        elevation: 15,
-        borderRadius:
-            openMenu ? const BorderRadius.all(Radius.circular(20)) : null,
-        child: SingleChildScrollView(child: _homeBody(context)),
-      ),
-    );
-  }
-
-  SizedBox _homeBody(BuildContext context) {
-    final firebaseUser = context.watch<User?>();
+/*  SizedBox _homeBody(BuildContext context) {
     return SizedBox(
         height: screenHeight,
         width: screenWidth,
@@ -193,111 +342,7 @@ class _HomePageState extends State<HomePage>
                   ])
             ]));
   }
-
-  Widget menu(BuildContext context) {
-    final firebaseUser = context.watch<User?>();
-    return SlideTransition(
-      position: _offsetAnimation,
-      child: Container(
-        height: screenHeight,
-        color: ColorConstant.instance.white,
-        child: Padding(
-          padding: EdgeInsets.only(left: 18.w),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  SizedBox(
-                    height: 80.h,
-                  ),
-                  Padding(
-                    padding: PaddingConstant.instance.loginPadding,
-                    child: SizedBox(
-                      height: 75.h,
-                      width: 75.w,
-                      child: Image.asset(AssetPath.instance.menuPerson),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  firebaseUser != null
-                      ? MenuItem(
-                          icons: Icons.person,
-                          text: "${firebaseUser.displayName}",
-                          page: RouteConstant.profileRoute,
-                        )
-                      : MenuItem(
-                          icons: Icons.person,
-                          text: StringConstant.instance.menuPerson,
-                          page: RouteConstant.profileRoute,
-                        ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  MenuItem(
-                    icons: Icons.info_outline,
-                    text: StringConstant.instance.menuAbout,
-                    page: RouteConstant.homeScreenRoute,
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  MenuItem(
-                    icons: Icons.send,
-                    text: StringConstant.instance.menuSendBack,
-                    page: RouteConstant.homeScreenRoute,
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  MenuItem(
-                    icons: Icons.star,
-                    text: StringConstant.instance.menuRateOurApp,
-                    page: RouteConstant.homeScreenRoute,
-                  ),
-                  SizedBox(
-                    height: 150.h,
-                  ),
-                  Row(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          context
-                              .read<FirebaseAuthMethods>()
-                              .signOut(context)
-                              .then((value) => Navigator.pushNamed(
-                                  context, RouteConstant.coverScreenRoue));
-                        },
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.logout_outlined,
-                              color: ColorConstant.instance.yankeBlue,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                StringConstant.instance.logOut,
-                                style:
-                                    TextStyleConstant.instance.textLargeRegular,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-                ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
+*/
 
 //TODO: Responsive
 /* class _SocialCard extends StatelessWidget {
@@ -352,7 +397,7 @@ class _HomePageState extends State<HomePage>
       ),
     );
   }
-}*/
+}
 
 class _SearchWidget extends StatelessWidget {
   const _SearchWidget({
@@ -376,36 +421,4 @@ class _SearchWidget extends StatelessWidget {
     );
   }
 }
-
-class MenuItem extends StatelessWidget {
-  final String text;
-  final IconData icons;
-  final String page;
-  const MenuItem(
-      {Key? key, required this.text, required this.icons, required this.page})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, page);
-      },
-      child: Row(
-        children: [
-          Icon(
-            icons,
-            color: ColorConstant.instance.yankeBlue,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: Text(
-              text,
-              style: TextStyleConstant.instance.textLargeRegular,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+*/
