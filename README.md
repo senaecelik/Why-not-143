@@ -55,9 +55,8 @@ Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında
 
 Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - Sprint 2 panosunda gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
 
-- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Discord, Whatsapp ve Google Meet üzerinden yapılmasına karar verilmiştir. Sprint boyunca her gün ilgili uygulamalarla Daily Scrum yapılmıştır.  Daily Scrum toplantısı örnekleri word olarak Readme'de tarafımızdan paylaşılmaktadır: 
-  
-[**Sprint 1 Daily Scrum Chats**](https://github.com/OyunveUygulamaAkademisi/BootcampScrumTemplate/blob/main/ProjectManagement/Sprint1Documents/DailyScrumMeetingNotesSprint1.docx?raw=true)
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Discord, Whatsapp ve Google Meet üzerinden yapılmasına karar verilmiştir. Sprint boyunca her gün ilgili uygulamalarla Daily Scrum yapılmıştır.  Daily Scrum toplantısı örnekleri word olarak Readme'de tarafımızdan paylaşılmaktadır:  
+[**Sprint 1 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/bbca2678825ae36cd7de0d44ce0535dda673fb6e/Proje%20Y%C3%B6netimi/Sprint%201/Daily%20Scrum%20Chats.docx)
 
 - **Sprint board update**: Sprint board screenshotları: 
 ![Backlog 1]() 
