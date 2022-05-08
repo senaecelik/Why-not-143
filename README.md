@@ -69,6 +69,15 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 
   
 - **Ürün Durumu**: Ekran görüntüleri:
+  ![APK_1](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/1.jpeg)
+  ![APK_2](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/2.jpeg)
+  ![APK_3](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/3.jpeg)
+  ![APK_4](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/4.jpeg)
+  ![APK_5](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/5.jpeg)
+  ![APK_6](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/6.jpeg)
+  ![APK_7](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/7.jpeg)
+  ![APK_8](https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/8.jpeg)
+  
   
 - **Sprint Review**: 
 Alınan kararlar: Home Page ve Detail Page ekranlarında istenen özelliklerin teknik olarak kalan 2 sprintte nasıl yapılacağı ve ne kadar zaman alacağı üzerine araştırmalar devam ettiğinden PBI bir sonraki sprint'e aktarılmıştır. Yine veritabanı oluşturulması email ile toplanacak veriler veya barınaktaki hayvanların genel özelliklerinin barınaklar tarafından giriş yapılması, bilgilerin güncel tutulması için gerekli görülmüştür. Veritabanı üzerine çalışmalar devam edecek ve bir sonraki sprintte çözülecektir. Uygulamada ekstra koyulması gereken özellikler brainstorming ile belirlenmiş ve 2. sprint başlangıcında oylanmasına karar verilmiştir. 
@@ -81,7 +90,7 @@ Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan �
 
 - Hayvanların listelenmesi için veritabanı ya da API araştırmalarına devam edilmesine karar verilmiştir.
 
-- Daily Scrum çıktılarının her gün Discord üzerinden yazılmasına karar verilmiştir.
+- Daily Scrum çıktılarının her gün Whatsapp üzerinden Daily Scrum grubundan yazılmasına karar verilmiştir.
 
 
 -**Diğer Notlar**:
