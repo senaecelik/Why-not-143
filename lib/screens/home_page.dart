@@ -133,13 +133,18 @@ class _HomePageState extends State<HomePage>
                             child: SizedBox(
                               height: 75.h,
                               width: 75.w,
-                              child: Image.network("${_firebaseUser.photoURL}"),
+                              child: CircleAvatar(
+                                child:
+                                    Image.network("${_firebaseUser.photoURL}"),
+                              ),
                             ),
                           )
                         : SizedBox(
                             height: 75.h,
                             width: 75.w,
-                            child: Image.asset(AssetPath.instance.menuPerson),
+                            child: CircleAvatar(
+                                child:
+                                    Image.asset(AssetPath.instance.menuPerson)),
                           ),
                     SizedBox(
                       height: 16.h,

@@ -29,46 +29,61 @@ class _FeedBackPageState extends State<FeedBackPage> {
             title: Text(StringConstant.instance.feedBack,
                 style: GoogleFonts.poppins(
                     color: ColorConstant.instance.yankeBlue))),
-        body: Padding(
-          padding: PaddingConstant.instance.loginPadding,
+        body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 35.h),
-              SubText(text: StringConstant.instance.feedBackSub),
-              SizedBox(height: 35.h),
+              Padding(
+                padding: PaddingConstant.instance.loginPadding,
+                child: SubText(text: StringConstant.instance.feedBackSub),
+              ),
               Form(
                 key: _formKey,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TittleWidget(text: StringConstant.instance.feedBackCaption),
-                    TextFormField(
-                      onChanged: (value) {
-                        setState(() {
-                          feedbackTitle = value;
-                        });
-                      },
-                      decoration: InputDecoration(
-                        hintText: StringConstant.instance.feedBackCaptionSub,
-                        hintStyle: TextStyleConstant.instance.textSmallMedium
-                            .copyWith(color: ColorConstant.instance.neutral),
+                    Padding(
+                      padding: PaddingConstant.instance.loginPadding,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          TittleWidget(
+                              text: StringConstant.instance.feedBackCaption),
+                        ],
                       ),
                     ),
-                    TextFormField(
-                      onChanged: (value) {
-                        setState(() {
-                          feedbackMessage = value;
-                        });
-                      },
-                      decoration: InputDecoration(
-                        hintText: StringConstant.instance.feedBackMessage,
-                        hintStyle: TextStyleConstant.instance.textSmallMedium
-                            .copyWith(color: ColorConstant.instance.neutral),
+                    Padding(
+                      padding: PaddingConstant.instance.loginPadding,
+                      child: TextFormField(
+                        onChanged: (value) {
+                          setState(() {
+                            feedbackTitle = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: StringConstant.instance.feedBackCaptionSub,
+                          hintStyle: TextStyleConstant.instance.textSmallMedium
+                              .copyWith(color: ColorConstant.instance.neutral),
+                        ),
                       ),
                     ),
-                    Center(
+                    Padding(
+                      padding: PaddingConstant.instance.loginPadding,
+                      child: TextFormField(
+                        onChanged: (value) {
+                          setState(() {
+                            feedbackMessage = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: StringConstant.instance.feedBackMessage,
+                          hintStyle: TextStyleConstant.instance.textSmallMedium
+                              .copyWith(color: ColorConstant.instance.neutral),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 80.h,
+                      width: 800.w,
                       child: GeneralButton(
                         text: StringConstant.instance.feedBackSend,
                         function: send,
