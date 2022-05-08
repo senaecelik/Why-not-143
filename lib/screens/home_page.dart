@@ -13,6 +13,7 @@ import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/widget/menu_item_widget.dart';
 
 import '../constant.dart/string.dart';
+import 'menu/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -58,58 +59,61 @@ class _HomePageState extends State<HomePage>
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
-        child: Scaffold(
-            body: Stack(children: [
-      _menu(_firebaseUser, context),
-      AnimatedPositioned(
-          top: openMenu ? 0.1 * screenHeight! : 0,
-          bottom: openMenu ? 0.2 * screenWidth! : 0,
-          left: openMenu ? 0.5 * screenWidth! : 0,
-          duration: const Duration(milliseconds: 500),
-          child: Material(
-            color: ColorConstant.instance.white,
-            elevation: 15,
-            borderRadius:
-                openMenu ? const BorderRadius.all(Radius.circular(20)) : null,
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: screenHeight,
-                width: screenWidth,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+      child: Scaffold(
+        body: Stack(children: [
+          _menu(_firebaseUser, context),
+          AnimatedPositioned(
+              top: openMenu ? 0.1 * screenHeight! : 0,
+              bottom: openMenu ? 0.2 * screenWidth! : 0,
+              left: openMenu ? 0.5 * screenWidth! : 0,
+              duration: const Duration(milliseconds: 500),
+              child: Material(
+                color: ColorConstant.instance.white,
+                elevation: 15,
+                borderRadius: openMenu
+                    ? const BorderRadius.all(Radius.circular(20))
+                    : null,
+                child: SingleChildScrollView(
+                  child: SizedBox(
+                    height: screenHeight,
+                    width: screenWidth,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        _homeAppBar(),
-                        if (_firebaseUser != null)
-                          ElevatedButton(
-                              onPressed: () async {
-                                await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: ((context) =>
-                                            const FormPage())));
-                              },
-                              child: Text("Patim ol"))
-                        else
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, RouteConstant.loginScreenRoute);
-                            },
-                            child: Text("Patim ol"),
-                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _homeAppBar(),
+                            if (_firebaseUser != null)
+                              ElevatedButton(
+                                  onPressed: () async {
+                                    await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                const FormPage())));
+                                  },
+                                  child: Text("Patim ol"))
+                            else
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                      context, RouteConstant.loginScreenRoute);
+                                },
+                                child: Text("Patim ol"),
+                              ),
+                          ],
+                        )
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ))
-    ])));
+              ))
+        ]),
+      ),
+    );
   }
 
   SlideTransition _menu(User? _firebaseUser, BuildContext context) {

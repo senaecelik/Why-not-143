@@ -3,7 +3,7 @@ import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:why_not_143_team/screens/menu/about_page.dart';
 import 'package:why_not_143_team/screens/menu/feed_back_page.dart';
-import 'package:why_not_143_team/screens/home_page.dart';
+import 'package:why_not_143_team/screens/nav_page.dart';
 import 'package:why_not_143_team/screens/auth/login_page.dart';
 import 'package:why_not_143_team/screens/auth/on_board_page.dart';
 import 'package:why_not_143_team/screens/menu/profile_page.dart';
@@ -32,7 +32,7 @@ class RouterGenerator {
       case RouteConstant.loginScreenRoute:
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case RouteConstant.homeScreenRoute:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => const NavPage());
       case RouteConstant.registerScreenRoute:
         return MaterialPageRoute(builder: (_) => const RegisterPage());
 
