@@ -17,4 +17,5 @@ class ColorConstant {
   final Color lightGray = const Color(0xFFF3F5F8);
   final Color primary700 = const Color(0xff27487F);
   final Color neutral300 = const Color(0xffCBD5E1);
+  final Color cardColor = const Color(0xffFDD153);
 }

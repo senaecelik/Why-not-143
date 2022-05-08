@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -104,6 +105,7 @@ class _HomePageState extends State<HomePage>
                                 },
                                 child: Text("Patim ol"),
                               ),
+                            homeCard(),
                           ],
                         )
                       ],
@@ -112,6 +114,93 @@ class _HomePageState extends State<HomePage>
                 ),
               ))
         ]),
+      ),
+    );
+  }
+
+  Padding homeCard() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: Align(
+        alignment: Alignment.center,
+        child: Container(
+          height: 141.h,
+          width: 349.w,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomRight,
+                colors: [
+                  ColorConstant.instance.cardColor,
+                  Colors.orangeAccent,
+                ],
+              ),
+              color: ColorConstant.instance.cardColor,
+              borderRadius: BorderRadius.circular(15)),
+          child: Stack(
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: 80.h,
+                        width: 80.w,
+                        child: Image.asset(
+                          AssetPath.instance.cat1,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Lottie.asset(
+                    AssetPath.instance.cardImage,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: 80.h,
+                        width: 80.w,
+                        child: Image.asset(
+                          AssetPath.instance.cat2,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        side: const BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      elevation: 0,
+                      primary: Colors.transparent,
+                      onPrimary: ColorConstant.instance.yankeBlue,
+                    ),
+                    onPressed: () {},
+                    child: Padding(
+                      padding: PaddingConstant.instance.loginPadding,
+                      child: Text(
+                        "Bağış Yap",
+                        style: TextStyleConstant.instance.textSmallMedium,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
