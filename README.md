@@ -40,6 +40,10 @@ Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında
 
 [Trello Backlog Board](https://trello.com/invite/b/YdTjWql2/5c76480dbd8c024a4fa257ac269704f5/why-not-143)
 
+# Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
+  
+  ![BurndownChart](https://github.com/senaecelik/Why-not-143/blob/ea06eb5a99cf552e56b1f3d7840e5989161a75b5/Proje%20Y%C3%B6netimi/Sprint%201/burndownchart.png) 
+
 
 ---
 
