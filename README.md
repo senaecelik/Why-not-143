@@ -68,8 +68,9 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
   
 - **Sprint Review**: 
 Alınan kararlar: Home Page ve Detail Page ekranlarında istenen özelliklerin teknik olarak kalan 2 sprintte nasıl yapılacağı ve ne kadar zaman alacağı üzerine araştırmalar devam ettiğinden PBI bir sonraki sprint'e aktarılmıştır. Yine veritabanı oluşturulması email ile toplanacak veriler veya barınaktaki hayvanların genel özelliklerinin barınaklar tarafından giriş yapılması, bilgilerin güncel tutulması için gerekli görülmüştür. Veritabanı üzerine çalışmalar devam edecek ve bir sonraki sprintte çözülecektir. Uygulamada ekstra koyulması gereken özellikler brainstorming ile belirlenmiş ve 2. sprint başlangıcında oylanmasına karar verilmiştir. 
-Sprint Review katılımcıları: 
-** Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan Çelik**
+  
+- **Sprint Review katılımcıları:** 
+Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan Çelik
   
 - **Sprint Retrospective:**
   - Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır
