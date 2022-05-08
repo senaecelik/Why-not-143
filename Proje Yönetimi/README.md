@@ -1,3 +1,3 @@
-# **Proje Yönetimi dosyası**
+# **Proje Yönetimi**
 
 
