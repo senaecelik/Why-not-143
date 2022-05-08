@@ -18,16 +18,15 @@
 **Pati Dostum**
 
 ## Ürün Açıklaması
-Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır. Uygulamamız sektörde benzerlerinden farklı olarak belediyeler ve belediyelere bağlı barınaklarla entegre çalışacak; barınaklardan güncel veri çekerek son kullanıcıya bilgi sağlayacaktır. Böylece hayvan sahiplenmek isteyen ancak barınağa çeşitli nedenlerle gitmeyen insanlar da hayvanları görebilecek, haklarında bilgi edinebilecektir. Yine uygulama üzerinden barınaklara bağış/ya da fiziksel yardım gönderilmesi için barınak bilgileri paylaşılacaktır. Kullanıcılar hayvan sahiplendikten sonra da hayvan bakımı için oluşturulan forumda bilgi paylaşımı yapabilecek be böylece uygulamada kullanıcıların sürekliliği sağlanacaktır. 
+Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır. Uygulamamız sektörde benzerlerinden farklı olarak belediyeler ve belediyelere bağlı barınaklarla entegre çalışacak; barınaklardan güncel veri çekerek son kullanıcıya bilgi sağlayacaktır. Böylece hayvan sahiplenmek isteyen ancak barınağa çeşitli nedenlerle gitmeyen insanlar da hayvanları görebilecek, haklarında bilgi edinebilecektir. Yine uygulama üzerinden barınaklara bağış/ya da fiziksel yardım gönderilmesi için barınak bilgileri paylaşılacaktır. Kullanıcılar hayvan sahiplendikten sonra da hayvan bakımı için oluşturulan bilgi sayfalarında  gezinebilecek ve böylece uygulamada kullanıcıların sürekliliği sağlanacaktır. 
 
 ## Ürün Özellikleri
 
 - Kullanıcılar kendilerine en yakın barınak ve barınaktaki hayvanları görebilir, hayvanlar hakkında detaylı bilgi (yaş, cinsiyet, hastalık) edinebilirler. (Uygulamada pilot olarak 1 barınak ile entegre sağlanmıştır.)
 - Kullanıcılar hayvan sahiplendirme formunu doldurarak barınak yetkililerine iletebilir, başvuruları barınaklar tarafından değerlendirildikten sonra onay maili ve pati dostunu alabilmesi için yer, saat, tarih bilgisi veya olumsuz bulunduğuna dair mail alabilirler.
 - Hayvanlar cinse göre filtrelenebilir.
-- Uygulama üzerinden her barınak özelinde barınak ihtiyaçları görünür, kullanıcılar isteklerine göre barınakların hesaplarına bağış yapabilir ya da barınakların güncel ihtiyaçlarını görerek barınak hesaplarına maddi yardım ya da direkt barınak adreslerine erzak/tıbbi malzeme yardımı gönderebilirler.
-- Barınak yetkilileri tarafından sürekli güncellenen barınak ihtiyaçlarını kullanıcılar görerek, ilgili barınak hesaplarına ulaşabilir, bağış yapabilir ya da barınak adreslerine ihtiyaçları (mama/tıbbi malzeme vs.) gönderebilirler.
-- Kullanıcılar; hayvan bakımına dair her bilginin paylaşılacağı foruma katkı sağlayabilir, kullanıcılar birbirlerine soru sorabilir ve yanıtlayabilirler.
+- Uygulama üzerinden her barınak özelinde barınak ihtiyaçları görünür, kullanıcılar isteklerine göre barınakların hesaplarına bağış yapabilir ya da   barınak adreslerine direkt erzak/tıbbi malzeme yardımı gönderebilirler.
+- Kullanıcılar; hayvan bakımına dair her bilginin paylaşılacağı sayfalardan sahiplendikleri hayvanın bakımına dair her bilgiyi öğrenebilirler.
 
 ## Hedef Kitle
 
@@ -68,8 +67,10 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 - **Ürün Durumu**: Ekran görüntüleri:
   
 - **Sprint Review**: 
-Alınan kararlar: Veritabanı oluşturması email ile toplanacak veriler için gerekli görülmüştür. Fakat bir yandan da veritabanı form sayfası için gerekli olmamıştır. O sebeple PBI bir sonraki sprint'e aktarılmıştır. Çıkan ürünün çalışmasında ve testlerinde bir problem görülmemiştir. Ekstra koyulması gereken özellikler belirlenmiştir. Sprint Review katılımcıları: ......
-
+Alınan kararlar: Home Page ve Detail Page ekranlarında istenen özelliklerin teknik olarak kalan 2 sprintte nasıl yapılacağı ve ne kadar zaman alacağı üzerine araştırmalar devam ettiğinden PBI bir sonraki sprint'e aktarılmıştır. Yine veritabanı oluşturulması email ile toplanacak veriler veya barınaktaki hayvanların genel özelliklerinin barınaklar tarafından giriş yapılması, bilgilerin güncel tutulması için gerekli görülmüştür. Veritabanı üzerine çalışmalar devam edecek ve bir sonraki sprintte çözülecektir. Uygulamada ekstra koyulması gereken özellikler brainstorming ile belirlenmiş ve 2. sprint başlangıcında oylanmasına karar verilmiştir. 
+Sprint Review katılımcıları: 
+** Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan Çelik**
+  
 - **Sprint Retrospective:**
   - Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır
   - Tahmin puanları gözden geçirilmeli ve sprint planlama toplantılarında gerekli geri bildirimlerin developer'lar tarafından verildiğine emin olunmalı
