@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +9,6 @@ import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/form_page.dart';
-import 'package:why_not_143_team/screens/menu/profile_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/widget/menu_item_widget.dart';
 
@@ -52,7 +49,6 @@ class _HomePageState extends State<HomePage>
   @override
   void dispose() {
     _controller.dispose();
-
     super.dispose();
   }
 
@@ -117,118 +113,143 @@ class _HomePageState extends State<HomePage>
   }
 
   SlideTransition _menu(User? _firebaseUser, BuildContext context) {
-    String? photoUrl = _firebaseUser!.photoURL;
-    String? userName = _firebaseUser.displayName;
     return SlideTransition(
-      position: _offsetAnimation,
-      child: Container(
-        height: screenHeight,
-        color: ColorConstant.instance.white,
-        child: Padding(
-          padding: EdgeInsets.only(left: 18.w),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  _firebaseUser != null
-                      ? Padding(
-                          padding: PaddingConstant.instance.loginPadding,
-                          child: SizedBox(
+        position: _offsetAnimation,
+        child: Container(
+          height: screenHeight,
+          color: ColorConstant.instance.white,
+          child: Padding(
+            padding: EdgeInsets.only(left: 18.w),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    _firebaseUser != null
+                        ? Padding(
+                            padding: PaddingConstant.instance.loginPadding,
+                            child: SizedBox(
+                              height: 75.h,
+                              width: 75.w,
+                              child: Image.network("${_firebaseUser.photoURL}"),
+                            ),
+                          )
+                        : SizedBox(
                             height: 75.h,
                             width: 75.w,
-                            child: Image.network(photoUrl!),
+                            child: Image.asset(AssetPath.instance.menuPerson),
                           ),
-                        )
-                      : SizedBox(
-                          height: 75.h,
-                          width: 75.w,
-                          child: Image.asset(AssetPath.instance.menuPerson),
-                        ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  if (_firebaseUser != null)
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, RouteConstant.profileRoute);
-                      },
-                      child: MenuItem(
-                        icons: Icons.person,
-                        text: userName!,
-                        page: RouteConstant.profileRoute,
-                      ),
-                    )
-                  else
-                    MenuItem(
-                      icons: Icons.person,
-                      text: StringConstant.instance.menuPerson,
-                      page: RouteConstant.profileRoute,
+                    SizedBox(
+                      height: 16.h,
                     ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  MenuItem(
-                    icons: Icons.info_outline,
-                    text: StringConstant.instance.menuAbout,
-                    page: RouteConstant.aboutScreenRoute,
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  MenuItem(
-                    icons: Icons.send,
-                    text: StringConstant.instance.menuSendBack,
-                    page: RouteConstant.feedBackScreenRoute,
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  MenuItem(
-                    icons: Icons.star,
-                    text: StringConstant.instance.menuRateOurApp,
-                    page: RouteConstant.homeScreenRoute,
-                  ),
-                  SizedBox(
-                    height: 150.h,
-                  ),
-                  Row(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          context
-                              .read<FirebaseAuthMethods>()
-                              .signOut(context)
-                              .then((value) => Navigator.pushNamed(
-                                  context, RouteConstant.coverScreenRoue));
-                        },
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.logout_outlined,
-                              color: ColorConstant.instance.yankeBlue,
+                    _firebaseUser != null
+                        ? GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, RouteConstant.profileRoute);
+                            },
+                            child: MenuItem(
+                              icons: Icons.person,
+                              text: "${_firebaseUser.displayName}",
+                              page: RouteConstant.profileRoute,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                StringConstant.instance.logOut,
-                                style:
-                                    TextStyleConstant.instance.textLargeRegular,
+                          )
+                        : MenuItem(
+                            icons: Icons.person,
+                            text: StringConstant.instance.menuPerson,
+                            //TODO:tıklanıldığında toast mesaj gösterip giriş yapın denecek
+                            page: RouteConstant.homeScreenRoute,
+                          ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    MenuItem(
+                      icons: Icons.info_outline,
+                      text: StringConstant.instance.menuAbout,
+                      page: RouteConstant.aboutScreenRoute,
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    MenuItem(
+                      icons: Icons.send,
+                      text: StringConstant.instance.menuSendBack,
+                      page: RouteConstant.feedBackScreenRoute,
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    MenuItem(
+                      icons: Icons.star,
+                      text: StringConstant.instance.menuRateOurApp,
+                      page: RouteConstant.homeScreenRoute,
+                    ),
+                    SizedBox(
+                      height: 150.h,
+                    ),
+                    _firebaseUser != null
+                        ? Row(
+                            children: [
+                              InkWell(
+                                onTap: () async {
+                                  context
+                                      .read<FirebaseAuthMethods>()
+                                      .signOut(context)
+                                      .then((value) => Navigator.pushNamed(
+                                          context,
+                                          RouteConstant.coverScreenRoue));
+                                },
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.logout_outlined,
+                                      color: ColorConstant.instance.yankeBlue,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        StringConstant.instance.logOut,
+                                        style: TextStyleConstant
+                                            .instance.textLargeRegular,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-                ]),
+                            ],
+                          )
+                        : Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, RouteConstant.loginScreenRoute);
+                                },
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.login_outlined,
+                                      color: ColorConstant.instance.yankeBlue,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        StringConstant.instance.loginSignIn,
+                                        style: TextStyleConstant
+                                            .instance.textLargeRegular,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                  ]),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 
   _homeAppBar() {
