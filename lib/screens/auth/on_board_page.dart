@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
-import '../constant.dart/color_constant.dart';
-import '../constant.dart/padding_constant.dart';
-import '../constant.dart/string.dart';
-import '../constant.dart/text_style.dart';
+import '../../constant.dart/color_constant.dart';
+import '../../constant.dart/padding_constant.dart';
+import '../../constant.dart/string.dart';
+import '../../constant.dart/text_style.dart';
 
 class OnBoard extends StatefulWidget {
   const OnBoard({Key? key}) : super(key: key);

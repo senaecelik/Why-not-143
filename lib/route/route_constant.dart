@@ -6,5 +6,9 @@ class RouteConstant {
   static const String forgotPassRoute = "/forgotPassword";
   static const String profileRoute = "/proilePage";
   static const String registerScreenRoute = '/registerPage';
-  static const String addCardPageRoute = '/addCardPage';
+  static const String feedBackScreenRoute = '/feedBackPage';
+  static const String voteOurApp = '/voteOurApp';
+  static const String aboutScreenRoute = '/aboutPage';
+
+
 }
