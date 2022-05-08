@@ -59,10 +59,15 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 [**Sprint 1 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/bbca2678825ae36cd7de0d44ce0535dda673fb6e/Proje%20Y%C3%B6netimi/Sprint%201/Daily%20Scrum%20Chats.docx)
 
 - **Sprint board update**: Sprint board screenshotları: 
-![Backlog 1]() 
-![Backlog 2]() 
-![Backlog 3]()
+![Sprint1_1](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_1.png) 
+![Sprint1_2](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_2.png) 
+![Sprint1_3](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_3.png)
+![Sprint1_4](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_4.png)
+![Sprint1_5](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_5.png)
+![Sprint1_6](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_6.png)
+![Sprint1_7](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_7.png)
 
+  
 - **Ürün Durumu**: Ekran görüntüleri:
   
 - **Sprint Review**: 
