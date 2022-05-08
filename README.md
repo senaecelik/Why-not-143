@@ -18,7 +18,7 @@
 **Pati Dostum**
 
 ## Ürün Açıklaması
-Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır. Uygulamamız sektörde benzerlerinden farklı olarak belediyeler ve belediyelere bağlı barınaklarla entegre çalışacak; barınaklardan güncel veri çekerek son kullanıcıya bilgi sağlayacaktır. Böylece hayvan sahiplenmek isteyen ancak barınağa çeşitli nedenlerle gitmeyen insanlar da hayvanları görebilecek, haklarında bilgi edinebilecektir. Yine uygulama üzerinden barınaklara bağış/ya da fiziksel yardım gönderilmesi için barınak bilgileri paylaşılacaktır. Kullanıcılar hayvan sahiplendikten sonra da hayvan bakımı için oluşturulan bilgi sayfalarında  gezinebilecek ve böylece uygulamada kullanıcıların sürekliliği sağlanacaktır. 
+Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır. Uygulamamız sektörde benzerlerinden farklı olarak dernekler, belediyeler ve bunlara bağlı barınaklarla entegre çalışacak; barınaklardan güncel veri çekerek son kullanıcıya bilgi sağlayacaktır. Böylece hayvan sahiplenmek isteyen ancak barınağa çeşitli nedenlerle gitmeyen insanlar da hayvanları görebilecek, haklarında bilgi edinebilecektir. Yine uygulama üzerinden barınaklara bağış/ya da fiziksel yardım gönderilmesi için barınak bilgileri paylaşılacaktır. Kullanıcılar hayvan sahiplendikten sonra da hayvan bakımı için oluşturulan bilgi sayfalarında  gezinebilecek ve böylece uygulamada kullanıcıların sürekliliği sağlanacaktır. 
 
 ## Ürün Özellikleri
 
@@ -73,9 +73,12 @@ Alınan kararlar: Home Page ve Detail Page ekranlarında istenen özelliklerin t
 Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan Çelik
   
 - **Sprint Retrospective:**
-  - Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır
-  - Tahmin puanları gözden geçirilmeli ve sprint planlama toplantılarında gerekli geri bildirimlerin developer'lar tarafından verildiğine emin olunmalı
-  - Unit test'ler için ayrılan efor/saat arttırılmalı 
+- Home page ve Detail Page'de UX deneyimini iyileştirmek için çalışmalar yapılması kararlaştırılmıştır.
+
+- Hayvanların listelenmesi için veritabanı ya da API araştırmalarına devam edilmesine karar verilmiştir.
+
+- Daily Scrum çıktılarının her gün Discord üzerinden yazılmasına karar verilmiştir.
+
 
 -**Diğer Notlar**:
 - N/A
