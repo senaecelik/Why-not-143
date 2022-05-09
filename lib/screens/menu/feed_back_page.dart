@@ -115,7 +115,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
           ),
         ),
       ),
-    ));
+    );
   }
 
   void send() {
