@@ -61,7 +61,6 @@ class MyApp extends StatelessWidget {
 
   AppBarTheme appBarTheme() {
     return AppBarTheme(
-      
       backgroundColor: Colors.transparent,
       centerTitle: true,
       systemOverlayStyle: SystemUiOverlayStyle.light,

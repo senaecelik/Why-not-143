@@ -9,6 +9,7 @@ import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/form_page.dart';
+import 'package:why_not_143_team/screens/nav_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/widget/menu_item_widget.dart';
 
@@ -108,7 +109,8 @@ class _HomePageState extends State<HomePage>
                 ),
               ),
             ),
-          ))
+          )),
+      openMenu ? Text("") : NavPage()
     ])));
   }
 
