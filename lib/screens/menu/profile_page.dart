@@ -25,10 +25,9 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           children: [
             SizedBox(
-              height: 150.h,
-              width: 150.w,
-              child: Image.network("${_firebaseUser!.photoURL}"),
-            ),
+                height: 150.h,
+                width: 150.w,
+                child: Image.asset(AssetPath.instance.menuPerson)),
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Row(
@@ -37,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const Icon(Icons.person),
                   SizedBox(width: 10.w),
                   Text(
-                    "${_firebaseUser.displayName}",
+                    "${_firebaseUser!.email}",
                     style: TextStyleConstant.instance.textLargeRegular,
                   ),
                 ],
