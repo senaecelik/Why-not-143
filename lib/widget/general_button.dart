@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 
-import '../constant.dart/padding_constant.dart';
-
 class GeneralButton extends StatelessWidget {
   final Function() function;
   final String text;
