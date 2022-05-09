@@ -23,65 +23,60 @@ class _FeedBackPageState extends State<FeedBackPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-            leadingWidth: 80,
-            title: Text(StringConstant.instance.feedBack,
-                style: GoogleFonts.poppins(
-                    color: ColorConstant.instance.yankeBlue))),
-        body: Padding(
+        child: Scaffold(
+      appBar: AppBar(
+          leadingWidth: 80,
+          title: Text(StringConstant.instance.feedBack,
+              style: GoogleFonts.poppins(
+                  color: ColorConstant.instance.yankeBlue))),
+      body: Form(
+        key: _formKey,
+        child: Padding(
           padding: PaddingConstant.instance.loginPadding,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(height: 35.h),
               SubText(text: StringConstant.instance.feedBackSub),
               SizedBox(height: 35.h),
-              Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TittleWidget(text: StringConstant.instance.feedBackCaption),
-                    TextFormField(
-                      onChanged: (value) {
-                        setState(() {
-                          feedbackTitle = value;
-                        });
-                      },
-                      decoration: InputDecoration(
-                        hintText: StringConstant.instance.feedBackCaptionSub,
-                        hintStyle: TextStyleConstant.instance.textSmallMedium
-                            .copyWith(color: ColorConstant.instance.neutral),
-                      ),
-                    ),
-                    TextFormField(
-                      onChanged: (value) {
-                        setState(() {
-                          feedbackMessage = value;
-                        });
-                      },
-                      decoration: InputDecoration(
-                        hintText: StringConstant.instance.feedBackMessage,
-                        hintStyle: TextStyleConstant.instance.textSmallMedium
-                            .copyWith(color: ColorConstant.instance.neutral),
-                      ),
-                    ),
-                    Center(
-                      child: GeneralButton(
-                        text: StringConstant.instance.feedBackSend,
-                        function: send,
-                      ),
-                    )
-                  ],
+              TittleWidget(text: StringConstant.instance.feedBackCaption),
+              TextFormField(
+                onChanged: (value) {
+                  setState(() {
+                    feedbackTitle = value;
+                  });
+                },
+                decoration: InputDecoration(
+                  hintText: StringConstant.instance.feedBackCaptionSub,
+                  hintStyle: TextStyleConstant.instance.textSmallMedium
+                      .copyWith(color: ColorConstant.instance.neutral),
                 ),
               ),
+              TextFormField(
+                onChanged: (value) {
+                  setState(() {
+                    feedbackMessage = value;
+                  });
+                },
+                decoration: InputDecoration(
+                  hintText: StringConstant.instance.feedBackMessage,
+                  hintStyle: TextStyleConstant.instance.textSmallMedium
+                      .copyWith(color: ColorConstant.instance.neutral),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              GeneralButton(
+                text: StringConstant.instance.feedBackSend,
+                function: send,
+              )
             ],
           ),
         ),
       ),
-    );
+    ));
   }
 
   void send() {
