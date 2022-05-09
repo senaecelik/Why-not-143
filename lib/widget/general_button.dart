@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 
@@ -13,21 +13,21 @@ class GeneralButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: PaddingConstant.instance.loginPadding,
-        child: InkWell(
-            onTap: function,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: ColorConstant.instance.yankeBlue),
-              child: Text(
-                text,
-                style: TextStyleConstant.instance.textLargeMedium
-                    .copyWith(color: ColorConstant.instance.white),
-                textAlign: TextAlign.center,
-              ),
-            )));
+    return InkWell(
+        onTap: function,
+        child: Container(
+          height: 58.h,
+          width: 327.w,
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: ColorConstant.instance.yankeBlue),
+          child: Text(
+            text,
+            style: TextStyleConstant.instance.textLargeMedium
+                .copyWith(color: ColorConstant.instance.white),
+            textAlign: TextAlign.center,
+          ),
+        ));
   }
 }

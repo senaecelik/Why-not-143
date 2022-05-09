@@ -31,7 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void signUpUser() async {
     context.read<FirebaseAuthMethods>().signUpWithEmail(
-        name: registerNameController.text,
+        displayName: registerNameController.text,
         email: registerEmailController.text,
         password: registerPasswordController.text,
         context: context);

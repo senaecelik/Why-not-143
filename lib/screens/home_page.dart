@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage>
       AnimatedPositioned(
           top: openMenu ? 0.1 * screenHeight! : 0,
           bottom: openMenu ? 0.2 * screenWidth! : 0,
-          left: openMenu ? 0.5 * screenWidth! : 0,
+          left: openMenu ? 0.73 * screenWidth! : 0,
           duration: const Duration(milliseconds: 500),
           child: Material(
             color: ColorConstant.instance.white,
@@ -131,10 +131,12 @@ class _HomePageState extends State<HomePage>
                         ? Padding(
                             padding: PaddingConstant.instance.loginPadding,
                             child: SizedBox(
-                              height: 75.h,
-                              width: 75.w,
-                              child: Image.network("${_firebaseUser.photoURL}"),
-                            ),
+                                height: 75.h,
+                                width: 75.w,
+                                child: _firebaseUser.photoURL != null
+                                    ? Image.network("${_firebaseUser.photoURL}")
+                                    : Image.asset(
+                                        AssetPath.instance.menuPerson)),
                           )
                         : SizedBox(
                             height: 75.h,
@@ -150,12 +152,17 @@ class _HomePageState extends State<HomePage>
                               Navigator.pushNamed(
                                   context, RouteConstant.profileRoute);
                             },
-                            child: MenuItem(
-                              icons: Icons.person,
-                              text: "${_firebaseUser.displayName}",
-                              page: RouteConstant.profileRoute,
-                            ),
-                          )
+                            child: _firebaseUser.displayName != null
+                                ? MenuItem(
+                                    icons: Icons.person,
+                                    text: "${_firebaseUser.displayName}",
+                                    page: RouteConstant.profileRoute,
+                                  )
+                                : MenuItem(
+                                    icons: Icons.person,
+                                    text: "${_firebaseUser.email}",
+                                    page: RouteConstant.profileRoute,
+                                  ))
                         : MenuItem(
                             icons: Icons.person,
                             text: StringConstant.instance.menuPerson,
