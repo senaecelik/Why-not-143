@@ -26,7 +26,7 @@ class FirebaseAuthMethods {
   //FirebaseAuth
   //Email sign uo
   Future<User?> signUpWithEmail({
-    required String name,
+    required String displayName,
     required String email,
     required String password,
     required BuildContext context,
@@ -44,7 +44,7 @@ class FirebaseAuthMethods {
       await sendEmailVerification(context);
       await _firestore.collection("Person").doc(user.user!.uid).set({
         'email': email,
-        'name': name,
+        'displayName': displayName,
         'uid': FirebaseAuth.instance.currentUser!.uid
       });
       return user.user;

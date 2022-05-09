@@ -21,19 +21,28 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool loading = false;
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    loading = false;
     super.dispose();
   }
 
   void logInUser() {
+    setState(() {
+      loading = true;
+    });
+
     context.read<FirebaseAuthMethods>().loginWithEmail(
         email: emailController.text,
         password: passwordController.text,
         context: context);
+    setState(() {
+      loading = false;
+    });
   }
 
   @override
@@ -43,18 +52,25 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             emailText(),
             emailTextField(),
             passwordText(),
             passTextField(),
             forgotPassTextButton(),
-            GeneralButton(
-                function: logInUser, text: StringConstant.instance.loginSignIn),
+            loading
+                ? CircularProgressIndicator()
+                : GeneralButton(
+                    function: logInUser,
+                    text: StringConstant.instance.loginSignIn),
             dontHaveAccYet(context),
             loginTextOr(),
-            googleButton(),
+            loading
+                ? CircularProgressIndicator(
+                    color: ColorConstant.instance.yankeBlue,
+                  )
+                : googleButton(),
           ],
         ),
       ),
@@ -133,7 +149,13 @@ class _LoginPageState extends State<LoginPage> {
         width: 327.w,
         child: ElevatedButton.icon(
           onPressed: () async {
+            setState(() {
+              loading = true;
+            });
             await context.read<FirebaseAuthMethods>().signInWithGoogle(context);
+            setState(() {
+              loading = false;
+            });
           },
           icon: Tab(
             icon: Image.asset(AssetPath.instance.loginImage),

@@ -92,11 +92,30 @@ class _FeedBackPageState extends State<FeedBackPage> {
                   ],
                 ),
               ),
+              TextFormField(
+                onChanged: (value) {
+                  setState(() {
+                    feedbackMessage = value;
+                  });
+                },
+                decoration: InputDecoration(
+                  hintText: StringConstant.instance.feedBackMessage,
+                  hintStyle: TextStyleConstant.instance.textSmallMedium
+                      .copyWith(color: ColorConstant.instance.neutral),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              GeneralButton(
+                text: StringConstant.instance.feedBackSend,
+                function: send,
+              )
             ],
           ),
         ),
       ),
-    );
+    ));
   }
 
   void send() {

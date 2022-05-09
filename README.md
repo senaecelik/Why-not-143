@@ -40,6 +40,10 @@ Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında
 
 [Trello Backlog Board](https://trello.com/invite/b/YdTjWql2/5c76480dbd8c024a4fa257ac269704f5/why-not-143)
 
+# Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
+  
+  ![BurndownChart](https://github.com/senaecelik/Why-not-143/blob/ea06eb5a99cf552e56b1f3d7840e5989161a75b5/Proje%20Y%C3%B6netimi/Sprint%201/burndownchart.png) 
+
 
 ---
 
@@ -67,8 +71,49 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 ![Sprint1_6](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_6.png)
 ![Sprint1_7](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_7.png)
 
+<table>
+  <tr>
+    <td>1</td>
+     <td>2</td>
+     <td>3</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/1.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/2.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/3.jpeg" width="350" height="540"></td>
+   
+ </table>
+
+<table>
+  <tr>
+    <td>4</td>
+     <td>5</td>
+     <td>6</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/4.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/5.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/6.jpeg" width="350" height="540"></td>
+   
+ </table>
+
   
-- **Ürün Durumu**: Ekran görüntüleri:
+<table>
+  <tr>
+    <td>7</td>
+     <td>8</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/7.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/8.jpeg" width="350" height="540"></td>
+
+   
+ </table>
+
+  
   
 - **Sprint Review**: 
 Alınan kararlar: Home Page ve Detail Page ekranlarında istenen özelliklerin teknik olarak kalan 2 sprintte nasıl yapılacağı ve ne kadar zaman alacağı üzerine araştırmalar devam ettiğinden PBI bir sonraki sprint'e aktarılmıştır. Yine veritabanı oluşturulması email ile toplanacak veriler veya barınaktaki hayvanların genel özelliklerinin barınaklar tarafından giriş yapılması, bilgilerin güncel tutulması için gerekli görülmüştür. Veritabanı üzerine çalışmalar devam edecek ve bir sonraki sprintte çözülecektir. Uygulamada ekstra koyulması gereken özellikler brainstorming ile belirlenmiş ve 2. sprint başlangıcında oylanmasına karar verilmiştir. 
@@ -81,7 +126,7 @@ Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan �
 
 - Hayvanların listelenmesi için veritabanı ya da API araştırmalarına devam edilmesine karar verilmiştir.
 
-- Daily Scrum çıktılarının her gün Discord üzerinden yazılmasına karar verilmiştir.
+- Daily Scrum çıktılarının her gün Whatsapp üzerinden Daily Scrum grubundan yazılmasına karar verilmiştir.
 
 
 -**Diğer Notlar**:
