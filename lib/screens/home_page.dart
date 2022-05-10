@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
@@ -9,7 +10,8 @@ import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/screens/detail_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final ZoomDrawerController drawerController;
+  const HomePage(this.drawerController, {Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -102,7 +104,9 @@ class _HomePageState extends State<HomePage> {
 
   AppBar appBar() {
     return AppBar(
-      leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+      leading: InkWell(
+          onTap: () => widget.drawerController.toggle!(),
+          child: Icon(Icons.menu)),
       leadingWidth: 80,
       title: Text(
         StringConstant.instance.homePage,

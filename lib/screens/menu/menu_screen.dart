@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/config.dart';
 import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
@@ -17,7 +18,7 @@ import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/utils/show_toast_message.dart';
 
 class MenuScreen extends StatefulWidget {
-  const MenuScreen({Key? key}) : super(key: key);
+  const MenuScreen(ZoomDrawerController drawerController, {Key? key}) : super(key: key);
 
   @override
   State<MenuScreen> createState() => _MenuScreenState();

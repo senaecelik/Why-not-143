@@ -20,8 +20,8 @@ class _DrawerPageState extends State<DrawerPage> {
     return Scaffold(
       body: ZoomDrawer(
         controller: drawerController,
-        menuScreen: MenuScreen(),
-        mainScreen: HomePage(),
+        menuScreen: MenuScreen(drawerController),
+        mainScreen: HomePage(drawerController),
         borderRadius: 24.0,
         showShadow: true,
         angle: 0.0,
