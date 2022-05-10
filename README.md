@@ -1,7 +1,7 @@
 # **Takım İsmi**
 
 ### **why not 143?**
-<p align= "center"><a href="#"><img align="right" width="320" height="250" src="https://user-images.githubusercontent.com/48855691/167183679-48414e00-8073-4095-85d0-0f850d2b0e51.png">
+<img align="right" width="250" height="200" src="https://user-images.githubusercontent.com/48855691/167183679-48414e00-8073-4095-85d0-0f850d2b0e51.png">
 
 
 # Ürün İle İlgili Bilgiler
