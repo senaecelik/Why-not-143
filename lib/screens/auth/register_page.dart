@@ -44,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             nameText(),
             nameTextField(),
@@ -52,6 +52,9 @@ class _RegisterPageState extends State<RegisterPage> {
             mailTextField(),
             passwordText(),
             passTextField(),
+            SizedBox(
+              height: 20.h,
+            ),
             GeneralButton(
                 function: signUpUser,
                 text: StringConstant.instance.registerSignUp)
@@ -186,6 +189,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   AppBar appBar() {
     return AppBar(
+      leadingWidth: 80,
       title: Text(
         StringConstant.instance.registerSignUp,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
