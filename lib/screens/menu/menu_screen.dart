@@ -12,6 +12,7 @@ import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/utils/show_toast_message.dart';
 
@@ -280,8 +281,10 @@ class _LogOutState extends State<LogOut> {
             child: InkWell(
               onTap: () {
                 context.read<FirebaseAuthMethods>().signOut(context).then(
-                    (value) => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CoverPage())));
+                    (value) => Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        RouteConstant.homeScreenRoute,
+                        (Route<dynamic> route) => false));
               },
               child: Row(
                 children: [

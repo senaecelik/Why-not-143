@@ -222,6 +222,7 @@ class _LoginPageState extends State<LoginPage> {
 
   AppBar appBar() {
     return AppBar(
+      leadingWidth: 80,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
@@ -238,9 +239,13 @@ class _LoginPageState extends State<LoginPage> {
   Padding emailText() {
     return Padding(
       padding: PaddingConstant.instance.loginPadding,
-      child: Text(
-        StringConstant.instance.loginEmail,
-        style: TextStyleConstant.instance.textSmallMedium,
+      child: Row(
+        children: [
+          Text(
+            StringConstant.instance.loginEmail,
+            style: TextStyleConstant.instance.textSmallMedium,
+          ),
+        ],
       ),
     );
   }
@@ -248,9 +253,13 @@ class _LoginPageState extends State<LoginPage> {
   Padding passwordText() {
     return Padding(
       padding: PaddingConstant.instance.loginPadding,
-      child: Text(
-        StringConstant.instance.loginPassword,
-        style: TextStyleConstant.instance.textSmallMedium,
+      child: Row(
+        children: [
+          Text(
+            StringConstant.instance.loginPassword,
+            style: TextStyleConstant.instance.textSmallMedium,
+          ),
+        ],
       ),
     );
   }

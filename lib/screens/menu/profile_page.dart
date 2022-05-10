@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
+import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 
@@ -24,10 +25,36 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
-                height: 150.h,
-                width: 150.w,
-                child: Image.asset(AssetPath.instance.menuPerson)),
+            _firebaseUser != null
+                ? Padding(
+                    padding: PaddingConstant.instance.loginPadding,
+                    child: SizedBox(
+                      height: 100.h,
+                      width: 100.w,
+                      child: _firebaseUser.photoURL != null
+                          ? CircleAvatar(
+                              backgroundImage:
+                                  NetworkImage("${_firebaseUser.photoURL}"),
+                            )
+                          : CircleAvatar(
+                              backgroundImage:
+                                  AssetImage(AssetPath.instance.menuPerson),
+                            ),
+                    ),
+                  )
+                : Padding(
+                    padding: PaddingConstant.instance.loginPadding,
+                    child: DrawerHeader(
+                      child: SizedBox(
+                        height: 100.h,
+                        width: 100.w,
+                        child: CircleAvatar(
+                          backgroundImage:
+                              AssetImage(AssetPath.instance.menuPerson),
+                        ),
+                      ),
+                    ),
+                  ),
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Row(
@@ -36,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const Icon(Icons.person),
                   SizedBox(width: 10.w),
                   Text(
-                    "${_firebaseUser!.email}",
+                    "${_firebaseUser!.displayName}",
                     style: TextStyleConstant.instance.textLargeRegular,
                   ),
                 ],
