@@ -41,9 +41,8 @@ class _DetailPageState extends State<DetailPage> {
                       _firebaseUser != null
                           ? Navigator.pushNamed(
                               context, RouteConstant.formScreenRoute)
-                          : showToast(context, "Lütfen giriş yapın");
-                      Navigator.pushNamed(
-                          context, RouteConstant.loginScreenRoute);
+                          : Navigator.pushNamed(
+                              context, RouteConstant.loginScreenRoute);
                     },
                     child: Container(
                       height: 58.h,
