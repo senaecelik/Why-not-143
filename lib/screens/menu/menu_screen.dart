@@ -1,64 +1,82 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/route/route_constant.dart';
+import 'package:why_not_143_team/screens/auth/cover_page.dart';
+import 'package:why_not_143_team/services/firebase_auth_method.dart';
+import 'package:why_not_143_team/utils/show_toast_message.dart';
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
 
   @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+  @override
   Widget build(BuildContext context) {
+    final _firebaseUser = context.watch<User?>();
     return Scaffold(
       backgroundColor: ColorConstant.instance.yankeBlue,
       body: SafeArea(
         child: Column(
           children: [
-            menuAvatar(),
+            menuAvatar(_firebaseUser, context),
             menuDivider(),
             SizedBox1(),
-            menuPerson(),
+            menuPerson(_firebaseUser, context),
             menuRateOurApp(),
             menuAbout(),
             menuSendBack(),
             SizedBox2(),
-            menuLogout(),
+            const LogOut(),
           ],
         ),
       ),
     );
   }
 
-  Padding menuLogout() {
-    return Padding(
-      padding: PaddingConstant.instance.menuPadding,
-      child: InkWell(
-        onTap: () {},
-        child: Row(
-          children: [
-            SizedBox(
-              width: 10.w,
+  Widget menuAvatar(_firebaseUser, context) {
+    return _firebaseUser != null
+        ? Padding(
+            padding: PaddingConstant.instance.loginPadding,
+            child: DrawerHeader(
+              child: SizedBox(
+                height: 100.h,
+                width: 100.w,
+                child: _firebaseUser.photoURL != null
+                    ? CircleAvatar(
+                        backgroundImage:
+                            NetworkImage("${_firebaseUser.photoURL}"),
+                      )
+                    : CircleAvatar(
+                        backgroundImage:
+                            AssetImage(AssetPath.instance.menuPerson),
+                      ),
+              ),
             ),
-            Icon(
-              Icons.logout,
-              color: ColorConstant.instance.white,
-              size: 25,
+          )
+        : Padding(
+            padding: PaddingConstant.instance.loginPadding,
+            child: DrawerHeader(
+              child: SizedBox(
+                height: 100.h,
+                width: 100.w,
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(AssetPath.instance.menuPerson),
+                ),
+              ),
             ),
-            SizedBox(
-              width: 20.w,
-            ),
-            Text(
-              StringConstant.instance.logOut,
-              textAlign: TextAlign.center,
-              style: TextStyleConstant.instance.textSmallMedium
-                  .copyWith(color: ColorConstant.instance.white),
-            ),
-          ],
-        ),
-      ),
-    );
+          );
   }
 
   SizedBox SizedBox2() {
@@ -163,34 +181,74 @@ class MenuScreen extends StatelessWidget {
     );
   }
 
-  Padding menuPerson() {
-    return Padding(
-      padding: PaddingConstant.instance.menuPadding,
-      child: InkWell(
-        onTap: () {},
-        child: Row(
-          children: [
-            SizedBox(
-              width: 10.w,
+  Widget menuPerson(_firebaseUser, context) {
+    return _firebaseUser != null
+        ? Padding(
+            padding: PaddingConstant.instance.menuPadding,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, RouteConstant.profileRoute);
+              },
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Icon(
+                    Icons.person,
+                    color: ColorConstant.instance.white,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  _firebaseUser.displayName != null
+                      ? Text(
+                          "${_firebaseUser.displayName}",
+                          textAlign: TextAlign.center,
+                          style: TextStyleConstant.instance.textSmallMedium
+                              .copyWith(color: ColorConstant.instance.white),
+                        )
+                      : Text(
+                          "${_firebaseUser.email}",
+                          textAlign: TextAlign.center,
+                          style: TextStyleConstant.instance.textSmallMedium
+                              .copyWith(color: ColorConstant.instance.white),
+                        )
+                ],
+              ),
             ),
-            Icon(
-              Icons.person,
-              color: ColorConstant.instance.white,
-              size: 25,
+          )
+        : Padding(
+            padding: PaddingConstant.instance.menuPadding,
+            child: InkWell(
+              onTap: () {
+                showToast(context, "Lütfen giriş yapınız.");
+                Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+              },
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Icon(
+                    Icons.person,
+                    color: ColorConstant.instance.white,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  Text(
+                    StringConstant.instance.menuPerson,
+                    textAlign: TextAlign.center,
+                    style: TextStyleConstant.instance.textSmallMedium
+                        .copyWith(color: ColorConstant.instance.white),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(
-              width: 20.w,
-            ),
-            Text(
-              StringConstant.instance.menuPerson,
-              textAlign: TextAlign.center,
-              style: TextStyleConstant.instance.textSmallMedium
-                  .copyWith(color: ColorConstant.instance.white),
-            ),
-          ],
-        ),
-      ),
-    );
+          );
   }
 
   Divider menuDivider() {
@@ -199,19 +257,79 @@ class MenuScreen extends StatelessWidget {
       thickness: 1,
     );
   }
+}
 
-  Padding menuAvatar() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: DrawerHeader(
-        child: SizedBox(
-          height: 100.h,
-          width: 100.w,
-          child: CircleAvatar(
-            backgroundImage: AssetImage(AssetPath.instance.menuPerson),
-          ),
-        ),
-      ),
-    );
+class LogOut extends StatefulWidget {
+  const LogOut({Key? key}) : super(key: key);
+
+  @override
+  State<LogOut> createState() => _LogOutState();
+}
+
+class _LogOutState extends State<LogOut> {
+  @override
+  Widget build(BuildContext context) {
+    final _firebaseUser = context.watch<User?>();
+    return _firebaseUser != null
+        ? Padding(
+            padding: PaddingConstant.instance.menuPadding,
+            child: InkWell(
+              onTap: () {
+                context.read<FirebaseAuthMethods>().signOut(context).then(
+                    (value) => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CoverPage())));
+              },
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Icon(
+                    Icons.logout,
+                    color: ColorConstant.instance.white,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  Text(
+                    StringConstant.instance.logOut,
+                    textAlign: TextAlign.center,
+                    style: TextStyleConstant.instance.textSmallMedium
+                        .copyWith(color: ColorConstant.instance.white),
+                  ),
+                ],
+              ),
+            ),
+          )
+        : Padding(
+            padding: PaddingConstant.instance.menuPadding,
+            child: InkWell(
+              onTap: () async {
+                Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+              },
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Icon(
+                    Icons.login_outlined,
+                    color: ColorConstant.instance.white,
+                    size: 25,
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  Text(
+                    StringConstant.instance.loginSignIn,
+                    textAlign: TextAlign.center,
+                    style: TextStyleConstant.instance.textSmallMedium
+                        .copyWith(color: ColorConstant.instance.white),
+                  ),
+                ],
+              ),
+            ),
+          );
   }
 }

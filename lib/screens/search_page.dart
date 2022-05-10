@@ -14,7 +14,7 @@ class _SearchPageState extends State<SearchPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               "Search",
               style: TextStyle(

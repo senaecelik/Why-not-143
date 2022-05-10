@@ -52,13 +52,13 @@ class _HomePageState extends State<HomePage> {
         HomeTabBar(context),
         SizedBox(
           height: 350.h,
-          child: HomeTabBarView(context),
+          child: homeTabBarView(context),
         ),
       ],
     );
   }
 
-  Widget HomeTabBarView(BuildContext context) {
+  Widget homeTabBarView(BuildContext context) {
     return const TabBarView(
       children: [
         SizedBox(height: 100, child: List()),
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
 
 // ignore: non_constant_identifier_names
   Widget HomeTabBar(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: 40.h,
         child: Padding(
           padding:
@@ -133,11 +133,11 @@ class AnimalListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.only(right: 20),
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             height: 250.h,
             width: 150.w,
             decoration: BoxDecoration(
@@ -147,7 +147,7 @@ class AnimalListItem extends StatelessWidget {
                     color: ColorConstant.instance.neutral300.withOpacity(0.9),
                     spreadRadius: 5,
                     blurRadius: 9,
-                    offset: Offset(5, 3), // changes position of shadow
+                    offset: const Offset(5, 3), // changes position of shadow
                   ),
                 ],
                 color: ColorConstant.instance.white,

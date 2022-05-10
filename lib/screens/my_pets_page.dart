@@ -14,10 +14,10 @@ class _MyPetsPageState extends State<MyPetsPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
+          children:const [
+             Text(
               "MyPets",
-              style: TextStyle(
+              style:  TextStyle(
                 color: Colors.black,
                 fontSize: 60,
               ),
