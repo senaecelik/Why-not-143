@@ -81,27 +81,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 80.h,
-                      width: 800.w,
-                      child: GeneralButton(
-                        text: StringConstant.instance.feedBackSend,
-                        function: send,
-                      ),
-                    )
                   ],
-                ),
-              ),
-              TextFormField(
-                onChanged: (value) {
-                  setState(() {
-                    feedbackMessage = value;
-                  });
-                },
-                decoration: InputDecoration(
-                  hintText: StringConstant.instance.feedBackMessage,
-                  hintStyle: TextStyleConstant.instance.textSmallMedium
-                      .copyWith(color: ColorConstant.instance.neutral),
                 ),
               ),
               SizedBox(
