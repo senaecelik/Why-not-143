@@ -15,19 +15,14 @@ class RouterGenerator {
     switch (settings.name) {
       case RouteConstant.homeScreenRoute:
         return MaterialPageRoute(builder: (_) => const HomePage());
-
       case RouteConstant.forgotPassRoute:
         return MaterialPageRoute(builder: (_) => const ForgotPassword());
-
       case RouteConstant.coverScreenRoue:
         return MaterialPageRoute(builder: (_) => const CoverPage());
-
       case RouteConstant.profileRoute:
         return MaterialPageRoute(builder: (_) => const ProfilePage());
-
       case RouteConstant.feedBackScreenRoute:
         return MaterialPageRoute(builder: (_) => const FeedBackPage());
-
       case RouteConstant.aboutScreenRoute:
         return MaterialPageRoute(builder: (_) => const AboutPage());
       case RouteConstant.onBoardScreenRoute:

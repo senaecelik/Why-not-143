@@ -79,7 +79,7 @@ class AuthWrapper extends StatelessWidget {
     final firebaseUser = context.watch<User?>();
 
     if (firebaseUser != null) {
-      return const HomePage();
+      return HomePage();
     }
     return const CoverPage();
   }

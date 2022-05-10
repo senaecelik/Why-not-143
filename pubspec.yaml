@@ -46,7 +46,7 @@ dependencies:
   fluttertoast: ^8.0.9
   flutter_inappwebview: ^5.4.3+4
   flutter_native_splash: ^2.1.6
-  flutter_zoom_drawer: ^2.0.0 
+  
 flutter_native_splash:
   color: "#ffffff"
   image: assets/images/paw_logo.png
