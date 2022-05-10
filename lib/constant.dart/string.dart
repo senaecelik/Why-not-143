@@ -10,17 +10,17 @@ class StringConstant {
   String covetButtonText = "Başlayın";
 
   ///Cover Page
-  String onBoardTitle1 = "Bir pati seç!";
+  String onBoardTitle1 = "Pati dostunu seç!";
   String onBoardSubTitle1 =
-      "Pati Dostum sayesinde sana en yakın barınaktaki patileri görebilirsin.";
+      "Pati Dostum sayesinde sana en yakın barınaktaki patileri görerek, seçtiğin pati için sahiplenme veya koruyucu aile olma başvurusu yapabilirsin.";
 
-  String onBoardTitle2 = "Başvuru yap ve Sahiplen";
+  String onBoardTitle2 = "Bağış yap - Destek ol";
   String onBoardSubTitle2 =
-      "Pati dostunu sahiplenmek için yapman gereken sadece form doldurarak ilk adımı atabilirsin";
+      "Pati dostlarımız desteğini bekliyor. Barınak hesaplarına nakdi yardım yapabilir veya güncel barınak ihtiyaçlarını  direkt barınaklara gönderebilirsin.";
 
-  String onBoardTitle3 = "Sahiplen";
+  String onBoardTitle3 = "Pati Forum ile öğren";
   String onBoardSubTitle3 =
-      "Başvurun barınak tarafından onay aldıktan sonra tek yapman gereken pati dostun ile buluşmak.";
+      "Sahiplendiğin pati dostunun bakımıyla ilgili ipuçlarını paylaştığımız Pati Forum sayfasına bakmayı unutma :)";
 
   String onBoardPass = "Geç";
 
