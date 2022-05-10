@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
-import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+
+import 'constant.dart/padding_constant.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,30 +19,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBar(),
         body: DefaultTabController(
-          length: 3,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: PaddingConstant.instance.loginPadding,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  _search(),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  _homePageBodySection(),
-                  Container(
-                    height: 150,
-                    color: ColorConstant.instance.cardColor,
-                  )
-                ],
+      length: 3,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: PaddingConstant.instance.loginPadding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _search(),
+              SizedBox(
+                height: 30.h,
               ),
-            ),
+              _homePageBodySection(),
+              Container(
+                height: 150,
+                color: ColorConstant.instance.cardColor,
+              )
+            ],
           ),
-        ));
+        ),
+      ),
+    ));
   }
 
   Widget _homePageBodySection() {
@@ -133,8 +133,7 @@ class AnimalListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      // ignore: prefer_const_constructors
-      padding: EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.only(right: 20),
       child: Column(
         children: [
           Container(

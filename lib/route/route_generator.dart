@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
-import 'package:why_not_143_team/screens/home_page.dart';
+import 'package:why_not_143_team/screens/menu/drawer_page.dart';
 import 'package:why_not_143_team/screens/menu/about_page.dart';
 import 'package:why_not_143_team/screens/menu/feed_back_page.dart';
 import 'package:why_not_143_team/screens/auth/login_page.dart';
@@ -14,7 +14,7 @@ class RouterGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RouteConstant.homeScreenRoute:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => const DrawerPage());
       case RouteConstant.forgotPassRoute:
         return MaterialPageRoute(builder: (_) => const ForgotPassword());
       case RouteConstant.coverScreenRoue:
