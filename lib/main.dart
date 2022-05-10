@@ -12,7 +12,6 @@ import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/route/route_generator.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:why_not_143_team/screens/home_page.dart';
-import 'package:why_not_143_team/screens/nav_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 
 void main() async {

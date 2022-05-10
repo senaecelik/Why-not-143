@@ -9,6 +9,4 @@ class RouteConstant {
   static const String feedBackScreenRoute = '/feedBackPage';
   static const String voteOurApp = '/voteOurApp';
   static const String aboutScreenRoute = '/aboutPage';
-
-
 }

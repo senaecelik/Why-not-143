@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
             passTextField(),
             forgotPassTextButton(),
             loading
-                ? CircularProgressIndicator()
+                ? const CircularProgressIndicator()
                 : GeneralButton(
                     function: logInUser,
                     text: StringConstant.instance.loginSignIn),

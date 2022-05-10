@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
+import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/screens/menu/about_page.dart';
 import 'package:why_not_143_team/screens/menu/feed_back_page.dart';
-import 'package:why_not_143_team/screens/nav_page.dart';
 import 'package:why_not_143_team/screens/auth/login_page.dart';
 import 'package:why_not_143_team/screens/auth/on_board_page.dart';
 import 'package:why_not_143_team/screens/menu/profile_page.dart';
@@ -13,6 +13,9 @@ import 'package:why_not_143_team/screens/auth/forgot_pass.dart';
 class RouterGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RouteConstant.homeScreenRoute:
+        return MaterialPageRoute(builder: (_) => const HomePage());
+
       case RouteConstant.forgotPassRoute:
         return MaterialPageRoute(builder: (_) => const ForgotPassword());
 
@@ -20,7 +23,7 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const CoverPage());
 
       case RouteConstant.profileRoute:
-        return MaterialPageRoute(builder: (_) => ProfilePage());
+        return MaterialPageRoute(builder: (_) => const ProfilePage());
 
       case RouteConstant.feedBackScreenRoute:
         return MaterialPageRoute(builder: (_) => const FeedBackPage());
@@ -31,8 +34,6 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const OnBoard());
       case RouteConstant.loginScreenRoute:
         return MaterialPageRoute(builder: (_) => const LoginPage());
-      case RouteConstant.homeScreenRoute:
-        return MaterialPageRoute(builder: (_) => const NavPage());
       case RouteConstant.registerScreenRoute:
         return MaterialPageRoute(builder: (_) => const RegisterPage());
 
