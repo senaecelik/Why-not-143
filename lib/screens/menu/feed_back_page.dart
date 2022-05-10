@@ -81,16 +81,16 @@ class _FeedBackPageState extends State<FeedBackPage> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    GeneralButton(
+                      text: StringConstant.instance.feedBackSend,
+                      function: send,
+                    )
                   ],
                 ),
               ),
-              SizedBox(
-                height: 20.h,
-              ),
-              GeneralButton(
-                text: StringConstant.instance.feedBackSend,
-                function: send,
-              )
             ],
           ),
         ),

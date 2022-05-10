@@ -28,10 +28,6 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              _search(),
-              SizedBox(
-                height: 30.h,
-              ),
               _homePageBodySection(),
               Container(
                 height: 150,

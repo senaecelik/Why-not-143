@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
+import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/screens/menu/transition_page.dart';
 import 'package:why_not_143_team/screens/menu/menu_screen.dart';
 
@@ -20,7 +21,7 @@ class _DrawerPageState extends State<DrawerPage> {
       body: ZoomDrawer(
         controller: drawerController,
         menuScreen: MenuScreen(),
-        mainScreen: TransitionPage(drawerController),
+        mainScreen: HomePage(),
         borderRadius: 24.0,
         showShadow: true,
         angle: 0.0,

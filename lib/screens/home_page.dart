@@ -6,6 +6,7 @@ import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/screens/detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,7 +37,11 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 150,
                     color: ColorConstant.instance.cardColor,
-                  )
+                  ),
+                  AnimalListItem(
+                      name: "amber",
+                      age: "5",
+                      photoUrl: AssetPath.instance.cat2)
                 ],
               ),
             ),
@@ -97,6 +102,7 @@ class _HomePageState extends State<HomePage> {
 
   AppBar appBar() {
     return AppBar(
+      leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
       leadingWidth: 80,
       title: Text(
         StringConstant.instance.homePage,
@@ -132,43 +138,49 @@ class AnimalListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      // ignore: prefer_const_constructors
-      padding: EdgeInsets.only(right: 20),
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.all(10),
-            height: 250.h,
-            width: 150.w,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: ColorConstant.instance.neutral300.withOpacity(0.9),
-                    spreadRadius: 5,
-                    blurRadius: 9,
-                    offset: const Offset(5, 3), // changes position of shadow
-                  ),
-                ],
-                color: ColorConstant.instance.white,
-                image: DecorationImage(image: AssetImage(photoUrl))),
-          ),
-          Text(
-            name,
-            style: TextStyleConstant.instance.textSmallMedium,
-          ),
-          Text(
-            age,
-            style: TextStyleConstant.instance.textSmallRegular,
-          ),
-        ],
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const DetailPage()));
+      },
+      child: Padding(
+        // ignore: prefer_const_constructors
+        padding: EdgeInsets.only(right: 20),
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.all(10),
+              height: 250.h,
+              width: 150.w,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: ColorConstant.instance.neutral300.withOpacity(0.9),
+                      spreadRadius: 5,
+                      blurRadius: 9,
+                      offset: const Offset(5, 3), // changes position of shadow
+                    ),
+                  ],
+                  color: ColorConstant.instance.white,
+                  image: DecorationImage(image: AssetImage(photoUrl))),
+            ),
+            Text(
+              name,
+              style: TextStyleConstant.instance.textSmallMedium,
+            ),
+            Text(
+              age,
+              style: TextStyleConstant.instance.textSmallRegular,
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-//Faket List
+//Fake List
 class List extends StatelessWidget {
   const List({Key? key}) : super(key: key);
 

@@ -11,6 +11,7 @@ import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/utils/show_toast_message.dart';
 
@@ -95,7 +96,9 @@ class _MenuScreenState extends State<MenuScreen> {
     return Padding(
       padding: PaddingConstant.instance.menuPadding,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, RouteConstant.feedBackScreenRoute);
+        },
         child: Row(
           children: [
             SizedBox(
@@ -125,7 +128,9 @@ class _MenuScreenState extends State<MenuScreen> {
     return Padding(
       padding: PaddingConstant.instance.menuPadding,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, RouteConstant.aboutScreenRoute);
+        },
         child: Row(
           children: [
             SizedBox(
@@ -155,7 +160,7 @@ class _MenuScreenState extends State<MenuScreen> {
     return Padding(
       padding: PaddingConstant.instance.menuPadding,
       child: InkWell(
-        onTap: () {},
+        onTap: _launchUrl,
         child: Row(
           children: [
             SizedBox(
@@ -224,7 +229,6 @@ class _MenuScreenState extends State<MenuScreen> {
             child: InkWell(
               onTap: () {
                 showToast(context, "Lütfen giriş yapınız.");
-                Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
               },
               child: Row(
                 children: [
@@ -332,4 +336,10 @@ class _LogOutState extends State<LogOut> {
             ),
           );
   }
+}
+
+void _launchUrl() async {
+  final Uri _url = Uri.parse('https://github.com/senaecelik/Why-not-143');
+
+  if (!await launchUrl(_url)) throw 'Could not launch $_url';
 }
