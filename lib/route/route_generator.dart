@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
+import 'package:why_not_143_team/screens/detail_page.dart';
+import 'package:why_not_143_team/screens/form_page.dart';
 import 'package:why_not_143_team/screens/menu/drawer_page.dart';
 import 'package:why_not_143_team/screens/menu/about_page.dart';
 import 'package:why_not_143_team/screens/menu/feed_back_page.dart';
@@ -31,6 +33,11 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case RouteConstant.registerScreenRoute:
         return MaterialPageRoute(builder: (_) => const RegisterPage());
+      case RouteConstant.formScreenRoute:
+        return MaterialPageRoute(builder: (_) => const FormPage());
+
+      case RouteConstant.detailScreenRoute:
+        return MaterialPageRoute(builder: (_) => const DetailPage());
 
       default:
         return MaterialPageRoute(

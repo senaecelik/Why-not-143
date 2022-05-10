@@ -46,35 +46,34 @@ class _FormPageState extends State<FormPage> {
           Container(
             padding: const EdgeInsets.all(10.0),
             child: progress < 1.0
-            ? LinearProgressIndicator(value: progress)
-            : Container(),
+                ? LinearProgressIndicator(value: progress)
+                : Container(),
           ),
           Expanded(
-          child: Container(
+              child: Container(
             margin: const EdgeInsets.all(10.0),
-            decoration:
-            BoxDecoration(border: Border.all(color: Colors.white)),
+            decoration: BoxDecoration(border: Border.all(color: Colors.white)),
             child: InAppWebView(
-          initialUrlRequest: URLRequest(
-              url: Uri.parse(
-                  "https://docs.google.com/forms/d/e/1FAIpQLSeqv3sRJt8SW2W2EVgxxvBcwqQLy6JL3DErn87EgtpRvxWDEg/viewform")),
-          onWebViewCreated: (inAppWebViewController) =>
-              webViewController = webViewController,
-          onLoadStart: (controller, url) {
-            setState(() {
-              this.url = url.toString();
-            });
-          },
-          onLoadStop: (controller, url) {
-            setState(() {
-              this.url = url.toString();
-            });
-          },
-          onProgressChanged: (controller, progress) {
-            setState(() {
-              this.progress = progress / 100;
-            });
-          },
+              initialUrlRequest: URLRequest(
+                  url: Uri.parse(
+                      "https://docs.google.com/forms/d/e/1FAIpQLSeqv3sRJt8SW2W2EVgxxvBcwqQLy6JL3DErn87EgtpRvxWDEg/viewform")),
+              onWebViewCreated: (inAppWebViewController) =>
+                  webViewController = webViewController,
+              onLoadStart: (controller, url) {
+                setState(() {
+                  this.url = url.toString();
+                });
+              },
+              onLoadStop: (controller, url) {
+                setState(() {
+                  this.url = url.toString();
+                });
+              },
+              onProgressChanged: (controller, progress) {
+                setState(() {
+                  this.progress = progress / 100;
+                });
+              },
             ),
           ))
         ],
