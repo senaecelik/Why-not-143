@@ -8,6 +8,7 @@ import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/widget/general_button.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -17,9 +18,16 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final profileNameController = TextEditingController();
+  final profileEmailController = TextEditingController();
+  final profilePhoneController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
+    var name = _firebaseUser!.displayName;
+    var email = _firebaseUser.email;
+    var number = _firebaseUser.phoneNumber;
     return Scaffold(
       appBar: appBar(context),
       body: Center(
@@ -29,8 +37,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 ? Padding(
                     padding: PaddingConstant.instance.loginPadding,
                     child: SizedBox(
-                      height: 100.h,
-                      width: 100.w,
+                      height: 150.h,
+                      width: 150.w,
                       child: _firebaseUser.photoURL != null
                           ? CircleAvatar(
                               backgroundImage:
@@ -55,6 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                   ),
+            /*
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Row(
@@ -82,9 +91,128 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
-            ),
+            ),*/
+
+            profileNameText(),
+            profileNameTextField(name),
+            profileEmailText(),
+            profileEmailTextField(email),
+            profilePhoneText(),
+            profilePhoneTextField(),
+            updateButton(),
           ],
         ),
+      ),
+    );
+  }
+
+  Padding updateButton() {
+    return Padding(
+      padding: PaddingConstant.instance.buttonPadding,
+      child: GeneralButton(function: () {}, text: "Güncelle"),
+    );
+  }
+
+  Padding profilePhoneTextField() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          obscureText: true,
+          controller: profilePhoneController,
+          decoration: InputDecoration(
+            hintText: StringConstant.instance.profilePhone,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding profilePhoneText() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: Row(
+        children: [
+          Text(
+            StringConstant.instance.profilePhoneText,
+            style: TextStyleConstant.instance.textSmallMedium,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding profileEmailTextField(String? email) {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          keyboardType: TextInputType.emailAddress,
+          controller: profileEmailController,
+          decoration: InputDecoration(
+            hintText: email,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding profileEmailText() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: Row(
+        children: [
+          Text(
+            StringConstant.instance.loginEmail,
+            style: TextStyleConstant.instance.textSmallMedium,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding profileNameTextField(String? name) {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: 328.w,
+        child: TextField(
+          controller: profileNameController,
+          decoration: InputDecoration(
+            hintText: name,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding profileNameText() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: Row(
+        children: [
+          Text(
+            StringConstant.instance.registerName,
+            style: TextStyleConstant.instance.textSmallMedium,
+          ),
+        ],
       ),
     );
   }

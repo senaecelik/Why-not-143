@@ -64,6 +64,8 @@ class StringConstant {
   String appBarName = "Profil";
   String profileName = "Marvin MacKinney";
   String profileMail = "marvin@email.com";
+  String profilePhone = "0555 555 55";
+  String profilePhoneText = "Telefon Numarası";
 
   //Geri Bildirim
 
