@@ -7,7 +7,9 @@ import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/detail_page.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   final ZoomDrawerController drawerController;
@@ -36,10 +38,7 @@ class _HomePageState extends State<HomePage> {
                     height: 30.h,
                   ),
                   _homePageBodySection(),
-                  Container(
-                    height: 150,
-                    color: ColorConstant.instance.cardColor,
-                  ),
+                  _donateCard(context),
                   AnimalListItem(
                       name: "amber",
                       age: "5",
@@ -49,6 +48,99 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ));
+  }
+
+  Container _donateCard(BuildContext context) {
+    return Container(
+      height: 160.h,
+      width: 330.w,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: ColorConstant.instance.azureishWhite,
+            offset: const Offset(
+              6.0,
+              6.0,
+            ),
+            blurRadius: 8.0,
+            spreadRadius: 2.0,
+          ), //BoxShadow
+          const BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
+        color: ColorConstant.instance.cardColor,
+        borderRadius: BorderRadius.circular(20),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomRight,
+          colors: [
+            ColorConstant.instance.cardColor,
+            Colors.orangeAccent,
+          ],
+        ),
+      ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: SizedBox(
+                      height: 100.h,
+                      child: Image.asset(AssetPath.instance.cat1)),
+                ),
+                Expanded(
+                  child: SizedBox(
+                      height: 100.h,
+                      child: Lottie.asset(AssetPath.instance.cardImage)),
+                ),
+                Expanded(
+                  child: SizedBox(
+                      height: 100.h,
+                      child: Image.asset(AssetPath.instance.cat2)),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.transparent,
+                        padding: PaddingConstant.instance.buttonPadding,
+                        elevation: 0,
+                        side: const BorderSide(
+                          color: Colors.white,
+                        ),
+                        shape: StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, RouteConstant.donateScreenRoute);
+                      },
+                      icon: const Icon(Icons.pets),
+                      label: Text(
+                        "Bağış Yap",
+                        style: TextStyleConstant.instance.textSmallMedium,
+                      )),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _homePageBodySection() {

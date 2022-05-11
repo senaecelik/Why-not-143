@@ -18,7 +18,8 @@ import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/utils/show_toast_message.dart';
 
 class MenuScreen extends StatefulWidget {
-  const MenuScreen(ZoomDrawerController drawerController, {Key? key}) : super(key: key);
+  const MenuScreen(ZoomDrawerController drawerController, {Key? key})
+      : super(key: key);
 
   @override
   State<MenuScreen> createState() => _MenuScreenState();
@@ -210,17 +211,23 @@ class _MenuScreenState extends State<MenuScreen> {
                     width: 20.w,
                   ),
                   _firebaseUser.displayName != null
-                      ? Text(
-                          "${_firebaseUser.displayName}",
-                          textAlign: TextAlign.center,
-                          style: TextStyleConstant.instance.textSmallMedium
-                              .copyWith(color: ColorConstant.instance.white),
+                      ? Flexible(
+                          child: Text(
+                            "${_firebaseUser.displayName}",
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.center,
+                            style: TextStyleConstant.instance.textSmallMedium
+                                .copyWith(color: ColorConstant.instance.white),
+                          ),
                         )
-                      : Text(
-                          "${_firebaseUser.email}",
-                          textAlign: TextAlign.center,
-                          style: TextStyleConstant.instance.textSmallMedium
-                              .copyWith(color: ColorConstant.instance.white),
+                      : Flexible(
+                          child: Text(
+                            "${_firebaseUser.email}",
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyleConstant.instance.textSmallMedium
+                                .copyWith(color: ColorConstant.instance.white),
+                          ),
                         )
                 ],
               ),
