@@ -13,4 +13,7 @@ class PaddingConstant {
 
   //menu
   EdgeInsets menuPadding = const EdgeInsets.fromLTRB(10, 20, 10, 10).r;
+
+  //button
+  EdgeInsets buttonPadding = const EdgeInsets.fromLTRB(30, 10, 30, 10).r;
 }

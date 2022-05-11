@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:why_not_143_team/screens/detail_page.dart';
+import 'package:why_not_143_team/screens/donate_page.dart';
 import 'package:why_not_143_team/screens/form_page.dart';
 import 'package:why_not_143_team/screens/menu/drawer_page.dart';
 import 'package:why_not_143_team/screens/menu/about_page.dart';
@@ -35,6 +36,8 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterPage());
       case RouteConstant.formScreenRoute:
         return MaterialPageRoute(builder: (_) => const FormPage());
+      case RouteConstant.donateScreenRoute:
+        return MaterialPageRoute(builder: (_) => const DonatePage());
 
       case RouteConstant.detailScreenRoute:
         return MaterialPageRoute(builder: (_) => const DetailPage());

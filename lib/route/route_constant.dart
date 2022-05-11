@@ -11,7 +11,5 @@ class RouteConstant {
   static const String aboutScreenRoute = '/aboutPage';
   static const String formScreenRoute = '/formPage';
   static const String detailScreenRoute = '/detailPage';
-
+  static const String donateScreenRoute = '/donatePage';
 }
-
-
