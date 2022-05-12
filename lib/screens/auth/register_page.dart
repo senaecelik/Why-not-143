@@ -7,6 +7,7 @@ import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:why_not_143_team/widget/custom_circular.dart';
 import 'package:why_not_143_team/widget/general_button.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -21,20 +22,28 @@ class _RegisterPageState extends State<RegisterPage> {
   final registerEmailController = TextEditingController();
   final registerPasswordController = TextEditingController();
 
+  bool loading = false;
   @override
   void dispose() {
     registerEmailController.dispose();
     registerPasswordController.dispose();
     registerNameController.dispose();
+       loading = false;
     super.dispose();
   }
 
   void signUpUser() async {
+     setState(() {
+      loading = true;
+    });
     context.read<FirebaseAuthMethods>().signUpWithEmail(
         displayName: registerNameController.text,
         email: registerEmailController.text,
         password: registerPasswordController.text,
         context: context);
+         setState(() {
+      loading = false;
+    });
   }
 
   @override
@@ -55,7 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 20.h,
             ),
-            GeneralButton(
+            loading ? CustomCircular(): GeneralButton(
                 function: signUpUser,
                 text: StringConstant.instance.registerSignUp)
           ],

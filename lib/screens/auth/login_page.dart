@@ -9,6 +9,7 @@ import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:why_not_143_team/widget/custom_circular.dart';
 import 'package:why_not_143_team/widget/general_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -60,17 +61,13 @@ class _LoginPageState extends State<LoginPage> {
             passTextField(),
             forgotPassTextButton(),
             loading
-                ? const CircularProgressIndicator()
+                ? CustomCircular()
                 : GeneralButton(
                     function: logInUser,
                     text: StringConstant.instance.loginSignIn),
             dontHaveAccYet(context),
             loginTextOr(),
-            loading
-                ? CircularProgressIndicator(
-                    color: ColorConstant.instance.yankeBlue,
-                  )
-                : googleButton(),
+            loading ? CustomCircular() : googleButton(),
           ],
         ),
       ),

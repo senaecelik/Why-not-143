@@ -49,6 +49,7 @@ class MyApp extends StatelessWidget {
               initialRoute: RouteConstant.coverScreenRoue,
               onGenerateRoute: RouterGenerator.generateRoute,
               theme: ThemeData(
+                scaffoldBackgroundColor: Colors.white,
                 appBarTheme: appBarTheme(),
                 brightness: Brightness.light,
                 primaryColor: ColorConstant.instance.yankeBlue,
