@@ -53,8 +53,9 @@ class FirebaseAuthMethods {
         showToast(context, 'Şifre çok zayıf.');
       } else if (e.code == 'email-already-in-use') {
         showToast(context, 'Bu e-posta için zaten kayıtlı bir hesap var.');
+      } else if (e.code == 'invalid-email') {
+        showToast(context, "Lütfen geçerli bir e-posta adresi girin");
       }
-      showToast(context, e.message!);
     }
     return null;
   }
@@ -85,7 +86,17 @@ class FirebaseAuthMethods {
         Navigator.pushReplacementNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
-      showToast(context, e.message!);
+      if (e.code == 'invalid-email') {
+        showToast(context, 'Lütfen geçerli bir e-posta adresi giriniz');
+      } else if (e.code == 'wrong-password') {
+        showToast(context, 'Yanlış şifre, lütfen tekrar dene');
+      } else if (e.code == 'user-not-found') {
+        showToast(context, 'Kayıtlı e-posta adresi bulunamadı');
+      } else if (e.code == 'user-disabled') {
+        showToast(context, 'Böyle bir kullanıcı kaydı bulunamadı');
+      } else if (e.code == 'operation-not-allowed') {
+        showToast(context, 'Böyle bir kullanıcı kaydı bulunamadı');
+      }
     }
   }
 
@@ -128,7 +139,11 @@ class FirebaseAuthMethods {
       await _auth.sendPasswordResetEmail(email: email);
       showToast(context, "Gönderildi");
     } on FirebaseAuthException catch (e) {
-      showToast(context, e.message!);
+      if (e.code == 'invalid-email') {
+        showToast(context, 'Lütfen geçerli bir e-posta adresi giriniz');
+      } else if (e.code == 'user-not-found') {
+        showToast(context, 'Böyle kayıtlı e-posta adresi yok');
+      }
     }
   }
 
