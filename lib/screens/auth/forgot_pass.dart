@@ -43,9 +43,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             labelText(),
             emailText(),
             emailTextField(emailController),
-            GeneralButton(
-                function: resetPassword,
-                text: StringConstant.instance.resetPass)
+            Padding(
+              padding: PaddingConstant.instance.loginPadding,
+              child: GeneralButton(
+                  function: resetPassword,
+                  text: StringConstant.instance.resetPass),
+            )
           ],
         ),
       ),
