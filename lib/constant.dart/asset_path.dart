@@ -16,5 +16,5 @@ class AssetPath {
   String cat1 = "assets/images/c_1.png";
   String cat2 = "assets/images/c_2.png";
   String circul = "assets/images/circul.gif";
-
+  String donate = "assets/images/hearts 1.png";
 }
