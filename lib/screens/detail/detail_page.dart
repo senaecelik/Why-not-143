@@ -102,10 +102,7 @@ class _DetailPageState extends State<DetailPage> {
                   Expanded(
                     child: Text(
                       'Çiko',
-                      style: GoogleFonts.poppins(
-                          color: ColorConstant.instance.yankeBlue,
-                          fontSize: 26.sp,
-                          fontWeight: FontWeight.w600),
+                      style: TextStyleConstant.instance.title1,
                     ),
                   ),
                 ],
@@ -123,9 +120,9 @@ class _DetailPageState extends State<DetailPage> {
                     Icons.location_on,
                     color: ColorConstant.instance.yankeBlue,
                   ),
-                  const Text(
+                  Text(
                     'Ankara, Türkiye',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyleConstant.instance.textLargeMedium,
                   ),
                 ],
               ),
@@ -145,11 +142,10 @@ class _DetailPageState extends State<DetailPage> {
                           color: Colors.green.shade100,
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Text(
                             'Erkek',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyleConstant.instance.textLargeRegular,
                           ),
                         ),
                       ),
@@ -163,11 +159,10 @@ class _DetailPageState extends State<DetailPage> {
                           color: Colors.orange.shade100,
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Text(
                             '1 Yaş',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyleConstant.instance.textLargeRegular,
                           ),
                         ),
                       ),
@@ -181,11 +176,10 @@ class _DetailPageState extends State<DetailPage> {
                           color: Colors.purple.shade100,
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Text(
                             '10 Kg',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyleConstant.instance.textLargeRegular,
                           ),
                         ),
                       ),
@@ -202,23 +196,20 @@ class _DetailPageState extends State<DetailPage> {
                     children: [
                       Expanded(
                         child: Column(
-                          children: const [
+                          children: [
                             Padding(
-                              padding: EdgeInsets.only(),
-                              child: Text('Geçmişi',
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  )),
+                              padding: const EdgeInsets.only(),
+                              child: Text(
+                                'Geçmişi',
+                                style: TextStyleConstant.instance.title1,
+                              ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 14),
+                              padding: const EdgeInsets.only(top: 14),
                               child: Text(
                                 'Çiko 03/05/2012 doğumlu. Irkı Melez. Siyah-kahverengi-beyaz renkte. Seninle tanışmak için sabırsızlanıyor.Haydi Formu Doldur',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                ),
+                                style:
+                                    TextStyleConstant.instance.textLargeRegular,
                                 textAlign: TextAlign.center,
                               ),
                             ),
