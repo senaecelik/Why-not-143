@@ -3,22 +3,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/route/route_generator.dart';
-import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:why_not_143_team/screens/menu/drawer_page.dart';
+import 'package:why_not_143_team/screens/splash/splash_screen_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
   runApp(const MyApp());
 }
 
@@ -82,6 +79,6 @@ class AuthWrapper extends StatelessWidget {
     if (firebaseUser != null) {
       return DrawerPage();
     }
-    return const CoverPage();
+    return SplashView();
   }
 }
