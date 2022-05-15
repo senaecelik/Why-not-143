@@ -3,7 +3,7 @@ import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:why_not_143_team/screens/detail/detail_page.dart';
 import 'package:why_not_143_team/screens/donate/donate_page.dart';
-import 'package:why_not_143_team/screens/form_page.dart';
+import 'package:why_not_143_team/screens/detail/form_page.dart';
 import 'package:why_not_143_team/screens/menu/drawer_page.dart';
 import 'package:why_not_143_team/screens/menu/about_page.dart';
 import 'package:why_not_143_team/screens/menu/feed_back_page.dart';
