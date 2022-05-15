@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
+import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
 import 'package:why_not_143_team/route/route_constant.dart';
-import 'package:why_not_143_team/utils/show_toast_message.dart';
 import 'package:why_not_143_team/widget/general_button.dart';
 
 class DetailPage extends StatefulWidget {
@@ -31,43 +31,40 @@ class _DetailPageState extends State<DetailPage> {
               petImage(),
               details(),
               sahiplenButton(_firebaseUser, context),
-              const SizedBox(
-                height: 20,
-              ),
               koruyucuAileButton(),
-              const SizedBox(
-                height: 20,
-              ),
             ],
           ),
         ));
   }
 
-  GeneralButton koruyucuAileButton() =>
-      GeneralButton(function: adoptForm, text: "Koruyucu ailesi ol");
+  Container petImage() {
+    return Container(
+      width: 200.w,
+      height: 200.h,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(AssetPath.instance.cat1),
+        ),
+      ),
+    );
+  }
 
-  InkWell sahiplenButton(User? _firebaseUser, BuildContext context) {
-    return InkWell(
-        onTap: () {
-          _firebaseUser != null
+  Padding koruyucuAileButton() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: GeneralButton(function: adoptForm, text: "Koruyucu ailesi ol"),
+    );
+  }
+
+  Padding sahiplenButton(User? _firebaseUser, BuildContext context) {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: GeneralButton(
+          function: (() => _firebaseUser != null
               ? Navigator.pushNamed(context, RouteConstant.formScreenRoute)
-              : showToast(context, "Lütfen giriş yapın");
-          Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
-        },
-        child: Container(
-          height: 58.h,
-          width: 327.w,
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: ColorConstant.instance.yankeBlue),
-          child: Text(
-            "Sahiplen",
-            style: TextStyleConstant.instance.textLargeMedium
-                .copyWith(color: ColorConstant.instance.white),
-            textAlign: TextAlign.center,
-          ),
-        ));
+              : Navigator.pushNamed(context, RouteConstant.loginScreenRoute)),
+          text: "Sahiplen"),
+    );
   }
 
   Align details() {
@@ -220,21 +217,6 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Padding petImage() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0, right: 8.0, left: 8.0),
-      child: Container(
-        width: 200.w,
-        height: 200.h,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AssetPath.instance.cat1),
-          ),
         ),
       ),
     );
