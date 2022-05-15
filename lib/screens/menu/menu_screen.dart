@@ -14,7 +14,6 @@ import 'package:why_not_143_team/route/route_constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/utils/show_toast_message.dart';
-import 'package:why_not_143_team/constant/asset_path.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen(ZoomDrawerController drawerController, {Key? key})

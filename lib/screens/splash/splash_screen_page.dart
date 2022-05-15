@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:why_not_143_team/constant/asset_path.dart';
+import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/screens/splash/splash_view_model.dart';
 import 'package:why_not_143_team/widget/splash_widget.dart';
 import '../../constant.dart/color_constant.dart';
