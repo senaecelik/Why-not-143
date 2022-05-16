@@ -289,15 +289,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
-
-  lint:
+  lints:
     dependency: transitive
     description:
-      name: lint
+      name: lints
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
-
   lottie:
     dependency: "direct main"
     description:
