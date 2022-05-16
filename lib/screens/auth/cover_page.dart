@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
@@ -17,12 +16,7 @@ class CoverPage extends StatefulWidget {
 }
 
 class _CoverPageState extends State<CoverPage> {
-  @override
-  void initState() {
-    initialization();
-    super.initState();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -86,6 +80,3 @@ class _TitleWidget extends StatelessWidget {
   }
 }
 
-void initialization() async {
-  FlutterNativeSplash.remove();
-}

@@ -94,7 +94,7 @@ class StringConstant {
   String donateText = "Patilere yardımcı olmak ister misin? ";
   String donateShelter = "Çiçek Barınağı";
   String donateIban = "IBAN:";
-  String donateIban2 = "TR000000000000000000000000000";
+  String donateIban2 = "TR000000000000000000000";
   String donateAdress = "Adres:";
   String donateAdress2 = "Lavanta Mah. Lale  Sokak No:11  Gül/Karanfil ";
 }

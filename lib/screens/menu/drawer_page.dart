@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
-import 'package:why_not_143_team/screens/home_page.dart';
-import 'package:why_not_143_team/screens/menu/transition_page.dart';
+import 'package:why_not_143_team/screens/home/home_page.dart';
 import 'package:why_not_143_team/screens/menu/menu_screen.dart';
 
 class DrawerPage extends StatefulWidget {

@@ -1,19 +1,17 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:provider/provider.dart';
+
 import 'package:why_not_143_team/constant.dart/asset_path.dart';
 import 'package:why_not_143_team/constant.dart/color_constant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/constant.dart/padding_constant.dart';
 import 'package:why_not_143_team/constant.dart/string.dart';
 import 'package:why_not_143_team/constant.dart/text_style.dart';
+
 import 'package:why_not_143_team/route/route_constant.dart';
-import 'package:why_not_143_team/screens/auth/cover_page.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:why_not_143_team/screens/home_page.dart';
 import 'package:why_not_143_team/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/utils/show_toast_message.dart';
 
