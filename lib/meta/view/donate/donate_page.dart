@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
 
