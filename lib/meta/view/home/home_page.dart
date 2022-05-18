@@ -19,7 +19,6 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -40,10 +39,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                   _homePageBodySection(),
                   _donateCard(context),
-                  AnimalListItem(
-                      name: "amber",
-                      age: "5",
-                      photoUrl: AssetPath.instance.cat2)
                 ],
               ),
             ),
