@@ -27,6 +27,7 @@ dependencies:
   flutter_zoom_drawer: ^3.0.1
   url_launcher: ^6.1.0
   stacked: ^2.3.6
+  stacked_hooks: ^0.2.2
   
 
 
