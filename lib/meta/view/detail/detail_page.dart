@@ -37,36 +37,6 @@ class _DetailPageState extends State<DetailPage> {
         ));
   }
 
-  Container petImage() {
-    return Container(
-      width: 200.w,
-      height: 200.h,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AssetPath.instance.cat1),
-        ),
-      ),
-    );
-  }
-
-  Padding koruyucuAileButton() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: GeneralButton(function: adoptForm, text: "Koruyucu ailesi ol"),
-    );
-  }
-
-  Padding sahiplenButton(User? _firebaseUser, BuildContext context) {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: GeneralButton(
-          function: (() => _firebaseUser != null
-              ? Navigator.pushNamed(context, RouteConstant.formScreenRoute)
-              : Navigator.pushNamed(context, RouteConstant.loginScreenRoute)),
-          text: "Sahiplen"),
-    );
-  }
-
   Align details() {
     return Align(
       alignment: Alignment.bottomCenter,
@@ -96,11 +66,9 @@ class _DetailPageState extends State<DetailPage> {
               ),
               child: Row(
                 children: [
-                  Expanded(
-                    child: Text(
-                      'Çiko',
-                      style: TextStyleConstant.instance.title1,
-                    ),
+                  Text(
+                    'Çiko',
+                    style: TextStyleConstant.instance.title1,
                   ),
                 ],
               ),
@@ -126,99 +94,123 @@ class _DetailPageState extends State<DetailPage> {
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Flexible(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(),
-                      child: Container(
-                        height: 88.h,
-                        width: 105.w,
-                        decoration: BoxDecoration(
-                          color: Colors.green.shade100,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Erkek',
-                            style: TextStyleConstant.instance.textLargeRegular,
-                          ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(),
+                    child: Container(
+                      height: 88.h,
+                      width: 105.w,
+                      decoration: BoxDecoration(
+                        color: Colors.green.shade100,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Erkek',
+                          style: TextStyleConstant.instance.textLargeRegular,
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(),
-                      child: Container(
-                        height: 88.h,
-                        width: 105.w,
-                        decoration: BoxDecoration(
-                          color: Colors.orange.shade100,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '1 Yaş',
-                            style: TextStyleConstant.instance.textLargeRegular,
-                          ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(),
+                    child: Container(
+                      height: 88.h,
+                      width: 105.w,
+                      decoration: BoxDecoration(
+                        color: Colors.orange.shade100,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Center(
+                        child: Text(
+                          '1 Yaş',
+                          style: TextStyleConstant.instance.textLargeRegular,
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(),
-                      child: Container(
-                        height: 88.h,
-                        width: 105.w,
-                        decoration: BoxDecoration(
-                          color: Colors.purple.shade100,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '10 Kg',
-                            style: TextStyleConstant.instance.textLargeRegular,
-                          ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(),
+                    child: Container(
+                      height: 88.h,
+                      width: 105.w,
+                      decoration: BoxDecoration(
+                        color: Colors.purple.shade100,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Center(
+                        child: Text(
+                          '10 Kg',
+                          style: TextStyleConstant.instance.textLargeRegular,
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Flexible(
-                child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+              child:
+                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(
+                  child: Column(
                     children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(),
-                              child: Text(
-                                'Geçmişi',
-                                style: TextStyleConstant.instance.title1,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 14),
-                              child: Text(
-                                'Çiko 03/05/2012 doğumlu. Irkı Melez. Siyah-kahverengi-beyaz renkte. Seninle tanışmak için sabırsızlanıyor.Haydi Formu Doldur',
-                                style:
-                                    TextStyleConstant.instance.textLargeRegular,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
+                      Padding(
+                        padding: const EdgeInsets.only(),
+                        child: Text(
+                          'Geçmişi',
+                          style: TextStyleConstant.instance.title1,
                         ),
                       ),
-                    ]),
-              ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 14),
+                        child: Text(
+                          'Çiko 03/05/2012 doğumlu. Irkı Melez. Siyah-kahverengi-beyaz renkte. Seninle tanışmak için sabırsızlanıyor.Haydi Formu Doldur',
+                          style: TextStyleConstant.instance.textLargeRegular,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ]),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Container petImage() {
+    return Container(
+      width: 200.w,
+      height: 200.h,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(AssetPath.instance.cat1),
+        ),
+      ),
+    );
+  }
+
+  Padding koruyucuAileButton() {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: GeneralButton(function: adoptForm, text: "Koruyucu ailesi ol"),
+    );
+  }
+
+  Padding sahiplenButton(User? _firebaseUser, BuildContext context) {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: GeneralButton(
+          function: (() => _firebaseUser != null
+              ? Navigator.pushNamed(context, RouteConstant.formScreenRoute)
+              : Navigator.pushNamed(context, RouteConstant.loginScreenRoute)),
+          text: "Sahiplen"),
     );
   }
 

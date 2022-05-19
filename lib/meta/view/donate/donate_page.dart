@@ -29,91 +29,88 @@ class DonatePage extends StatelessWidget {
             coverText(),
             donateText(),
             ibanContainer(_copyToClipboard),
-            addressContainter(),
+            addressContainer(),
           ],
         ),
       ),
     );
   }
 
-  Flexible addressContainter() {
-    return Flexible(
+  Padding ibanContainer(Future<void> Function() _copyToClipboard) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 100.h,
+        width: 300.w,
+        decoration: BoxDecoration(
+          border: Border.all(color: ColorConstant.instance.donate2),
+          borderRadius: BorderRadius.circular(10),
+          color: ColorConstant.instance.donate1,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Text(
+                    StringConstant.instance.donateIban,
+                    style: TextStyleConstant.instance.textSmallMedium,
+                  ),
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                  Text(StringConstant.instance.donateIban2,
+                      style: TextStyleConstant.instance.textSmallRegular),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.copy, size: 15),
+                        onPressed: _copyToClipboard,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding addressContainer() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         height: 102.h,
-        width: 324.w,
+        width: 300.w,
         decoration: BoxDecoration(
           border: Border.all(color: ColorConstant.instance.donate2),
           borderRadius: BorderRadius.circular(10),
           color: ColorConstant.instance.donate1,
         ),
         child: Center(
-          child: Expanded(
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 20.w,
-                ),
-                Text(
-                  StringConstant.instance.donateAdress,
-                  style: TextStyleConstant.instance.textSmallMedium,
-                ),
-                SizedBox(
-                  width: 10.w,
-                ),
-                Expanded(
-                  child: Text(StringConstant.instance.donateAdress2,
-                      style: TextStyleConstant.instance.textSmallRegular),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Padding ibanContainer(Future<void> _copyToClipboard()) {
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: Flexible(
-        child: Container(
-          height: 100.h,
-          width: 324.w,
-          decoration: BoxDecoration(
-            border: Border.all(color: ColorConstant.instance.donate2),
-            borderRadius: BorderRadius.circular(10),
-            color: ColorConstant.instance.donate1,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Row(
             children: [
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    Text(
-                      StringConstant.instance.donateIban,
-                      style: TextStyleConstant.instance.textSmallMedium,
-                    ),
-                    SizedBox(
-                      width: 5.w,
-                    ),
-                    Text(StringConstant.instance.donateIban2,
-                        style: TextStyleConstant.instance.textSmallRegular),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.copy, size: 15),
-                          onPressed: _copyToClipboard,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 20.w,
+              ),
+              Text(
+                StringConstant.instance.donateAdress,
+                style: TextStyleConstant.instance.textSmallMedium,
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              Expanded(
+                child: Text(StringConstant.instance.donateAdress2,
+                    style: TextStyleConstant.instance.textSmallRegular),
               ),
             ],
           ),
