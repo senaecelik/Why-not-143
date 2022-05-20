@@ -8,10 +8,12 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
+import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/widget/general_button.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final Pets pet;
+  const DetailPage({Key? key, required this.pet}) : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -67,7 +69,7 @@ class _DetailPageState extends State<DetailPage> {
               child: Row(
                 children: [
                   Text(
-                    'Çiko',
+                    widget.pet.name!,
                     style: TextStyleConstant.instance.title1,
                   ),
                 ],
@@ -86,7 +88,7 @@ class _DetailPageState extends State<DetailPage> {
                     color: ColorConstant.instance.yankeBlue,
                   ),
                   Text(
-                    'Ankara, Türkiye',
+                    widget.pet.location!,
                     style: TextStyleConstant.instance.textLargeMedium,
                   ),
                 ],
@@ -108,7 +110,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       child: Center(
                         child: Text(
-                          'Erkek',
+                          widget.pet.gender!,
                           style: TextStyleConstant.instance.textLargeRegular,
                         ),
                       ),
@@ -125,7 +127,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       child: Center(
                         child: Text(
-                          '1 Yaş',
+                          widget.pet.age!,
                           style: TextStyleConstant.instance.textLargeRegular,
                         ),
                       ),
@@ -142,7 +144,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       child: Center(
                         child: Text(
-                          '10 Kg',
+                          widget.pet.type!,
                           style: TextStyleConstant.instance.textLargeRegular,
                         ),
                       ),
@@ -168,7 +170,7 @@ class _DetailPageState extends State<DetailPage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 14),
                         child: Text(
-                          'Çiko 03/05/2012 doğumlu. Irkı Melez. Siyah-kahverengi-beyaz renkte. Seninle tanışmak için sabırsızlanıyor.Haydi Formu Doldur',
+                          widget.pet.cins!,
                           style: TextStyleConstant.instance.textLargeRegular,
                           textAlign: TextAlign.center,
                         ),
@@ -184,16 +186,18 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  Container petImage() {
-    return Container(
-      width: 200.w,
-      height: 200.h,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AssetPath.instance.cat1),
-        ),
-      ),
-    );
+  Widget petImage() {
+    return widget.pet.photo == null
+        ? Center(child: Text("Bulunamadı"))
+        : Container(
+            width: 200.w,
+            height: 200.h,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(widget.pet.photo!),
+              ),
+            ),
+          );
   }
 
   Padding koruyucuAileButton() {

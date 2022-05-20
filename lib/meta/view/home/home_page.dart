@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:why_not_143_team/core/services/pet_service.dart';
 import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
@@ -10,6 +11,7 @@ import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
 import 'package:lottie/lottie.dart';
+import 'package:why_not_143_team/meta/view/home/pet_list.dart';
 
 class HomePage extends StatefulWidget {
   final ZoomDrawerController drawerController;
@@ -22,6 +24,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    PetApi.getPetData();
     return Scaffold(
         appBar: appBar(),
         body: DefaultTabController(
@@ -33,12 +36,15 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  _donateCard(context),
+                  SizedBox(
+                    height: 30.h,
+                  ),
                   _search(),
                   SizedBox(
                     height: 30.h,
                   ),
                   _homePageBodySection(),
-                  _donateCard(context),
                 ],
               ),
             ),
@@ -146,7 +152,7 @@ class _HomePageState extends State<HomePage> {
       children: [
         HomeTabBar(context),
         SizedBox(
-          height: 350.h,
+          height: MediaQuery.of(context).size.height,
           child: homeTabBarView(context),
         ),
       ],
@@ -154,9 +160,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget homeTabBarView(BuildContext context) {
-    return const TabBarView(
+    return TabBarView(
       children: [
-        SizedBox(height: 100, child: List()),
+        SizedBox(height: MediaQuery.of(context).size.height, child: PetList()),
         SizedBox(height: 100, child: List()),
         SizedBox(height: 100, child: List()),
       ],
@@ -220,9 +226,9 @@ class _HomePageState extends State<HomePage> {
 }
 
 class AnimalListItem extends StatelessWidget {
-  final String name;
-  final String age;
-  final String photoUrl;
+  final String? name;
+  final String? age;
+  final String? photoUrl;
 
   const AnimalListItem(
       {Key? key, required this.name, required this.age, required this.photoUrl})
@@ -232,8 +238,6 @@ class AnimalListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const DetailPage()));
       },
       child: Padding(
         // ignore: prefer_const_constructors
@@ -255,14 +259,14 @@ class AnimalListItem extends StatelessWidget {
                     ),
                   ],
                   color: ColorConstant.instance.white,
-                  image: DecorationImage(image: AssetImage(photoUrl))),
+                  image: DecorationImage(image: AssetImage(photoUrl!))),
             ),
             Text(
-              name,
+              name!,
               style: TextStyleConstant.instance.textSmallMedium,
             ),
             Text(
-              age,
+              age!,
               style: TextStyleConstant.instance.textSmallRegular,
             ),
           ],
