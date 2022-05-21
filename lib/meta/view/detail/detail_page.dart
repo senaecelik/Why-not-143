@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
@@ -188,7 +187,7 @@ class _DetailPageState extends State<DetailPage> {
 
   Widget petImage() {
     return widget.pet.photo == null
-        ? Center(child: Text("Bulunamadı"))
+        ? const Center(child: Text("Bulunamadı"))
         : Container(
             width: 200.w,
             height: 200.h,
