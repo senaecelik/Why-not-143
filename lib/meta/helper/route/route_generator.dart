@@ -18,7 +18,7 @@ class RouterGenerator {
       case RouteConstant.homeScreenRoute:
         return MaterialPageRoute(builder: (_) => const DrawerPage());
       case RouteConstant.forgotPassRoute:
-        return MaterialPageRoute(builder: (_) => const ForgotPassword());
+        return MaterialPageRoute(builder: (_) =>   ForgotPassword());
       case RouteConstant.coverScreenRoue:
         return MaterialPageRoute(builder: (_) => const CoverPage());
       case RouteConstant.profileRoute:

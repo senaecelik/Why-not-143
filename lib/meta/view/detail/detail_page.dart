@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -191,12 +192,10 @@ class _DetailPageState extends State<DetailPage> {
         : Container(
             width: 200.w,
             height: 200.h,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(widget.pet.photo!),
-              ),
-            ),
-          );
+            child: CachedNetworkImage(
+              imageUrl: widget.pet.photo!,
+              fit: BoxFit.cover,
+            ));
   }
 
   Padding koruyucuAileButton() {

@@ -4,6 +4,8 @@ import 'package:stacked_hooks/stacked_hooks.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
+import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 import 'package:why_not_143_team/meta/widget/form_text.dart';
 import 'login_page_view_model.dart';
@@ -25,6 +27,7 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
             emailTextFormField(context, emailController, viewModel),
             FormText(text: StringConstant.instance.formPassword),
             passTextField(context, passwordController, viewModel),
+            forgotPassTextButton(context),
             viewModel.isBusy
                 ? const CustomCircular()
                 : _loginButton(_formKey, viewModel, context, emailController,
@@ -103,6 +106,23 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
           validator: (value) {
             return viewModel.passwordValidation(value);
           },
+        ),
+      ),
+    );
+  }
+
+  Widget forgotPassTextButton(BuildContext context) {
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Padding(
+        padding: PaddingConstant.instance.textPadding,
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, RouteConstant.forgotPassRoute);
+          },
+          child: Text(StringConstant.instance.formForgotPass,
+              style: TextStyleConstant.instance.verySmallMedium
+                  .copyWith(color: ColorConstant.instance.primary700)),
         ),
       ),
     );

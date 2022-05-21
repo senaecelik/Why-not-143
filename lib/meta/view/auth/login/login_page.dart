@@ -33,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const UserLoginForm(),
-                    forgotPassTextButton(context),
                     dontHaveAccYet(context),
                     loginTextOr(),
                     googleButton(context),
@@ -44,26 +43,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-Widget forgotPassTextButton(BuildContext context) {
-  return Align(
-    alignment: Alignment.centerRight,
-    child: Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: TextButton(
-        onPressed: () {
-          Navigator.pushNamed(context, RouteConstant.forgotPassRoute);
-        },
-        child: Text(StringConstant.instance.formForgotPass,
-            style: TextStyleConstant.instance.verySmallMedium
-                .copyWith(color: ColorConstant.instance.primary700)),
-      ),
-    ),
-  );
-}
-
 Widget dontHaveAccYet(BuildContext context) {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: PaddingConstant.instance.genelButtonPadding,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,7 +78,7 @@ Row loginTextOr() {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Padding(
-        padding: PaddingConstant.instance.loginPadding,
+        padding: PaddingConstant.instance.genelButtonPadding,
         child: Text(
           StringConstant.instance.loginTextOr,
           style: TextStyleConstant.instance.textSmallMedium
@@ -109,7 +91,7 @@ Row loginTextOr() {
 
 Padding googleButton(BuildContext context) {
   return Padding(
-    padding: PaddingConstant.instance.loginPadding,
+    padding: PaddingConstant.instance.genelButtonPadding,
     child: SizedBox(
       child: SizedBox(
         height: 58.h,
