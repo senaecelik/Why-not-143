@@ -12,7 +12,7 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
   const UserLoginForm({Key? key}) : super(key: key);
 
   @override
-  Widget buildViewModelWidget(context, viewModel) {
+  Widget buildViewModelWidget(BuildContext context, viewModel) {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
