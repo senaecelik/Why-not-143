@@ -45,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       InkWell(
                         onTap: () {
                           Navigator.pushNamed(
-                              context, RouteConstant.registerScreenRoute);
+                              context, RouteConstant.loginScreenRoute);
                         },
                         child: Text(StringConstant.instance.loginSignIn,
                             style: TextStyleConstant.instance.textSmallMedium
