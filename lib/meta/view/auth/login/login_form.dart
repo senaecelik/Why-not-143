@@ -4,124 +4,107 @@ import 'package:stacked_hooks/stacked_hooks.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
-import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/widget/custom_circular.dart';
+import 'package:why_not_143_team/meta/widget/form_text.dart';
 import 'login_page_view_model.dart';
 
 class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
   const UserLoginForm({Key? key}) : super(key: key);
 
   @override
-  Widget buildViewModelWidget(BuildContext context, LoginViewModel viewModel) {
+  Widget buildViewModelWidget(context, viewModel) {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
+    final _formKey = GlobalKey<FormState>();
 
     return Form(
+        key: _formKey,
         child: Column(
-      children: [
-        emailText(),
-        emailTextField(emailController),
-        passwordText(),
-        passTextField(passwordController),
-        viewModel.isBusy
-            ? const CircularProgressIndicator()
-            : loginButton(
-                viewModel, context, emailController, passwordController),
-      ],
-    ));
+          children: [
+            FormText(text: StringConstant.instance.formEmail),
+            emailTextFormField(context, emailController, viewModel),
+            FormText(text: StringConstant.instance.formPassword),
+            passTextField(context, passwordController, viewModel),
+            viewModel.isBusy
+                ? const CustomCircular()
+                : _loginButton(_formKey, viewModel, context, emailController,
+                    passwordController),
+          ],
+        ));
   }
 
-  Widget loginButton(
-      LoginViewModel viewModel,
-      BuildContext context,
-      TextEditingController emailController,
-      TextEditingController passwordController) {
-    return InkWell(
-      onTap: () {
-        viewModel.logInUser(context, emailController, passwordController);
-      },
-      child: Container(
-        height: 58.h,
-        width: 320.w,
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: ColorConstant.instance.yankeBlue),
-        child: Text(
-          StringConstant.instance.loginSignIn,
-          style: TextStyleConstant.instance.textLargeMedium
-              .copyWith(color: ColorConstant.instance.white),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-
-  Padding emailTextField(TextEditingController emailController) {
+  Widget emailTextFormField(context, emailController, viewModel) {
     return Padding(
       padding: PaddingConstant.instance.loginPadding,
       child: SizedBox(
         height: 58.h,
-        width: 328.w,
+        width: MediaQuery.of(context).size.height,
         child: TextFormField(
           keyboardType: TextInputType.emailAddress,
           controller: emailController,
           decoration: InputDecoration(
-            hintText: StringConstant.instance.loginTextFieldMail,
+            hintText: StringConstant.instance.formEmail,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide:
                     BorderSide(color: ColorConstant.instance.neutral300)),
           ),
+          validator: (value) {
+            return viewModel.emailValidatorMethod(value);
+          },
         ),
       ),
     );
   }
-}
 
-Padding emailText() {
-  return Padding(
-    padding: PaddingConstant.instance.loginPadding,
-    child: Row(
-      children: [
-        Text(
-          StringConstant.instance.loginEmail,
-          style: TextStyleConstant.instance.textSmallMedium,
-        ),
-      ],
-    ),
-  );
-}
+  Widget _loginButton(
+      _formKey, viewModel, context, emailController, passwordController) {
+    return Padding(
+        padding: PaddingConstant.instance.genelButtonPadding,
+        child: SizedBox(
+          height: 58.h,
+          width: MediaQuery.of(context).size.height,
+          child: ElevatedButton(
+            onPressed: () async {
+              if (_formKey.currentState!.validate()) {
+                viewModel.logInUser(
+                    context, emailController, passwordController);
+              }
+            },
+            child: Text(StringConstant.instance.loginSignIn),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              primary: ColorConstant.instance.yankeBlue,
+              onPrimary: ColorConstant.instance.white,
+              side: BorderSide(
+                  width: 1.0, color: ColorConstant.instance.yankeBlue),
+            ),
+          ),
+        ));
+  }
 
-Padding passwordText() {
-  return Padding(
-    padding: PaddingConstant.instance.loginPadding,
-    child: Row(
-      children: [
-        Text(
-          StringConstant.instance.loginPassword,
-          style: TextStyleConstant.instance.textSmallMedium,
-        ),
-      ],
-    ),
-  );
-}
-
-Padding passTextField(TextEditingController passwordController) {
-  return Padding(
-    padding: PaddingConstant.instance.loginPadding,
-    child: SizedBox(
-      height: 58.h,
-      width: 328.w,
-      child: TextField(
-        obscureText: true,
-        controller: passwordController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.loginTextFieldPassword,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
+  Widget passTextField(context, passwordController, viewModel) {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
+        height: 58.h,
+        width: MediaQuery.of(context).size.height,
+        child: TextFormField(
+          obscureText: true,
+          controller: passwordController,
+          decoration: InputDecoration(
+            hintText: StringConstant.instance.formTextFieldPassword,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+          validator: (value) {
+            return viewModel.passwordValidation(value);
+          },
         ),
       ),
-    ),
-  );
+    );
+  }
 }
