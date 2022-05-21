@@ -12,7 +12,7 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
   const UserRegisterForm({Key? key}) : super(key: key);
 
   @override
-  Widget buildViewModelWidget(context, viewModel) {
+  Widget buildViewModelWidget(BuildContext context, viewModel) {
     final _formKey = GlobalKey<FormState>();
     final nameController = TextEditingController();
     final registerEmailController = TextEditingController();
