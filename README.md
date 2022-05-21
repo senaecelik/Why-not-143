@@ -136,8 +136,86 @@ Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan �
 
 # Sprint 2
 
+- **Sprint Notları**: Sprint planlama toplantısında karar verildiği üzere bu sprintte özellikle Home  ve Detail Page ve backendde api kullanımına odaklanılmıştır. Api kullanımında ekip üyeleri öncelikle araştırma kısmına odaklanmış ikinci haftada ise uygulamaya geçilmiştir.Proje yönetiminde Trello kullanımına devam edilmektedir.  User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında açıklama kısmında hikayelerin detayları okunabilir. Tasklar kırmızı kapakla gösterilmiş olup, backloglardan ayrı olarak gösterilmiştir.
 
----
+- **Sprint içinde tamamlanması tahmin edilen puan**: 150 puan
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 100 ile başlaması gerektiğine karar verildi.
+
+- **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur. 
+
+Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - Sprint 3 panosunda  gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
+
+- **Daily Scrum**: Daily Scrum toplantıları bu sprintte Whatsapp'da kurulan Daily Scrum gurubunda ve Google Meet'de yapılmıştır. 
+[**Sprint 1 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/bbca2678825ae36cd7de0d44ce0535dda673fb6e/Proje%20Y%C3%B6netimi/Sprint%201/Daily%20Scrum%20Chats.docx)
+
+- **Sprint board update**: Sprint board screenshotları: 
+![Sprint1_1](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_1.png) 
+![Sprint1_2](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_2.png) 
+![Sprint1_3](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_3.png)
+![Sprint1_4](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_4.png)
+![Sprint1_5](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_5.png)
+![Sprint1_6](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_6.png)
+![Sprint1_7](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_7.png)
+
+<table>
+  <tr>
+    <td>1</td>
+     <td>2</td>
+     <td>3</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/1.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/2.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/3.jpeg" width="350" height="540"></td>
+   
+ </table>
+
+<table>
+  <tr>
+    <td>4</td>
+     <td>5</td>
+     <td>6</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/4.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/5.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/6.jpeg" width="350" height="540"></td>
+   
+ </table>
+
+  
+<table>
+  <tr>
+    <td>7</td>
+     <td>8</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/7.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/2286bf61e01d80549860894dc6e5b006bd08fe20/Proje%20Y%C3%B6netimi/Sprint%201/8.jpeg" width="350" height="540"></td>
+
+   
+ </table>
+
+  
+  
+- **Sprint Review**: 
+Alınan kararlar: Bu sprintte özellikle API kısmına yoğunlaşılarak Detail Page oluşturuldu. Uygulama kullanıcı gözüyle incelendiğinde UX deneyimi ve UI'da yapılacak değişiklikler/düzenlemeler üzerine konuşuldu. 2. sprintte ekibin ekibin uygulama pratiğinin olmadığı API üzerinde ortak araştırma, eğitimler izlemesi ve farklı seçenekleri değerlendirmesi; üyelerin farklı konular üzerine araştırma yapması ön plandaydı. 3. sprintte de bu yaklaşımın devam ederek, uygulamanın bütünü için deneyim/tasarım iyileştirme, MVVM üzerine yoğunlaşma kararı verildi.
+  
+- **Sprint Review katılımcıları:** 
+Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan Çelik
+  
+- **Sprint Retrospective:**
+- Home page ve Detail Page'de UX deneyimini iyileştirmek için çalışmaların devam etmesine karar verilmiştir.
+
+- Home page'de filtreleme ve PAti Rehber üzerine çalışılması ve Home Page'in tasarım olarak incelenmesine karar verildi.
+
+- Son sprintte herkesin uygulamayla ilgili deneyimlerini bir dokümana yazarak ScrumMaster'la paylaşması ve bunun üzerine ayrıca bir toplantı yapılmasına karar verildi.
+
+
 
 # Sprint 3
 
