@@ -144,7 +144,7 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
   Widget signupButton(_formKey, viewModel, context, nameController,
       emailController, passwordController) {
     return Padding(
-        padding: PaddingConstant.instance.loginPadding,
+        padding: PaddingConstant.instance.genelButtonPadding,
         child: SizedBox(
           height: 58.h,
           width: MediaQuery.of(context).size.height,

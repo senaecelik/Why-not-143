@@ -1,44 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stacked/stacked.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
-import 'package:why_not_143_team/meta/view/auth/login/login_page_view_model.dart';
+import 'package:why_not_143_team/meta/view/auth/login/forgot_pass_view_model.dart';
 import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 import 'package:why_not_143_team/meta/widget/form_text.dart';
 
-class ForgotPassword extends HookViewModelWidget<LoginViewModel> {
+class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
   @override
-  Widget buildViewModelWidget(BuildContext context, LoginViewModel viewModel) {
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  @override
+  Widget build(BuildContext context) {
     final emailController = TextEditingController();
-    return Scaffold(
-      appBar: appBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            labelText(),
-            _emailTextField(emailController),
-            FormText(text: StringConstant.instance.formEmail),
-            viewModel.isBusy
-                ? const CustomCircular()
-                : _forgotPassButton(context, viewModel, emailController),
-          ],
-        ),
-      ),
-    );
+    return ViewModelBuilder<ForgotPassViewModel>.reactive(
+        viewModelBuilder: () => ForgotPassViewModel(),
+        builder: (context, viewModel, child) => Scaffold(
+              appBar: appBar(),
+              body: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    labelText(),
+                    FormText(text: StringConstant.instance.formEmail),
+                    _emailTextField(emailController),
+                    viewModel.isBusy
+                        ? const CustomCircular()
+                        : _forgotPassButton(
+                            context, viewModel, emailController),
+                  ],
+                ),
+              ),
+            ));
   }
 
-  Padding _forgotPassButton(BuildContext context, LoginViewModel viewModel,
+  Padding _forgotPassButton(BuildContext context, ForgotPassViewModel viewModel,
       TextEditingController emailController) {
     return Padding(
-        padding: PaddingConstant.instance.loginPadding,
+        padding: PaddingConstant.instance.genelButtonPadding,
         child: SizedBox(
           height: 58.h,
           width: MediaQuery.of(context).size.height,
@@ -64,7 +73,7 @@ class ForgotPassword extends HookViewModelWidget<LoginViewModel> {
       padding: PaddingConstant.instance.loginPadding,
       child: SizedBox(
         height: 58.h,
-        width: 328.w,
+        width: MediaQuery.of(context).size.height,
         child: TextField(
           keyboardType: TextInputType.emailAddress,
           controller: emailController,

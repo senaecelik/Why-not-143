@@ -6,7 +6,8 @@ import 'package:why_not_143_team/core/services/firebase_auth_method.dart';
 class LoginViewModel extends BaseViewModel {
   void logInUser(BuildContext context, emailController, passwordController) {
     setBusy(true);
-    context.read<FirebaseAuthMethods>()
+    context
+        .read<FirebaseAuthMethods>()
         .loginWithEmail(
             email: emailController.text,
             password: passwordController.text,
@@ -15,7 +16,7 @@ class LoginViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void resetPassword(context, emailController) async {
+  void resetPassword(BuildContext context, emailController) async {
     setBusy(true);
     context
         .read<FirebaseAuthMethods>()
