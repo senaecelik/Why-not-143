@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/view/auth/cover_page.dart';
-import 'package:why_not_143_team/meta/view/auth/forgot_pass.dart';
+import 'package:why_not_143_team/meta/view/auth/login/forgot_pass.dart';
 import 'package:why_not_143_team/meta/view/auth/login/login_page.dart';
 import 'package:why_not_143_team/meta/view/auth/on_board_page.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_page.dart';

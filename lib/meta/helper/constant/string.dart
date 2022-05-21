@@ -42,18 +42,22 @@ class StringConstant {
 
   // Login and Register Page
 
-  String registerName = "Ad";
-  String loginEmail = "Email";
-  String loginPassword = "Şifre";
-  String loginForgotPass = "Şifremi Unuttum";
+  String formregisterName = "Ad";
+  String formEmail = "Email";
+  String formPassword = "Şifre";
+  String formForgotPass = "Şifremi Unuttum";
+  String formPhone = "Telefon numarası";
   String loginSignUp = "Henüz bir hesabın yok mu?";
   String loginTextOr = "ya da";
   String loginSignInGoogle = "Google ile giriş yap";
   String registerSignUp = "Kayıt Ol";
+  String registerSignIn = "Zaten bir hesabın var mı?";
   String loginSignIn = "Giriş Yap";
-  String loginTextFieldMail = "patidostum@email.com";
-  String loginTextFieldPassword = "Şifreniz";
-  String registerTextFieldName = "Adınız";
+  String formTextFieldMail = "patidostum@email.com";
+  String formTextFieldPassword = "Şifreniz";
+  String formTextFieldName = "Adınız";
+  String formTextFieldPhone = "5555555555";
+
   String dontHaveAcc = "Şimdilik üye olmadan devam et";
   String resetPass = "Şifremi Sıfırla!";
   String forgotPassLabel =
