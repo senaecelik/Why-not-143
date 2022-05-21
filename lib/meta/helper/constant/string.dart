@@ -18,9 +18,9 @@ class StringConstant {
   String onBoardSubTitle2 =
       "Pati dostlarımız desteğini bekliyor. Barınak hesaplarına nakdi yardım yapabilir veya güncel barınak ihtiyaçlarını  direkt barınaklara gönderebilirsin.";
 
-  String onBoardTitle3 = "Pati Forum ile öğren";
+  String onBoardTitle3 = "Pati Rehber ile öğren";
   String onBoardSubTitle3 =
-      "Sahiplendiğin pati dostunun bakımıyla ilgili ipuçlarını paylaştığımız Pati Forum sayfasına bakmayı unutma :)";
+      "Sahiplendiğin pati dostunun bakımıyla ilgili ipuçlarını paylaştığımız Pati Rehber sayfasına bakmayı unutma :)";
 
   String onBoardPass = "Geç";
 
@@ -86,7 +86,7 @@ class StringConstant {
   String aboutUs = "Biz kimiz?";
   String contactUs = "İletişim";
   String aboutText =
-      "Canlarımıza  yardımda bulunmak ve barınaklarımıza destek vermek için   başladığımız bu  proje sizlere rahat bir uygulama kullanımı sağlamak adına başladığımız  proje kapsamında uygulamamızı sizlere sunmuş bulunmaktayız. Bizler, tüm canların yardımına destek vermek amacıyla toplanmış, küçük dokunuşlarla büyük değişimleri destekleyen, yardımlaşmayı seven küçük bir topluluğuz.";
+      "Pati dostlarımız ırk,cins, renk, cinsiyet farketmeden desteklerimizi bekliyor. Bizler de küçük dokunuşlarla büyük değişimleri destekleyen, yardımlaşmayı seven küçük bir topluluk olarak Pati Dostum uygulamasını geliştirerek Canlarımıza destek olmayı amaçlıyoruz. Sokaklardan kurtularak barınaklarda bakılan dostlarımızın fazlalığı onlarla birebir ilgilenilmesini zorlaştırıyor. Siz de yolculuğunuzda bir pati dost edinmeye karar verdiyseniz belediyelere ve derneklere bağlı barınaklarımızdan uygulamamızı kullanarak barınağa gitmeye gerek kalmadan pati dostunuzu sahiplenebilirsiniz. Böylece ne yazık ki tüketim çılgınlığı ve gösteriş büyüsü etkisinde kalmış olan petshoplar yerine barınakları destekleyebilir; bir Can’ın kurtarılmasına destek olabilirsiniz. Uygulamamız yalnızca pati dost sahiplendirmekle kalmıyor, aynı zamanda; hayvanlara alerjiniz varsa ya da herhangi bir nedenle evde hayvan besleyemiyor ancak pati dostlarımıza yardım etmek istiyorsanız sizlere “Koruyucu Aile” olma şansı da tanıyor. Koruyucu ailesi olduğunuz pati dostunuzun tüm bakımları sizde olmak koşuluyla dostunuza güvenle barınakta bakılıyor. İki seçenek de sizin için uygun değilse uygulamamız aynı zaman da barınak hesaplarını ve adreslerini paylaşarak pati dostlarımıza nakdi ve ayni yardımda bulunmanızı sağlıyor. Haydi Pati Dostu’n seni bekliyor. Bugün bir Can’ı kurtararak fark yaratmak istemez misin?";
   String contactText =
       "Bizimle fikirlerinizi paylaşmak, yardım ve öneride bulunmak, sizde küçük bir adımla büyük etkiler yaratmak isterseniz bize ulaşmaktan çekinmeyin.";
 
