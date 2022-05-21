@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/core/services/pet_service.dart';
@@ -42,10 +43,7 @@ class _PetListState extends State<PetList> {
                                 )));
                   },
                   child: PetListItem(
-                      name: pet.name!,
-                      cins: pet.cins!,
-                      photo:
-                          "https://www.hepsiburada.com/kesfet/wp-content/uploads/2020/11/iStock-1063193874-800x533.jpg"),
+                      name: pet.name!, cins: pet.cins!, photo: pet.photo!),
                 );
               },
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -83,11 +81,13 @@ class PetListItem extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.all(10),
-            height: 250.h,
-            width: 150.w,
-            child: Image.network(photo),
-          ),
+              margin: const EdgeInsets.all(10),
+              height: 250.h,
+              width: 150.w,
+              child: CachedNetworkImage(
+                imageUrl: photo,
+                fit: BoxFit.fill,
+              )),
           Text(
             name,
             style: TextStyleConstant.instance.textSmallMedium,
