@@ -21,106 +21,102 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
- 
-
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<LoginViewModel>.reactive(
         viewModelBuilder: () => LoginViewModel(),
-        builder: (context, model, child) =>  Scaffold(
-        appBar: appBar(context),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const UserLoginForm(),
-              forgotPassTextButton(context),  
-              dontHaveAccYet(context),
-              loginTextOr(),
-              googleButton(context),
-            ],
-          ),
-        ),
-      ));
-    }
+        builder: (context, model, child) => Scaffold(
+              appBar: appBar(context),
+              body: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const UserLoginForm(),
+                    forgotPassTextButton(context),
+                    dontHaveAccYet(context),
+                    loginTextOr(),
+                    googleButton(context),
+                  ],
+                ),
+              ),
+            ));
   }
+}
 
-  Row forgotPassTextButton(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: PaddingConstant.instance.loginPadding,
-          child: TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, RouteConstant.forgotPassRoute);
-            },
-            child: Text(
-              StringConstant.instance.loginForgotPass,
-              style: TextStyleConstant.instance.loginVerySmallMedium,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget dontHaveAccYet(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            StringConstant.instance.loginSignUp,
-            style: TextStyleConstant.instance.loginVerySmallMedium,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, RouteConstant.registerScreenRoute);
-            },
-            child: Text(
-              StringConstant.instance.registerSignUp,
-              style: TextStyleConstant.instance.loginVerySmallMedium,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Row loginTextOr() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: PaddingConstant.instance.loginPadding,
-          child: Text(
-            StringConstant.instance.loginTextOr,
-            style: TextStyleConstant.instance.loginVerySmallMedium
-                .copyWith(color: ColorConstant.instance.neutral),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Padding googleButton(BuildContext context) {
-    return Padding(
+Widget forgotPassTextButton(BuildContext context) {
+  return Align(
+    alignment: Alignment.centerRight,
+    child: Padding(
       padding: PaddingConstant.instance.loginPadding,
+      child: TextButton(
+        onPressed: () {
+          Navigator.pushNamed(context, RouteConstant.forgotPassRoute);
+        },
+        child: Text(StringConstant.instance.formForgotPass,
+            style: TextStyleConstant.instance.verySmallMedium
+                .copyWith(color: ColorConstant.instance.primary700)),
+      ),
+    ),
+  );
+}
+
+Widget dontHaveAccYet(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          StringConstant.instance.loginSignUp,
+          style: TextStyleConstant.instance.textSmallMedium
+              .copyWith(color: ColorConstant.instance.primary700),
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, RouteConstant.registerScreenRoute);
+          },
+          child: Text(StringConstant.instance.registerSignUp,
+              style: TextStyleConstant.instance.textSmallMedium.copyWith(
+                color: ColorConstant.instance.primary700,
+                decoration: TextDecoration.underline,
+              )),
+        ),
+      ],
+    ),
+  );
+}
+
+Row loginTextOr() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Padding(
+        padding: PaddingConstant.instance.loginPadding,
+        child: Text(
+          StringConstant.instance.loginTextOr,
+          style: TextStyleConstant.instance.textSmallMedium
+              .copyWith(color: ColorConstant.instance.neutral),
+        ),
+      ),
+    ],
+  );
+}
+
+Padding googleButton(BuildContext context) {
+  return Padding(
+    padding: PaddingConstant.instance.loginPadding,
+    child: SizedBox(
       child: SizedBox(
         height: 58.h,
-        width: 327.w,
+        width: MediaQuery.of(context).size.height,
         child: ElevatedButton.icon(
           onPressed: () async {
-            
             await context.read<FirebaseAuthMethods>().signInWithGoogle(context);
-          
           },
           icon: Tab(
             icon: Image.asset(AssetPath.instance.loginImage),
@@ -140,22 +136,22 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
-  AppBar appBar(BuildContext context) {
-    return AppBar(
-      leadingWidth: 80,
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
-      title: Text(
-        StringConstant.instance.loginSignIn,
-        style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
-      ),
-    );
-  }
-
+AppBar appBar(BuildContext context) {
+  return AppBar(
+    leadingWidth: 80,
+    leading: IconButton(
+      icon: const Icon(Icons.arrow_back),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    ),
+    title: Text(
+      StringConstant.instance.loginSignIn,
+      style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
+    ),
+  );
+}

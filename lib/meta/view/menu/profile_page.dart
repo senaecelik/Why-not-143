@@ -1,4 +1,3 @@
-
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,34 +34,37 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Center(
         child: Column(
           children: [
-            if (_firebaseUser != null) Padding(
-                    padding: PaddingConstant.instance.loginPadding,
-                    child: SizedBox(
-                      height: 150.h,
-                      width: 150.w,
-                      child: _firebaseUser.photoURL != null
-                          ? CircleAvatar(
-                              backgroundImage:
-                                  NetworkImage("${_firebaseUser.photoURL}"),
-                            )
-                          : CircleAvatar(
-                              backgroundImage:
-                                  AssetImage(AssetPath.instance.menuPerson),
-                            ),
-                    ),
-                  ) else Padding(
-                    padding: PaddingConstant.instance.loginPadding,
-                    child: DrawerHeader(
-                      child: SizedBox(
-                        height: 100.h,
-                        width: 100.w,
-                        child: CircleAvatar(
+            if (_firebaseUser != null)
+              Padding(
+                padding: PaddingConstant.instance.loginPadding,
+                child: SizedBox(
+                  height: 150.h,
+                  width: 150.w,
+                  child: _firebaseUser.photoURL != null
+                      ? CircleAvatar(
+                          backgroundImage:
+                              NetworkImage("${_firebaseUser.photoURL}"),
+                        )
+                      : CircleAvatar(
                           backgroundImage:
                               AssetImage(AssetPath.instance.menuPerson),
                         ),
-                      ),
+                ),
+              )
+            else
+              Padding(
+                padding: PaddingConstant.instance.loginPadding,
+                child: DrawerHeader(
+                  child: SizedBox(
+                    height: 100.h,
+                    width: 100.w,
+                    child: CircleAvatar(
+                      backgroundImage:
+                          AssetImage(AssetPath.instance.menuPerson),
                     ),
                   ),
+                ),
+              ),
             /*
             Padding(
               padding: const EdgeInsets.only(top: 30),
@@ -174,7 +176,7 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Row(
         children: [
           Text(
-            StringConstant.instance.loginEmail,
+            StringConstant.instance.formEmail,
             style: TextStyleConstant.instance.textSmallMedium,
           ),
         ],
@@ -208,7 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Row(
         children: [
           Text(
-            StringConstant.instance.registerName,
+            StringConstant.instance.formregisterName,
             style: TextStyleConstant.instance.textSmallMedium,
           ),
         ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 
 class TextStyleConstant {
   static TextStyleConstant instance = TextStyleConstant._init();
@@ -43,9 +42,4 @@ class TextStyleConstant {
 
   //for login page texts
 
-  TextStyle loginVerySmallMedium = GoogleFonts.poppins(
-    fontWeight: FontWeight.w500,
-    fontSize: 13.sp,
-    color: ColorConstant.instance.primary700,
-  );
 }

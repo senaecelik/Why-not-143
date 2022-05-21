@@ -4,6 +4,7 @@ import 'package:why_not_143_team/core/services/pet_service.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
+import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 
 class PetList extends StatefulWidget {
   const PetList({Key? key}) : super(key: key);
@@ -59,7 +60,7 @@ class _PetListState extends State<PetList> {
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CustomCircular(),
             );
           }
         });

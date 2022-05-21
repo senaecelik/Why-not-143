@@ -9,7 +9,6 @@ import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
-import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
 import 'package:lottie/lottie.dart';
 import 'package:why_not_143_team/meta/view/home/pet_list.dart';
 
@@ -162,9 +161,9 @@ class _HomePageState extends State<HomePage> {
   Widget homeTabBarView(BuildContext context) {
     return TabBarView(
       children: [
-        SizedBox(height: MediaQuery.of(context).size.height, child: PetList()),
-        SizedBox(height: 100, child: List()),
-        SizedBox(height: 100, child: List()),
+        SizedBox(height: MediaQuery.of(context).size.height, child: const PetList()),
+        const SizedBox(height: 100, child: List()),
+        const SizedBox(height: 100, child: List()),
       ],
     );
   }
