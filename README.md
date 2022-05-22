@@ -203,8 +203,8 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 
   <tr>
     <td><img src="https://github.com/senaecelik/Why-not-143/blob/e458c0f5665a891e89d23475d08c91d6f2bde2ac/Proje%20Y%C3%B6netimi/Sprint%202/7.jpeg" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/e458c0f5665a891e89d23475d08c91d6f2bde2ac/Proje%20Y%C3%B6netimi/Sprint%202/9.jpeg" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/e458c0f5665a891e89d23475d08c91d6f2bde2ac/Proje%20Y%C3%B6netimi/Sprint%202/8.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/91d6c403242aca57bfbefd036e147322f93ef09b/Proje%20Y%C3%B6netimi/Sprint%202/9.png" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/91d6c403242aca57bfbefd036e147322f93ef09b/Proje%20Y%C3%B6netimi/Sprint%202/8.jpeg" width="350" height="540"></td>
 
    
  </table>
