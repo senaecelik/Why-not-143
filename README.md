@@ -136,15 +136,15 @@ Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan �
 
 # Sprint 2
 
-- **Sprint Notları**: Sprint planlama toplantısında karar verildiği üzere bu sprintte özellikle Home  ve Detail Page ve backendde api kullanımına odaklanılmıştır. Api kullanımı ve iki sayfanın iş yükü daha fazla olduğundan ve ekibin uygulamada pratiğinin olmaması nedeniyle eğitimlere de bakılacağından Home Page sayfasının 2 kısma ayrılarak çalışılmasına; dolayısıyla 3. Sprintte de devam etmesine karar verildi. Api kullanımında ekip üyeleri öncelikle araştırma kısmına odaklanmış ikinci haftada ise uygulamaya geçilmiştir.Proje yönetiminde Trello kullanımına devam edilmektedir.  User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında açıklama kısmında hikayelerin detayları okunabilir. Tasklar kırmızı kapakla gösterilmiş olup, backloglardan ayrı olarak gösterilmiştir.
+- **Sprint Notları**: Sprint planlama toplantısında karar verildiği üzere bu sprintte özellikle Home  ve Detail Page ve backendde api kullanımına odaklanılmıştır. Api kullanımı ve iki sayfanın iş yükü daha fazla olduğundan ve ekibin uygulamada pratiğinin olmaması nedeniyle eğitimlere de bakılacağından Home Page ve Detail Page'in  2 kısma ayrılarak çalışılmasına; dolayısıyla 3. Sprintte de Home ve Detail Page çalışmasında  devam edilmesine karar verildi. Api kullanımında ekip üyeleri öncelikle araştırma kısmına odaklanmış ikinci haftada ise uygulamaya geçilmiştir.Proje yönetiminde Trello kullanımına devam edilmektedir.  User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında açıklama kısmında hikayelerin detayları okunabilir. Tasklar kırmızı kapakla gösterilmiş olup, backloglardan ayrı olarak gösterilmiştir.
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 150 puan
 
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 100 ile başlaması gerektiğine karar verildi.
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. Bu sprintte iş yükü daha fazla olan ekranlar ele alındığından sprint toplam puanı 150 olarak belirlendi.
 
 - **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur. 
 
-Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - Sprint 3 panosunda  gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
+Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - Sprint 2 panosunda  gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
 
 - **Daily Scrum**: Daily Scrum toplantıları bu sprintte Whatsapp'da kurulan Daily Scrum gurubunda ve Google Meet'de yapılmıştır. 
 [**Sprint 2 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/ac3015ce879201377ef0145a16f44481ca4ced70/Proje%20Y%C3%B6netimi/Sprint%202/Daily%20Scrum%20Chats_2.docx)
