@@ -62,15 +62,6 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 - **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Discord, Whatsapp ve Google Meet üzerinden yapılmasına karar verilmiştir. Sprint boyunca her gün ilgili uygulamalarla Daily Scrum yapılmıştır.  Daily Scrum toplantısı örnekleri word olarak Readme'de tarafımızdan paylaşılmaktadır:  
 [**Sprint 1 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/bbca2678825ae36cd7de0d44ce0535dda673fb6e/Proje%20Y%C3%B6netimi/Sprint%201/Daily%20Scrum%20Chats.docx)
 
-## Product Backlog URL
-
-[Trello Backlog Board_Sprint_2](https://trello.com/invite/b/YQMhrba8/ed65595cab7555b009276ce682b50d7e/why-not-143-sprint-2)
-
-# Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
-  
-  ![BurndownChart](https://github.com/senaecelik/Why-not-143/blob/ae4d7c7c04ca13286fd3ef96a75570ab21f2bb35/Proje%20Y%C3%B6netimi/Sprint%202/burndownchart_sprint_2.png) 
-
-
 - **Sprint board update**: Sprint board screenshotları: 
 ![Sprint1_1](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_1.png) 
 ![Sprint1_2](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_2.png) 
@@ -157,6 +148,14 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 
 - **Daily Scrum**: Daily Scrum toplantıları bu sprintte Whatsapp'da kurulan Daily Scrum gurubunda ve Google Meet'de yapılmıştır. 
 [**Sprint 2 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/ac3015ce879201377ef0145a16f44481ca4ced70/Proje%20Y%C3%B6netimi/Sprint%202/Daily%20Scrum%20Chats_2.docx)
+
+## Product Backlog URL
+
+[Trello Backlog Board_Sprint_2](https://trello.com/invite/b/YQMhrba8/ed65595cab7555b009276ce682b50d7e/why-not-143-sprint-2)
+
+# Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
+  
+  ![BurndownChart](https://github.com/senaecelik/Why-not-143/blob/ae4d7c7c04ca13286fd3ef96a75570ab21f2bb35/Proje%20Y%C3%B6netimi/Sprint%202/burndownchart_sprint_2.png)
 
 - **Sprint board update**: Sprint board screenshotları: 
 ![Sprint2_1](https://github.com/senaecelik/Why-not-143/blob/ac3015ce879201377ef0145a16f44481ca4ced70/Proje%20Y%C3%B6netimi/Sprint%202/Sprint2_1.png) 
