@@ -36,15 +36,6 @@ Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında
 - Hayvansever dernekler, topluluklar
 - 18 - 65 yaş arası kullanıcılar
 
-## Product Backlog URL
-
-[Trello Backlog Board](https://trello.com/invite/b/YdTjWql2/5c76480dbd8c024a4fa257ac269704f5/why-not-143)
-
-# Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
-  
-  ![BurndownChart](https://github.com/senaecelik/Why-not-143/blob/ea06eb5a99cf552e56b1f3d7840e5989161a75b5/Proje%20Y%C3%B6netimi/Sprint%201/burndownchart.png) 
-
-
 ---
 
 # Sprint 1
@@ -61,6 +52,15 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 
 - **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Discord, Whatsapp ve Google Meet üzerinden yapılmasına karar verilmiştir. Sprint boyunca her gün ilgili uygulamalarla Daily Scrum yapılmıştır.  Daily Scrum toplantısı örnekleri word olarak Readme'de tarafımızdan paylaşılmaktadır:  
 [**Sprint 1 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/bbca2678825ae36cd7de0d44ce0535dda673fb6e/Proje%20Y%C3%B6netimi/Sprint%201/Daily%20Scrum%20Chats.docx)
+
+## Product Backlog URL
+
+[Trello Backlog Board_Sprint_1](https://trello.com/invite/b/YdTjWql2/5c76480dbd8c024a4fa257ac269704f5/why-not-143)
+
+# Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
+  
+  ![BurndownChart](https://github.com/senaecelik/Why-not-143/blob/ea06eb5a99cf552e56b1f3d7840e5989161a75b5/Proje%20Y%C3%B6netimi/Sprint%201/burndownchart.png) 
+
 
 - **Sprint board update**: Sprint board screenshotları: 
 ![Sprint1_1](https://github.com/senaecelik/Why-not-143/blob/427f7d52f9bbe6a644490d0f4fa86378184158c6/Proje%20Y%C3%B6netimi/Sprint%201/sprint1_1.png) 
