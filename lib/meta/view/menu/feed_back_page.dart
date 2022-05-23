@@ -8,6 +8,7 @@ import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/view/menu/about_page.dart';
 import 'package:why_not_143_team/meta/widget/general_button.dart';
+
 class FeedBackPage extends StatefulWidget {
   const FeedBackPage({Key? key}) : super(key: key);
 
@@ -24,7 +25,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-            leadingWidth: 80,
+            leadingWidth: 50,
             title: Text(StringConstant.instance.feedBack,
                 style: GoogleFonts.poppins(
                     color: ColorConstant.instance.yankeBlue))),
@@ -34,7 +35,9 @@ class _FeedBackPageState extends State<FeedBackPage> {
             children: [
               Padding(
                 padding: PaddingConstant.instance.loginPadding,
-                child: SubText(text: StringConstant.instance.feedBackSub),
+                child: SubText(
+                  text: StringConstant.instance.feedBackSub,
+                ),
               ),
               Form(
                 key: _formKey,

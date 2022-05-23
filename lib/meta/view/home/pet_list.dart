@@ -32,11 +32,13 @@ class _PetListState extends State<PetList> {
             return GridView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 210,
-                  childAspectRatio: 3 / 4,
-                  crossAxisSpacing: 2,
-                  mainAxisSpacing: 2),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 2,
+                mainAxisSpacing: 0,
+                mainAxisExtent: 300,
+                childAspectRatio: 10,
+              ),
               itemCount: _myList.length,
               itemBuilder: (context, index) {
                 var pet = _myList[index];
@@ -80,31 +82,37 @@ class PetListItem extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 5, right: 5),
+          padding: EdgeInsets.only(left: 5.r, right: 5.r),
           child: Card(
             elevation: 7,
             color: ColorConstant.instance.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-            child: Column(
-              children: [
-                Container(
-                  height: 200.h,
-                  width: 150.w,
-                  child: CachedNetworkImage(
-                    imageUrl: photo,
-                    fit: BoxFit.fill,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(25)),
+              child: Column(
+                children: [
+                  Container(
+                    height: 200.h,
+                    width: 150.w,
+                    child: CachedNetworkImage(
+                      imageUrl: photo,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-                Text(
-                  name,
-                  style: TextStyleConstant.instance.textLargeMedium,
-                ),
-                Text(cins,
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    style: TextStyleConstant.instance.textSmallRegular),
-              ],
+                  Text(
+                    name,
+                    style: TextStyleConstant.instance.textLargeMedium,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(cins,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: TextStyleConstant.instance.textSmallRegular),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

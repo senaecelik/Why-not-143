@@ -78,7 +78,7 @@ class _DetailPageState extends State<DetailPage> {
             Padding(
               padding: EdgeInsets.only(
                 top: 8.r,
-                left: 40.r,
+                left: 15.r,
                 right: 30.r,
               ),
               child: Row(
