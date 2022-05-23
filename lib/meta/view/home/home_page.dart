@@ -28,16 +28,20 @@ class _HomePageState extends State<HomePage> {
         appBar: appBar(),
         body: DefaultTabController(
           length: 3,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: PaddingConstant.instance.loginPadding,
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  _donateCard(context),
+                  Text(
+                    "Bir pati dostu ara",
+                    style: TextStyleConstant.instance.title1
+                        .copyWith(color: ColorConstant.instance.yankeBlue),
+                  ),
                   SizedBox(
-                    height: 30.h,
+                    height: 20.h,
                   ),
                   _search(),
                   SizedBox(
@@ -150,9 +154,11 @@ class _HomePageState extends State<HomePage> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         HomeTabBar(context),
-        SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: homeTabBarView(context),
+        Padding(
+          padding: EdgeInsets.only(top: 20),
+          child: SizedBox(
+              height: MediaQuery.of(context).size.height - 50,
+              child: homeTabBarView(context)),
         ),
       ],
     );
@@ -161,7 +167,8 @@ class _HomePageState extends State<HomePage> {
   Widget homeTabBarView(BuildContext context) {
     return TabBarView(
       children: [
-        SizedBox(height: MediaQuery.of(context).size.height, child: const PetList()),
+        SizedBox(
+            height: MediaQuery.of(context).size.height, child: const PetList()),
         const SizedBox(height: 100, child: List()),
         const SizedBox(height: 100, child: List()),
       ],
@@ -170,16 +177,19 @@ class _HomePageState extends State<HomePage> {
 
 // ignore: non_constant_identifier_names
   Widget HomeTabBar(BuildContext context) {
-    return SizedBox(
-        height: 40.h,
+    return Container(
+        height: 80.h,
+        width: 210.w,
         child: Padding(
           padding:
               const EdgeInsets.only(top: 2.0, bottom: 2.0, left: 2, right: 2),
           child: TabBar(
             unselectedLabelColor: ColorConstant.instance.yankeBlue,
+            unselectedLabelStyle: TextStyleConstant.instance.textSmallMedium,
+            labelStyle: TextStyleConstant.instance.textSmallMedium,
             indicator: BoxDecoration(
                 color: ColorConstant.instance.yankeBlue,
-                borderRadius: BorderRadius.circular(50)),
+                borderRadius: BorderRadius.circular(20)),
             tabs: const [
               Tab(
                 text: "Tümü",
@@ -200,7 +210,6 @@ class _HomePageState extends State<HomePage> {
       leading: InkWell(
           onTap: () => widget.drawerController.toggle!(),
           child: const Icon(Icons.menu)),
-      leadingWidth: 80,
       title: Text(
         StringConstant.instance.homePage,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
@@ -209,17 +218,22 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _search() {
-    return TextField(
-      decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.search,
-            color: ColorConstant.instance.neutral,
-          ),
-          border: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorConstant.instance.neutral),
-              borderRadius: BorderRadius.circular(20)),
-          hintText: StringConstant.instance.searchText,
-          hintStyle: TextStyleConstant.instance.textLargeRegular),
+    return Container(
+      height: 40.h,
+      child: TextField(
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.only(top: 15),
+            prefixIcon: Icon(
+              Icons.search,
+              color: ColorConstant.instance.neutral300,
+            ),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(color: ColorConstant.instance.neutral),
+                borderRadius: BorderRadius.circular(20)),
+            hintText: StringConstant.instance.searchText,
+            hintStyle: TextStyleConstant.instance.textLargeRegular
+                .copyWith(color: ColorConstant.instance.neutral300)),
+      ),
     );
   }
 }
@@ -236,8 +250,7 @@ class AnimalListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-      },
+      onTap: () {},
       child: Padding(
         // ignore: prefer_const_constructors
         padding: EdgeInsets.only(right: 20),

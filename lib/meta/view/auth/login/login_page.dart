@@ -9,6 +9,7 @@ import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/core/services/firebase_auth_method.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
+import 'package:why_not_143_team/meta/view/auth/cover_page.dart';
 import 'package:why_not_143_team/meta/view/auth/login/login_form.dart';
 import 'package:why_not_143_team/meta/view/auth/login/login_page_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -124,11 +125,11 @@ Padding googleButton(BuildContext context) {
 
 AppBar appBar(BuildContext context) {
   return AppBar(
-    leadingWidth: 80,
     leading: IconButton(
       icon: const Icon(Icons.arrow_back),
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.coverScreenRoue, (Route<dynamic> route) => false);
       },
     ),
     title: Text(

@@ -4,6 +4,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/view/home/home_page.dart';
 import 'package:why_not_143_team/meta/view/menu/menu_screen.dart';
+
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);
 
@@ -22,11 +23,13 @@ class _DrawerPageState extends State<DrawerPage> {
         mainScreen: HomePage(drawerController),
         borderRadius: 24.0,
         showShadow: true,
-        angle: 0.0,
+        angle: -8.0,
+        menuBackgroundColor: ColorConstant.instance.yankeBlue,
         drawerShadowsBackgroundColor: ColorConstant.instance.azureishWhite,
         slideWidth: MediaQuery.of(context).size.width * 0.65,
         openCurve: Curves.fastOutSlowIn,
         closeCurve: Curves.bounceIn,
+        mainScreenTapClose: true,
       ),
     );
   }

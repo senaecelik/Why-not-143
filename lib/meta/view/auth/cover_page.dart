@@ -16,7 +16,6 @@ class CoverPage extends StatefulWidget {
 }
 
 class _CoverPageState extends State<CoverPage> {
-  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -79,4 +78,3 @@ class _TitleWidget extends StatelessWidget {
             fontSize: 48.sp));
   }
 }
-

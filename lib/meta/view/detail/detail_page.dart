@@ -170,7 +170,7 @@ class _DetailPageState extends State<DetailPage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 14),
                         child: Text(
-                          widget.pet.cins!,
+                          widget.pet.history!,
                           style: TextStyleConstant.instance.textLargeRegular,
                           textAlign: TextAlign.center,
                         ),
@@ -194,7 +194,7 @@ class _DetailPageState extends State<DetailPage> {
             height: 200.h,
             child: CachedNetworkImage(
               imageUrl: widget.pet.photo!,
-              fit: BoxFit.cover,
+              fit: BoxFit.fitHeight,
             ));
   }
 

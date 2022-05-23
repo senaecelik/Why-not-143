@@ -155,7 +155,7 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
                     passwordController);
               }
             },
-            child: Text(StringConstant.instance.loginSignIn),
+            child: Text(StringConstant.instance.registerSignUp),
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),

@@ -34,8 +34,9 @@ class StringConstant {
   String homeDonateText2 = "Yardım et";
 
   //Menu
-  String menuPerson = "Anonim";
+  String menuPerson = "Misafir";
   String menuAbout = "Hakkımızda";
+  String myPet = "Benim Patilerim";
   String menuSendBack = "Geri bildirim";
   String menuRateOurApp = "Puan ver";
   String logOut = "Çıkış yap";

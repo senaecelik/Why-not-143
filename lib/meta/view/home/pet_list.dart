@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/core/services/pet_service.dart';
+import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
@@ -30,6 +31,12 @@ class _PetListState extends State<PetList> {
             List<Pets> _myList = snapshot.data!;
             return GridView.builder(
               scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 210,
+                  childAspectRatio: 3 / 4,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2),
               itemCount: _myList.length,
               itemBuilder: (context, index) {
                 var pet = _myList[index];
@@ -46,11 +53,6 @@ class _PetListState extends State<PetList> {
                       name: pet.name!, cins: pet.cins!, photo: pet.photo!),
                 );
               },
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 250,
-                  childAspectRatio: 3 / 5.5,
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5),
             );
           } else if (snapshot.hasError) {
             return const Center(
@@ -75,29 +77,38 @@ class PetListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      // ignore: prefer_const_constructors
-      padding: EdgeInsets.only(right: 20),
-      child: Column(
-        children: [
-          Container(
-              margin: const EdgeInsets.all(10),
-              height: 250.h,
-              width: 150.w,
-              child: CachedNetworkImage(
-                imageUrl: photo,
-                fit: BoxFit.fill,
-              )),
-          Text(
-            name,
-            style: TextStyleConstant.instance.textSmallMedium,
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 5, right: 5),
+          child: Card(
+            elevation: 7,
+            color: ColorConstant.instance.white,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+            child: Column(
+              children: [
+                Container(
+                  height: 200.h,
+                  width: 150.w,
+                  child: CachedNetworkImage(
+                    imageUrl: photo,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Text(
+                  name,
+                  style: TextStyleConstant.instance.textLargeMedium,
+                ),
+                Text(cins,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    style: TextStyleConstant.instance.textSmallRegular),
+              ],
+            ),
           ),
-          Text(
-            cins,
-            style: TextStyleConstant.instance.textSmallRegular,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

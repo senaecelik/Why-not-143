@@ -63,7 +63,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   AppBar appBar() {
     return AppBar(
-      leadingWidth: 80,
       title: Text(
         StringConstant.instance.registerSignUp,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
