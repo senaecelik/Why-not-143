@@ -42,10 +42,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   width: 150.w,
                   child: _firebaseUser.photoURL != null
                       ? CircleAvatar(
+                          backgroundColor: Colors.white,
                           backgroundImage:
                               NetworkImage("${_firebaseUser.photoURL}"),
                         )
                       : CircleAvatar(
+                          backgroundColor: Colors.white,
                           backgroundImage:
                               AssetImage(AssetPath.instance.menuPerson),
                         ),
@@ -98,55 +100,21 @@ class _ProfilePageState extends State<ProfilePage> {
             profileNameTextField(name),
             profileEmailText(),
             profileEmailTextField(email),
-            profilePhoneText(),
-            profilePhoneTextField(),
-            updateButton(),
+            SizedBox(
+              height: 30.h,
+            ),
+            generalButton(),
           ],
         ),
       ),
     );
   }
 
-  Padding updateButton() {
-    return Padding(
-      padding: PaddingConstant.instance.buttonPadding,
-      child: GeneralButton(function: () {}, text: "Güncelle"),
-    );
-  }
-
-  Padding profilePhoneTextField() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
+  SizedBox generalButton() {
+    return SizedBox(
         height: 58.h,
         width: 328.w,
-        child: TextField(
-          obscureText: true,
-          controller: profilePhoneController,
-          decoration: InputDecoration(
-            hintText: StringConstant.instance.profilePhone,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide:
-                    BorderSide(color: ColorConstant.instance.neutral300)),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Padding profilePhoneText() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: Row(
-        children: [
-          Text(
-            StringConstant.instance.profilePhoneText,
-            style: TextStyleConstant.instance.textSmallMedium,
-          ),
-        ],
-      ),
-    );
+        child: GeneralButton(function: () {}, text: "Çıkış Yap"));
   }
 
   Padding profileEmailTextField(String? email) {
@@ -156,6 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
         height: 58.h,
         width: 328.w,
         child: TextField(
+          readOnly: true,
           keyboardType: TextInputType.emailAddress,
           controller: profileEmailController,
           decoration: InputDecoration(
@@ -191,6 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
         height: 58.h,
         width: 328.w,
         child: TextField(
+          readOnly: true,
           controller: profileNameController,
           decoration: InputDecoration(
             hintText: name,

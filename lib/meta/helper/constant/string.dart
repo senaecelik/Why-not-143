@@ -29,7 +29,7 @@ class StringConstant {
   String homePage = "Anasayfa";
   String homeSocialText =
       "Sosyal sorumluluk projelerine katıl\nve ödüller kazan!";
-  String searchText = "Pati bul";
+  String searchText = "Lokasyon Giriniz";
   String homeDonateText = "Patilere yardımda bulunmak ister misin?";
   String homeDonateText2 = "Yardım et";
 

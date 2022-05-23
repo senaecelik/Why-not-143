@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         body: DefaultTabController(
           length: 3,
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10.0),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,123 +55,31 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  Container _donateCard(BuildContext context) {
-    return Container(
-      height: 160.h,
-      width: 330.w,
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: ColorConstant.instance.azureishWhite,
-            offset: const Offset(
-              6.0,
-              6.0,
-            ),
-            blurRadius: 8.0,
-            spreadRadius: 2.0,
-          ), //BoxShadow
-          const BoxShadow(
-            color: Colors.white,
-            offset: Offset(0.0, 0.0),
-            blurRadius: 0.0,
-            spreadRadius: 0.0,
-          ), //BoxShadow
-        ],
-        color: ColorConstant.instance.cardColor,
-        borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomRight,
-          colors: [
-            ColorConstant.instance.cardColor,
-            Colors.orangeAccent,
-          ],
-        ),
-      ),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: SizedBox(
-                      height: 100.h,
-                      child: Image.asset(AssetPath.instance.cat1)),
-                ),
-                Expanded(
-                  child: SizedBox(
-                      height: 100.h,
-                      child: Lottie.asset(AssetPath.instance.cardImage)),
-                ),
-                Expanded(
-                  child: SizedBox(
-                      height: 100.h,
-                      child: Image.asset(AssetPath.instance.cat2)),
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.transparent,
-                        padding: PaddingConstant.instance.buttonPadding,
-                        elevation: 0,
-                        side: const BorderSide(
-                          color: Colors.white,
-                        ),
-                        shape: const StadiumBorder(),
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, RouteConstant.donateScreenRoute);
-                      },
-                      icon: const Icon(Icons.pets),
-                      label: Text(
-                        "Bağış Yap",
-                        style: TextStyleConstant.instance.textSmallMedium,
-                      )),
-                ),
-              )
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _homePageBodySection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         HomeTabBar(context),
-        Padding(
-          padding: EdgeInsets.only(top: 20),
-          child: SizedBox(
-              height: MediaQuery.of(context).size.height - 50,
-              child: homeTabBarView(context)),
-        ),
+        SizedBox(
+            height: MediaQuery.of(context).size.height - 50,
+            child: homeTabBarView(context)),
       ],
     );
   }
 
   Widget homeTabBarView(BuildContext context) {
-    return TabBarView(
-      children: [
-        SizedBox(
-            height: MediaQuery.of(context).size.height, child: const PetList()),
-        const SizedBox(height: 100, child: List()),
-        const SizedBox(height: 100, child: List()),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(top: 20.0.r, bottom: 220.r),
+      child: TabBarView(
+        children: [
+          SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: const PetList()),
+          const SizedBox(height: 100, child: List()),
+          const SizedBox(height: 100, child: List()),
+        ],
+      ),
     );
   }
 
@@ -179,7 +87,7 @@ class _HomePageState extends State<HomePage> {
   Widget HomeTabBar(BuildContext context) {
     return Container(
         height: 80.h,
-        width: 210.w,
+        width: 230.w,
         child: Padding(
           padding:
               const EdgeInsets.only(top: 2.0, bottom: 2.0, left: 2, right: 2),
@@ -261,17 +169,20 @@ class AnimalListItem extends StatelessWidget {
               height: 250.h,
               width: 150.w,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: ColorConstant.instance.neutral300.withOpacity(0.9),
-                      spreadRadius: 5,
-                      blurRadius: 9,
-                      offset: const Offset(5, 3), // changes position of shadow
-                    ),
-                  ],
-                  color: ColorConstant.instance.white,
-                  image: DecorationImage(image: AssetImage(photoUrl!))),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: ColorConstant.instance.neutral300.withOpacity(0.9),
+                    spreadRadius: 5,
+                    blurRadius: 9,
+                    offset: const Offset(5, 3), // changes position of shadow
+                  ),
+                ],
+                color: ColorConstant.instance.white,
+                image: DecorationImage(
+                  image: AssetImage(photoUrl!),
+                ),
+              ),
             ),
             Text(
               name!,
