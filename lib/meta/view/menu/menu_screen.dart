@@ -34,9 +34,24 @@ class _MenuScreenState extends State<MenuScreen> {
             menuDivider(),
             sizedBox1(),
             menuPerson(_firebaseUser, context),
-            menuRateOurApp(),
-            menuAbout(),
-            menuSendBack(),
+            if (_firebaseUser != null)
+              MenuItem(
+                  icon: Icons.pets,
+                  text: StringConstant.instance.myPet,
+                  pageRoute: RouteConstant.homeScreenRoute),
+            MenuItem(
+                icon: Icons.payments_outlined,
+                text: StringConstant.instance.donateAppBarTitle,
+                pageRoute: RouteConstant.donateScreenRoute),
+            _menuRateOurApp(),
+            MenuItem(
+                icon: Icons.double_arrow_rounded,
+                text: StringConstant.instance.about,
+                pageRoute: RouteConstant.aboutScreenRoute),
+            MenuItem(
+                icon: Icons.send,
+                text: StringConstant.instance.menuSendBack,
+                pageRoute: RouteConstant.feedBackScreenRoute),
             sizedBox2(),
             const LogOut(),
           ],
@@ -59,21 +74,20 @@ class _MenuScreenState extends State<MenuScreen> {
                             NetworkImage("${_firebaseUser.photoURL}"),
                       )
                     : CircleAvatar(
+                        backgroundColor: ColorConstant.instance.yankeBlue,
                         backgroundImage:
                             AssetImage(AssetPath.instance.menuPerson),
                       ),
               ),
             ),
           )
-        : Padding(
-            padding: PaddingConstant.instance.loginPadding,
-            child: DrawerHeader(
-              child: SizedBox(
-                height: 100.h,
-                width: 100.w,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(AssetPath.instance.menuPerson),
-                ),
+        : DrawerHeader(
+            child: SizedBox(
+              height: 100.h,
+              width: 100.w,
+              child: CircleAvatar(
+                backgroundColor: ColorConstant.instance.yankeBlue,
+                backgroundImage: AssetImage(AssetPath.instance.menuPerson),
               ),
             ),
           );
@@ -91,71 +105,7 @@ class _MenuScreenState extends State<MenuScreen> {
     );
   }
 
-  Padding menuSendBack() {
-    return Padding(
-      padding: PaddingConstant.instance.menuPadding,
-      child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(context, RouteConstant.feedBackScreenRoute);
-        },
-        child: Row(
-          children: [
-            SizedBox(
-              width: 10.w,
-            ),
-            Icon(
-              Icons.send,
-              color: ColorConstant.instance.white,
-              size: 25,
-            ),
-            SizedBox(
-              width: 20.w,
-            ),
-            Text(
-              StringConstant.instance.menuSendBack,
-              textAlign: TextAlign.center,
-              style: TextStyleConstant.instance.textSmallMedium
-                  .copyWith(color: ColorConstant.instance.white),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Padding menuAbout() {
-    return Padding(
-      padding: PaddingConstant.instance.menuPadding,
-      child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(context, RouteConstant.aboutScreenRoute);
-        },
-        child: Row(
-          children: [
-            SizedBox(
-              width: 10.w,
-            ),
-            Icon(
-              Icons.double_arrow_rounded,
-              color: ColorConstant.instance.white,
-              size: 25,
-            ),
-            SizedBox(
-              width: 20.w,
-            ),
-            Text(
-              StringConstant.instance.menuAbout,
-              textAlign: TextAlign.center,
-              style: TextStyleConstant.instance.textSmallMedium
-                  .copyWith(color: ColorConstant.instance.white),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Padding menuRateOurApp() {
+  Padding _menuRateOurApp() {
     return Padding(
       padding: PaddingConstant.instance.menuPadding,
       child: InkWell(
@@ -263,6 +213,8 @@ class _MenuScreenState extends State<MenuScreen> {
   Divider menuDivider() {
     return const Divider(
       color: Colors.white,
+      indent: 20,
+      endIndent: 45,
       thickness: 1,
     );
   }
@@ -342,6 +294,51 @@ class _LogOutState extends State<LogOut> {
               ),
             ),
           );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final String pageRoute;
+  const MenuItem(
+      {required this.icon,
+      required this.text,
+      required this.pageRoute,
+      Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: PaddingConstant.instance.menuPadding,
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, pageRoute);
+        },
+        child: Row(
+          children: [
+            SizedBox(
+              width: 10.w,
+            ),
+            Icon(
+              icon,
+              color: ColorConstant.instance.white,
+              size: 25,
+            ),
+            SizedBox(
+              width: 20.w,
+            ),
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style: TextStyleConstant.instance.textSmallMedium
+                  .copyWith(color: ColorConstant.instance.white),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
