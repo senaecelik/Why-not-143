@@ -51,7 +51,6 @@ class _PetListState extends State<PetList> {
                         MaterialPageRoute(
                             builder: (context) => DetailPage(pet: pet)));
                   },
-                 
                   child: PetListItem(
                       name: pet.name!, cins: pet.cins!, photo: pet.photo!),
                 );
