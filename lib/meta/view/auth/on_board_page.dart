@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
@@ -18,11 +19,19 @@ class OnBoard extends StatefulWidget {
 class _OnBoardState extends State<OnBoard> {
   double opacityLevel = 1.0;
   bool visible = false;
+    _storeOnboardInfo() async {
+    print("Shared pref called");
+    int isViewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isViewed);
+    print(prefs.getInt('onBoard'));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: IntroductionScreen(
       onDone: () {
+        _storeOnboardInfo();
         Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
       },
       pages: getPages(),

@@ -6,6 +6,7 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
+import 'package:why_not_143_team/meta/view/home/pet_list_item.dart';
 import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 
 class PetList extends StatefulWidget {
@@ -42,15 +43,15 @@ class _PetListState extends State<PetList> {
               itemCount: _myList.length,
               itemBuilder: (context, index) {
                 var pet = _myList[index];
+
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DetailPage(
-                                  pet: pet,
-                                )));
+                            builder: (context) => DetailPage(pet: pet)));
                   },
+                 
                   child: PetListItem(
                       name: pet.name!, cins: pet.cins!, photo: pet.photo!),
                 );
@@ -66,57 +67,5 @@ class _PetListState extends State<PetList> {
             );
           }
         });
-  }
-}
-
-class PetListItem extends StatelessWidget {
-  final String name;
-  final String cins;
-  final String photo;
-  const PetListItem(
-      {required this.name, required this.cins, required this.photo, Key? key})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(left: 5.r, right: 5.r),
-          child: Card(
-            elevation: 7,
-            color: ColorConstant.instance.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-            child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(25)),
-              child: Column(
-                children: [
-                  Container(
-                    height: 200.h,
-                    width: 150.w,
-                    child: CachedNetworkImage(
-                      imageUrl: photo,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Text(
-                    name,
-                    style: TextStyleConstant.instance.textLargeMedium,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(cins,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        style: TextStyleConstant.instance.textSmallRegular),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
   }
 }
