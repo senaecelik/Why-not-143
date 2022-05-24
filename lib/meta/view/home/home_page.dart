@@ -29,8 +29,9 @@ class _HomePageState extends State<HomePage> {
         body: DefaultTabController(
           length: 3,
           child: Padding(
-            padding: PaddingConstant.instance.loginPadding,
+            padding: PaddingConstant.instance.homePadding,
             child: SingleChildScrollView(
+              physics: const NeverScrollableScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,

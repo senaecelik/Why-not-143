@@ -17,4 +17,6 @@ class PaddingConstant {
 
   //button
   EdgeInsets buttonPadding = const EdgeInsets.fromLTRB(20, 10, 20, 10).r;
+  //home
+  EdgeInsets homePadding = const EdgeInsets.fromLTRB(20, 10, 20, 0).r;
 }
