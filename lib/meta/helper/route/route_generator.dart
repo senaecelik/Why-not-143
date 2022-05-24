@@ -9,7 +9,7 @@ import 'package:why_not_143_team/meta/view/detail/form_page.dart';
 import 'package:why_not_143_team/meta/view/donate/donate_page.dart';
 import 'package:why_not_143_team/meta/view/menu/about_page.dart';
 import 'package:why_not_143_team/meta/view/menu/drawer_page.dart';
-import 'package:why_not_143_team/meta/view/menu/feed_back_page.dart';
+import 'package:why_not_143_team/meta/view/menu/feedBack/feed_back_page.dart';
 import 'package:why_not_143_team/meta/view/menu/profile_page.dart';
 
 class RouterGenerator {
