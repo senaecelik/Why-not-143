@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
@@ -8,8 +10,7 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
-import 'package:lottie/lottie.dart';
+import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/home/pet_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,27 +24,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    PetApi.getPetData();
     return Scaffold(
         appBar: appBar(),
         body: DefaultTabController(
           length: 3,
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: PaddingConstant.instance.loginPadding,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "Bir pati dostu ara",
-                    style: TextStyleConstant.instance.title1
-                        .copyWith(color: ColorConstant.instance.yankeBlue),
-                  ),
+                  _homeSearchTitle(),
                   SizedBox(
                     height: 20.h,
                   ),
-                  _search(),
+                  _homeSearch(),
                   SizedBox(
                     height: 30.h,
                   ),
@@ -53,6 +49,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ));
+  }
+
+  Text _homeSearchTitle() {
+    return Text(
+      "Bir pati dostu ara",
+      style: TextStyleConstant.instance.title1
+          .copyWith(color: ColorConstant.instance.yankeBlue),
+    );
   }
 
   Widget _homePageBodySection() {
@@ -76,8 +80,8 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
               height: MediaQuery.of(context).size.height,
               child: const PetList()),
-          const SizedBox(height: 100, child: List()),
-          const SizedBox(height: 100, child: List()),
+          const SizedBox(height: 100, child: PetList()),
+          const SizedBox(height: 100, child: PetList()),
         ],
       ),
     );
@@ -85,7 +89,7 @@ class _HomePageState extends State<HomePage> {
 
 // ignore: non_constant_identifier_names
   Widget HomeTabBar(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: 80.h,
         width: 230.w,
         child: Padding(
@@ -125,7 +129,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _search() {
+  Widget _homeSearch() {
     return Container(
       height: 40.h,
       child: TextField(
@@ -141,110 +145,6 @@ class _HomePageState extends State<HomePage> {
             hintText: StringConstant.instance.searchText,
             hintStyle: TextStyleConstant.instance.textLargeRegular
                 .copyWith(color: ColorConstant.instance.neutral300)),
-      ),
-    );
-  }
-}
-
-class AnimalListItem extends StatelessWidget {
-  final String? name;
-  final String? age;
-  final String? photoUrl;
-
-  const AnimalListItem(
-      {Key? key, required this.name, required this.age, required this.photoUrl})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Padding(
-        // ignore: prefer_const_constructors
-        padding: EdgeInsets.only(right: 20),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.all(10),
-              height: 250.h,
-              width: 150.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: ColorConstant.instance.neutral300.withOpacity(0.9),
-                    spreadRadius: 5,
-                    blurRadius: 9,
-                    offset: const Offset(5, 3), // changes position of shadow
-                  ),
-                ],
-                color: ColorConstant.instance.white,
-                image: DecorationImage(
-                  image: AssetImage(photoUrl!),
-                ),
-              ),
-            ),
-            Text(
-              name!,
-              style: TextStyleConstant.instance.textSmallMedium,
-            ),
-            Text(
-              age!,
-              style: TextStyleConstant.instance.textSmallRegular,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-//Fake List
-class List extends StatelessWidget {
-  const List({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          AnimalListItem(
-            age: "5",
-            name: "Amber",
-            photoUrl: AssetPath.instance.cat1,
-          ),
-          AnimalListItem(
-            age: "5",
-            name: "Amber",
-            photoUrl: AssetPath.instance.cat1,
-          ),
-          AnimalListItem(
-            age: "5",
-            name: "Amber",
-            photoUrl: AssetPath.instance.cat1,
-          ),
-          AnimalListItem(
-            age: "5",
-            name: "Amber",
-            photoUrl: AssetPath.instance.cat1,
-          ),
-          AnimalListItem(
-            age: "5",
-            name: "Amber",
-            photoUrl: AssetPath.instance.cat1,
-          ),
-          AnimalListItem(
-            age: "5",
-            name: "Amber",
-            photoUrl: AssetPath.instance.cat1,
-          ),
-          AnimalListItem(
-            age: "5",
-            name: "Amber",
-            photoUrl: AssetPath.instance.cat1,
-          ),
-        ],
       ),
     );
   }
