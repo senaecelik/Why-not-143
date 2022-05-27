@@ -96,10 +96,6 @@ class StringConstant {
   //Donate Page
 
   String donateAppBarTitle = "Bağış Yap";
-  String donateText = "Patilere yardımcı olmak ister misin? ";
-  String donateShelter = "Çiçek Barınağı";
-  String donateIban = "IBAN:";
-  String donateIban2 = "TR000000000000000000000";
-  String donateAdress = "Adres:";
-  String donateAdress2 = "Lavanta Mah. Lale  Sokak No:11  Gül/Karanfil ";
+  String shelterTitle = "Barınaklar";
+  String beFamily = "Koruyucu ailesi ol";
 }

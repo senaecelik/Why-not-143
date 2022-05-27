@@ -13,7 +13,7 @@ class Pet {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (pets != null) {
       data['pets'] = pets!.map((v) => v.toJson()).toList();
     }
@@ -53,7 +53,7 @@ class Pets {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
     data['type'] = type;
     data['cins'] = cins;

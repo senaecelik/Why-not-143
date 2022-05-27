@@ -1,9 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/core/services/pet_service.dart';
-import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
-import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
 import 'package:why_not_143_team/meta/view/home/pet_list_item.dart';
@@ -30,16 +26,16 @@ class _PetListState extends State<PetList> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<Pets> _myList = snapshot.data!;
-            return GridView.builder(
-              scrollDirection: Axis.vertical,
+            return ListView.builder(
+              scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              /*gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 2,
                 mainAxisSpacing: 0,
                 mainAxisExtent: 300,
                 childAspectRatio: 10,
-              ),
+              ),*/
               itemCount: _myList.length,
               itemBuilder: (context, index) {
                 var pet = _myList[index];

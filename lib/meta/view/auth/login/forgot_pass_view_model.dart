@@ -14,4 +14,6 @@ class ForgotPassViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  
+
 }

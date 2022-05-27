@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);

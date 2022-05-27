@@ -1,16 +1,12 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:why_not_143_team/core/services/pet_service.dart';
-import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/home/pet_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,6 +37,21 @@ class _HomePageState extends State<HomePage> {
                     height: 20.h,
                   ),
                   _homeSearch(),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Container(
+                    height: 180.h,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: ColorConstant.instance.orange.withOpacity(0.5)),
+                    child: Column(
+                      children: const [
+                        Text("Pati Forum"),
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     height: 30.h,
                   ),
@@ -79,7 +90,7 @@ class _HomePageState extends State<HomePage> {
       child: TabBarView(
         children: [
           SizedBox(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height / 2,
               child: const PetList()),
           const SizedBox(height: 100, child: PetList()),
           const SizedBox(height: 100, child: PetList()),
@@ -131,11 +142,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _homeSearch() {
-    return Container(
+    return SizedBox(
       height: 40.h,
       child: TextField(
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(top: 15),
+            contentPadding: const EdgeInsets.only(top: 15),
             prefixIcon: Icon(
               Icons.search,
               color: ColorConstant.instance.neutral300,
