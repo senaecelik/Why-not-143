@@ -4,6 +4,7 @@ import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/view/splash/splash_view_model.dart';
 import 'package:why_not_143_team/meta/widget/splash_widget.dart';
+
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);
 

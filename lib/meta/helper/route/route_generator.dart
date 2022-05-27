@@ -10,6 +10,7 @@ import 'package:why_not_143_team/meta/view/donate/donate_page.dart';
 import 'package:why_not_143_team/meta/view/menu/about_page.dart';
 import 'package:why_not_143_team/meta/view/menu/drawer_page.dart';
 import 'package:why_not_143_team/meta/view/menu/feedBack/feed_back_page.dart';
+import 'package:why_not_143_team/meta/view/menu/my_pets_page.dart';
 import 'package:why_not_143_team/meta/view/menu/profile_page.dart';
 
 class RouterGenerator {
@@ -18,7 +19,7 @@ class RouterGenerator {
       case RouteConstant.homeScreenRoute:
         return MaterialPageRoute(builder: (_) => const DrawerPage());
       case RouteConstant.forgotPassRoute:
-        return MaterialPageRoute(builder: (_) => ForgotPassword());
+        return MaterialPageRoute(builder: (_) => const ForgotPassword());
       case RouteConstant.coverScreenRoue:
         return MaterialPageRoute(builder: (_) => const CoverPage());
       case RouteConstant.profileRoute:
@@ -35,8 +36,12 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterPage());
       case RouteConstant.formScreenRoute:
         return MaterialPageRoute(builder: (_) => const FormPage());
+
       case RouteConstant.donateScreenRoute:
         return MaterialPageRoute(builder: (_) => const DonatePage());
+
+      case RouteConstant.myPetScreenRoute:
+        return MaterialPageRoute(builder: (_) => const MyPetsPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
@@ -26,15 +27,17 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
         appBar: appBar(),
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              petImage(),
-              details(),
-              sahiplenButton(_firebaseUser, context),
-              koruyucuAileButton(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                petImage(),
+                details(),
+                sahiplenButton(_firebaseUser, context),
+                koruyucuAileButton(),
+              ],
+            ),
           ),
         ));
   }
@@ -189,7 +192,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget petImage() {
     return widget.pet.photo == null
         ? const Center(child: Text("Bulunamadı"))
-        : Container(
+        : SizedBox(
             width: 200.w,
             height: 200.h,
             child: CachedNetworkImage(
@@ -200,9 +203,25 @@ class _DetailPageState extends State<DetailPage> {
 
   Padding koruyucuAileButton() {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: GeneralButton(function: adoptForm, text: "Koruyucu ailesi ol"),
-    );
+        padding: PaddingConstant.instance.genelButtonPadding,
+        child: SizedBox(
+          height: 58.h,
+          width: MediaQuery.of(context).size.height,
+          child: ElevatedButton(
+            onPressed: () async {
+              Navigator.pushNamed(context, RouteConstant.myPetScreenRoute);
+            },
+            child: Text(StringConstant.instance.beFamily),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              primary: ColorConstant.instance.yankeBlue,
+              onPrimary: ColorConstant.instance.white,
+              side: BorderSide(
+                  width: 1.0, color: ColorConstant.instance.yankeBlue),
+            ),
+          ),
+        ));
   }
 
   Padding sahiplenButton(User? _firebaseUser, BuildContext context) {

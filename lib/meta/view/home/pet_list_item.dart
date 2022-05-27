@@ -19,7 +19,7 @@ class PetListItem extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 5.r, right: 5.r),
           child: Card(
-            elevation: 7,
+            elevation: 5,
             color: ColorConstant.instance.white,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
@@ -55,4 +55,3 @@ class PetListItem extends StatelessWidget {
     );
   }
 }
-
