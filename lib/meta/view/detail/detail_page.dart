@@ -33,20 +33,18 @@ class _DetailPageState extends State<DetailPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 petImage(),
-                details(),
-                sahiplenButton(_firebaseUser, context),
-                koruyucuAileButton(),
+                details(_firebaseUser, context),
               ],
             ),
           ),
         ));
   }
 
-  Align details() {
+  Align details(User? _firebaseUser, BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: 350.h,
+        height: 525.h,
         width: 400.w,
         decoration: BoxDecoration(
             color: Colors.white,
@@ -183,6 +181,8 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ]),
             ),
+            sahiplenButton(_firebaseUser, context),
+            koruyucuAileButton(),
           ],
         ),
       ),
@@ -211,7 +211,10 @@ class _DetailPageState extends State<DetailPage> {
             onPressed: () async {
               Navigator.pushNamed(context, RouteConstant.myPetScreenRoute);
             },
-            child: Text(StringConstant.instance.beFamily),
+            child: Text(
+              StringConstant.instance.beFamily,
+              style: TextStyleConstant.instance.textLargeMedium,
+            ),
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),

@@ -10,7 +10,10 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/widget/general_button.dart';
+
+import '../../../core/services/firebase_auth_method.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -27,8 +30,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
-    var name = _firebaseUser!.displayName;
-    var email = _firebaseUser.email;
+    var name = _firebaseUser?.displayName;
+    var email = _firebaseUser?.email;
     return Scaffold(
       appBar: appBar(context),
       body: Center(
@@ -97,24 +100,54 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),*/
             profileNameText(),
-            profileNameTextField(name),
+            profileNameTextField(_firebaseUser, name),
             profileEmailText(),
             profileEmailTextField(email),
             SizedBox(
               height: 30.h,
             ),
-            generalButton(),
+            logOutButton(context),
           ],
         ),
       ),
     );
   }
 
-  SizedBox generalButton() {
+  SizedBox logOutButton(BuildContext context) {
     return SizedBox(
+      height: 58.h,
+      width: 328.w,
+      child: GeneralButton(
+          function: () {
+            context.read<FirebaseAuthMethods>().signOut(context).then((value) =>
+                Navigator.pushReplacementNamed(
+                    context, RouteConstant.homeScreenRoute));
+          },
+          text: StringConstant.instance.logOut),
+    );
+  }
+
+  Padding profileNameTextField(User? _firebaseUser, String? name) {
+    return Padding(
+      padding: PaddingConstant.instance.loginPadding,
+      child: SizedBox(
         height: 58.h,
         width: 328.w,
-        child: GeneralButton(function: () {}, text: "Çıkış Yap"));
+        child: TextField(
+          readOnly: true,
+          controller: profileNameController,
+          decoration: InputDecoration(
+            hintText: _firebaseUser?.displayName == null
+                ? name = "Misafir"
+                : name = _firebaseUser?.displayName,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    BorderSide(color: ColorConstant.instance.neutral300)),
+          ),
+        ),
+      ),
+    );
   }
 
   Padding profileEmailTextField(String? email) {
@@ -149,27 +182,6 @@ class _ProfilePageState extends State<ProfilePage> {
             style: TextStyleConstant.instance.textSmallMedium,
           ),
         ],
-      ),
-    );
-  }
-
-  Padding profileNameTextField(String? name) {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: 328.w,
-        child: TextField(
-          readOnly: true,
-          controller: profileNameController,
-          decoration: InputDecoration(
-            hintText: name,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide:
-                    BorderSide(color: ColorConstant.instance.neutral300)),
-          ),
-        ),
       ),
     );
   }

@@ -22,8 +22,7 @@ class ShelterPage extends StatefulWidget {
 class _ShelterPageState extends State<ShelterPage> {
   Future<void> _copyToClipboard() async {
     showToast(context, "Iban Kopyalandı");
-    await Clipboard.setData(
-        ClipboardData(text: widget.shelters.iBAN));
+    await Clipboard.setData(ClipboardData(text: widget.shelters.iBAN));
   }
 
   @override
@@ -39,16 +38,16 @@ class _ShelterPageState extends State<ShelterPage> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [donateImage(), details(), donateButton()],
+          children: [donateImage(), details()],
         ));
   }
 
   Padding ibanContainer(Future<void> Function() _copyToClipboard) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(15.0.r),
       child: Container(
         height: 100.h,
-        width: 300.w,
+        width: 410.w,
         decoration: BoxDecoration(
           border: Border.all(color: ColorConstant.instance.donate2),
           borderRadius: BorderRadius.circular(10),
@@ -100,7 +99,7 @@ class _ShelterPageState extends State<ShelterPage> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: 350.h,
+        height: 525.h,
         width: 400.w,
         decoration: BoxDecoration(
             color: Colors.white,
@@ -114,72 +113,65 @@ class _ShelterPageState extends State<ShelterPage> {
                   offset: const Offset(0, -4),
                   blurRadius: 8)
             ]),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: 20.r,
-                left: 20.r,
-                right: 20.r,
+        child: Padding(
+          padding: EdgeInsets.all(10.0.r),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(8.0.r),
+                child: Row(
+                  children: [
+                    Text(
+                      widget.shelters.name!,
+                      style: TextStyleConstant.instance.title1,
+                    ),
+                  ],
+                ),
               ),
-              child: Row(
-                children: [
-                  Text(
-                    widget.shelters.name!,
-                    style: TextStyleConstant.instance.title1,
-                  ),
-                ],
+              Padding(
+                padding: EdgeInsets.all(3.0.r),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      color: ColorConstant.instance.yankeBlue,
+                    ),
+                    Flexible(
+                      child: Text(
+                        widget.shelters.location!,
+                        overflow: TextOverflow.visible,
+                        textAlign: TextAlign.center,
+                        style: TextStyleConstant.instance.textLargeMedium,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 8.r,
-                left: 15.r,
-                right: 30.r,
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.location_on,
-                    color: ColorConstant.instance.yankeBlue,
-                  ),
-                  Text(
-                    widget.shelters.location!,
-                    style: TextStyleConstant.instance.textLargeMedium,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
                 Expanded(
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(),
+                        padding: EdgeInsets.all(8.0.r),
                         child: Text(
                           'Geçmişi',
                           style: TextStyleConstant.instance.title1,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 14),
-                        child: Text(
-                          widget.shelters.history!,
-                          style: TextStyleConstant.instance.textLargeRegular,
-                          textAlign: TextAlign.center,
-                        ),
+                      Text(
+                        widget.shelters.history!,
+                        style: TextStyleConstant.instance.textLargeRegular,
+                        textAlign: TextAlign.center,
                       ),
                       ibanContainer(_copyToClipboard),
+                      donateButton(),
                     ],
                   ),
                 ),
               ]),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -187,15 +179,18 @@ class _ShelterPageState extends State<ShelterPage> {
 
   Widget donateButton() {
     return Padding(
-        padding: PaddingConstant.instance.genelButtonPadding,
+        padding: EdgeInsets.all(12.0.r),
         child: SizedBox(
-          height: 58.h,
+          height: 60.h,
           width: MediaQuery.of(context).size.height,
           child: ElevatedButton(
             onPressed: () async {
               Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
             },
-            child: Text(StringConstant.instance.donateAppBarTitle),
+            child: Text(
+              StringConstant.instance.donateAppBarTitle,
+              style: TextStyleConstant.instance.textLargeMedium,
+            ),
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
