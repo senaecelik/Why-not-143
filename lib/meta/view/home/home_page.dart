@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
@@ -7,6 +6,9 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/widget/carousel_slider_widget.dart';
+import 'package:why_not_143_team/meta/view/home/cat_list.dart';
+import 'package:why_not_143_team/meta/view/home/dog_list.dart';
 import 'package:why_not_143_team/meta/view/home/pet_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,51 +26,23 @@ class _HomePageState extends State<HomePage> {
         appBar: appBar(),
         body: DefaultTabController(
           length: 3,
-          child: Padding(
-            padding: PaddingConstant.instance.homePadding,
-            child: SingleChildScrollView(
-              physics: const NeverScrollableScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  _homeSearchTitle(),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  _homeSearch(),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Container(
-                    height: 180.h,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: ColorConstant.instance.orange.withOpacity(0.5)),
-                    child: Column(
-                      children: const [
-                        Text("Pati Forum"),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  _homePageBodySection(),
-                ],
-              ),
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const CardSlider(),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Padding(
+                    padding: PaddingConstant.instance.homePadding,
+                    child: _homePageBodySection()),
+              ],
             ),
           ),
         ));
-  }
-
-  Text _homeSearchTitle() {
-    return Text(
-      "Bir pati dostu ara",
-      style: TextStyleConstant.instance.title1
-          .copyWith(color: ColorConstant.instance.yankeBlue),
-    );
   }
 
   Widget _homePageBodySection() {
@@ -92,8 +66,12 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
               height: MediaQuery.of(context).size.height / 2,
               child: const PetList()),
-          const SizedBox(height: 100, child: PetList()),
-          const SizedBox(height: 100, child: PetList()),
+          SizedBox(
+              height: MediaQuery.of(context).size.height / 2,
+              child: const CatList()),
+          SizedBox(
+              height: MediaQuery.of(context).size.height / 2,
+              child: const DogList()),
         ],
       ),
     );
@@ -137,26 +115,6 @@ class _HomePageState extends State<HomePage> {
       title: Text(
         StringConstant.instance.homePage,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
-      ),
-    );
-  }
-
-  Widget _homeSearch() {
-    return SizedBox(
-      height: 40.h,
-      child: TextField(
-        decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 15),
-            prefixIcon: Icon(
-              Icons.search,
-              color: ColorConstant.instance.neutral300,
-            ),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: ColorConstant.instance.neutral),
-                borderRadius: BorderRadius.circular(20)),
-            hintText: StringConstant.instance.searchText,
-            hintStyle: TextStyleConstant.instance.textLargeRegular
-                .copyWith(color: ColorConstant.instance.neutral300)),
       ),
     );
   }
