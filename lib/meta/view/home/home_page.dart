@@ -60,12 +60,15 @@ class _HomePageState extends State<HomePage> {
 
   Widget homeTabBarView(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 20.0.r, bottom: 220.r),
+      padding: EdgeInsets.only(bottom: 220.r),
       child: TabBarView(
         children: [
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: const PetList()),
+          Padding(
+            padding: EdgeInsets.only(bottom: 50.0.r),
+            child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+                child: const PetList()),
+          ),
           SizedBox(
               height: MediaQuery.of(context).size.height / 2,
               child: const CatList()),
@@ -80,11 +83,11 @@ class _HomePageState extends State<HomePage> {
 // ignore: non_constant_identifier_names
   Widget HomeTabBar(BuildContext context) {
     return SizedBox(
-        height: 80.h,
+        height: 50.h,
         width: 230.w,
         child: Padding(
           padding:
-              const EdgeInsets.only(top: 2.0, bottom: 2.0, left: 2, right: 2),
+              EdgeInsets.only(top: 2.0.r, bottom: 2.0.r, left: 2.r, right: 2.r),
           child: TabBar(
             unselectedLabelColor: ColorConstant.instance.yankeBlue,
             unselectedLabelStyle: TextStyleConstant.instance.textSmallMedium,

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/widget/card_item_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardSlider extends StatefulWidget {
   const CardSlider({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class _CardSliderState extends State<CardSlider> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: 200.0,
+            height: 180.0.h,
             autoPlay: true,
             autoPlayInterval: const Duration(seconds: 3),
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
@@ -50,9 +51,18 @@ class _CardSliderState extends State<CardSlider> {
           items: cardList.map((card) {
             return Builder(builder: (BuildContext context) {
               return Padding(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(7),
                 child: Container(
                   decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 10,
+                        offset:
+                            const Offset(4, 4), // changes position of shadow
+                      ),
+                    ],
                     borderRadius: BorderRadius.circular(30),
                   ),
                   height: MediaQuery.of(context).size.height * 0.30,
@@ -67,8 +77,8 @@ class _CardSliderState extends State<CardSlider> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: map<Widget>(cardList, (index, url) {
             return Container(
-              width: 10.0,
-              height: 10.0,
+              width: 10.0.w,
+              height: 7.0.h,
               margin:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
               decoration: BoxDecoration(
