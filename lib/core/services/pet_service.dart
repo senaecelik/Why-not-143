@@ -21,4 +21,20 @@ class PetApi {
     }
     return _list;
   }
+
+  static Future<List<Pets>> getCatData() async {
+    List<Pets> _list = [];
+
+    Response result = await Dio().get(_url);
+
+    //result.data.runtimeType;
+
+    var petList = jsonDecode(result.data)['pets'];
+    //debugPrint(petList["pets"].toString());
+
+    if (petList is List) {
+      _list = petList.map((e) => Pets.fromJson(e)).toList();
+    }
+    return _list;
+  }
 }

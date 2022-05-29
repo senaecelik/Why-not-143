@@ -12,8 +12,8 @@ import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
 import 'package:why_not_143_team/meta/model/shelter_model.dart';
 
 class ShelterPage extends StatefulWidget {
-  Shelters shelters;
-  ShelterPage({Key? key, required this.shelters}) : super(key: key);
+  final Shelters shelters;
+  const ShelterPage({Key? key, required this.shelters}) : super(key: key);
 
   @override
   State<ShelterPage> createState() => _ShelterPageState();

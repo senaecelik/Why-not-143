@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 
+import '../../model/pet_model.dart';
+
 class PetListItem extends StatelessWidget {
-  final String name;
-  final String cins;
-  final String photo;
+  final Pets pet;
   const PetListItem(
-      {required this.name, required this.cins, required this.photo, Key? key})
+      {required this.pet, Key? key})
       : super(key: key);
 
   @override
@@ -31,17 +31,17 @@ class PetListItem extends StatelessWidget {
                     height: 200.h,
                     width: 150.w,
                     child: CachedNetworkImage(
-                      imageUrl: photo,
+                      imageUrl: pet.photo!,
                       fit: BoxFit.fill,
                     ),
                   ),
                   Text(
-                    name,
+                    pet.name!,
                     style: TextStyleConstant.instance.textLargeMedium,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(cins,
+                    child: Text(pet.cins!,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
                         style: TextStyleConstant.instance.textSmallRegular),
