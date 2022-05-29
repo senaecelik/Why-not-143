@@ -26,30 +26,28 @@ class _PetListState extends State<PetList> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<Pets> _myList = snapshot.data!;
-            return ListView.builder(
-              scrollDirection: Axis.horizontal,
+            return GridView.builder(
+              scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              /*gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 2,
                 mainAxisSpacing: 0,
                 mainAxisExtent: 300,
                 childAspectRatio: 10,
-              ),*/
+              ),
               itemCount: _myList.length,
               itemBuilder: (context, index) {
                 var pet = _myList[index];
 
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailPage(pet: pet)));
-                  },
-                  child: PetListItem(
-                      name: pet.name!, cins: pet.cins!, photo: pet.photo!),
-                );
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage(pet: pet)));
+                    },
+                    child: PetListItem(pet: pet));
               },
             );
           } else if (snapshot.hasError) {
