@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
@@ -39,9 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: TextStyleConstant.instance.textSmallMedium
                             .copyWith(color: ColorConstant.instance.primary700),
                       ),
-                      const SizedBox(
-                        width: 5,
-                      ),
+                     EmptyBox.instance.emptyBoxSmall,
                       InkWell(
                         onTap: () {
                           Navigator.pushNamed(

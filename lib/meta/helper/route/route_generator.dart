@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
-import 'package:why_not_143_team/meta/view/auth/cover_page.dart';
-import 'package:why_not_143_team/meta/view/auth/login/forgot_pass.dart';
+import 'package:why_not_143_team/meta/view/auth/forgot_pass/forgot_pass.dart';
 import 'package:why_not_143_team/meta/view/auth/login/login_page.dart';
-import 'package:why_not_143_team/meta/view/auth/on_board_page.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_page.dart';
 import 'package:why_not_143_team/meta/view/detail/form_page.dart';
 import 'package:why_not_143_team/meta/view/donate/donate_page.dart';
 import 'package:why_not_143_team/meta/view/menu/about_page.dart';
 import 'package:why_not_143_team/meta/view/menu/drawer_page.dart';
 import 'package:why_not_143_team/meta/view/menu/feedBack/feed_back_page.dart';
-import 'package:why_not_143_team/meta/view/menu/my_pets_page.dart';
 import 'package:why_not_143_team/meta/view/menu/profile_page.dart';
+import 'package:why_not_143_team/meta/view/onboard/cover_page.dart';
+import 'package:why_not_143_team/meta/view/onboard/on_board_page.dart';
 
 class RouterGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -36,12 +35,8 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterPage());
       case RouteConstant.formScreenRoute:
         return MaterialPageRoute(builder: (_) => const FormPage());
-
       case RouteConstant.donateScreenRoute:
         return MaterialPageRoute(builder: (_) => const DonatePage());
-
-      case RouteConstant.myPetScreenRoute:
-        return MaterialPageRoute(builder: (_) => const MyPetsPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

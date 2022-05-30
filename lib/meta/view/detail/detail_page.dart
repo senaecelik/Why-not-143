@@ -6,11 +6,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
+import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 import 'package:why_not_143_team/meta/widget/sub_text_widget.dart';
 
 class DetailPage extends StatefulWidget {
@@ -22,6 +24,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  List<Pets> favPet = [];
   @override
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
@@ -35,19 +38,13 @@ class _DetailPageState extends State<DetailPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  petImage(),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  details(_firebaseUser, context),
-                  SizedBox(
-                    height: 50.h,
-                  ),
-                  sahiplenButton(_firebaseUser, context),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  koruyucuAileButton(),
+                  _petImage(),
+                  EmptyBox.instance.emptyBoxBig,
+                  _details(_firebaseUser, context),
+                  EmptyBox.instance.emptyBoxLarge,
+                  _adoptPetButton(_firebaseUser, context),
+                  EmptyBox.instance.emptyBoxNormal,
+                  _beFamilyButton(context),
                 ],
               ),
             ),
@@ -55,7 +52,27 @@ class _DetailPageState extends State<DetailPage> {
         ));
   }
 
-  Widget details(User? _firebaseUser, BuildContext context) {
+  Widget _beFamilyButton(BuildContext context) {
+    return Stack(
+      alignment: Alignment.centerRight,
+      children: [
+        SizedBox(
+          height: 58.h,
+          width: MediaQuery.of(context).size.height,
+          child: ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                StringConstant.instance.beFamily,
+                style: TextStyleConstant.instance.textLargeMedium,
+              ),
+              style: ButtonStyleConstant.instance.genelButtonStyle),
+        ),
+        const ComingSoonWidget()
+      ],
+    );
+  }
+
+  Widget _details(User? _firebaseUser, BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,7 +178,7 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  Widget petImage() {
+  Widget _petImage() {
     return widget.pet.photo == null
         ? const Center(child: Text("Bulunamadı"))
         : Hero(
@@ -176,23 +193,7 @@ class _DetailPageState extends State<DetailPage> {
           );
   }
 
-  Widget koruyucuAileButton() {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: ElevatedButton(
-          onPressed: () async {
-            Navigator.pushNamed(context, RouteConstant.myPetScreenRoute);
-          },
-          child: Text(
-            StringConstant.instance.beFamily,
-            style: TextStyleConstant.instance.textLargeMedium,
-          ),
-          style: ButtonStyleConstant.instance.genelButtonStyle),
-    );
-  }
-
-  Widget sahiplenButton(User? _firebaseUser, BuildContext context) {
+  Widget _adoptPetButton(User? _firebaseUser, BuildContext context) {
     return SizedBox(
       height: 58.h,
       width: MediaQuery.of(context).size.height,

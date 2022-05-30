@@ -65,7 +65,7 @@ class _ShelterListState extends State<ShelterList> {
                   );
                 } else if (snapshot.hasError) {
                   return const Center(
-                    child: Text("hata çıktı"),
+                    child: Text("Hata çıktı"),
                   );
                 } else {
                   return const Center(

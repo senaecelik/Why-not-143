@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
@@ -27,22 +28,14 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
           child: Column(
             children: [
               FormText(text: StringConstant.instance.formEmail),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               emailTextFormField(context, emailController, viewModel),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               FormText(text: StringConstant.instance.formPassword),
-              SizedBox(
-                height: 10.h,
-              ),
+               EmptyBox.instance.emptyBoxSmall,
               passTextField(context, passwordController, viewModel),
               forgotPassTextButton(context),
-              SizedBox(
-                height: 10.h,
-              ),
+               EmptyBox.instance.emptyBoxSmall,
               viewModel.isBusy
                   ? const CustomCircular()
                   : _loginButton(_formKey, viewModel, context, emailController,
