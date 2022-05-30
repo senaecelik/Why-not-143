@@ -40,14 +40,17 @@ class _PetListState extends State<PetList> {
               itemBuilder: (context, index) {
                 var pet = _myList[index];
 
-                return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailPage(pet: pet)));
-                    },
-                    child: PetListItem(pet: pet));
+                return Hero(
+                  tag: "pet-image",
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailPage(pet: pet)));
+                      },
+                      child: PetListItem(pet: pet)),
+                );
               },
             );
           } else if (snapshot.hasError) {

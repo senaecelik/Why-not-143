@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
-import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/widget/sub_text_widget.dart';
+import 'package:why_not_143_team/meta/widget/title_widget.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -12,14 +14,13 @@ class AboutPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            leadingWidth: 40,
             title: Text(StringConstant.instance.about,
                 style: GoogleFonts.poppins(
                     color: ColorConstant.instance.yankeBlue)),
           ),
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: PaddingConstant.instance.genelPadding,
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -45,30 +46,6 @@ class AboutPage extends StatelessWidget {
   }
 }
 
-class TittleWidget extends StatelessWidget {
-  final String text;
-  const TittleWidget({Key? key, required this.text}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyleConstant.instance.textLargeMedium
-          .copyWith(color: ColorConstant.instance.yankeBlue),
-    );
-  }
-}
 
-class SubText extends StatelessWidget {
-  final String text;
-  const SubText({Key? key, required this.text}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyleConstant.instance.textSmallMedium
-          .copyWith(color: ColorConstant.instance.neutral),
-    );
-  }
-}

@@ -61,7 +61,7 @@ class _OnBoardState extends State<OnBoard> {
       PageViewModel(
         titleWidget: const Text(""),
         bodyWidget: Padding(
-          padding: PaddingConstant.instance.onBoardPadding,
+          padding: PaddingConstant.instance.genelPadding,
           child: _OnBoardBodyWidget(
             title: StringConstant.instance.onBoardTitle1,
             subTitle: StringConstant.instance.onBoardSubTitle1,
@@ -75,7 +75,7 @@ class _OnBoardState extends State<OnBoard> {
       PageViewModel(
           titleWidget: const Text(""),
           bodyWidget: Padding(
-            padding: PaddingConstant.instance.onBoardPadding,
+            padding: PaddingConstant.instance.genelPadding,
             child: _OnBoardBodyWidget(
               title: StringConstant.instance.onBoardTitle2,
               subTitle: StringConstant.instance.onBoardSubTitle2,
@@ -88,7 +88,7 @@ class _OnBoardState extends State<OnBoard> {
       PageViewModel(
           titleWidget: const Text(""),
           bodyWidget: Padding(
-            padding: PaddingConstant.instance.onBoardPadding,
+            padding: PaddingConstant.instance.genelPadding,
             child: _OnBoardBodyWidget(
               title: StringConstant.instance.onBoardTitle3,
               subTitle: StringConstant.instance.onBoardSubTitle3,

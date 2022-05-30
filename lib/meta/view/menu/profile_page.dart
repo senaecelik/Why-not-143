@@ -35,12 +35,12 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: appBar(context),
       body: Center(
-        child: Column(
-          children: [
-            if (_firebaseUser != null)
-              Padding(
-                padding: PaddingConstant.instance.loginPadding,
-                child: SizedBox(
+        child: Padding(
+          padding: PaddingConstant.instance.genelPadding,
+          child: Column(
+            children: [
+              if (_firebaseUser != null)
+                SizedBox(
                   height: 150.h,
                   width: 150.w,
                   child: _firebaseUser.photoURL != null
@@ -54,12 +54,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           backgroundImage:
                               AssetImage(AssetPath.instance.menuPerson),
                         ),
-                ),
-              )
-            else
-              Padding(
-                padding: PaddingConstant.instance.loginPadding,
-                child: DrawerHeader(
+                )
+              else
+                DrawerHeader(
                   child: SizedBox(
                     height: 100.h,
                     width: 100.w,
@@ -69,54 +66,63 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
+              /*
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.person),
+                    SizedBox(width: 10.w),
+                    Text(
+                      "${_firebaseUser!.displayName}",
+                      style: TextStyleConstant.instance.textLargeRegular,
+                    ),
+                  ],
+                ),
               ),
-            /*
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.person),
-                  SizedBox(width: 10.w),
-                  Text(
-                    "${_firebaseUser!.displayName}",
-                    style: TextStyleConstant.instance.textLargeRegular,
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.mail),
+                    SizedBox(width: 10.w),
+                    Text(
+                      "${_firebaseUser.email}",
+                      style: TextStyleConstant.instance.textSmallRegular,
+                    ),
+                  ],
+                ),
+              ),*/
+              _profileNameText(),
+              SizedBox(
+                height: 10.h,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.mail),
-                  SizedBox(width: 10.w),
-                  Text(
-                    "${_firebaseUser.email}",
-                    style: TextStyleConstant.instance.textSmallRegular,
-                  ),
-                ],
+              _profileNameTextField(_firebaseUser, name),
+              SizedBox(
+                height: 10.h,
               ),
-            ),*/
-            profileNameText(),
-            profileNameTextField(_firebaseUser, name),
-            profileEmailText(),
-            profileEmailTextField(email),
-            SizedBox(
-              height: 30.h,
-            ),
-            logOutButton(context),
-          ],
+              _profileEmailText(),
+              SizedBox(
+                height: 10.h,
+              ),
+              _profileEmailTextField(email),
+              SizedBox(
+                height: 20.h,
+              ),
+              _logOutButton(context),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  SizedBox logOutButton(BuildContext context) {
+  SizedBox _logOutButton(BuildContext context) {
     return SizedBox(
       height: 58.h,
-      width: 328.w,
+      width: MediaQuery.of(context).size.width,
       child: GeneralButton(
           function: () {
             context.read<FirebaseAuthMethods>().signOut(context).then((value) =>
@@ -127,76 +133,62 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Padding profileNameTextField(User? _firebaseUser, String? name) {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: 328.w,
-        child: TextField(
-          readOnly: true,
-          controller: profileNameController,
-          decoration: InputDecoration(
-            hintText: _firebaseUser?.displayName == null
-                ? name = "Misafir"
-                : name = _firebaseUser?.displayName,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide:
-                    BorderSide(color: ColorConstant.instance.neutral300)),
-          ),
+  Widget _profileNameTextField(User? _firebaseUser, String? name) {
+    return SizedBox(
+      height: 58.h,
+      width: MediaQuery.of(context).size.width,
+      child: TextField(
+        readOnly: true,
+        controller: profileNameController,
+        decoration: InputDecoration(
+          hintText: _firebaseUser?.displayName == null
+              ? name = "Misafir"
+              : name = _firebaseUser?.displayName,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
         ),
       ),
     );
   }
 
-  Padding profileEmailTextField(String? email) {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: 328.w,
-        child: TextField(
-          readOnly: true,
-          keyboardType: TextInputType.emailAddress,
-          controller: profileEmailController,
-          decoration: InputDecoration(
-            hintText: email,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide:
-                    BorderSide(color: ColorConstant.instance.neutral300)),
-          ),
+  Widget _profileEmailTextField(String? email) {
+    return SizedBox(
+      height: 58.h,
+      width: MediaQuery.of(context).size.width,
+      child: TextField(
+        readOnly: true,
+        keyboardType: TextInputType.emailAddress,
+        controller: profileEmailController,
+        decoration: InputDecoration(
+          hintText: email,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
         ),
       ),
     );
   }
 
-  Padding profileEmailText() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: Row(
-        children: [
-          Text(
-            StringConstant.instance.formEmail,
-            style: TextStyleConstant.instance.textSmallMedium,
-          ),
-        ],
-      ),
+  Widget _profileEmailText() {
+    return Row(
+      children: [
+        Text(
+          StringConstant.instance.formEmail,
+          style: TextStyleConstant.instance.textSmallMedium,
+        ),
+      ],
     );
   }
 
-  Padding profileNameText() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: Row(
-        children: [
-          Text(
-            StringConstant.instance.formregisterName,
-            style: TextStyleConstant.instance.textSmallMedium,
-          ),
-        ],
-      ),
+  Widget _profileNameText() {
+    return Row(
+      children: [
+        Text(
+          StringConstant.instance.formregisterName,
+          style: TextStyleConstant.instance.textSmallMedium,
+        ),
+      ],
     );
   }
 
