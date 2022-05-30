@@ -7,9 +7,9 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/view/menu/about_page.dart';
 import 'package:why_not_143_team/meta/view/menu/feedBack/feed_back_page_view_model.dart';
-
+import 'package:why_not_143_team/meta/widget/sub_text_widget.dart';
+import 'package:why_not_143_team/meta/widget/title_widget.dart';
 
 class FeedBackPage extends StatefulWidget {
   const FeedBackPage({Key? key}) : super(key: key);
@@ -47,73 +47,65 @@ class _FeedBackPageState extends State<FeedBackPage> {
 
   Padding _feedBackMainTitle() {
     return Padding(
-                    padding: PaddingConstant.instance.loginPadding,
-                    child: SubText(
-                      text: StringConstant.instance.feedBackSub,
-                    ),
-                  );
+      padding: PaddingConstant.instance.genelPadding,
+      child: SubText(
+        text: StringConstant.instance.feedBackSub,
+      ),
+    );
   }
 
   Form _feedBackForm(BuildContext context, FeedBackViewModel viewModel) {
     return Form(
-                    key: _formKey,
-                    child: Padding(
-                      padding: PaddingConstant.instance.loginPadding,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TittleWidget(
-                              text: StringConstant.instance.feedBackCaption),
-                          _feedBackTtle(),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          _feedBackMesseage(),
-                          SizedBox(
-                            height: 50.h,
-                          ),
-                          _feedBackSendButton(context, viewModel),
-                        ],
-                      ),
-                    ),
-                  );
+      key: _formKey,
+      child: Padding(
+        padding: PaddingConstant.instance.genelPadding,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TittleWidget(text: StringConstant.instance.feedBackCaption),
+            _feedBackTtle(),
+            SizedBox(
+              height: 10.h,
+            ),
+            _feedBackMesseage(),
+            SizedBox(
+              height: 50.h,
+            ),
+            _feedBackSendButton(context, viewModel),
+          ],
+        ),
+      ),
+    );
   }
 
   AppBar _feedBackAppBar() {
     return AppBar(
-                title: Text(StringConstant.instance.feedBack,
-                    style: GoogleFonts.poppins(
-                        color: ColorConstant.instance.yankeBlue)));
+        title: Text(StringConstant.instance.feedBack,
+            style:
+                GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue)));
   }
 
-  SizedBox _feedBackSendButton(BuildContext context, FeedBackViewModel viewModel) {
+  SizedBox _feedBackSendButton(
+      BuildContext context, FeedBackViewModel viewModel) {
     return SizedBox(
-                            height: 58.h,
-                            width: MediaQuery.of(context).size.height,
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                viewModel.feedBack(
-                                    _formKey,
-                                    feedbackTitle,
-                                    feedbackMessage,
-                                    feedbackSender,
-                                    senderMail,
-                                    context);
-                              },
-                              child:
-                                  Text(StringConstant.instance.feedBackSend),
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                primary: ColorConstant.instance.yankeBlue,
-                                onPrimary: ColorConstant.instance.white,
-                                side: BorderSide(
-                                    width: 1.0,
-                                    color: ColorConstant.instance.yankeBlue),
-                              ),
-                            ),
-                          );
+      height: 58.h,
+      width: MediaQuery.of(context).size.height,
+      child: ElevatedButton(
+        onPressed: () async {
+          viewModel.feedBack(_formKey, feedbackTitle, feedbackMessage,
+              feedbackSender, senderMail, context);
+        },
+        child: Text(StringConstant.instance.feedBackSend),
+        style: ElevatedButton.styleFrom(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          primary: ColorConstant.instance.yankeBlue,
+          onPrimary: ColorConstant.instance.white,
+          side: BorderSide(width: 1.0, color: ColorConstant.instance.yankeBlue),
+        ),
+      ),
+    );
   }
 
   TextFormField _feedBackMesseage() {

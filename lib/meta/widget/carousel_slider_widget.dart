@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
@@ -54,13 +56,13 @@ class _CardSliderState extends State<CardSlider> {
                 padding: const EdgeInsets.all(7),
                 child: Container(
                   decoration: BoxDecoration(
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.white,
                         spreadRadius: 1,
                         blurRadius: 10,
                         offset:
-                            const Offset(4, 4), // changes position of shadow
+                             Offset(4, 4), // changes position of shadow
                       ),
                     ],
                     borderRadius: BorderRadius.circular(30),

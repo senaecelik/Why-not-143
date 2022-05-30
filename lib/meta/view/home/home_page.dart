@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
-import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/widget/carousel_slider_widget.dart';
@@ -32,13 +31,14 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: 20.h,
+                ),
                 const CardSlider(),
                 SizedBox(
                   height: 10.h,
                 ),
-                Padding(
-                    padding: PaddingConstant.instance.homePadding,
-                    child: _homePageBodySection()),
+                _homePageBodySection(),
               ],
             ),
           ),
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget homeTabBarView(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 220.r),
+      padding: EdgeInsets.only(top: 20.r, bottom: 220.r),
       child: TabBarView(
         children: [
           Padding(
@@ -86,15 +86,15 @@ class _HomePageState extends State<HomePage> {
         height: 50.h,
         width: 230.w,
         child: Padding(
-          padding:
-              EdgeInsets.only(top: 2.0.r, bottom: 2.0.r, left: 2.r, right: 2.r),
+          padding: EdgeInsets.only(
+              top: 2.0.r, bottom: 2.0.r, left: 20.r, right: 2.r),
           child: TabBar(
             unselectedLabelColor: ColorConstant.instance.yankeBlue,
             unselectedLabelStyle: TextStyleConstant.instance.textSmallMedium,
-            labelStyle: TextStyleConstant.instance.textSmallMedium,
-            indicator: BoxDecoration(
-                color: ColorConstant.instance.yankeBlue,
-                borderRadius: BorderRadius.circular(20)),
+            labelStyle: TextStyleConstant.instance.textSmallMedium
+                .copyWith(color: ColorConstant.instance.yankeBlue),
+            indicatorColor: ColorConstant.instance.orange,
+            labelColor: ColorConstant.instance.orange,
             tabs: const [
               Tab(
                 text: "Tümü",

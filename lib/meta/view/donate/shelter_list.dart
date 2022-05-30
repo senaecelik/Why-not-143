@@ -24,7 +24,7 @@ class _ShelterListState extends State<ShelterList> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: PaddingConstant.instance.loginPadding,
+      padding: PaddingConstant.instance.genelPadding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,

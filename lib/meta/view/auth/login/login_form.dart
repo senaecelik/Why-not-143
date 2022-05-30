@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
+import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
@@ -21,109 +22,102 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
 
     return Form(
         key: _formKey,
-        child: Column(
-          children: [
-            FormText(text: StringConstant.instance.formEmail),
-            emailTextFormField(context, emailController, viewModel),
-            FormText(text: StringConstant.instance.formPassword),
-            passTextField(context, passwordController, viewModel),
-            forgotPassTextButton(context),
-            viewModel.isBusy
-                ? const CustomCircular()
-                : _loginButton(_formKey, viewModel, context, emailController,
-                    passwordController),
-          ],
+        child: Padding(
+          padding: PaddingConstant.instance.genelPadding,
+          child: Column(
+            children: [
+              FormText(text: StringConstant.instance.formEmail),
+              SizedBox(
+                height: 10.h,
+              ),
+              emailTextFormField(context, emailController, viewModel),
+              SizedBox(
+                height: 10.h,
+              ),
+              FormText(text: StringConstant.instance.formPassword),
+              SizedBox(
+                height: 10.h,
+              ),
+              passTextField(context, passwordController, viewModel),
+              forgotPassTextButton(context),
+              SizedBox(
+                height: 10.h,
+              ),
+              viewModel.isBusy
+                  ? const CustomCircular()
+                  : _loginButton(_formKey, viewModel, context, emailController,
+                      passwordController),
+            ],
+          ),
         ));
   }
 
   Widget emailTextFormField(context, emailController, viewModel) {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: MediaQuery.of(context).size.height,
-        child: TextFormField(
-          keyboardType: TextInputType.emailAddress,
-          controller: emailController,
-          decoration: InputDecoration(
-            hintText: StringConstant.instance.formEmail,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide:
-                    BorderSide(color: ColorConstant.instance.neutral300)),
-          ),
-          validator: (value) {
-            return viewModel.emailValidatorMethod(value);
-          },
+    return SizedBox(
+      height: 58.h,
+      width: MediaQuery.of(context).size.height,
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        controller: emailController,
+        decoration: InputDecoration(
+          hintText: StringConstant.instance.formEmail,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
         ),
+        validator: (value) {
+          return viewModel.emailValidatorMethod(value);
+        },
       ),
     );
   }
 
   Widget _loginButton(
       _formKey, viewModel, context, emailController, passwordController) {
-    return Padding(
-        padding: PaddingConstant.instance.genelButtonPadding,
-        child: SizedBox(
-          height: 58.h,
-          width: MediaQuery.of(context).size.height,
-          child: ElevatedButton(
-            onPressed: () async {
-              if (_formKey.currentState!.validate()) {
-                viewModel.logInUser(
-                    context, emailController, passwordController);
-              }
-            },
-            child: Text(StringConstant.instance.loginSignIn),
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              primary: ColorConstant.instance.yankeBlue,
-              onPrimary: ColorConstant.instance.white,
-              side: BorderSide(
-                  width: 1.0, color: ColorConstant.instance.yankeBlue),
-            ),
-          ),
-        ));
+    return SizedBox(
+      height: 58.h,
+      width: MediaQuery.of(context).size.height,
+      child: ElevatedButton(
+          onPressed: () async {
+            if (_formKey.currentState!.validate()) {
+              viewModel.logInUser(context, emailController, passwordController);
+            }
+          },
+          child: Text(StringConstant.instance.loginSignIn),
+          style: ButtonStyleConstant.instance.genelButtonStyle),
+    );
   }
 
   Widget passTextField(context, passwordController, viewModel) {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: MediaQuery.of(context).size.height,
-        child: TextFormField(
-          obscureText: true,
-          controller: passwordController,
-          decoration: InputDecoration(
-            hintText: StringConstant.instance.formTextFieldPassword,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide:
-                    BorderSide(color: ColorConstant.instance.neutral300)),
-          ),
-          validator: (value) {
-            return viewModel.passwordValidation(value);
-          },
+    return SizedBox(
+      height: 58.h,
+      width: MediaQuery.of(context).size.height,
+      child: TextFormField(
+        obscureText: true,
+        controller: passwordController,
+        decoration: InputDecoration(
+          hintText: StringConstant.instance.formTextFieldPassword,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
         ),
+        validator: (value) {
+          return viewModel.passwordValidation(value);
+        },
       ),
     );
   }
 
   Widget forgotPassTextButton(BuildContext context) {
     return Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: PaddingConstant.instance.textPadding,
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, RouteConstant.forgotPassRoute);
-          },
-          child: Text(StringConstant.instance.formForgotPass,
-              style: TextStyleConstant.instance.verySmallMedium
-                  .copyWith(color: ColorConstant.instance.primary700)),
-        ),
+      alignment: Alignment.centerLeft,
+      child: TextButton(
+        onPressed: () {
+          Navigator.pushNamed(context, RouteConstant.forgotPassRoute);
+        },
+        child: Text(StringConstant.instance.formForgotPass,
+            style: TextStyleConstant.instance.verySmallMedium
+                .copyWith(color: ColorConstant.instance.primary700)),
       ),
     );
   }

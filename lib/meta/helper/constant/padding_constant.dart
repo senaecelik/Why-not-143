@@ -6,10 +6,10 @@ class PaddingConstant {
 
   PaddingConstant._init();
 
-  EdgeInsets onBoardPadding = const EdgeInsets.symmetric(horizontal: 34).r;
   EdgeInsets appNamePadding = const EdgeInsets.only(top: 10).r;
   //login and register
-  EdgeInsets loginPadding = const EdgeInsets.fromLTRB(20, 10, 20, 10).r;
+  EdgeInsets genelPadding = const EdgeInsets.fromLTRB(20, 10, 20, 10).r;
+  
   EdgeInsets textPadding = const EdgeInsets.fromLTRB(20, 0, 20, 0).r;
   EdgeInsets genelButtonPadding = const EdgeInsets.fromLTRB(20, 20, 20, 20).r;
   //menu

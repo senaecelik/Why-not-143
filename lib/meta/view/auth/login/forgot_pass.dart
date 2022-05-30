@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
+import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
@@ -26,77 +27,73 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         builder: (context, viewModel, child) => Scaffold(
               appBar: appBar(),
               body: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    labelText(),
-                    FormText(text: StringConstant.instance.formEmail),
-                    _emailTextField(emailController),
-                    viewModel.isBusy
-                        ? const CustomCircular()
-                        : _forgotPassButton(
-                            context, viewModel, emailController),
-                  ],
+                child: Padding(
+                  padding: PaddingConstant.instance.genelPadding,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      labelText(),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      FormText(text: StringConstant.instance.formEmail),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      _emailTextField(emailController),
+                      SizedBox(
+                        height: 30.h,
+                      ),
+                      viewModel.isBusy
+                          ? const CustomCircular()
+                          : _forgotPassButton(
+                              context, viewModel, emailController),
+                    ],
+                  ),
                 ),
               ),
             ));
   }
 
-  Padding _forgotPassButton(BuildContext context, ForgotPassViewModel viewModel,
+  Widget _forgotPassButton(BuildContext context, ForgotPassViewModel viewModel,
       TextEditingController emailController) {
-    return Padding(
-        padding: PaddingConstant.instance.genelButtonPadding,
-        child: SizedBox(
-          height: 58.h,
-          width: MediaQuery.of(context).size.height,
-          child: ElevatedButton(
-            onPressed: () async {
-              viewModel.resetPassword(context, emailController);
-            },
-            child: Text(StringConstant.instance.loginSignIn),
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              primary: ColorConstant.instance.yankeBlue,
-              onPrimary: ColorConstant.instance.white,
-              side: BorderSide(
-                  width: 1.0, color: ColorConstant.instance.yankeBlue),
-            ),
-          ),
-        ));
+    return SizedBox(
+      height: 58.h,
+      width: MediaQuery.of(context).size.height,
+      child: ElevatedButton(
+        onPressed: () async {
+          viewModel.resetPassword(context, emailController);
+        },
+        child: Text(StringConstant.instance.loginSignIn),
+        style: ButtonStyleConstant.instance.genelButtonStyle,
+      ),
+    );
   }
 
-  Padding _emailTextField(TextEditingController emailController) {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: SizedBox(
-        height: 58.h,
-        width: MediaQuery.of(context).size.height,
-        child: TextField(
-          keyboardType: TextInputType.emailAddress,
-          controller: emailController,
-          decoration: InputDecoration(
-            hintText: StringConstant.instance.resetPass,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide:
-                    BorderSide(color: ColorConstant.instance.neutral300)),
-          ),
+  Widget _emailTextField(TextEditingController emailController) {
+    return SizedBox(
+      height: 58.h,
+      width: MediaQuery.of(context).size.height,
+      child: TextField(
+        keyboardType: TextInputType.emailAddress,
+        controller: emailController,
+        decoration: InputDecoration(
+          hintText: StringConstant.instance.resetPass,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
         ),
       ),
     );
   }
 
-  Padding labelText() {
-    return Padding(
-      padding: PaddingConstant.instance.loginPadding,
-      child: Text(
-        StringConstant.instance.forgotPassLabel,
-        textAlign: TextAlign.center,
-        style: TextStyleConstant.instance.textSmallRegular
-            .copyWith(color: ColorConstant.instance.neutral),
-      ),
+  Widget labelText() {
+    return Text(
+      StringConstant.instance.forgotPassLabel,
+      textAlign: TextAlign.center,
+      style: TextStyleConstant.instance.textSmallRegular
+          .copyWith(color: ColorConstant.instance.neutral),
     );
   }
 

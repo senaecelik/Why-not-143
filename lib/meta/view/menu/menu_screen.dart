@@ -63,7 +63,7 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget menuAvatar(_firebaseUser, context) {
     return _firebaseUser != null
         ? Padding(
-            padding: PaddingConstant.instance.loginPadding,
+            padding: PaddingConstant.instance.genelPadding,
             child: DrawerHeader(
               child: SizedBox(
                 height: 100.h,
