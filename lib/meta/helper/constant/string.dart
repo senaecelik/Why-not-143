@@ -104,5 +104,5 @@ class StringConstant {
   //Home
   String homeAllPet = "Tümü";
   String homeCat = "Kedi";
-  String homeDog = "KÖpek";
+  String homeDog = "Köpek";
 }
