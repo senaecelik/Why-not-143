@@ -14,7 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   google_fonts: ^2.3.2
-  flutter_screenutil: 5.4.0+1
+  flutter_screenutil: ^5.5.3+2
   introduction_screen: ^3.0.2
   firebase_core: ^1.16.0
   firebase_auth: ^3.3.17

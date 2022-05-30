@@ -35,7 +35,7 @@ class _PetListState extends State<PetList> {
                 crossAxisSpacing: 2,
                 mainAxisSpacing: 0,
                 mainAxisExtent: 300,
-                childAspectRatio: 5,
+                childAspectRatio: 10,
               ),
               itemCount: _myList.length,
               itemBuilder: (context, index) {
