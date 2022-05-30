@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,12 +7,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
 import 'package:why_not_143_team/meta/model/shelter_model.dart';
+import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 import 'package:why_not_143_team/meta/widget/sub_text_widget.dart';
 import 'package:why_not_143_team/meta/widget/title_widget.dart';
 
@@ -44,15 +48,11 @@ class _ShelterPageState extends State<ShelterPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              donateImage(),
-              SizedBox(
-                height: 10.h,
-              ),
-              details(),
-              SizedBox(
-                height: 20.h,
-              ),
-              donateButton()
+              _donateImage(),
+              EmptyBox.instance.emptyBoxSmall,
+              _donateDetails(),
+              EmptyBox.instance.emptyBoxNormal,
+              _donateButton()
             ],
           ),
         ));
@@ -96,7 +96,7 @@ class _ShelterPageState extends State<ShelterPage> {
     );
   }
 
-  Widget donateImage() {
+  Widget _donateImage() {
     return widget.shelters.photo == null
         ? const Center(child: Text("Bulunamadı"))
         : SizedBox(
@@ -108,7 +108,7 @@ class _ShelterPageState extends State<ShelterPage> {
             ));
   }
 
-  Widget details() {
+  Widget _donateDetails() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,17 +156,23 @@ class _ShelterPageState extends State<ShelterPage> {
     );
   }
 
-  Widget donateButton() {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: ElevatedButton(
-        onPressed: () async {
-          Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
-        },
-        child: Text(StringConstant.instance.donateAppBarTitle),
-        style: ButtonStyleConstant.instance.genelButtonStyle,
-      ),
+  Widget _donateButton() {
+    return Stack(
+      alignment: Alignment.centerRight,
+      children: [
+        SizedBox(
+          height: 58.h,
+          width: MediaQuery.of(context).size.height,
+          child: ElevatedButton(
+            onPressed: () async {
+              Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+            },
+            child: Text(StringConstant.instance.donateAppBarTitle),
+            style: ButtonStyleConstant.instance.genelButtonStyle,
+          ),
+        ),
+        ComingSoonWidget(),
+      ],
     );
   }
 }

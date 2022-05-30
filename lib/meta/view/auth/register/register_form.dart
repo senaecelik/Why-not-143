@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_page_view_model.dart';
@@ -26,29 +27,17 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
           child: Column(
             children: [
               FormText(text: StringConstant.instance.formregisterName),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               nameTextField(context, nameController, viewModel),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               FormText(text: StringConstant.instance.formEmail),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               mailTextField(context, registerEmailController, viewModel),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               FormText(text: StringConstant.instance.formPassword),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               passTextField(context, passwordController, viewModel),
-              SizedBox(
-                height: 30.h,
-              ),
+              EmptyBox.instance.emptyBoxBig,
               viewModel.isBusy
                   ? const CustomCircular()
                   : signupButton(

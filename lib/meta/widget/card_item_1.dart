@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 
 class CardItem extends StatelessWidget {
   final String text;
@@ -34,7 +35,10 @@ class CardItem extends StatelessWidget {
                 SizedBox(
                   width: 100.h,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, RouteConstant.donateScreenRoute);
+                    },
                     child: Text(buttonText),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

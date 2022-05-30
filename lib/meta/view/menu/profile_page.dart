@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
@@ -66,51 +67,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-              /*
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.person),
-                    SizedBox(width: 10.w),
-                    Text(
-                      "${_firebaseUser!.displayName}",
-                      style: TextStyleConstant.instance.textLargeRegular,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.mail),
-                    SizedBox(width: 10.w),
-                    Text(
-                      "${_firebaseUser.email}",
-                      style: TextStyleConstant.instance.textSmallRegular,
-                    ),
-                  ],
-                ),
-              ),*/
               _profileNameText(),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               _profileNameTextField(_firebaseUser, name),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               _profileEmailText(),
-              SizedBox(
-                height: 10.h,
-              ),
+              EmptyBox.instance.emptyBoxSmall,
               _profileEmailTextField(email),
-              SizedBox(
-                height: 20.h,
-              ),
+              EmptyBox.instance.emptyBoxNormal,
               _logOutButton(context),
             ],
           ),
@@ -142,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
         controller: profileNameController,
         decoration: InputDecoration(
           hintText: _firebaseUser?.displayName == null
-              ? name = "Misafir"
+              ? name = StringConstant.instance.menuPerson
               : name = _firebaseUser?.displayName,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
@@ -5,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/core/services/firebase_auth_method.dart';
@@ -12,6 +15,7 @@ import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
+import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen(ZoomDrawerController drawerController, {Key? key})
@@ -30,15 +34,11 @@ class _MenuScreenState extends State<MenuScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            menuAvatar(_firebaseUser, context),
-            menuDivider(),
-            sizedBox1(),
-            menuPerson(_firebaseUser, context),
-            if (_firebaseUser != null)
-              MenuItem(
-                  icon: Icons.pets,
-                  text: StringConstant.instance.myPet,
-                  pageRoute: RouteConstant.homeScreenRoute),
+            _menuAvatar(_firebaseUser, context),
+            _menuDivider(),
+            EmptyBox.instance.emptyBoxBig,
+            _menuPerson(_firebaseUser, context),
+            if (_firebaseUser != null) MenuMyPet(),
             MenuItem(
                 icon: Icons.payments_outlined,
                 text: StringConstant.instance.donateAppBarTitle,
@@ -52,7 +52,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 icon: Icons.send,
                 text: StringConstant.instance.menuSendBack,
                 pageRoute: RouteConstant.feedBackScreenRoute),
-            sizedBox2(),
+            EmptyBox.instance.emptyBoxXxLarge,
             const LogOut(),
           ],
         ),
@@ -60,7 +60,7 @@ class _MenuScreenState extends State<MenuScreen> {
     );
   }
 
-  Widget menuAvatar(_firebaseUser, context) {
+  Widget _menuAvatar(_firebaseUser, context) {
     return _firebaseUser != null
         ? Padding(
             padding: PaddingConstant.instance.genelPadding,
@@ -93,18 +93,6 @@ class _MenuScreenState extends State<MenuScreen> {
           );
   }
 
-  SizedBox sizedBox2() {
-    return SizedBox(
-      height: 100.h,
-    );
-  }
-
-  SizedBox sizedBox1() {
-    return SizedBox(
-      height: 30.h,
-    );
-  }
-
   Padding _menuRateOurApp() {
     return Padding(
       padding: PaddingConstant.instance.menuPadding,
@@ -135,7 +123,7 @@ class _MenuScreenState extends State<MenuScreen> {
     );
   }
 
-  Widget menuPerson(_firebaseUser, context) {
+  Widget _menuPerson(_firebaseUser, context) {
     return _firebaseUser != null
         ? Padding(
             padding: PaddingConstant.instance.menuPadding,
@@ -145,17 +133,13 @@ class _MenuScreenState extends State<MenuScreen> {
               },
               child: Row(
                 children: [
-                  SizedBox(
-                    width: 10.w,
-                  ),
+                  EmptyBox.instance.emptyBoxSmallWidth,
                   Icon(
                     Icons.person,
                     color: ColorConstant.instance.white,
                     size: 25,
                   ),
-                  SizedBox(
-                    width: 20.w,
-                  ),
+                  EmptyBox.instance.emptyBoxNormalWidth,
                   _firebaseUser.displayName != null
                       ? Flexible(
                           child: Text(
@@ -183,7 +167,7 @@ class _MenuScreenState extends State<MenuScreen> {
             padding: PaddingConstant.instance.menuPadding,
             child: InkWell(
               onTap: () {
-                showToast(context, "Lütfen giriş yapınız.");
+                showToast(context, StringConstant.instance.loginMess);
               },
               child: Row(
                 children: [
@@ -210,12 +194,53 @@ class _MenuScreenState extends State<MenuScreen> {
           );
   }
 
-  Divider menuDivider() {
+  Divider _menuDivider() {
     return const Divider(
       color: Colors.white,
       indent: 20,
       endIndent: 45,
       thickness: 1,
+    );
+  }
+}
+
+class MenuMyPet extends StatelessWidget {
+  const MenuMyPet({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.centerRight,
+      children: [
+        Padding(
+          padding: PaddingConstant.instance.menuPadding,
+          child: InkWell(
+            onTap: () {
+              showToast(context, StringConstant.instance.commingSoonMess);
+            },
+            child: Row(
+              children: [
+                EmptyBox.instance.emptyBoxSmallWidth,
+                Icon(
+                  Icons.pets,
+                  color: ColorConstant.instance.white,
+                  size: 25,
+                ),
+                EmptyBox.instance.emptyBoxNormalWidth,
+                Text(
+                  StringConstant.instance.myPet,
+                  textAlign: TextAlign.center,
+                  style: TextStyleConstant.instance.textSmallMedium
+                      .copyWith(color: ColorConstant.instance.white),
+                ),
+              ],
+            ),
+          ),
+        ),
+        ComingSoonWidget()
+      ],
     );
   }
 }
@@ -318,17 +343,13 @@ class MenuItem extends StatelessWidget {
         },
         child: Row(
           children: [
-            SizedBox(
-              width: 10.w,
-            ),
+            EmptyBox.instance.emptyBoxSmallWidth,
             Icon(
               icon,
               color: ColorConstant.instance.white,
               size: 25,
             ),
-            SizedBox(
-              width: 20.w,
-            ),
+            EmptyBox.instance.emptyBoxNormalWidth,
             Text(
               text,
               textAlign: TextAlign.center,

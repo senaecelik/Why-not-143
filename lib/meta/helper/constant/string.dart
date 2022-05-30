@@ -95,4 +95,14 @@ class StringConstant {
   String shelterTitle = "Barınaklar";
   String beFamily = "Koruyucu ailesi ol";
   String adoptPet = "Sahiplen";
+
+  // messeage
+  String errorMess = "Hata çıktı";
+  String commingSoonMess = "Sabrın sonu selamettir.";
+  String loginMess = "Lütfen giriş yapınız.";
+
+  //Home
+  String homeAllPet = "Tümü";
+  String homeCat = "Kedi";
+  String homeDog = "KÖpek";
 }

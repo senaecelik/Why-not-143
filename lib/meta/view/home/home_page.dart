@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/widget/carousel_slider_widget.dart';
@@ -31,13 +32,9 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 20.h,
-                ),
+                EmptyBox.instance.emptyBoxNormal,
                 const CardSlider(),
-                SizedBox(
-                  height: 10.h,
-                ),
+                EmptyBox.instance.emptyBoxSmall,
                 _homePageBodySection(),
               ],
             ),
@@ -95,15 +92,15 @@ class _HomePageState extends State<HomePage> {
                 .copyWith(color: ColorConstant.instance.yankeBlue),
             indicatorColor: ColorConstant.instance.orange,
             labelColor: ColorConstant.instance.orange,
-            tabs: const [
+            tabs: [
               Tab(
-                text: "Tümü",
+                text: StringConstant.instance.homeAllPet,
               ),
               Tab(
-                text: "Kedi",
+                text: StringConstant.instance.homeCat,
               ),
               Tab(
-                text: "Köpek",
+                text: StringConstant.instance.homeDog,
               ),
             ],
           ),

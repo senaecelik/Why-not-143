@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
-import 'package:why_not_143_team/meta/view/auth/login/forgot_pass_view_model.dart';
+import 'package:why_not_143_team/meta/view/auth/forgot_pass/forgot_pass_view_model.dart';
 import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 import 'package:why_not_143_team/meta/widget/form_text.dart';
 
@@ -34,17 +35,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       labelText(),
-                      SizedBox(
-                        height: 10.h,
-                      ),
+                      EmptyBox.instance.emptyBoxSmall,
                       FormText(text: StringConstant.instance.formEmail),
-                      SizedBox(
-                        height: 10.h,
-                      ),
+                      EmptyBox.instance.emptyBoxSmall,
                       _emailTextField(emailController),
-                      SizedBox(
-                        height: 30.h,
-                      ),
+                      EmptyBox.instance.emptyBoxBig,
                       viewModel.isBusy
                           ? const CustomCircular()
                           : _forgotPassButton(
