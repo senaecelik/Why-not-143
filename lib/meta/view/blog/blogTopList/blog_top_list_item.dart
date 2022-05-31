@@ -21,59 +21,57 @@ class BlogTopListItem extends StatelessWidget {
           elevation: 2,
           child: Padding(
             padding: PaddingConstant.instance.genelPadding,
-            child: Flexible(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 120.h,
-                    width: 100.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: ColorConstant.instance.donate1,
-                        image: DecorationImage(
-                            colorFilter: ColorFilter.mode(
-                                ColorConstant.instance.black.withOpacity(0.34),
-                                BlendMode.multiply),
-                            image: NetworkImage(
-                              blogs.photo!,
-                            ),
-                            fit: BoxFit.cover)),
-                  ),
-                  EmptyBox.instance.emptyBoxSmallWidth,
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TittleWidget(text: blogs.blogTitle!),
-                      EmptyBox.instance.emptyBoxSmall,
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.account_circle_outlined,
-                            size: 16,
-                            color: ColorConstant.instance.neutral,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 120.h,
+                  width: 100.w,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: ColorConstant.instance.donate1,
+                      image: DecorationImage(
+                          colorFilter: ColorFilter.mode(
+                              ColorConstant.instance.black.withOpacity(0.34),
+                              BlendMode.multiply),
+                          image: NetworkImage(
+                            blogs.photo!,
                           ),
-                          Text(
-                            blogs.blogAuthor! + "  |  ",
-                            style: TextStyleConstant.instance.verySmallMedium,
-                          ),
-                          Icon(
-                            Icons.timelapse_outlined,
-                            size: 16,
-                            color: ColorConstant.instance.neutral,
-                          ),
-                          Text(
-                            blogs.createdTime!,
-                            style: TextStyleConstant.instance.verySmallMedium,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ],
-              ),
+                          fit: BoxFit.cover)),
+                ),
+                EmptyBox.instance.emptyBoxSmallWidth,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TittleWidget(text: blogs.blogTitle!),
+                    EmptyBox.instance.emptyBoxSmall,
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.account_circle_outlined,
+                          size: 16,
+                          color: ColorConstant.instance.neutral,
+                        ),
+                        Text(
+                          blogs.blogAuthor! + "  |  ",
+                          style: TextStyleConstant.instance.verySmallMedium,
+                        ),
+                        Icon(
+                          Icons.timelapse_outlined,
+                          size: 16,
+                          color: ColorConstant.instance.neutral,
+                        ),
+                        Text(
+                          blogs.createdTime!,
+                          style: TextStyleConstant.instance.verySmallMedium,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
         ),
