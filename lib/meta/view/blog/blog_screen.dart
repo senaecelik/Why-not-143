@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
-import 'package:why_not_143_team/meta/view/blog/blog_list.dart';
-import 'package:why_not_143_team/meta/view/blog/blog_top_list.dart';
+import 'package:why_not_143_team/meta/helper/constant/string.dart';
+import 'package:why_not_143_team/meta/view/blog/blogList/blog_list.dart';
+import 'package:why_not_143_team/meta/view/blog/blogTopList/blog_top_list.dart';
 import 'package:why_not_143_team/meta/widget/title_widget.dart';
 
 class BlogPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _BlogPageState extends State<BlogPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Pati Rehber",
+          StringConstant.instance.blogAppBar,
           style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
         ),
       ),
@@ -37,7 +38,7 @@ class _BlogPageState extends State<BlogPage> {
                   width: MediaQuery.of(context).size.width,
                   child: const BlogList()),
               EmptyBox.instance.emptyBoxNormal,
-              const TittleWidget(text: "Diğer yazılar"),
+              TittleWidget(text: StringConstant.instance.blogOther),
               const BlogTopList(),
             ],
           ),

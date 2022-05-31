@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
 import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 
 class CardItem2 extends StatelessWidget {
@@ -38,7 +40,10 @@ class CardItem2 extends StatelessWidget {
                   SizedBox(
                     width: 100.h,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        showToast(
+                            context, StringConstant.instance.commingSoonMess);
+                      },
                       child: Text(buttonText),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(

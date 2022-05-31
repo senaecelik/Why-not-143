@@ -105,4 +105,10 @@ class StringConstant {
   String homeAllPet = "Tümü";
   String homeCat = "Kedi";
   String homeDog = "Köpek";
+
+  //Blog
+
+  String blogAppBar = "Pati Rehber";
+  String blogOther = "Diğer Yazılar";
+
 }
