@@ -26,31 +26,28 @@ class _BlogPageState extends State<BlogPage> {
           style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
         ),
       ),
-      body: Padding(
-        padding: PaddingConstant.instance.genelPadding,
-        child: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                  height: 300.h,
-                  width: MediaQuery.of(context).size.width,
-                  child: const BlogList()),
-              Padding(
-                padding: PaddingConstant.instance.genelPadding,
-                child: TittleWidget(text: StringConstant.instance.blogOther),
+      body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+                height: 300.h,
+                width: MediaQuery.of(context).size.width,
+                child: const BlogList()),
+            Padding(
+              padding: PaddingConstant.instance.genelPadding,
+              child: TittleWidget(text: StringConstant.instance.blogOther),
+            ),
+            SizedBox(
+              height: 400.h,
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 30.0.r),
+                child: const BlogTopList(),
               ),
-              SizedBox(
-                height: 400.h,
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 30.0.r),
-                  child: const BlogTopList(),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

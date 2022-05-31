@@ -110,5 +110,4 @@ class StringConstant {
 
   String blogAppBar = "Pati Rehber";
   String blogOther = "Diğer Yazılar";
-
 }

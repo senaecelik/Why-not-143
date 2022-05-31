@@ -45,7 +45,7 @@ class BlogTopListItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TittleWidget(text: blogs.blogTitle!),
+                    TittleWidget(text: blogs.shortTitle!),
                     EmptyBox.instance.emptyBoxSmall,
                     Row(
                       children: [
