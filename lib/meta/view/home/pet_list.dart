@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:why_not_143_team/core/services/pet_service.dart';
+import 'package:why_not_143_team/core/services/resource/pet_service.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
@@ -41,17 +41,14 @@ class _PetListState extends State<PetList> {
               itemBuilder: (context, index) {
                 var pet = _myList[index];
 
-                return Hero(
-                  tag: "pet-image",
-                  child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailPage(pet: pet)));
-                      },
-                      child: PetListItem(pet: pet)),
-                );
+                return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage(pet: pet)));
+                    },
+                    child: PetListItem(pet: pet));
               },
             );
           } else if (snapshot.hasError) {

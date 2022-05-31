@@ -10,7 +10,7 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/core/services/firebase_auth_method.dart';
+import 'package:why_not_143_team/core/services/firebase/firebase_auth_method.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';

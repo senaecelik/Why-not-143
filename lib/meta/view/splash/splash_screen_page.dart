@@ -5,8 +5,15 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/view/splash/splash_view_model.dart';
 import 'package:why_not_143_team/meta/widget/splash_widget.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+
 
   @override
   Widget build(BuildContext context) {
