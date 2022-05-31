@@ -44,16 +44,18 @@ class _ShelterPageState extends State<ShelterPage> {
         )),
         body: Padding(
           padding: PaddingConstant.instance.genelPadding,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _donateImage(),
-              EmptyBox.instance.emptyBoxSmall,
-              _donateDetails(),
-              EmptyBox.instance.emptyBoxNormal,
-              _donateButton()
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _donateImage(),
+                EmptyBox.instance.emptyBoxSmall,
+                _donateDetails(),
+                EmptyBox.instance.emptyBoxNormal,
+                _donateButton()
+              ],
+            ),
           ),
         ));
   }
