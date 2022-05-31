@@ -3,7 +3,7 @@ import 'package:why_not_143_team/core/services/resource/blog_service.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/model/blog_model.dart';
 import 'package:why_not_143_team/meta/view/blog/blog_detail.dart';
-import 'package:why_not_143_team/meta/view/blog/blog_item.dart';
+import 'package:why_not_143_team/meta/view/blog/blogList/blog_item.dart';
 import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 
 class BlogList extends StatefulWidget {

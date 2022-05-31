@@ -23,7 +23,7 @@ class ComingSoonWidget extends StatelessWidget {
         child: CircularText(
           children: [
             TextItem(
-              text: Text("Comming".toUpperCase(),
+              text: Text("Coming".toUpperCase(),
                   style: TextStyleConstant.instance.largeTitle
                       .copyWith(color: ColorConstant.instance.yankeBlue)),
               space: 20,

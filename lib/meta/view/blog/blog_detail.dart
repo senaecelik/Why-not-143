@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/model/blog_model.dart';
 import 'package:why_not_143_team/meta/widget/sub_text_widget.dart';
@@ -23,7 +24,7 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          "Pati Rehber",
+          StringConstant.instance.blogAppBar,
           style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
         ),
       ),

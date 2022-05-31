@@ -11,6 +11,7 @@ import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
+import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 import 'package:why_not_143_team/meta/widget/sub_text_widget.dart';
@@ -60,7 +61,9 @@ class _DetailPageState extends State<DetailPage> {
           height: 58.h,
           width: MediaQuery.of(context).size.height,
           child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                showToast(context, StringConstant.instance.commingSoonMess);
+              },
               child: Text(
                 StringConstant.instance.beFamily,
                 style: TextStyleConstant.instance.textLargeMedium,
