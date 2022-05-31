@@ -64,7 +64,10 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(bottom: 50.0.r),
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
-                child: const PetList()),
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  child: const PetList(),
+                )),
           ),
           SizedBox(
               height: MediaQuery.of(context).size.height / 2,
@@ -81,7 +84,7 @@ class _HomePageState extends State<HomePage> {
   Widget HomeTabBar(BuildContext context) {
     return SizedBox(
         height: 50.h,
-        width: 230.w,
+        width: 260.w,
         child: Padding(
           padding: EdgeInsets.only(
               top: 2.0.r, bottom: 2.0.r, left: 20.r, right: 2.r),

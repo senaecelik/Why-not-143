@@ -26,9 +26,10 @@ class _BlogPageState extends State<BlogPage> {
           style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: PaddingConstant.instance.genelPadding,
+      body: Padding(
+        padding: PaddingConstant.instance.genelPadding,
+        child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,9 +38,17 @@ class _BlogPageState extends State<BlogPage> {
                   height: 300.h,
                   width: MediaQuery.of(context).size.width,
                   child: const BlogList()),
-              EmptyBox.instance.emptyBoxNormal,
-              TittleWidget(text: StringConstant.instance.blogOther),
-              const BlogTopList(),
+              Padding(
+                padding: PaddingConstant.instance.genelPadding,
+                child: TittleWidget(text: StringConstant.instance.blogOther),
+              ),
+              SizedBox(
+                height: 400.h,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 30.0.r),
+                  child: const BlogTopList(),
+                ),
+              ),
             ],
           ),
         ),

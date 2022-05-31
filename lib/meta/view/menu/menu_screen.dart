@@ -34,9 +34,11 @@ class _MenuScreenState extends State<MenuScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            Spacer(
+              flex: 1,
+            ),
             _menuAvatar(_firebaseUser, context),
             _menuDivider(),
-            EmptyBox.instance.emptyBoxBig,
             _menuPerson(_firebaseUser, context),
             if (_firebaseUser != null) MenuMyPet(),
             MenuItem(
@@ -52,8 +54,10 @@ class _MenuScreenState extends State<MenuScreen> {
                 icon: Icons.send,
                 text: StringConstant.instance.menuSendBack,
                 pageRoute: RouteConstant.feedBackScreenRoute),
-            EmptyBox.instance.emptyBoxXxLarge,
             const LogOut(),
+            Spacer(
+              flex: 5,
+            ),
           ],
         ),
       ),
