@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:why_not_143_team/core/services/shelter_service.dart';
+import 'package:why_not_143_team/core/services/resource/shelter_service.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/model/shelter_model.dart';
 import 'package:why_not_143_team/meta/view/donate/shelter_list_item.dart';

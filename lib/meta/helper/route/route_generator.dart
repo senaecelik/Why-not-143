@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/view/auth/forgot_pass/forgot_pass.dart';
 import 'package:why_not_143_team/meta/view/auth/login/login_page.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_page.dart';
+import 'package:why_not_143_team/meta/view/blog/blog_screen.dart';
 import 'package:why_not_143_team/meta/view/detail/form_page.dart';
 import 'package:why_not_143_team/meta/view/donate/donate_page.dart';
 import 'package:why_not_143_team/meta/view/menu/about_page.dart';
@@ -37,6 +40,9 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const FormPage());
       case RouteConstant.donateScreenRoute:
         return MaterialPageRoute(builder: (_) => const DonatePage());
+
+      case RouteConstant.blogScreenRoute:
+        return MaterialPageRoute(builder: (_) => BlogPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

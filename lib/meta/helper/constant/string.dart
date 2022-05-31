@@ -36,7 +36,7 @@ class StringConstant {
   //Menu
   String menuPerson = "Misafir";
   String menuAbout = "Hakkımızda";
-  String myPet = "Benim Patilerim";
+  String myPet = "Patilerim";
   String menuSendBack = "Geri bildirim";
   String menuRateOurApp = "Puan ver";
   String logOut = "Çıkış yap";

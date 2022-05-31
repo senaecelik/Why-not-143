@@ -20,7 +20,7 @@ class FeedBackViewModel extends BaseViewModel {
         'sendDate': DateTime.now(),
       });
 
-      showToast(context, "Başarıyla göbderildi");
+      showToast(context, "Başarıyla gönderildi");
       notifyListeners();
     }
   }

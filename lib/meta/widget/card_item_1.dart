@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 
 class CardItem extends StatelessWidget {
   final String text;
   final String buttonText;
-  const CardItem({required this.text, required this.buttonText, Key? key})
+  final String pageRoute;
+  const CardItem({required this.text, required this.buttonText,required this.pageRoute, Key? key})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -36,8 +36,7 @@ class CardItem extends StatelessWidget {
                   width: 100.h,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                          context, RouteConstant.donateScreenRoute);
+                      Navigator.pushNamed(context, pageRoute);
                     },
                     child: Text(buttonText),
                     style: ElevatedButton.styleFrom(

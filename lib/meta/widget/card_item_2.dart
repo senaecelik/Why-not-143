@@ -54,7 +54,7 @@ class CardItem2 extends StatelessWidget {
           ),
         ),
       ),
-      Container(height: 100.h, width: 100.w, child: ComingSoonWidget())
+      ComingSoonWidget()
     ]);
   }
 }

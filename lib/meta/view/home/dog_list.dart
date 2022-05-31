@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:why_not_143_team/core/services/pet_service.dart';
+import 'package:why_not_143_team/core/services/resource/pet_service.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/model/pet_model.dart';
 import 'package:why_not_143_team/meta/view/detail/detail_page.dart';
