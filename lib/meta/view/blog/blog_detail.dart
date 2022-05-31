@@ -28,62 +28,64 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
           style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 300.h,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  colorFilter: ColorFilter.mode(
-                      ColorConstant.instance.black.withOpacity(0.34),
-                      BlendMode.multiply),
-                  image: NetworkImage(
-                    widget.blog.photo!,
-                  ),
-                  fit: BoxFit.cover),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 300.h,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    colorFilter: ColorFilter.mode(
+                        ColorConstant.instance.black.withOpacity(0.34),
+                        BlendMode.multiply),
+                    image: NetworkImage(
+                      widget.blog.photo!,
+                    ),
+                    fit: BoxFit.cover),
+              ),
+              child: Padding(
+                padding: PaddingConstant.instance.genelPadding,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.blog.blogTitle!,
+                      style: TextStyleConstant.instance.title1
+                          .copyWith(color: ColorConstant.instance.white),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          widget.blog.createdTime! + " | ",
+                          style: TextStyleConstant.instance.textLargeMedium
+                              .copyWith(color: ColorConstant.instance.white),
+                        ),
+                        Text(
+                          widget.blog.blogAuthor!,
+                          style: TextStyleConstant.instance.textLargeMedium
+                              .copyWith(color: ColorConstant.instance.white),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
-            child: Padding(
+            Padding(
               padding: PaddingConstant.instance.genelPadding,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    widget.blog.blogTitle!,
-                    style: TextStyleConstant.instance.title1
-                        .copyWith(color: ColorConstant.instance.white),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        widget.blog.createdTime! + " | ",
-                        style: TextStyleConstant.instance.textLargeMedium
-                            .copyWith(color: ColorConstant.instance.white),
-                      ),
-                      Text(
-                        widget.blog.editor!,
-                        style: TextStyleConstant.instance.textLargeMedium
-                            .copyWith(color: ColorConstant.instance.white),
-                      ),
-                    ],
-                  ),
+                  TittleWidget(text: widget.blog.blogTitle!),
+                  SubText(text: widget.blog.blog!)
                 ],
               ),
             ),
-          ),
-          Padding(
-            padding: PaddingConstant.instance.genelPadding,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TittleWidget(text: widget.blog.blogTitle!),
-                SubText(text: widget.blog.blog!)
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

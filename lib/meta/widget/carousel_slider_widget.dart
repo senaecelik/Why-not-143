@@ -7,6 +7,8 @@ import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/widget/card_item_1.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/widget/card_item_2.dart';
+import 'package:why_not_143_team/meta/widget/card_item_3.dart';
+import 'package:why_not_143_team/meta/widget/card_item_4.dart';
 
 class CardSlider extends StatefulWidget {
   const CardSlider({Key? key}) : super(key: key);
@@ -18,12 +20,23 @@ class CardSlider extends StatefulWidget {
 class _CardSliderState extends State<CardSlider> {
   int _currentIndex = 0;
   List cardList = [
-    const CardItem(text: "Patilerimize Bağış Yapın", buttonText: "Bağış Yap", pageRoute: RouteConstant.donateScreenRoute,),
-    const CardItem(text: "Pati Rehberi Keşfedin", buttonText: "Keşfet", pageRoute:RouteConstant.blogScreenRoute,),
-      const CardItem2(
+    const CardItem(
+      text: "Patilerimize Bağış Yapın",
+      buttonText: "Bağış Yap",
+      pageRoute: RouteConstant.donateScreenRoute,
+    ),
+    const CardItem1(
+      text: "Pati Rehberi Keşfedin",
+      buttonText: "Keşfet",
+      pageRoute: RouteConstant.blogScreenRoute,
+    ),
+    const CardItem2(
         text: "Patiler için sosyal sorumluluk\nprojelerine katıl",
         buttonText: "Keşfet"),
-    const CardItem2(text: "Pati Forumu Keşfet", buttonText: "Keşfet"),
+    const CardItem3(
+      text: "Pati Forumu Keşfet",
+      buttonText: "Keşfet",
+    ),
   ];
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];

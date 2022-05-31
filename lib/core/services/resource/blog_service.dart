@@ -4,7 +4,7 @@ import 'package:why_not_143_team/meta/model/blog_model.dart';
 
 class BlogApi {
   static const String _url =
-      "https://raw.githubusercontent.com/senaecelik/json-example-sk/master/blog.json";
+      "https://raw.githubusercontent.com/selda-kocak/json-example-sk/master/blogger-data.json";
 
   static Future<List<Blogs>> getBlog() async {
     List<Blogs> _list = [];

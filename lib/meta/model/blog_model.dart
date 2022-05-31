@@ -7,15 +7,15 @@ class Blog {
     if (json['blogs'] != null) {
       blogs = <Blogs>[];
       json['blogs'].forEach((v) {
-        blogs!.add(Blogs.fromJson(v));
+        blogs!.add(new Blogs.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (blogs != null) {
-      data['blogs'] = blogs!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.blogs != null) {
+      data['blogs'] = this.blogs!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -23,37 +23,41 @@ class Blog {
 
 class Blogs {
   String? blogTitle;
+  String? shortTitle;
   String? blogAuthor;
   String? blog;
-  String? editor;
+  String? source;
   String? createdTime;
   String? photo;
 
   Blogs(
       {this.blogTitle,
+      this.shortTitle,
       this.blogAuthor,
       this.blog,
-      this.editor,
+      this.source,
       this.createdTime,
       this.photo});
 
   Blogs.fromJson(Map<String, dynamic> json) {
     blogTitle = json['blogTitle'];
+    shortTitle = json['shortTitle'];
     blogAuthor = json['blogAuthor'];
     blog = json['blog'];
-    editor = json['editor'];
+    source = json['source'];
     createdTime = json['createdTime'];
     photo = json['photo'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['blogTitle'] = blogTitle;
-    data['blogAuthor'] = blogAuthor;
-    data['blog'] = blog;
-    data['editor'] = editor;
-    data['createdTime'] = createdTime;
-    data['photo'] = photo;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['blogTitle'] = this.blogTitle;
+    data['shortTitle'] = this.shortTitle;
+    data['blogAuthor'] = this.blogAuthor;
+    data['blog'] = this.blog;
+    data['source'] = this.source;
+    data['createdTime'] = this.createdTime;
+    data['photo'] = this.photo;
     return data;
   }
 }

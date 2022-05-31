@@ -6,16 +6,12 @@ import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
+import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 
-class CardItem extends StatelessWidget {
+class CardItem2 extends StatelessWidget {
   final String text;
   final String buttonText;
-  final String pageRoute;
-  const CardItem(
-      {required this.text,
-      required this.buttonText,
-      required this.pageRoute,
-      Key? key})
+  const CardItem2({required this.text, required this.buttonText, Key? key})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -70,9 +66,7 @@ class CardItem extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16)),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, pageRoute);
-                      },
+                      onPressed: () {},
                       child: Text(
                         buttonText,
                         style:
@@ -96,6 +90,15 @@ class CardItem extends StatelessWidget {
                 30,
                 ColorConstant.instance.yankeBlue,
                 ColorConstant.instance.bayOfMany),
+          ),
+        ),
+        Positioned(
+          right: 0,
+          bottom: 15,
+          child: SizedBox(
+            height: 100.h,
+            width: 100.h,
+            child: const ComingSoonWidget(),
           ),
         ),
       ],
