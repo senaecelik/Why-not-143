@@ -70,7 +70,7 @@ class StringConstant {
   String contactText =
       "Bizimle fikirlerinizi paylaşmak, yardım ve öneride bulunmak, sizde küçük bir adımla büyük etkiler yaratmak isterseniz bize ulaşmaktan çekinmeyin.";
 
-  String emailUs = "candostu@example.com";
+  String emailUs = "patidostum.whynot143@gmail.com";
 
   //Donate Page
   String donate = "Bağış Yap";
