@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 
 class FormPage extends StatefulWidget {
   const FormPage({Key? key}) : super(key: key);
@@ -26,7 +25,7 @@ class _FormPageState extends State<FormPage> {
       ));
 
   String url =
-      "https://docs.google.com/forms/d/e/1FAIpQLSeqv3sRJt8SW2W2EVgxxvBcwqQLy6JL3DErn87EgtpRvxWDEg/viewform";
+      "https://docs.google.com/forms/d/e/1FAIpQLSfTLduoFy8znYk7cGGd-WgEI_vbyksibMJ1zKlgpF7YsBtwhg/viewform?usp=sf_link";
   double progress = 0;
   final urlController = TextEditingController();
 
