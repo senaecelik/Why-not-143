@@ -47,7 +47,7 @@ class _FormPageState extends State<FormPage> {
             padding: const EdgeInsets.all(10.0),
             child: progress < 1.0
                 ? LinearProgressIndicator(value: progress)
-                : const CustomCircular(),
+                : Container(),
           ),
           _formDetailBody()
         ],
