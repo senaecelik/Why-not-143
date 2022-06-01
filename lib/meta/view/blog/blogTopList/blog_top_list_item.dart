@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
@@ -25,27 +27,32 @@ class BlogTopListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  height: 120.h,
-                  width: 100.w,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: ColorConstant.instance.donate1,
-                      image: DecorationImage(
-                          colorFilter: ColorFilter.mode(
-                              ColorConstant.instance.black.withOpacity(0.34),
-                              BlendMode.multiply),
-                          image: NetworkImage(
-                            blogs.photo!,
-                          ),
-                          fit: BoxFit.cover)),
-                ),
+                blogs.photo == null
+                    ? const Text("N/A")
+                    : Container(
+                        height: 120.h,
+                        width: 100.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: ColorConstant.instance.donate1,
+                            image: DecorationImage(
+                                colorFilter: ColorFilter.mode(
+                                    ColorConstant.instance.black
+                                        .withOpacity(0.34),
+                                    BlendMode.multiply),
+                                image: NetworkImage(
+                                  blogs.photo!,
+                                ),
+                                fit: BoxFit.cover)),
+                      ),
                 EmptyBox.instance.emptyBoxSmallWidth,
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TittleWidget(text: blogs.shortTitle!),
+                    blogs.shortTitle == null
+                        ? Text("N/A")
+                        : TittleWidget(text: blogs.shortTitle!),
                     EmptyBox.instance.emptyBoxSmall,
                     Row(
                       children: [
@@ -54,19 +61,25 @@ class BlogTopListItem extends StatelessWidget {
                           size: 16,
                           color: ColorConstant.instance.neutral,
                         ),
-                        Text(
-                          blogs.blogAuthor! + "  |  ",
-                          style: TextStyleConstant.instance.verySmallMedium,
-                        ),
+                        blogs.blogAuthor == null
+                            ? Text("N/A")
+                            : Text(
+                                blogs.blogAuthor! + "  |  ",
+                                style:
+                                    TextStyleConstant.instance.verySmallMedium,
+                              ),
                         Icon(
                           Icons.timelapse_outlined,
                           size: 16,
                           color: ColorConstant.instance.neutral,
                         ),
-                        Text(
-                          blogs.createdTime!,
-                          style: TextStyleConstant.instance.verySmallMedium,
-                        ),
+                        blogs.createdTime == null
+                            ? Text("N/A")
+                            : Text(
+                                blogs.createdTime!,
+                                style:
+                                    TextStyleConstant.instance.verySmallMedium,
+                              ),
                       ],
                     )
                   ],

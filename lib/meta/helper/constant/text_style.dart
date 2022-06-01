@@ -40,6 +40,5 @@ class TextStyleConstant {
     fontSize: 15.sp,
   );
 
-  //for login page texts
 
 }

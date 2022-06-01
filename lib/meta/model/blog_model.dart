@@ -7,15 +7,15 @@ class Blog {
     if (json['blogs'] != null) {
       blogs = <Blogs>[];
       json['blogs'].forEach((v) {
-        blogs!.add(new Blogs.fromJson(v));
+        blogs!.add(Blogs.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.blogs != null) {
-      data['blogs'] = this.blogs!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (blogs != null) {
+      data['blogs'] = blogs!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -50,14 +50,14 @@ class Blogs {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['blogTitle'] = this.blogTitle;
-    data['shortTitle'] = this.shortTitle;
-    data['blogAuthor'] = this.blogAuthor;
-    data['blog'] = this.blog;
-    data['source'] = this.source;
-    data['createdTime'] = this.createdTime;
-    data['photo'] = this.photo;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['blogTitle'] = blogTitle;
+    data['shortTitle'] = shortTitle;
+    data['blogAuthor'] = blogAuthor;
+    data['blog'] = blog;
+    data['source'] = source;
+    data['createdTime'] = createdTime;
+    data['photo'] = photo;
     return data;
   }
 }

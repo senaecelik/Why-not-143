@@ -4,7 +4,6 @@ class StringConstant {
   StringConstant._init();
 
   ///Cover Page
-
   String coverTitle = "Pati Dostum";
   String coverSubTitle = "Can dostunu sahiplenmenin yeni yolu";
   String covetButtonText = "Başlayın";
@@ -13,25 +12,13 @@ class StringConstant {
   String onBoardTitle1 = "Pati dostunu seç!";
   String onBoardSubTitle1 =
       "Pati Dostum sayesinde sana en yakın barınaktaki patileri görerek, seçtiğin pati için sahiplenme veya koruyucu aile olma başvurusu yapabilirsin.";
-
   String onBoardTitle2 = "Bağış yap - Destek ol";
   String onBoardSubTitle2 =
       "Pati dostlarımız desteğini bekliyor. Barınak hesaplarına nakdi yardım yapabilir veya güncel barınak ihtiyaçlarını  direkt barınaklara gönderebilirsin.";
-
   String onBoardTitle3 = "Pati Rehber ile öğren";
   String onBoardSubTitle3 =
       "Sahiplendiğin pati dostunun bakımıyla ilgili ipuçlarını paylaştığımız Pati Rehber sayfasına bakmayı unutma :)";
-
   String onBoardPass = "Geç";
-
-  //Home Page
-
-  String homePage = "Anasayfa";
-  String homeSocialText =
-      "Sosyal sorumluluk projelerine katıl\nve ödüller kazan!";
-  String searchText = "Lokasyon Giriniz";
-  String homeDonateText = "Patilere yardımda bulunmak ister misin?";
-  String homeDonateText2 = "Yardım et";
 
   //Menu
   String menuPerson = "Misafir";
@@ -42,7 +29,6 @@ class StringConstant {
   String logOut = "Çıkış yap";
 
   // Login and Register Page
-
   String formregisterName = "Ad";
   String formEmail = "Email";
   String formPassword = "Şifre";
@@ -57,7 +43,6 @@ class StringConstant {
   String formTextFieldMail = "patidostum@email.com";
   String formTextFieldPassword = "Şifreniz";
   String formTextFieldName = "Adınız";
-  String formTextFieldPhone = "5555555555";
 
   String dontHaveAcc = "Şimdilik üye olmadan devam et";
   String resetPass = "Şifremi Sıfırla!";
@@ -65,11 +50,9 @@ class StringConstant {
       "Şifreni sıfırlaman için kayıtlı e-mail adresine yeni şifre göndereceğiz.";
 
   // Profile Page
-
   String appBarName = "Profil";
 
   //Geri Bildirim
-
   String feedBack = "Geri Bildirim";
   String feedBackSub =
       "Geri bildirimde bulunarak Pati Dostum'a daha iyi hale getirmemize katkı sağlayabilirsiniz.";
@@ -90,8 +73,7 @@ class StringConstant {
   String emailUs = "candostu@example.com";
 
   //Donate Page
-
-  String donateAppBarTitle = "Bağış Yap";
+  String donate = "Bağış Yap";
   String shelterTitle = "Barınaklar";
   String beFamily = "Koruyucu ailesi ol";
   String adoptPet = "Sahiplen";
@@ -102,12 +84,30 @@ class StringConstant {
   String loginMess = "Lütfen giriş yapınız.";
 
   //Home
+  String homePage = "Anasayfa";
   String homeAllPet = "Tümü";
   String homeCat = "Kedi";
   String homeDog = "Köpek";
 
+  //Home Slider Card
+  String cardDonate = "Patilerimize Bağış Yapın";
+  String cardBlog = "Pati Rehberi Keşfedin";
+  String explore = "Keşfet";
+  String cardSocial = "Patiler için sosyal sorumluluk\nprojelerine katıl";
+  String cardForm = "Pati Forumu Keşfet";
   //Blog
-
   String blogAppBar = "Pati Rehber";
   String blogOther = "Diğer Yazılar";
+
+  //ComingSoon
+  String coming = "Coming";
+  String soon = "Soon";
+
+  String copyIban = "Iban Kopyalandı";
+
+  //Detail Page
+  String detail = "Detay Sayfası";
+
+  //Form
+
 }

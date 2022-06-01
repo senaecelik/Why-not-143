@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
-import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
-import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
-import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 
-class CardItem2 extends StatelessWidget {
+class CardItem extends StatelessWidget {
   final String text;
   final String buttonText;
-  const CardItem2({required this.text, required this.buttonText, Key? key})
+  final String pageRoute;
+  const CardItem(
+      {required this.text,
+      required this.buttonText,
+      required this.pageRoute,
+      Key? key})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -55,29 +56,7 @@ class CardItem2 extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 18.0.r),
-                child: Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: ColorConstant.instance.white,
-                        onPrimary: ColorConstant.instance.yankeBlue,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        buttonText,
-                        style:
-                            TextStyleConstant.instance.verySmallMedium.copyWith(
-                          color: ColorConstant.instance.yankeBlue,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              _cardButton(context),
             ],
           ),
         ),
@@ -92,17 +71,36 @@ class CardItem2 extends StatelessWidget {
                 ColorConstant.instance.bayOfMany),
           ),
         ),
-        Positioned(
-          right: 0,
-          bottom: 15,
-          child: SizedBox(
-            height: 100.h,
-            width: 100.h,
-            child: const ComingSoonWidget(),
-          ),
-        ),
       ],
     );
+  }
+
+  Padding _cardButton(BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(left: 18.0.r),
+              child: Row(
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: ColorConstant.instance.white,
+                      onPrimary: ColorConstant.instance.yankeBlue,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, pageRoute);
+                    },
+                    child: Text(
+                      buttonText,
+                      style:
+                          TextStyleConstant.instance.verySmallMedium.copyWith(
+                        color: ColorConstant.instance.yankeBlue,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
   }
 }
 
@@ -118,7 +116,7 @@ class CustomCardShapePainter extends CustomPainter {
     var paint = Paint();
 
     paint.shader = ui.Gradient.linear(
-        Offset(0, 0), Offset(size.width, size.height), [
+        const Offset(0, 0), Offset(size.width, size.height), [
       HSLColor.fromColor(startColor).withLightness(0.8).toColor(),
       endColor
     ]);
