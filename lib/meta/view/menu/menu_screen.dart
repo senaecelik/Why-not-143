@@ -243,7 +243,6 @@ class MenuMyPet extends StatelessWidget {
             ),
           ),
         ),
-        ComingSoonWidget()
       ],
     );
   }
