@@ -56,12 +56,12 @@ class _ShelterPageState extends State<ShelterPage> {
 
   AppBar _shelterAppBar() {
     return AppBar(
-          title: Text(
-        StringConstant.instance.donate,
-        style: GoogleFonts.poppins(
-          color: ColorConstant.instance.yankeBlue,
-        ),
-      ));
+        title: Text(
+      StringConstant.instance.donate,
+      style: GoogleFonts.poppins(
+        color: ColorConstant.instance.yankeBlue,
+      ),
+    ));
   }
 
   Widget ibanContainer(Future<void> Function() _copyToClipboard) {
@@ -136,9 +136,13 @@ class _ShelterPageState extends State<ShelterPage> {
             ),
             widget.shelters.location == null
                 ? const Text("N/a")
-                : Text(
-                    widget.shelters.location!,
-                    style: TextStyleConstant.instance.textLargeMedium,
+                : Flexible(
+                    child: Text(
+                      widget.shelters.location!,
+                      style: TextStyleConstant.instance.textLargeMedium,
+                      overflow: TextOverflow.clip,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
           ],
         ),
