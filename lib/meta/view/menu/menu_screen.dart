@@ -43,7 +43,7 @@ class _MenuScreenState extends State<MenuScreen> {
             if (_firebaseUser != null) MenuMyPet(),
             MenuItem(
                 icon: Icons.payments_outlined,
-                text: StringConstant.instance.donateAppBarTitle,
+                text: StringConstant.instance.donate,
                 pageRoute: RouteConstant.donateScreenRoute),
             _menuRateOurApp(),
             MenuItem(

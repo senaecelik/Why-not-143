@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

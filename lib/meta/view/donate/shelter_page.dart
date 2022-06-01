@@ -28,20 +28,14 @@ class ShelterPage extends StatefulWidget {
 
 class _ShelterPageState extends State<ShelterPage> {
   Future<void> _copyToClipboard() async {
-    showToast(context, "Iban Kopyalandı");
+    showToast(context, StringConstant.instance.copyIban);
     await Clipboard.setData(ClipboardData(text: widget.shelters.iBAN));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(
-          StringConstant.instance.donateAppBarTitle,
-          style: GoogleFonts.poppins(
-            color: ColorConstant.instance.yankeBlue,
-          ),
-        )),
+        appBar: _shelterAppBar(),
         body: Padding(
           padding: PaddingConstant.instance.genelPadding,
           child: SingleChildScrollView(
@@ -58,6 +52,16 @@ class _ShelterPageState extends State<ShelterPage> {
             ),
           ),
         ));
+  }
+
+  AppBar _shelterAppBar() {
+    return AppBar(
+          title: Text(
+        StringConstant.instance.donate,
+        style: GoogleFonts.poppins(
+          color: ColorConstant.instance.yankeBlue,
+        ),
+      ));
   }
 
   Widget ibanContainer(Future<void> Function() _copyToClipboard) {
@@ -170,7 +174,7 @@ class _ShelterPageState extends State<ShelterPage> {
               Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
             },
             child: Text(
-              StringConstant.instance.donateAppBarTitle,
+              StringConstant.instance.donate,
               style: TextStyleConstant.instance.textLargeRegular,
             ),
             style: ButtonStyleConstant.instance.genelButtonStyle,

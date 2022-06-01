@@ -40,7 +40,6 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => const FormPage());
       case RouteConstant.donateScreenRoute:
         return MaterialPageRoute(builder: (_) => const DonatePage());
-
       case RouteConstant.blogScreenRoute:
         return MaterialPageRoute(builder: (_) => BlogPage());
       default:

@@ -3,6 +3,7 @@ import 'package:flutter_circular_text/circular_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 
 class ComingSoonWidget extends StatelessWidget {
@@ -14,8 +15,8 @@ class ComingSoonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: PaddingConstant.instance.genelPadding,
-        height: 30.h,
-        width: 30.h,
+        height: 50.h,
+        width: 50.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: ColorConstant.instance.white,
@@ -23,7 +24,7 @@ class ComingSoonWidget extends StatelessWidget {
         child: CircularText(
           children: [
             TextItem(
-              text: Text("Coming".toUpperCase(),
+              text: Text(StringConstant.instance.coming.toUpperCase(),
                   style: TextStyleConstant.instance.largeTitle
                       .copyWith(color: ColorConstant.instance.yankeBlue)),
               space: 20,
@@ -32,7 +33,7 @@ class ComingSoonWidget extends StatelessWidget {
               direction: CircularTextDirection.clockwise,
             ),
             TextItem(
-              text: Text("Soon".toUpperCase(),
+              text: Text(StringConstant.instance.soon.toUpperCase(),
                   style: TextStyleConstant.instance.largeTitle
                       .copyWith(color: ColorConstant.instance.yankeBlue)),
               space: 20,

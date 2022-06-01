@@ -21,71 +21,83 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text(
-          StringConstant.instance.blogAppBar,
-          style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
-        ),
-      ),
+      appBar: _blogDetailAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 300.h,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    colorFilter: ColorFilter.mode(
-                        ColorConstant.instance.black.withOpacity(0.34),
-                        BlendMode.multiply),
-                    image: NetworkImage(
-                      widget.blog.photo!,
-                    ),
-                    fit: BoxFit.cover),
-              ),
-              child: Padding(
-                padding: PaddingConstant.instance.genelPadding,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.blog.blogTitle!,
-                      style: TextStyleConstant.instance.title1
-                          .copyWith(color: ColorConstant.instance.white),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          widget.blog.createdTime! + " | ",
-                          style: TextStyleConstant.instance.textLargeMedium
-                              .copyWith(color: ColorConstant.instance.white),
-                        ),
-                        Text(
-                          widget.blog.blogAuthor!,
-                          style: TextStyleConstant.instance.textLargeMedium
-                              .copyWith(color: ColorConstant.instance.white),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            _blogImage(context),
+            _blogDetail(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding _blogDetail() {
+    return Padding(
+            padding: PaddingConstant.instance.genelPadding,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TittleWidget(text: widget.blog.blogTitle!),
+                SubText(text: widget.blog.blog!)
+              ],
             ),
-            Padding(
+          );
+  }
+
+  Container _blogImage(BuildContext context) {
+    return Container(
+            height: 300.h,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  colorFilter: ColorFilter.mode(
+                      ColorConstant.instance.black.withOpacity(0.34),
+                      BlendMode.multiply),
+                  image: NetworkImage(
+                    widget.blog.photo!,
+                  ),
+                  fit: BoxFit.cover),
+            ),
+            child: Padding(
               padding: PaddingConstant.instance.genelPadding,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TittleWidget(text: widget.blog.blogTitle!),
-                  SubText(text: widget.blog.blog!)
+                  Text(
+                    widget.blog.blogTitle!,
+                    style: TextStyleConstant.instance.title1
+                        .copyWith(color: ColorConstant.instance.white),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        widget.blog.createdTime! + " | ",
+                        style: TextStyleConstant.instance.textLargeMedium
+                            .copyWith(color: ColorConstant.instance.white),
+                      ),
+                      Text(
+                        widget.blog.blogAuthor!,
+                        style: TextStyleConstant.instance.textLargeMedium
+                            .copyWith(color: ColorConstant.instance.white),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
+          );
+  }
+
+  AppBar _blogDetailAppBar() {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      title: Text(
+        StringConstant.instance.blogAppBar,
+        style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
       ),
     );
   }

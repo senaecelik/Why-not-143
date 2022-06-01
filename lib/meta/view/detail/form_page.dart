@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 
 class FormPage extends StatefulWidget {
   const FormPage({Key? key}) : super(key: key);
@@ -37,7 +38,6 @@ class _FormPageState extends State<FormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SafeArea(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,37 +47,39 @@ class _FormPageState extends State<FormPage> {
             padding: const EdgeInsets.all(10.0),
             child: progress < 1.0
                 ? LinearProgressIndicator(value: progress)
-                : Container(),
+                : const CustomCircular(),
           ),
-          Expanded(
-              child: Container(
-            margin: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(border: Border.all(color: Colors.white)),
-            child: InAppWebView(
-              initialUrlRequest: URLRequest(
-                  url: Uri.parse(
-                      "https://docs.google.com/forms/d/e/1FAIpQLSfTLduoFy8znYk7cGGd-WgEI_vbyksibMJ1zKlgpF7YsBtwhg/viewform")),
-              onWebViewCreated: (inAppWebViewController) =>
-                  webViewController = webViewController,
-              onLoadStart: (controller, url) {
-                setState(() {
-                  this.url = url.toString();
-                });
-              },
-              onLoadStop: (controller, url) {
-                setState(() {
-                  this.url = url.toString();
-                });
-              },
-              onProgressChanged: (controller, progress) {
-                setState(() {
-                  this.progress = progress / 100;
-                });
-              },
-            ),
-          ))
+          _formDetailBody()
         ],
       )),
     );
+  }
+
+  Expanded _formDetailBody() {
+    return Expanded(
+        child: Container(
+      margin: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(border: Border.all(color: Colors.white)),
+      child: InAppWebView(
+        initialUrlRequest: URLRequest(url: Uri.parse(url)),
+        onWebViewCreated: (inAppWebViewController) =>
+            webViewController = webViewController,
+        onLoadStart: (controller, url) {
+          setState(() {
+            this.url = url.toString();
+          });
+        },
+        onLoadStop: (controller, url) {
+          setState(() {
+            this.url = url.toString();
+          });
+        },
+        onProgressChanged: (controller, progress) {
+          setState(() {
+            this.progress = progress / 100;
+          });
+        },
+      ),
+    ));
   }
 }

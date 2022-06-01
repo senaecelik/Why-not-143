@@ -217,7 +217,7 @@ class _DetailPageState extends State<DetailPage> {
   AppBar appBar() {
     return AppBar(
       title: Text(
-        "Detay Sayfası",
+        StringConstant.instance.detail,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),
       ),
     );

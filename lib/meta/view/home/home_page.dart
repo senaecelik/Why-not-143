@@ -6,7 +6,7 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/widget/carousel_slider_widget.dart';
+import 'package:why_not_143_team/meta/widget/card_slider/carousel_slider_widget.dart';
 import 'package:why_not_143_team/meta/view/home/cat_list.dart';
 import 'package:why_not_143_team/meta/view/home/dog_list.dart';
 import 'package:why_not_143_team/meta/view/home/pet_list.dart';

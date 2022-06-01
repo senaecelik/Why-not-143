@@ -53,25 +53,6 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
         ));
   }
 
-  Widget phoneTextField(context, registerPhoneController, viewModel) {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: TextFormField(
-        controller: registerPhoneController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.formTextFieldPhone,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-        validator: (value) {
-          viewModel.emptyValidation(value);
-          return null;
-        },
-      ),
-    );
-  }
 
   Widget passTextField(context, registerPasswordController, viewModel) {
     return SizedBox(
