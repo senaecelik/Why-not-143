@@ -19,5 +19,4 @@ class AssetPath {
   String donate = "assets/images/hearts 1.png";
   String donate1 = "assets/images/card1.jpg";
   String donate2 = "assets/images/card2.jpg";
-
 }

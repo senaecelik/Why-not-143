@@ -169,7 +169,10 @@ class _ShelterPageState extends State<ShelterPage> {
             onPressed: () async {
               Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
             },
-            child: Text(StringConstant.instance.donateAppBarTitle),
+            child: Text(
+              StringConstant.instance.donateAppBarTitle,
+              style: TextStyleConstant.instance.textLargeRegular,
+            ),
             style: ButtonStyleConstant.instance.genelButtonStyle,
           ),
         ),
