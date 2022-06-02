@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
@@ -9,6 +10,9 @@ import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_page_view_model.dart';
 import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 import 'package:why_not_143_team/meta/widget/form_text.dart';
+
+import '../../../../core/services/firebase/firebase_auth_method.dart';
+import '../../../helper/route/route_constant.dart';
 
 class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
   const UserRegisterForm({Key? key}) : super(key: key);
