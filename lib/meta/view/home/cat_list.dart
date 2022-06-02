@@ -35,20 +35,17 @@ class _CatListState extends State<CatList> {
                 itemBuilder: (context, index) {
                   var pet = _myList[index];
 
-                  if (pet.type == "Kedi") {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailPage(pet: pet)));
-                      },
-                      child: PetListItem(
-                        pet: pet,
-                      ),
-                    );
-                  }
-                  return const Text("");
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage(pet: pet)));
+                    },
+                    child: PetListItem(
+                      pet: pet,
+                    ),
+                  );
                 });
           } else if (snapshot.hasError) {
             return Center(

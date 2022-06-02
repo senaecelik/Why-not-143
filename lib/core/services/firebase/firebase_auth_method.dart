@@ -20,7 +20,7 @@ class FirebaseAuthMethods {
 
   //Email sign up
   Future<User?> signUpWithEmail({
-    required String displayName,
+    required String username,
     required String email,
     required String password,
     required BuildContext context,
@@ -30,19 +30,18 @@ class FirebaseAuthMethods {
           email: email, password: password);
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
-        Navigator.pushReplacementNamed(context, RouteConstant.loginScreenRoute);
       } else {
-        Navigator.pushNamedAndRemoveUntil(context,
-            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
+        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
-      await sendEmailVerification(context);
+
+      await user.user!.reload();
       await _firestore.collection("Person").doc(user.user!.uid).set({
         'email': email,
-        'displayName': displayName,
+        'username': username,
         'uid': FirebaseAuth.instance.currentUser!.uid
       });
-      await user.user!.updateDisplayName(displayName);
-      await user.user!.reload();
+     
+      await user.user!.updateDisplayName(username);
       return user.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -77,9 +76,8 @@ class FirebaseAuthMethods {
 
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
-        Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
       } else {
-        Navigator.pushReplacementNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {

@@ -141,7 +141,7 @@ class _ShelterPageState extends State<ShelterPage> {
                       widget.shelters.location!,
                       style: TextStyleConstant.instance.textLargeMedium,
                       overflow: TextOverflow.clip,
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.start,
                     ),
                   ),
           ],
@@ -175,7 +175,7 @@ class _ShelterPageState extends State<ShelterPage> {
           width: MediaQuery.of(context).size.height,
           child: ElevatedButton(
             onPressed: () async {
-              Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+              showToast(context, StringConstant.instance.commingSoonMess);
             },
             child: Text(
               StringConstant.instance.donate,

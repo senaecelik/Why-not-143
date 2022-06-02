@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
@@ -41,5 +40,14 @@ class LoginViewModel extends BaseViewModel {
       return 'Lütfen, boş bırakmayın';
     }
     return null;
+  }
+
+  void anonym(BuildContext context) {
+    setBusy(true);
+    context
+        .read<FirebaseAuthMethods>()
+        .anonymously(context)
+        .then((value) => {setBusy(false)});
+    notifyListeners();
   }
 }

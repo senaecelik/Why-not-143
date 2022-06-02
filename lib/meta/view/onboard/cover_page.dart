@@ -18,9 +18,16 @@ class CoverPage extends StatefulWidget {
 class _CoverPageState extends State<CoverPage> {
   @override
   Widget build(BuildContext context) {
+    Future<bool> _onWillPop() async {
+      return false; //<-- SEE HERE
+    }
+
     return SafeArea(
-      child: Scaffold(
-        body: _coverPageBody(context),
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Scaffold(
+          body: _coverPageBody(context),
+        ),
       ),
     );
   }
@@ -28,12 +35,7 @@ class _CoverPageState extends State<CoverPage> {
   Column _coverPageBody(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [titleWidget(), _animatedLogo(), blueButtonWidget()],
-        )
-      ],
+      children: [titleWidget(), _animatedLogo(), blueButtonWidget()],
     );
   }
 

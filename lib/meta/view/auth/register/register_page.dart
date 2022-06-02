@@ -17,51 +17,61 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  Future<bool> _onWillPop() async {
+    return false; //<-- SEE HERE
+  }
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<RegisterViewModel>.reactive(
         viewModelBuilder: () => RegisterViewModel(),
-        builder: (context, model, child) => Scaffold(
-            appBar: appBar(),
-            body: SingleChildScrollView(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const UserRegisterForm(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+        builder: (context, model, child) => WillPopScope(
+              onWillPop: _onWillPop,
+              child: Scaffold(
+                  appBar: appBar(),
+                  body: SingleChildScrollView(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        StringConstant.instance.registerSignIn,
-                        style: TextStyleConstant.instance.textSmallMedium
-                            .copyWith(color: ColorConstant.instance.primary700),
-                      ),
-                     EmptyBox.instance.emptyBoxSmall,
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(
-                              context, RouteConstant.loginScreenRoute);
-                        },
-                        child: Text(StringConstant.instance.loginSignIn,
-                            style: TextStyleConstant.instance.textSmallMedium
-                                .copyWith(
-                              color: ColorConstant.instance.primary700,
-                              decoration: TextDecoration.underline,
-                            )),
+                      const UserRegisterForm(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              StringConstant.instance.registerSignIn,
+                              style: TextStyleConstant.instance.textSmallMedium
+                                  .copyWith(
+                                      color: ColorConstant.instance.primary700),
+                            ),
+                            EmptyBox.instance.emptyBoxSmall,
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, RouteConstant.loginScreenRoute);
+                              },
+                              child: Text(StringConstant.instance.loginSignIn,
+                                  style: TextStyleConstant
+                                      .instance.textSmallMedium
+                                      .copyWith(
+                                    color: ColorConstant.instance.primary700,
+                                    decoration: TextDecoration.underline,
+                                  )),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
-                  ),
-                ),
-              ],
-            ))));
+                  ))),
+            ));
   }
 
   AppBar appBar() {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Text(
         StringConstant.instance.registerSignUp,
         style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),

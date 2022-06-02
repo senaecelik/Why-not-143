@@ -24,20 +24,28 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    Future<bool> _onWillPop() async {
+      return false; //<-- SEE HERE
+    }
+
     return ViewModelBuilder<LoginViewModel>.reactive(
         viewModelBuilder: () => LoginViewModel(),
-        builder: (context, model, child) => Scaffold(
-              appBar: appBar(context),
-              body: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const UserLoginForm(),
-                    dontHaveAccYet(context),
-                    loginTextOr(),
-                    googleButton(context),
-                  ],
+        builder: (context, model, child) => WillPopScope(
+              onWillPop: _onWillPop,
+              child: Scaffold(
+                appBar: appBar(context),
+                body: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const UserLoginForm(),
+                      dontHaveAccYet(context),
+                      loginTextOr(),
+                      googleButton(context),
+                      anonimButton(context)
+                    ],
+                  ),
                 ),
               ),
             ));
@@ -116,8 +124,32 @@ Padding googleButton(BuildContext context) {
   );
 }
 
+Widget anonimButton(BuildContext context) {
+  return Padding(
+    padding: PaddingConstant.instance.genelButtonPadding,
+    child: SizedBox(
+      child: SizedBox(
+        height: 58.h,
+        width: MediaQuery.of(context).size.height,
+        child: ElevatedButton(
+          onPressed: () async {
+            Navigator.pushNamedAndRemoveUntil(context,
+                RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
+          },
+          child: Text(
+            "Misafir olarak devam et",
+            style: TextStyleConstant.instance.textLargeMedium,
+          ),
+          style: ButtonStyleConstant.instance.genelButtonStyle,
+        ),
+      ),
+    ),
+  );
+}
+
 AppBar appBar(BuildContext context) {
   return AppBar(
+    automaticallyImplyLeading: false,
     title: Text(
       StringConstant.instance.loginSignIn,
       style: GoogleFonts.poppins(color: ColorConstant.instance.yankeBlue),

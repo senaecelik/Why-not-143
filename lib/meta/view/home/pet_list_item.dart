@@ -8,9 +8,7 @@ import '../../model/pet_model.dart';
 
 class PetListItem extends StatelessWidget {
   final Pets pet;
-  const PetListItem(
-      {required this.pet, Key? key})
-      : super(key: key);
+  const PetListItem({required this.pet, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
