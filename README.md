@@ -33,11 +33,18 @@
 
 ## Ürün Özellikleri
 
-- Kullanıcılar kendilerine en yakın barınak ve barınaktaki hayvanları görebilir, hayvanlar hakkında detaylı bilgi (yaş, cinsiyet, hastalık) edinebilirler. (Uygulamada pilot olarak 1 barınak ile entegre sağlanmıştır.)
-- Kullanıcılar hayvan sahiplendirme formunu doldurarak barınak yetkililerine iletebilir, başvuruları barınaklar tarafından değerlendirildikten sonra onay maili ve pati dostunu alabilmesi için yer, saat, tarih bilgisi veya olumsuz bulunduğuna dair mail alabilirler.
-- Hayvanlar cinse göre filtrelenebilir.
-- Uygulama üzerinden her barınak özelinde barınak ihtiyaçları görünür, kullanıcılar isteklerine göre barınakların hesaplarına bağış yapabilir ya da   barınak adreslerine direkt erzak/tıbbi malzeme yardımı gönderebilirler.
-- Kullanıcılar; hayvan bakımına dair her bilginin paylaşılacağı sayfalardan sahiplendikleri hayvanın bakımına dair her bilgiyi öğrenebilirler.
+•	Kullanıcılar kendilerine en yakın barınak ve barınaktaki hayvanları görebilir, hayvanlar hakkında detaylı bilgi (yaş, cinsiyet, sağlık durumu vs.) edinebilirler.
+
+•	Kullanıcılar hayvan sahiplendirme formunu doldurarak barınak yetkililerine iletebilir, başvuruları barınaklar tarafından değerlendirildikten sonra onay maili ve pati dostunu alabilmesi için yer, saat, tarih bilgisi veya olumsuz bulunduğuna dair mail alabilirler. (Tüm barınak bilgileri random oluşturulduğundan ve uygulama hayata geçirilmediği için gerçek verilerle entegre edilmediğinden uygulamada şimdilik kullanıcılar sadece formu doldurarak iletebilirler.)
+
+•	Uygulama üzerinden, kullanıcılar isteklerine göre barınakların hesaplarına bağış yapabilir ya da barınak adreslerine direkt erzak/tıbbi malzeme yardımı gönderebilirler.
+
+•	Kullanıcılar; hayvan bakımına dair her bilginin paylaşılacağı “Pati Rehber” blogundan sahiplendikleri hayvanın bakımına dair her bilgiyi öğrenebilirler.
+
+•	Kullanıcılar; “Pati Forum” özelliği ile hayvanlarla ilgili her konuda forumda paylaşım yapabilecek, soru sorup cevaplayabilecektir. Böylece uygulama içerisinde topluluk bilinci oluşması sağlanacaktır.
+
+•	“Koruyucu Aile Ol” özelliği ile hayvanlara alerjisi olan ya da herhangi bir nedenle evde hayvan besleyemeyen, nakdi/ayni bağış yapamayan kullanıcılar uygulama içerisinde reklam izleyerek pati dostlarımıza yardım edebilecektir. (Bootcampte 3 sprint sınırlaması olduğundan bu özellik devreye alınamamıştır.)
+
 
 ## Hedef Kitle
 
