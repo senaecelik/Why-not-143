@@ -18,7 +18,18 @@
 **Pati Dostum**
 
 ## Ürün Açıklaması
-Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır. Uygulamamız sektörde benzerlerinden farklı olarak dernekler, belediyeler ve bunlara bağlı barınaklarla entegre çalışacak; barınaklardan güncel veri çekerek son kullanıcıya bilgi sağlayacaktır. Böylece hayvan sahiplenmek isteyen ancak barınağa çeşitli nedenlerle gitmeyen insanlar da hayvanları görebilecek, haklarında bilgi edinebilecektir. Yine uygulama üzerinden barınaklara bağış/ya da fiziksel yardım gönderilmesi için barınak bilgileri paylaşılacaktır. Kullanıcılar hayvan sahiplendikten sonra da hayvan bakımı için oluşturulan bilgi sayfalarında  gezinebilecek ve böylece uygulamada kullanıcıların sürekliliği sağlanacaktır. 
+  Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran şimdilik sadece android cihazlarda çalışan mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır.
+
+  Uygulamamız sektörde benzerlerinden farklı olarak dernekler, belediyeler ve bunlara bağlı barınaklarla entegre çalışacak; barınaklardan güncel veri çekerek son kullanıcıya bilgi sağlayacaktır. Böylece hayvan sahiplenmek isteyen ancak barınağa çeşitli nedenlerle gitmeyen insanlar da hayvanları görebilecek, hayvanlar hakkında bilgi (yaş, cinsiyet, sağlık durumu vs.) edinebilecektir. 
+  
+  “Bağış Yap” ekranı ile uygulamaya entegre barınaklara bağış/ya da fiziksel yardım gönderilmesi için barınak bilgileri paylaşılacaktır. 
+  
+  “Pati Rehber” ile kullanıcılar hayvan sahiplendikten önce/sonra yapılması gerekenlerle alakalı oluşturulan blogda bilgi edinebilecektir. Sprint sınırlamasından devreye alınamayan “Pati Forum” özelliği ile kullanıcılara hayvanlarıyla ilgili forumda paylaşım yapıp, birbirlerine soru sorabilecek ve topluluğa katkıda bulunabileceklerdir. “Pati Rehber” ve “Pati Forum” özellikleri ile kullanıcıların uygulamadaki devamlılığı sağlanacaktır.
+  
+  Uygulamamız sadece hayvan sahiplenmek isteyenlerle sınırlı kalmayacak; hayvanlara alerjisi olan ya da herhangi bir nedenle evde hayvan besleyemeyen kullanıcıların “Koruyucu Aile Ol” özelliği ile reklam izleyerek pati dostlarımıza yardım edebilmesini sağlayacaktır. Bootcamp 3 sprintle sınırlandırıldığından “Koruyucu Aile Ol” özelliği henüz devreye alınamamıştır.
+  
+  Sosyal sorumluluk projesi olarak ortaya çıkarılan “Pati Dostum” uygulamasının gelir modeli, bağış/ayni yardım yapamayacak kullanıcılar da düşünülerek banner reklamlar  ve reklam izleme yoluyla bağış şeklinde oluşturulmuştur. Uygulamanın tüm gelirleri uygulamaya entegre barınaklar arasında özellikle sağlık durumu iyi olmayan/tedavi ihtiyacı olan hayvanlar öne alınarak paylaştırılacaktır. Gelirlerin hangi barınaklara aktarıldığı bilgisi şeffaflık açısından “Pati Forum” devreye alındıktan sonra forumda kullanıcılarla paylaşılacaktır.
+
 
 ## Ürün Özellikleri
 
