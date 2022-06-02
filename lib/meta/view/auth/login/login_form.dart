@@ -32,10 +32,10 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
               emailTextFormField(context, emailController, viewModel),
               EmptyBox.instance.emptyBoxSmall,
               FormText(text: StringConstant.instance.formPassword),
-               EmptyBox.instance.emptyBoxSmall,
+              EmptyBox.instance.emptyBoxSmall,
               passTextField(context, passwordController, viewModel),
               forgotPassTextButton(context),
-               EmptyBox.instance.emptyBoxSmall,
+              EmptyBox.instance.emptyBoxSmall,
               viewModel.isBusy
                   ? const CustomCircular()
                   : _loginButton(_formKey, viewModel, context, emailController,
@@ -74,6 +74,7 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
           onPressed: () async {
             if (_formKey.currentState!.validate()) {
               viewModel.logInUser(context, emailController, passwordController);
+            
             }
           },
           child: Text(StringConstant.instance.loginSignIn),

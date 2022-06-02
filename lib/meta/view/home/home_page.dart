@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
+import 'package:why_not_143_team/meta/view/home/ad_helper.dart';
 import 'package:why_not_143_team/meta/widget/card_slider/carousel_slider_widget.dart';
 import 'package:why_not_143_team/meta/view/home/cat_list.dart';
 import 'package:why_not_143_team/meta/view/home/dog_list.dart';
@@ -20,26 +23,101 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<bool> showExitPopup() async {
+    return await showDialog(
+          barrierDismissible: false,
+          //show confirm dialogue
+          //the return value will be from "Yes" or "No" options
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Çıkış Yap'),
+            content: Text('Uygulamayı kapatmak istediğinize emin misiniz?'),
+            actions: [
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                //return false when click on "NO"
+                child: Text('Hayır'),
+                style: ButtonStyleConstant.instance.genelButtonStyle,
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                style: ButtonStyleConstant.instance.genelButtonStyle,
+                //return true when click on "Yes"
+                child: Text('Evet'),
+              ),
+            ],
+          ),
+        ) ??
+        false; //if showDialouge had returned null, then return false
+  }
+
+  late BannerAd _ad;
+  bool isLoaded = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    _ad = BannerAd(
+        size: AdSize.banner,
+        adUnitId: "ca-app-pub-3940256099942544/6300978111",
+        listener: BannerAdListener(onAdLoaded: (_ad) {
+          setState(() {
+            isLoaded = true;
+          });
+          print("Banner Ad loaded");
+        }, onAdFailedToLoad: (_ad, error) {
+          _ad.dispose();
+          print("Ad Failed to Load with Error= $error");
+        }),
+        request: const AdRequest());
+    _ad.load();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: appBar(),
-        body: DefaultTabController(
-          length: 3,
-          child: SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                EmptyBox.instance.emptyBoxNormal,
-                const CardSlider(),
-                EmptyBox.instance.emptyBoxSmall,
-                _homePageBodySection(),
-              ],
+    return WillPopScope(
+      onWillPop: showExitPopup,
+      child: Scaffold(
+          appBar: appBar(),
+          body: DefaultTabController(
+            length: 3,
+            child: SingleChildScrollView(
+              physics: const NeverScrollableScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  EmptyBox.instance.emptyBoxNormal,
+                  const CardSlider(),
+                  EmptyBox.instance.emptyBoxSmall,
+                  checkForAd(),
+                  _homePageBodySection(),
+                ],
+              ),
             ),
-          ),
-        ));
+          )),
+    );
+  }
+
+  Widget checkForAd() {
+    if (isLoaded == true) {
+      return Container(
+        child: AdWidget(
+          ad: _ad,
+        ),
+        height: _ad.size.height.toDouble(),
+        width: _ad.size.width.toDouble(),
+        alignment: Alignment.center,
+      );
+    } else {
+      return const SizedBox();
+    }
   }
 
   Widget _homePageBodySection() {

@@ -53,7 +53,6 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
         ));
   }
 
-
   Widget passTextField(context, registerPasswordController, viewModel) {
     return SizedBox(
       height: 58.h,
@@ -68,8 +67,7 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
               borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
         ),
         validator: (value) {
-          viewModel.emptyValidation(value);
-          return null;
+          return viewModel.emptyValidation(value);
         },
       ),
     );
@@ -90,8 +88,7 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
               borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
         ),
         validator: (value) {
-          viewModel.emailValidatorMethod(value);
-          return null;
+          return viewModel.emailValidatorMethod(value);
         },
       ),
     );

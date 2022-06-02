@@ -18,9 +18,16 @@ class CoverPage extends StatefulWidget {
 class _CoverPageState extends State<CoverPage> {
   @override
   Widget build(BuildContext context) {
+    Future<bool> _onWillPop() async {
+      return false; //<-- SEE HERE
+    }
+
     return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(child: _coverPageBody(context)),
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Scaffold(
+          body: SingleChildScrollView(child: _coverPageBody(context)),
+        ),
       ),
     );
   }

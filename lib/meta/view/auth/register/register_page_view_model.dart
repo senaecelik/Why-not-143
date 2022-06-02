@@ -4,15 +4,17 @@ import 'package:stacked/stacked.dart';
 import 'package:why_not_143_team/core/services/firebase/firebase_auth_method.dart';
 
 class RegisterViewModel extends BaseViewModel {
-  void registerUser(BuildContext context
-     ,
-      registerNameController,
-      registerEmailController,
-      registerPasswordController,) {
+  void registerUser(
+    BuildContext context,
+    registerNameController,
+    registerEmailController,
+    registerPasswordController,
+  ) {
     setBusy(true);
-    context.read<FirebaseAuthMethods>()
+    context
+        .read<FirebaseAuthMethods>()
         .signUpWithEmail(
-            displayName: registerNameController.text,
+            username: registerNameController.text,
             email: registerEmailController.text,
             password: registerPasswordController.text,
             context: context)

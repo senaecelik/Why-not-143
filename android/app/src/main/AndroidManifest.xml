@@ -4,6 +4,10 @@
         android:label="Pati Dostum"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3177787840677082~6744813038"/>  
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -30,5 +34,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+  
     </application>
 </manifest>
