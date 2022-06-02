@@ -15,7 +15,7 @@
 - [Sena Ercihan Çelik: Team Member/Developer](https://www.linkedin.com/in/senaecelik/)
 
 ## Ürün İsmi
-**Pati Dostum**
+# **Pati Dostum**
 
 ## Ürün Açıklaması
   Pati Dostum, hayvan barınakları ile pati dost sahiplenmek isteyenler arasında köprü kuran şimdilik sadece android cihazlarda çalışan mobil bir uygulamadır. Mevcutta var olan barınaklarla iletişim eksikleri, barınaklardaki mama, ilaç gibi eksikliklerin bilinmemesi, pati dost sahiplenmek isteyen ve barınağa gidip pati dostunu seçme imkanı olmayan insanlar düşünülerek uygulama fikri ortaya çıkarılmıştır.
