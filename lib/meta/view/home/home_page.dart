@@ -26,8 +26,6 @@ class _HomePageState extends State<HomePage> {
   Future<bool> showExitPopup() async {
     return await showDialog(
           barrierDismissible: false,
-          //show confirm dialogue
-          //the return value will be from "Yes" or "No" options
           context: context,
           builder: (context) => AlertDialog(
             title: Text('Çıkış Yap'),
@@ -48,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ) ??
-        false; //if showDialouge had returned null, then return false
+        false;
   }
 
   late BannerAd _ad;
@@ -60,6 +58,7 @@ class _HomePageState extends State<HomePage> {
 
     _ad = BannerAd(
         size: AdSize.banner,
+        //Reklam verildiğinde: AdHelper.bannerAdUnitId
         adUnitId: "ca-app-pub-3940256099942544/6300978111",
         listener: BannerAdListener(onAdLoaded: (_ad) {
           setState(() {

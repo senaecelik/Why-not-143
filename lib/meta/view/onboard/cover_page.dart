@@ -26,7 +26,7 @@ class _CoverPageState extends State<CoverPage> {
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: Scaffold(
-          body: SingleChildScrollView(child: _coverPageBody(context)),
+          body: _coverPageBody(context),
         ),
       ),
     );
@@ -35,12 +35,7 @@ class _CoverPageState extends State<CoverPage> {
   Column _coverPageBody(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [titleWidget(), _animatedLogo(), blueButtonWidget()],
-        )
-      ],
+      children: [titleWidget(), _animatedLogo(), blueButtonWidget()],
     );
   }
 
