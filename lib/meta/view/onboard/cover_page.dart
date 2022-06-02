@@ -34,41 +34,31 @@ class _CoverPageState extends State<CoverPage> {
 
   Column _coverPageBody(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [_appName(), _animatedLogo(), _getStartedButton()],
-          ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [titleWidget(), _animatedLogo(), blueButtonWidget()],
         )
       ],
     );
   }
 
-  SizedBox _animatedLogo() =>
-      SizedBox(child: Lottie.asset(AssetPath.instance.coverImage));
-
-  Flexible _getStartedButton() {
-    return Flexible(
-        flex: 2,
-        child: BlueButtonWidget(
-          text: StringConstant.instance.covetButtonText,
-          page: RouteConstant.onBoardScreenRoute,
-        ));
+  Padding titleWidget() {
+    return Padding(
+        padding: PaddingConstant.instance.appNamePadding,
+        child: const _TitleWidget());
   }
 
-  Expanded _appName() {
-    return Expanded(
-      flex: 1,
-      child: Padding(
-          padding: PaddingConstant.instance.appNamePadding,
-          child: const _TitleWidget()),
+  BlueButtonWidget blueButtonWidget() {
+    return BlueButtonWidget(
+      text: StringConstant.instance.covetButtonText,
+      page: RouteConstant.onBoardScreenRoute,
     );
   }
+
+  SizedBox _animatedLogo() =>
+      SizedBox(child: Lottie.asset(AssetPath.instance.coverImage));
 }
 
 class _TitleWidget extends StatelessWidget {

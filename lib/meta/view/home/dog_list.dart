@@ -28,6 +28,7 @@ class _DogListState extends State<DogList> {
           if (snapshot.hasData) {
             List<Pets> _myList = snapshot.data!;
             return ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemCount: _myList.length,

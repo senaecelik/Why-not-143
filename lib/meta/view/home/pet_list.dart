@@ -28,6 +28,7 @@ class _PetListState extends State<PetList> {
           if (snapshot.hasData) {
             List<Pets> _myList = snapshot.data!;
             return GridView.builder(
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
