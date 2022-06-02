@@ -14,7 +14,7 @@ class StringConstant {
       "Pati Dostum sayesinde sana en yakın barınaktaki patileri görerek, seçtiğin pati için sahiplenme veya koruyucu aile olma başvurusu yapabilirsin.";
   String onBoardTitle2 = "Bağış yap - Destek ol";
   String onBoardSubTitle2 =
-      "Pati dostlarımız desteğini bekliyor. Barınak hesaplarına nakdi yardım yapabilir veya güncel barınak ihtiyaçlarını  direkt barınaklara gönderebilirsin.";
+      "Pati dostlarımız desteğini bekliyor. Barınak hesaplarına nakdi yardım yapabilir veya güncel barınak ihtiyaçlarını direkt barınaklara gönderebilirsin.";
   String onBoardTitle3 = "Pati Rehber ile öğren";
   String onBoardSubTitle3 =
       "Sahiplendiğin pati dostunun bakımıyla ilgili ipuçlarını paylaştığımız Pati Rehber sayfasına bakmayı unutma :)";
@@ -80,7 +80,7 @@ class StringConstant {
 
   // messeage
   String errorMess = "Hata çıktı";
-  String commingSoonMess = "Sabrın sonu selamettir.";
+  String commingSoonMess = "Çok yakında :)";
   String loginMess = "Lütfen giriş yapınız.";
 
   //Home
