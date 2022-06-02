@@ -16,7 +16,7 @@ class _DogListState extends State<DogList> {
   late Future<List<Pets>> _petList;
   @override
   void initState() {
-    _petList = PetApi.getPetData();
+    _petList = PetApi.getDogData();
     super.initState();
   }
 
@@ -27,28 +27,32 @@ class _DogListState extends State<DogList> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<Pets> _myList = snapshot.data!;
-            return ListView.builder(
+            return GridView.builder(
                 physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.vertical,
                 shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 0,
+                  mainAxisExtent: 300,
+                  childAspectRatio: 10,
+                ),
                 itemCount: _myList.length,
                 itemBuilder: (context, index) {
                   var pet = _myList[index];
 
-                  if (pet.type == "Köpek") {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailPage(pet: pet)));
-                      },
-                      child: PetListItem(
-                        pet: pet,
-                      ),
-                    );
-                  }
-                  return const Text("");
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage(pet: pet)));
+                    },
+                    child: PetListItem(
+                      pet: pet,
+                    ),
+                  );
                 });
           } else if (snapshot.hasError) {
             return Center(
