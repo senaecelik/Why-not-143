@@ -146,12 +146,24 @@ class _HomePageState extends State<HomePage> {
                   child: const PetList(),
                 )),
           ),
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: const CatList()),
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: const DogList()),
+          Padding(
+            padding: EdgeInsets.only(bottom: 50.0.r),
+            child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  child: const CatList(),
+                )),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 50.0.r),
+            child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  child: const DogList(),
+                )),
+          ),
         ],
       ),
     );
