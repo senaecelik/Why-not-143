@@ -16,7 +16,7 @@ class _CatListState extends State<CatList> {
   late Future<List<Pets>> _petList;
   @override
   void initState() {
-    _petList = PetApi.getPetData();
+    _petList = PetApi.getCatData();
     super.initState();
   }
 
@@ -27,10 +27,17 @@ class _CatListState extends State<CatList> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             List<Pets> _myList = snapshot.data!;
-            return ListView.builder(
+            return GridView.builder(
                 physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.vertical,
                 shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 0,
+                  mainAxisExtent: 300,
+                  childAspectRatio: 10,
+                ),
                 itemCount: _myList.length,
                 itemBuilder: (context, index) {
                   var pet = _myList[index];

@@ -204,7 +204,8 @@ class _DetailPageState extends State<DetailPage> {
           onPressed: () async {
             _firebaseUser != null
                 ? Navigator.pushNamed(context, RouteConstant.formScreenRoute)
-                : Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+                : showToast(context, StringConstant.instance.loginMess);
+            Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
           },
           child: Text(
             StringConstant.instance.adoptPet,
