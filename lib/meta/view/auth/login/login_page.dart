@@ -137,7 +137,7 @@ Widget anonimButton(BuildContext context) {
                 RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
           },
           child: Text(
-            "Misafir olarak devam et",
+            StringConstant.instance.dontHaveAcc,
             style: TextStyleConstant.instance.textLargeMedium,
           ),
           style: ButtonStyleConstant.instance.genelButtonStyle,

@@ -6,6 +6,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/widget/card_slider/carousel_slider_widget.dart';
@@ -31,20 +32,20 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyleConstant.instance.textLargeMedium
                     .copyWith(color: ColorConstant.instance.yankeBlue)),
             content: Text(
-              "Pati Dostum uygulamasını kapatmak istediğine emin misin?",
+              StringConstant.instance.alertDialogText,
               style: TextStyleConstant.instance.textSmallRegular,
             ),
             actions: [
               ElevatedButton(
                   onPressed: () => Navigator.of(context).pop(false),
                   //return false when click on "NO"
-                  child: Text('Hayır'),
+                  child: Text(StringConstant.instance.alertDialogTextNo),
                   style: ButtonStyleConstant.instance.whiteButtonStyle),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(true),
                 style: ButtonStyleConstant.instance.whiteButtonStyle,
                 //return true when click on "Yes"
-                child: Text('Evet'),
+                child: Text(StringConstant.instance.alertDialogTextYes),
               ),
             ],
           ),
@@ -136,29 +137,29 @@ class _HomePageState extends State<HomePage> {
       child: TabBarView(
         children: [
           Padding(
-            padding: EdgeInsets.only(bottom: 50.0.r),
+            padding: PaddingConstant.instance.tabbarPadding,
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  padding: PaddingConstant.instance.tabbarPadding2,
                   child: const PetList(),
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: 50.0.r),
+            padding: PaddingConstant.instance.tabbarPadding,
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  padding: PaddingConstant.instance.tabbarPadding2,
                   child: const CatList(),
                 )),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: 50.0.r),
+            padding: PaddingConstant.instance.tabbarPadding,
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  padding: PaddingConstant.instance.tabbarPadding2,
                   child: const DogList(),
                 )),
           ),
@@ -172,8 +173,7 @@ class _HomePageState extends State<HomePage> {
         height: 50.h,
         width: 260.w,
         child: Padding(
-          padding: EdgeInsets.only(
-              top: 2.0.r, bottom: 2.0.r, left: 20.r, right: 2.r),
+          padding: PaddingConstant.instance.tabbarPadding3,
           child: TabBar(
             unselectedLabelColor: ColorConstant.instance.yankeBlue,
             unselectedLabelStyle: TextStyleConstant.instance.textSmallMedium,
