@@ -68,10 +68,10 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             isLoaded = true;
           });
-          print("Banner Ad loaded");
+          //print("Banner Ad loaded");
         }, onAdFailedToLoad: (_ad, error) {
           _ad.dispose();
-          print("Ad Failed to Load with Error= $error");
+          //print("Ad Failed to Load with Error= $error");
         }),
         request: const AdRequest());
     _ad.load();
