@@ -43,8 +43,7 @@ class StringConstant {
   String formTextFieldMail = "patidostum@email.com";
   String formTextFieldPassword = "Şifreniz";
   String formTextFieldName = "Adınız";
-
-  String dontHaveAcc = "Şimdilik üye olmadan devam et";
+  String dontHaveAcc = "Misafir olarak devam et";
   String resetPass = "Şifremi Sıfırla!";
   String forgotPassLabel =
       "Şifreni sıfırlaman için kayıtlı e-mail adresine yeni şifre göndereceğiz.";
@@ -88,6 +87,10 @@ class StringConstant {
   String homeAllPet = "Tümü";
   String homeCat = "Kedi";
   String homeDog = "Köpek";
+  String alertDialogText =
+      "Pati Dostum uygulamasını kapatmak istediğine emin misin?";
+  String alertDialogTextYes = "Evet";
+  String alertDialogTextNo = "Hayır";
 
   //Home Slider Card
   String cardDonate = "Patilerimize Bağış Yapın";

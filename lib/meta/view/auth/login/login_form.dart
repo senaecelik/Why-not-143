@@ -74,10 +74,12 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
           onPressed: () async {
             if (_formKey.currentState!.validate()) {
               viewModel.logInUser(context, emailController, passwordController);
-            
             }
           },
-          child: Text(StringConstant.instance.loginSignIn),
+          child: Text(
+            StringConstant.instance.loginSignIn,
+            style: TextStyleConstant.instance.textLargeRegular,
+          ),
           style: ButtonStyleConstant.instance.genelButtonStyle),
     );
   }

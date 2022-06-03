@@ -7,6 +7,7 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_page_view_model.dart';
 import 'package:why_not_143_team/meta/widget/custom_circular.dart';
 import 'package:why_not_143_team/meta/widget/form_text.dart';
@@ -130,7 +131,8 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
                 context, nameController, emailController, passwordController);
           }
         },
-        child: Text(StringConstant.instance.registerSignUp),
+        child: Text(StringConstant.instance.registerSignUp,
+            style: TextStyleConstant.instance.textLargeRegular),
         style: ButtonStyleConstant.instance.genelButtonStyle,
       ),
     );
