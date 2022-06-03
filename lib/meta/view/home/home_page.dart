@@ -8,7 +8,6 @@ import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/view/home/ad_helper.dart';
 import 'package:why_not_143_team/meta/widget/card_slider/carousel_slider_widget.dart';
 import 'package:why_not_143_team/meta/view/home/cat_list.dart';
 import 'package:why_not_143_team/meta/view/home/dog_list.dart';
@@ -28,18 +27,22 @@ class _HomePageState extends State<HomePage> {
           barrierDismissible: false,
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Çıkış Yap'),
-            content: Text('Uygulamayı kapatmak istediğinize emin misiniz?'),
+            title: Text(StringConstant.instance.logOut,
+                style: TextStyleConstant.instance.textLargeMedium
+                    .copyWith(color: ColorConstant.instance.yankeBlue)),
+            content: Text(
+              "Pati Dostum uygulamasını kapatmak istediğine emin misin?",
+              style: TextStyleConstant.instance.textSmallRegular,
+            ),
             actions: [
               ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                //return false when click on "NO"
-                child: Text('Hayır'),
-                style: ButtonStyleConstant.instance.genelButtonStyle,
-              ),
+                  onPressed: () => Navigator.of(context).pop(false),
+                  //return false when click on "NO"
+                  child: Text('Hayır'),
+                  style: ButtonStyleConstant.instance.whiteButtonStyle),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(true),
-                style: ButtonStyleConstant.instance.genelButtonStyle,
+                style: ButtonStyleConstant.instance.whiteButtonStyle,
                 //return true when click on "Yes"
                 child: Text('Evet'),
               ),
@@ -71,11 +74,6 @@ class _HomePageState extends State<HomePage> {
         }),
         request: const AdRequest());
     _ad.load();
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
@@ -124,15 +122,15 @@ class _HomePageState extends State<HomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        HomeTabBar(context),
+        _homeTabBar(context),
         SizedBox(
             height: MediaQuery.of(context).size.height - 50,
-            child: homeTabBarView(context)),
+            child: _homeTabBarView(context)),
       ],
     );
   }
 
-  Widget homeTabBarView(BuildContext context) {
+  Widget _homeTabBarView(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 20.r, bottom: 220.r),
       child: TabBarView(
@@ -146,19 +144,30 @@ class _HomePageState extends State<HomePage> {
                   child: const PetList(),
                 )),
           ),
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: const CatList()),
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: const DogList()),
+          Padding(
+            padding: EdgeInsets.only(bottom: 50.0.r),
+            child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  child: const CatList(),
+                )),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 50.0.r),
+            child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  child: const CatList(),
+                )),
+          ),
         ],
       ),
     );
   }
 
-// ignore: non_constant_identifier_names
-  Widget HomeTabBar(BuildContext context) {
+  Widget _homeTabBar(BuildContext context) {
     return SizedBox(
         height: 50.h,
         width: 260.w,

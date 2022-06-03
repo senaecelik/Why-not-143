@@ -34,13 +34,12 @@ class FirebaseAuthMethods {
         Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
 
-      await user.user!.reload();
       await _firestore.collection("Person").doc(user.user!.uid).set({
         'email': email,
         'username': username,
         'uid': FirebaseAuth.instance.currentUser!.uid
       });
-     
+      await user.user!.reload();
       await user.user!.updateDisplayName(username);
       return user.user;
     } on FirebaseAuthException catch (e) {
@@ -76,6 +75,7 @@ class FirebaseAuthMethods {
 
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
+        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       } else {
         Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
