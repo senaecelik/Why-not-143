@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 70.0.r),
-                  child: const CatList(),
+                  child: const DogList(),
                 )),
           ),
         ],

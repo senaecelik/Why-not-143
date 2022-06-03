@@ -39,8 +39,9 @@ class FirebaseAuthMethods {
         'username': username,
         'uid': FirebaseAuth.instance.currentUser!.uid
       });
-      await user.user!.reload();
+
       await user.user!.updateDisplayName(username);
+      await user.user!.reload();
       return user.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
