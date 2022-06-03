@@ -76,6 +76,7 @@ class FirebaseAuthMethods {
 
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
+        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       } else {
         Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }

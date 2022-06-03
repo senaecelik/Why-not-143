@@ -33,7 +33,7 @@ class _PetListState extends State<PetList> {
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 2,
+                crossAxisSpacing: 1,
                 mainAxisSpacing: 0,
                 mainAxisExtent: 300,
                 childAspectRatio: 10,

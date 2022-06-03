@@ -202,10 +202,13 @@ class _DetailPageState extends State<DetailPage> {
       width: MediaQuery.of(context).size.height,
       child: ElevatedButton(
           onPressed: () async {
-            _firebaseUser != null
-                ? Navigator.pushNamed(context, RouteConstant.formScreenRoute)
-                : showToast(context, StringConstant.instance.loginMess);
-            Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+            if (_firebaseUser != null) {
+              Navigator.pushNamed(context, RouteConstant.formScreenRoute);
+            } else {
+              showToast(context, StringConstant.instance.loginMess);
+
+              Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+            }
           },
           child: Text(
             StringConstant.instance.adoptPet,

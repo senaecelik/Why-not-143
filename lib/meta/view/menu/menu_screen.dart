@@ -15,7 +15,6 @@ import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
-import 'package:why_not_143_team/meta/widget/coming_soon_widget.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen(ZoomDrawerController drawerController, {Key? key})

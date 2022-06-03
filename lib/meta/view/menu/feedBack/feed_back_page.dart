@@ -21,11 +21,10 @@ class FeedBackPage extends StatefulWidget {
 class _FeedBackPageState extends State<FeedBackPage> {
   String feedbackTitle = '';
   String feedbackMessage = '';
+  String feedbackSender = "";
+  String senderMail = "";
   final _formKey = GlobalKey<FormState>();
 
-  String feedbackSender = "";
-
-  String senderMail = "";
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<FeedBackViewModel>.reactive(
