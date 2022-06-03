@@ -56,7 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               onTap: () {
                                 context
                                     .read<FirebaseAuthMethods>()
-                                    .signOut(context)
+                                    .anonymously(context)
                                     .then((value) =>
                                         Navigator.pushReplacementNamed(context,
                                             RouteConstant.loginScreenRoute));
