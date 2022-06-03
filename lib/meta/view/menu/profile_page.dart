@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_null_comparison
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +25,26 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  var userData = {};
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
+  getData() async {
+    try {
+      var snapshot = await FirebaseFirestore.instance
+          .collection("Person")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+      userData = snapshot.data()!;
+      setState(() {});
+    } catch (e) {
+      e.toString();
+    }
+  }
+
   final profileNameController = TextEditingController();
   final profileEmailController = TextEditingController();
   final profilePhoneController = TextEditingController();
@@ -31,7 +52,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
-    var name = _firebaseUser?.displayName;
+
     var email = _firebaseUser?.email;
     return Scaffold(
       appBar: appBar(context),
@@ -69,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               _profileNameText(),
               EmptyBox.instance.emptyBoxSmall,
-              _profileNameTextField(_firebaseUser, name),
+              _profileNameTextField(_firebaseUser),
               EmptyBox.instance.emptyBoxSmall,
               _profileEmailText(),
               EmptyBox.instance.emptyBoxSmall,
@@ -97,7 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _profileNameTextField(User? _firebaseUser, String? name) {
+  Widget _profileNameTextField(User? _firebaseUser) {
     return SizedBox(
       height: 58.h,
       width: MediaQuery.of(context).size.width,
@@ -105,9 +126,9 @@ class _ProfilePageState extends State<ProfilePage> {
         readOnly: true,
         controller: profileNameController,
         decoration: InputDecoration(
-          hintText: _firebaseUser?.displayName == null
-              ? name = StringConstant.instance.menuPerson
-              : name = _firebaseUser?.displayName,
+          hintText: _firebaseUser == null
+              ? StringConstant.instance.menuPerson
+              : _firebaseUser.displayName ?? userData['username'],
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: ColorConstant.instance.neutral300)),

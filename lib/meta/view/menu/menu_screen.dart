@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
@@ -15,6 +16,7 @@ import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
+import 'package:why_not_143_team/meta/view/menu/profile_page.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen(ZoomDrawerController drawerController, {Key? key})
@@ -25,6 +27,26 @@ class MenuScreen extends StatefulWidget {
 }
 
 class _MenuScreenState extends State<MenuScreen> {
+  var userData = {};
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
+  getData() async {
+    try {
+      var snapshot = await FirebaseFirestore.instance
+          .collection("Person")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+      userData = snapshot.data()!;
+      setState(() {});
+    } catch (e) {
+      e.toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final _firebaseUser = context.watch<User?>();
@@ -132,7 +154,8 @@ class _MenuScreenState extends State<MenuScreen> {
             padding: PaddingConstant.instance.menuPadding,
             child: InkWell(
               onTap: () {
-                Navigator.pushNamed(context, RouteConstant.profileRoute);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
               },
               child: Row(
                 children: [
@@ -155,7 +178,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         )
                       : Flexible(
                           child: Text(
-                            "${_firebaseUser.email}",
+                            userData['username'],
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyleConstant.instance.textSmallMedium
@@ -266,7 +289,7 @@ class _LogOutState extends State<LogOut> {
                 context.read<FirebaseAuthMethods>().signOut(context).then(
                     (value) => Navigator.pushNamedAndRemoveUntil(
                         context,
-                        RouteConstant.homeScreenRoute,
+                        RouteConstant.loginScreenRoute,
                         (Route<dynamic> route) => false));
               },
               child: Row(

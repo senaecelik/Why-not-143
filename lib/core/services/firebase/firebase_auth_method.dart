@@ -28,21 +28,16 @@ class FirebaseAuthMethods {
     try {
       var user = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      if (!_auth.currentUser!.emailVerified) {
-        await sendEmailVerification(context);
-      } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
-      }
-
       await _firestore.collection("Person").doc(user.user!.uid).set({
         'email': email,
         'username': username,
         'uid': FirebaseAuth.instance.currentUser!.uid
       });
-
-      await user.user!.updateDisplayName(username);
-      await user.user!.reload();
-      return user.user;
+      if (!_auth.currentUser!.emailVerified) {
+        await sendEmailVerification(context);
+        Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+        await signOut(context);
+      } else {}
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         showToast(context, 'Şifre çok zayıf.');
@@ -76,7 +71,7 @@ class FirebaseAuthMethods {
 
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        await signOut(context);
       } else {
         Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
       }
