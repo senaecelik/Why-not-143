@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(StringConstant.instance.alertDialogTextNo),
                   style: ButtonStyleConstant.instance.whiteButtonStyle),
               ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(true),
+                onPressed: () => SystemNavigator.pop(),
                 style: ButtonStyleConstant.instance.whiteButtonStyle,
                 //return true when click on "Yes"
                 child: Text(StringConstant.instance.alertDialogTextYes),
