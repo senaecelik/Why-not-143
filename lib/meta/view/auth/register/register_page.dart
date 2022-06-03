@@ -56,13 +56,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               padding: PaddingConstant.instance.textPadding,
                               child: InkWell(
                                 onTap: () {
-                                  context
-                                      .read<FirebaseAuthMethods>()
-                                      .anonymously(context)
-                                      .then((value) =>
-                                          Navigator.pushReplacementNamed(
-                                              context,
-                                              RouteConstant.loginScreenRoute));
+                                  Navigator.pushReplacementNamed(
+                                      context, RouteConstant.loginScreenRoute);
                                 },
                                 child: Text(StringConstant.instance.loginSignIn,
                                     style: TextStyleConstant
