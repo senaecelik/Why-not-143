@@ -41,13 +41,4 @@ class LoginViewModel extends BaseViewModel {
     }
     return null;
   }
-
-  void anonym(BuildContext context) {
-    setBusy(true);
-    context
-        .read<FirebaseAuthMethods>()
-        .anonymously(context)
-        .then((value) => {setBusy(false)});
-    notifyListeners();
-  }
 }

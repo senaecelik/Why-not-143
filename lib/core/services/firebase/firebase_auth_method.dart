@@ -141,14 +141,4 @@ class FirebaseAuthMethods {
       }
     }
   }
-
-  Future<void> anonymously(BuildContext context) async {
-    try {
-      await _auth.signInAnonymously();
-      Navigator.pushNamedAndRemoveUntil(context, RouteConstant.homeScreenRoute,
-          (Route<dynamic> route) => false);
-    } on FirebaseAuthException catch (e) {
-      showToast(context, e.message!);
-    }
-  }
 }
