@@ -19,11 +19,12 @@ class OnBoard extends StatefulWidget {
 class _OnBoardState extends State<OnBoard> {
   double opacityLevel = 1.0;
   bool visible = false;
-    _storeOnboardInfo() async {
+  _storeOnboardInfo() async {
     int isViewed = 0;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +128,7 @@ class _DoneButton extends StatelessWidget {
       child: TextButton(
           onPressed: () {
             Navigator.pushReplacementNamed(
-                context, RouteConstant.homeScreenRoute);
+                context, RouteConstant.loginScreenRoute);
           },
           child: Icon(
             Icons.done,
@@ -167,7 +168,7 @@ class _SkipButton extends StatelessWidget {
     return TextButton(
         onPressed: () {
           Navigator.pushReplacementNamed(
-              context, RouteConstant.homeScreenRoute);
+              context, RouteConstant.loginScreenRoute);
         },
         child: Text(StringConstant.instance.onBoardPass,
             style: TextStyleConstant.instance.textLargeMedium
