@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       return false; //<-- SEE HERE
     }
 
+    final _firebaseUser = context.watch<User?>();
     return ViewModelBuilder<LoginViewModel>.reactive(
         viewModelBuilder: () => LoginViewModel(),
         builder: (context, model, child) => WillPopScope(
@@ -43,7 +45,11 @@ class _LoginPageState extends State<LoginPage> {
                       dontHaveAccYet(context),
                       loginTextOr(),
                       googleButton(context),
-                      anonimButton(context)
+                      anonimButton(
+                        _firebaseUser,
+                        context,
+                        model,
+                      )
                     ],
                   ),
                 ),
@@ -124,7 +130,8 @@ Padding googleButton(BuildContext context) {
   );
 }
 
-Widget anonimButton(BuildContext context) {
+Widget anonimButton(
+    User? _firebaseUser, BuildContext context, LoginViewModel model) {
   return Padding(
     padding: PaddingConstant.instance.genelButtonPadding,
     child: SizedBox(
@@ -133,6 +140,10 @@ Widget anonimButton(BuildContext context) {
         width: MediaQuery.of(context).size.height,
         child: ElevatedButton(
           onPressed: () async {
+            if (_firebaseUser != null) {
+              context.read<FirebaseAuthMethods>().signOut(context);
+            }
+            model.loginAnon(context);
             Navigator.pushNamedAndRemoveUntil(context,
                 RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
           },

@@ -33,16 +33,12 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   getData() async {
-    try {
-      var snapshot = await FirebaseFirestore.instance
-          .collection("Person")
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .get();
-      userData = snapshot.data()!;
-      setState(() {});
-    } catch (e) {
-      e.toString();
-    }
+    var snapshot = await FirebaseFirestore.instance
+        .collection("Person")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    userData = snapshot.data()!;
+    setState(() {});
   }
 
   final profileNameController = TextEditingController();
@@ -110,9 +106,9 @@ class _ProfilePageState extends State<ProfilePage> {
       width: MediaQuery.of(context).size.width,
       child: GeneralButton(
           function: () {
-            context.read<FirebaseAuthMethods>().signOut(context).then((value) =>
-                Navigator.pushReplacementNamed(
-                    context, RouteConstant.homeScreenRoute));
+            Navigator.pushReplacementNamed(
+                context, RouteConstant.loginScreenRoute);
+            context.read<FirebaseAuthMethods>().signOut(context);
           },
           text: StringConstant.instance.logOut),
     );

@@ -36,7 +36,6 @@ class FirebaseAuthMethods {
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
         Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
-        await signOut(context);
       } else {}
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -71,9 +70,9 @@ class FirebaseAuthMethods {
 
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
-        await signOut(context);
       } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
@@ -134,6 +133,15 @@ class FirebaseAuthMethods {
       } else if (e.code == 'user-not-found') {
         showToast(context, 'Böyle kayıtlı e-posta adresi yok');
       }
+    }
+  }
+
+  // ANONYMOUS SIGN IN
+  Future<void> signInAnonymously(BuildContext context) async {
+    try {
+      await _auth.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      showToast(context, e.message!); // Displaying the error message
     }
   }
 }

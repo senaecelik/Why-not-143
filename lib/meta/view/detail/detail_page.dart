@@ -202,7 +202,7 @@ class _DetailPageState extends State<DetailPage> {
       width: MediaQuery.of(context).size.height,
       child: ElevatedButton(
           onPressed: () async {
-            if (_firebaseUser != null) {
+            if (!_firebaseUser!.isAnonymous) {
               Navigator.pushNamed(context, RouteConstant.formScreenRoute);
             } else {
               showToast(context, StringConstant.instance.loginMess);
