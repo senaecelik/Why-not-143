@@ -15,6 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/helper/utils/show_toast_message.dart';
 import 'package:why_not_143_team/meta/view/menu/profile_page.dart';
+import 'package:why_not_143_team/meta/view/splash/splash_screen_page.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen(ZoomDrawerController drawerController, {Key? key})
@@ -151,8 +152,10 @@ class _MenuScreenState extends State<MenuScreen> {
                 padding: PaddingConstant.instance.menuPadding,
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const ProfilePage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfilePage()));
                   },
                   child: Row(
                     children: [
@@ -272,8 +275,10 @@ class _LogOutState extends State<LogOut> {
       padding: PaddingConstant.instance.menuPadding,
       child: InkWell(
         onTap: () {
-          Navigator.pushNamedAndRemoveUntil(context,
-              RouteConstant.loginScreenRoute, (Route<dynamic> route) => false);
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => const SplashView()),
+              (Route<dynamic> route) => false);
           context.read<FirebaseAuthMethods>().signOut(context);
         },
         child: Row(
