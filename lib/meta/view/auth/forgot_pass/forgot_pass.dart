@@ -60,7 +60,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         onPressed: () async {
           viewModel.resetPassword(context, emailController);
         },
-        child: Text(StringConstant.instance.loginSignIn),
+        child: Text(StringConstant.instance.resetPass),
         style: ButtonStyleConstant.instance.genelButtonStyle,
       ),
     );
