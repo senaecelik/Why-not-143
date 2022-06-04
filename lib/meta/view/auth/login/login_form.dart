@@ -66,7 +66,7 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
   }
 
   Widget _loginButton(
-      _formKey, viewModel, context, emailController, passwordController) {
+      _formKey,LoginViewModel viewModel, context, emailController, passwordController) {
     return SizedBox(
       height: 58.h,
       width: MediaQuery.of(context).size.height,
@@ -84,7 +84,7 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
     );
   }
 
-  Widget passTextField(context, passwordController, viewModel) {
+  Widget passTextField(context, passwordController, LoginViewModel viewModel) {
     return SizedBox(
       height: 58.h,
       width: MediaQuery.of(context).size.height,

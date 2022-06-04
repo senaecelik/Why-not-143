@@ -150,74 +150,80 @@ class _MenuScreenState extends State<MenuScreen> {
 
   Widget _menuPerson(_firebaseUser, context) {
     return _firebaseUser != null
-        ? Padding(
-            padding: PaddingConstant.instance.menuPadding,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()));
-              },
-              child: Row(
-                children: [
-                  EmptyBox.instance.emptyBoxSmallWidth,
-                  Icon(
-                    Icons.person,
-                    color: ColorConstant.instance.white,
-                    size: 25,
+        ? !_firebaseUser!.isAnonymous
+            ? Padding(
+                padding: PaddingConstant.instance.menuPadding,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ProfilePage()));
+                  },
+                  child: Row(
+                    children: [
+                      EmptyBox.instance.emptyBoxSmallWidth,
+                      Icon(
+                        Icons.person,
+                        color: ColorConstant.instance.white,
+                        size: 25,
+                      ),
+                      EmptyBox.instance.emptyBoxNormalWidth,
+                      _firebaseUser.displayName != null
+                          ? Flexible(
+                              child: Text(
+                                "${_firebaseUser.displayName}",
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: TextStyleConstant
+                                    .instance.textSmallMedium
+                                    .copyWith(
+                                        color: ColorConstant.instance.white),
+                              ),
+                            )
+                          : Flexible(
+                              child: Text(
+                                userData['username'],
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyleConstant
+                                    .instance.textSmallMedium
+                                    .copyWith(
+                                        color: ColorConstant.instance.white),
+                              ),
+                            )
+                    ],
                   ),
-                  EmptyBox.instance.emptyBoxNormalWidth,
-                  _firebaseUser.displayName != null
-                      ? Flexible(
-                          child: Text(
-                            "${_firebaseUser.displayName}",
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.center,
-                            style: TextStyleConstant.instance.textSmallMedium
-                                .copyWith(color: ColorConstant.instance.white),
-                          ),
-                        )
-                      : Flexible(
-                          child: Text(
-                            userData['username'],
-                            textAlign: TextAlign.center,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyleConstant.instance.textSmallMedium
-                                .copyWith(color: ColorConstant.instance.white),
-                          ),
-                        )
-                ],
-              ),
-            ),
-          )
-        : Padding(
-            padding: PaddingConstant.instance.menuPadding,
-            child: InkWell(
-              onTap: () {
-                showToast(context, StringConstant.instance.loginMess);
-              },
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 10.w,
+                ),
+              )
+            : Padding(
+                padding: PaddingConstant.instance.menuPadding,
+                child: InkWell(
+                  onTap: () {
+                    showToast(context, StringConstant.instance.loginMess);
+                  },
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      Icon(
+                        Icons.person,
+                        color: ColorConstant.instance.white,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 20.w,
+                      ),
+                      Text(
+                        StringConstant.instance.menuPerson,
+                        textAlign: TextAlign.center,
+                        style: TextStyleConstant.instance.textSmallMedium
+                            .copyWith(color: ColorConstant.instance.white),
+                      ),
+                    ],
                   ),
-                  Icon(
-                    Icons.person,
-                    color: ColorConstant.instance.white,
-                    size: 25,
-                  ),
-                  SizedBox(
-                    width: 20.w,
-                  ),
-                  Text(
-                    StringConstant.instance.menuPerson,
-                    textAlign: TextAlign.center,
-                    style: TextStyleConstant.instance.textSmallMedium
-                        .copyWith(color: ColorConstant.instance.white),
-                  ),
-                ],
-              ),
-            ),
-          );
+                ),
+              )
+        : Text("data");
   }
 
   Divider _menuDivider() {
@@ -280,70 +286,39 @@ class LogOut extends StatefulWidget {
 class _LogOutState extends State<LogOut> {
   @override
   Widget build(BuildContext context) {
-    final _firebaseUser = context.watch<User?>();
-    return _firebaseUser != null
-        ? Padding(
-            padding: PaddingConstant.instance.menuPadding,
-            child: InkWell(
-              onTap: () {
-                context.read<FirebaseAuthMethods>().signOut(context).then(
-                    (value) => Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        RouteConstant.loginScreenRoute,
-                        (Route<dynamic> route) => false));
-              },
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  Icon(
-                    Icons.logout,
-                    color: ColorConstant.instance.white,
-                    size: 25,
-                  ),
-                  SizedBox(
-                    width: 20.w,
-                  ),
-                  Text(
-                    StringConstant.instance.logOut,
-                    textAlign: TextAlign.center,
-                    style: TextStyleConstant.instance.textSmallMedium
-                        .copyWith(color: ColorConstant.instance.white),
-                  ),
-                ],
-              ),
+    return Padding(
+      padding: PaddingConstant.instance.menuPadding,
+      child: InkWell(
+        onTap: () {
+          context.read<FirebaseAuthMethods>().signOut(context).then((value) =>
+              Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  RouteConstant.loginScreenRoute,
+                  (Route<dynamic> route) => false));
+        },
+        child: Row(
+          children: [
+            SizedBox(
+              width: 10.w,
             ),
-          )
-        : Padding(
-            padding: PaddingConstant.instance.menuPadding,
-            child: InkWell(
-              onTap: () async {
-                Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
-              },
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  Icon(
-                    Icons.login_outlined,
-                    color: ColorConstant.instance.white,
-                    size: 25,
-                  ),
-                  SizedBox(
-                    width: 20.w,
-                  ),
-                  Text(
-                    StringConstant.instance.loginSignIn,
-                    textAlign: TextAlign.center,
-                    style: TextStyleConstant.instance.textSmallMedium
-                        .copyWith(color: ColorConstant.instance.white),
-                  ),
-                ],
-              ),
+            Icon(
+              Icons.logout,
+              color: ColorConstant.instance.white,
+              size: 25,
             ),
-          );
+            SizedBox(
+              width: 20.w,
+            ),
+            Text(
+              StringConstant.instance.logOut,
+              textAlign: TextAlign.center,
+              style: TextStyleConstant.instance.textSmallMedium
+                  .copyWith(color: ColorConstant.instance.white),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 

@@ -16,6 +16,18 @@ class LoginViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void loginAnon(
+    BuildContext context,
+  ) {
+    setBusy(true);
+  
+    context
+        .read<FirebaseAuthMethods>()
+        .signInAnonymously(context)
+        .then((value) => {setBusy(false)});
+    notifyListeners();
+  }
+
   void resetPassword(BuildContext context, emailController) async {
     setBusy(true);
     context
