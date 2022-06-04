@@ -112,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
           function: () {
             context.read<FirebaseAuthMethods>().signOut(context).then((value) =>
                 Navigator.pushReplacementNamed(
-                    context, RouteConstant.homeScreenRoute));
+                    context, RouteConstant.loginScreenRoute));
           },
           text: StringConstant.instance.logOut),
     );
