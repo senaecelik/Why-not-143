@@ -283,9 +283,9 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
     
 
   <tr>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/1.jpeg" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/2.jpeg" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/3.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/a.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/b.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/c.jpeg" width="350" height="540"></td>
    
  </table>
 
@@ -297,9 +297,9 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
     
 
   <tr>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/4.jpeg" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/5.jpeg" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/6.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/d.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/e.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/f.jpeg" width="350" height="540"></td>
    
  </table>
 
@@ -311,9 +311,9 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
     
 
   <tr>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/e458c0f5665a891e89d23475d08c91d6f2bde2ac/Proje%20Y%C3%B6netimi/Sprint%202/7.jpeg" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/91d6c403242aca57bfbefd036e147322f93ef09b/Proje%20Y%C3%B6netimi/Sprint%202/9.png" width="350" height="540"></td>
-    <td><img src="https://github.com/senaecelik/Why-not-143/blob/91d6c403242aca57bfbefd036e147322f93ef09b/Proje%20Y%C3%B6netimi/Sprint%202/8.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/g.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/h.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/968bd47220f1ce6632125ee21e8d125642ae8786/Proje%20Y%C3%B6netimi/Sprint%203/i.jpeg" width="350" height="540"></td>
 
    
  </table>
