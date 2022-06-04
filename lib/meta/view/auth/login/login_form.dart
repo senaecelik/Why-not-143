@@ -74,6 +74,7 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
           onPressed: () async {
             if (_formKey.currentState!.validate()) {
               viewModel.logInUser(context, emailController, passwordController);
+              
             }
           },
           child: Text(

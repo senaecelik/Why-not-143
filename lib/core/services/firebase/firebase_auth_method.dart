@@ -70,9 +70,10 @@ class FirebaseAuthMethods {
 
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
+      } else {
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
-      Navigator.pushNamedAndRemoveUntil(context, RouteConstant.homeScreenRoute,
-          (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
         showToast(context, 'Lütfen geçerli bir e-posta adresi giriniz');

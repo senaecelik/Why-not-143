@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -35,16 +33,14 @@ class _MenuScreenState extends State<MenuScreen> {
   }
 
   getData() async {
-    try {
-      var snapshot = await FirebaseFirestore.instance
-          .collection("Person")
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .get();
-      userData = snapshot.data()!;
-      setState(() {});
-    } catch (e) {
-      e.toString();
-    }
+    var snapshot = await FirebaseFirestore.instance
+        .collection("Person")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    userData = snapshot.data()!;
+    setState(() {
+      userData;
+    });
   }
 
   @override
@@ -55,13 +51,13 @@ class _MenuScreenState extends State<MenuScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
             _menuAvatar(_firebaseUser, context),
             _menuDivider(),
             _menuPerson(_firebaseUser, context),
-            if (_firebaseUser != null) MenuMyPet(),
+            if (_firebaseUser != null) const MenuMyPet(),
             MenuItem(
                 icon: Icons.payments_outlined,
                 text: StringConstant.instance.donate,
@@ -76,7 +72,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 text: StringConstant.instance.menuSendBack,
                 pageRoute: RouteConstant.feedBackScreenRoute),
             const LogOut(),
-            Spacer(
+            const Spacer(
               flex: 5,
             ),
           ],
@@ -156,7 +152,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 child: InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()));
+                        MaterialPageRoute(builder: (context) => const ProfilePage()));
                   },
                   child: Row(
                     children: [
@@ -167,29 +163,15 @@ class _MenuScreenState extends State<MenuScreen> {
                         size: 25,
                       ),
                       EmptyBox.instance.emptyBoxNormalWidth,
-                      _firebaseUser.displayName != null
-                          ? Flexible(
-                              child: Text(
-                                "${_firebaseUser.displayName}",
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: TextStyleConstant
-                                    .instance.textSmallMedium
-                                    .copyWith(
-                                        color: ColorConstant.instance.white),
-                              ),
-                            )
-                          : Flexible(
-                              child: Text(
-                                userData['username'],
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyleConstant
-                                    .instance.textSmallMedium
-                                    .copyWith(
-                                        color: ColorConstant.instance.white),
-                              ),
-                            )
+                      Flexible(
+                        child: Text(
+                          _firebaseUser.displayName ?? userData['username'],
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          style: TextStyleConstant.instance.textSmallMedium
+                              .copyWith(color: ColorConstant.instance.white),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -223,7 +205,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ),
               )
-        : Text("data");
+        : const Text("");
   }
 
   Divider _menuDivider() {
@@ -290,11 +272,9 @@ class _LogOutState extends State<LogOut> {
       padding: PaddingConstant.instance.menuPadding,
       child: InkWell(
         onTap: () {
-          context.read<FirebaseAuthMethods>().signOut(context).then((value) =>
-              Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  RouteConstant.loginScreenRoute,
-                  (Route<dynamic> route) => false));
+          Navigator.pushNamedAndRemoveUntil(context,
+              RouteConstant.loginScreenRoute, (Route<dynamic> route) => false);
+          context.read<FirebaseAuthMethods>().signOut(context);
         },
         child: Row(
           children: [
