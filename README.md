@@ -245,4 +245,89 @@ Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan �
 
 # Sprint 3
 
----
+- **Sprint Notları**: Sprint planlama toplantısında karar verildiği üzere bu sprintte özellikle Home  ve Detail Page ve backendde api kullanımına odaklanılmıştır. Api kullanımı ve iki sayfanın iş yükü daha fazla olduğundan ve ekibin uygulamada pratiğinin olmaması nedeniyle eğitimlere de bakılacağından Home Page ve Detail Page'in  2 kısma ayrılarak çalışılmasına; dolayısıyla 3. Sprintte de Home ve Detail Page çalışmasında  devam edilmesine karar verildi. Api kullanımında ekip üyeleri öncelikle araştırma kısmına odaklanmış ikinci haftada ise uygulamaya geçilmiştir.Proje yönetiminde Trello kullanımına devam edilmektedir.  User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında açıklama kısmında hikayelerin detayları okunabilir. Tasklar kırmızı kapakla gösterilmiş olup, backloglardan ayrı olarak gösterilmiştir.
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 150 puan
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 380 puanlık backlog bulunmaktadır. Bu sprintte iş yükü daha fazla olan ekranlar ele alındığından sprint toplam puanı 150 olarak belirlendi.
+
+- **Backlog düzeni ve Story seçimleri**: Backlog'umuz ilk yapılacak story'lere göre düzenlenmiştir. Sprint başına tahmin edilen puan sayısını geçmeyecek şekilde sıradan seçimler yapılmaktadır. Story başına çıkan tahmin puanı, toplam puanın yarısından az tutulmuştur. 
+
+Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - Sprint 2 panosunda  gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
+
+- **Daily Scrum**: Daily Scrum toplantıları bu sprintte Whatsapp'da kurulan Daily Scrum gurubunda ve Google Meet'de yapılmıştır. 
+[**Sprint 2 Daily Scrum Chats**](https://github.com/senaecelik/Why-not-143/blob/ac3015ce879201377ef0145a16f44481ca4ced70/Proje%20Y%C3%B6netimi/Sprint%202/Daily%20Scrum%20Chats_2.docx)
+
+## Product Backlog URL
+
+[Trello Backlog Board_Sprint_2](https://trello.com/invite/b/YQMhrba8/ed65595cab7555b009276ce682b50d7e/why-not-143-sprint-2)
+
+# Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
+  
+  ![BurndownChart](https://github.com/senaecelik/Why-not-143/blob/ae4d7c7c04ca13286fd3ef96a75570ab21f2bb35/Proje%20Y%C3%B6netimi/Sprint%202/burndownchart_sprint_2.png)
+
+- **Sprint board update**: Sprint board screenshotları: 
+![Sprint2_1](https://github.com/senaecelik/Why-not-143/blob/1dcfe0c0ec10e8761e90d259ea9b3ae04d91a38b/Proje%20Y%C3%B6netimi/Sprint%203/1.png) 
+![Sprint2_2](https://github.com/senaecelik/Why-not-143/blob/1dcfe0c0ec10e8761e90d259ea9b3ae04d91a38b/Proje%20Y%C3%B6netimi/Sprint%203/2.png) 
+![Sprint2_3](https://github.com/senaecelik/Why-not-143/blob/1dcfe0c0ec10e8761e90d259ea9b3ae04d91a38b/Proje%20Y%C3%B6netimi/Sprint%203/3.png)
+![Sprint2_4](https://github.com/senaecelik/Why-not-143/blob/1dcfe0c0ec10e8761e90d259ea9b3ae04d91a38b/Proje%20Y%C3%B6netimi/Sprint%203/4.png)
+![Sprint2_5](https://github.com/senaecelik/Why-not-143/blob/1dcfe0c0ec10e8761e90d259ea9b3ae04d91a38b/Proje%20Y%C3%B6netimi/Sprint%203/5.png)
+![Sprint2_6](https://github.com/senaecelik/Why-not-143/blob/1dcfe0c0ec10e8761e90d259ea9b3ae04d91a38b/Proje%20Y%C3%B6netimi/Sprint%203/6.png)
+
+
+<table>
+  <tr>
+    <td>1</td>
+     <td>2</td>
+     <td>3</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/1.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/2.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/3.jpeg" width="350" height="540"></td>
+   
+ </table>
+
+<table>
+  <tr>
+    <td>4</td>
+     <td>5</td>
+     <td>6</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/4.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/5.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/4826dfcf3fa1271845778012eeaecc412158efe4/Proje%20Y%C3%B6netimi/Sprint%202/6.jpeg" width="350" height="540"></td>
+   
+ </table>
+
+  
+<table>
+  <tr>
+    <td>7</td>
+     <td>8</td>
+    
+
+  <tr>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/e458c0f5665a891e89d23475d08c91d6f2bde2ac/Proje%20Y%C3%B6netimi/Sprint%202/7.jpeg" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/91d6c403242aca57bfbefd036e147322f93ef09b/Proje%20Y%C3%B6netimi/Sprint%202/9.png" width="350" height="540"></td>
+    <td><img src="https://github.com/senaecelik/Why-not-143/blob/91d6c403242aca57bfbefd036e147322f93ef09b/Proje%20Y%C3%B6netimi/Sprint%202/8.jpeg" width="350" height="540"></td>
+
+   
+ </table>
+
+  
+  
+- **Sprint Review**: 
+Alınan kararlar: Bu sprintte özellikle API kısmına yoğunlaşılarak Detail Page oluşturuldu. Uygulama kullanıcı gözüyle incelendiğinde UX deneyimi ve UI'da yapılacak değişiklikler/düzenlemeler üzerine konuşuldu. 2. sprintte ekibin ekibin uygulama pratiğinin olmadığı API üzerinde ortak araştırma, eğitimler izlemesi ve farklı seçenekleri değerlendirmesi; üyelerin farklı konular üzerine araştırma yapması ön plandaydı. 3. sprintte de bu yaklaşımın devam ederek, uygulamanın bütünü için deneyim/tasarım iyileştirme, MVVM üzerine yoğunlaşma kararı verildi.
+  
+- **Sprint Review katılımcıları:** 
+Ceyda Esen, İsmail Çakıcı, Muhammed Ali Işık, Selda Koçak, Sena Ercihan Çelik
+  
+- **Sprint Retrospective:**
+- Home page ve Detail Page'de UX deneyimini iyileştirmek için çalışmaların devam etmesine karar verilmiştir.
+- Home Page ve Detail Page 2. kısımları son sprintte çalışılacak. (Geliştirme/Düzeltmeler)
+- Home page'de filtreleme ve Pati Rehber üzerine çalışılması ve Home Page'in tasarım olarak incelenmesine karar verildi.
+- Son sprintte herkesin uygulamayla ilgili deneyimlerini bir dokümana yazarak ScrumMaster'la paylaşması ve bunun üzerine ayrıca bir toplantı yapılmasına karar verildi.
