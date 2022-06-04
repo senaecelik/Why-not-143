@@ -10,7 +10,6 @@ import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_form.dart';
 import 'package:why_not_143_team/meta/view/auth/register/register_page_view_model.dart';
 
-
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
 

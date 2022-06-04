@@ -100,17 +100,18 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  SizedBox _logOutButton(BuildContext context) {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.width,
-      child: GeneralButton(
-          function: () {
-            Navigator.pushReplacementNamed(
-                context, RouteConstant.loginScreenRoute);
-            context.read<FirebaseAuthMethods>().signOut(context);
-          },
-          text: StringConstant.instance.logOut),
+  Flexible _logOutButton(BuildContext context) {
+    return Flexible(
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: GeneralButton(
+            function: () {
+              Navigator.pushReplacementNamed(
+                  context, RouteConstant.loginScreenRoute);
+              context.read<FirebaseAuthMethods>().signOut(context);
+            },
+            text: StringConstant.instance.logOut),
+      ),
     );
   }
 
