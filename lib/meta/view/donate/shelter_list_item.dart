@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,7 +14,7 @@ class ShelterListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 8.0.r),
+      padding: PaddingConstant.instance.donatePadding,
       child: Container(
         height: 90.h,
         decoration: BoxDecoration(

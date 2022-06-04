@@ -28,21 +28,15 @@ class FirebaseAuthMethods {
     try {
       var user = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      if (!_auth.currentUser!.emailVerified) {
-        await sendEmailVerification(context);
-      } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
-      }
-
-      await user.user!.reload();
       await _firestore.collection("Person").doc(user.user!.uid).set({
         'email': email,
         'username': username,
         'uid': FirebaseAuth.instance.currentUser!.uid
       });
-     
-      await user.user!.updateDisplayName(username);
-      return user.user;
+      if (!_auth.currentUser!.emailVerified) {
+        await sendEmailVerification(context);
+        Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+      } else {}
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         showToast(context, 'Şifre çok zayıf.');
@@ -77,7 +71,8 @@ class FirebaseAuthMethods {
       if (!_auth.currentUser!.emailVerified) {
         await sendEmailVerification(context);
       } else {
-        Navigator.pushNamed(context, RouteConstant.homeScreenRoute);
+        Navigator.pushNamedAndRemoveUntil(context,
+            RouteConstant.homeScreenRoute, (Route<dynamic> route) => false);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
@@ -141,13 +136,12 @@ class FirebaseAuthMethods {
     }
   }
 
-  Future<void> anonymously(BuildContext context) async {
+  // ANONYMOUS SIGN IN
+  Future<void> signInAnonymously(BuildContext context) async {
     try {
       await _auth.signInAnonymously();
-      Navigator.pushNamedAndRemoveUntil(context, RouteConstant.homeScreenRoute,
-          (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
-      showToast(context, e.message!);
+      showToast(context, e.message!); // Displaying the error message
     }
   }
 }

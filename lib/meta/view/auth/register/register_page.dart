@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
@@ -47,19 +48,22 @@ class _RegisterPageState extends State<RegisterPage> {
                                   .copyWith(
                                       color: ColorConstant.instance.primary700),
                             ),
-                            EmptyBox.instance.emptyBoxSmall,
-                            InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, RouteConstant.loginScreenRoute);
-                              },
-                              child: Text(StringConstant.instance.loginSignIn,
-                                  style: TextStyleConstant
-                                      .instance.textSmallMedium
-                                      .copyWith(
-                                    color: ColorConstant.instance.primary700,
-                                    decoration: TextDecoration.underline,
-                                  )),
+                            EmptyBox.instance.emptyBoxMedium,
+                            Padding(
+                              padding: PaddingConstant.instance.textPadding,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.pushReplacementNamed(
+                                      context, RouteConstant.loginScreenRoute);
+                                },
+                                child: Text(StringConstant.instance.loginSignIn,
+                                    style: TextStyleConstant
+                                        .instance.textSmallMedium
+                                        .copyWith(
+                                      color: ColorConstant.instance.primary700,
+                                      decoration: TextDecoration.underline,
+                                    )),
+                              ),
                             ),
                           ],
                         ),

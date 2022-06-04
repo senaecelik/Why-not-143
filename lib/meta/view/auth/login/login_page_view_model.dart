@@ -16,6 +16,18 @@ class LoginViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void loginAnon(
+    BuildContext context,
+  ) {
+    setBusy(true);
+  
+    context
+        .read<FirebaseAuthMethods>()
+        .signInAnonymously(context)
+        .then((value) => {setBusy(false)});
+    notifyListeners();
+  }
+
   void resetPassword(BuildContext context, emailController) async {
     setBusy(true);
     context
@@ -40,14 +52,5 @@ class LoginViewModel extends BaseViewModel {
       return 'Lütfen, boş bırakmayın';
     }
     return null;
-  }
-
-  void anonym(BuildContext context) {
-    setBusy(true);
-    context
-        .read<FirebaseAuthMethods>()
-        .anonymously(context)
-        .then((value) => {setBusy(false)});
-    notifyListeners();
   }
 }

@@ -19,6 +19,7 @@ class RegisterViewModel extends BaseViewModel {
             password: registerPasswordController.text,
             context: context)
         .then((value) => {setBusy(false)});
+
     notifyListeners();
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,9 +7,9 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
+import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
-import 'package:why_not_143_team/meta/view/home/ad_helper.dart';
 import 'package:why_not_143_team/meta/widget/card_slider/carousel_slider_widget.dart';
 import 'package:why_not_143_team/meta/view/home/cat_list.dart';
 import 'package:why_not_143_team/meta/view/home/dog_list.dart';
@@ -28,20 +29,24 @@ class _HomePageState extends State<HomePage> {
           barrierDismissible: false,
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Çıkış Yap'),
-            content: Text('Uygulamayı kapatmak istediğinize emin misiniz?'),
+            title: Text(StringConstant.instance.logOut,
+                style: TextStyleConstant.instance.textLargeMedium
+                    .copyWith(color: ColorConstant.instance.yankeBlue)),
+            content: Text(
+              StringConstant.instance.alertDialogText,
+              style: TextStyleConstant.instance.textSmallRegular,
+            ),
             actions: [
               ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                //return false when click on "NO"
-                child: Text('Hayır'),
-                style: ButtonStyleConstant.instance.genelButtonStyle,
-              ),
+                  onPressed: () => Navigator.of(context).pop(false),
+                  //return false when click on "NO"
+                  child: Text(StringConstant.instance.alertDialogTextNo),
+                  style: ButtonStyleConstant.instance.whiteButtonStyle),
               ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(true),
-                style: ButtonStyleConstant.instance.genelButtonStyle,
+                onPressed: () => SystemNavigator.pop(),
+                style: ButtonStyleConstant.instance.whiteButtonStyle,
                 //return true when click on "Yes"
-                child: Text('Evet'),
+                child: Text(StringConstant.instance.alertDialogTextYes),
               ),
             ],
           ),
@@ -64,18 +69,13 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             isLoaded = true;
           });
-          print("Banner Ad loaded");
+          //print("Banner Ad loaded");
         }, onAdFailedToLoad: (_ad, error) {
           _ad.dispose();
-          print("Ad Failed to Load with Error= $error");
+          //print("Ad Failed to Load with Error= $error");
         }),
         request: const AdRequest());
     _ad.load();
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
@@ -124,47 +124,57 @@ class _HomePageState extends State<HomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        HomeTabBar(context),
+        _homeTabBar(context),
         SizedBox(
             height: MediaQuery.of(context).size.height - 50,
-            child: homeTabBarView(context)),
+            child: _homeTabBarView(context)),
       ],
     );
   }
 
-  Widget homeTabBarView(BuildContext context) {
+  Widget _homeTabBarView(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 20.r, bottom: 220.r),
       child: TabBarView(
         children: [
           Padding(
-            padding: EdgeInsets.only(bottom: 50.0.r),
+            padding: PaddingConstant.instance.tabbarPadding2,
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 70.0.r),
+                  padding: PaddingConstant.instance.tabbarPadding2,
                   child: const PetList(),
                 )),
           ),
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: const CatList()),
-          SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: const DogList()),
+          Padding(
+            padding: PaddingConstant.instance.tabbarPadding2,
+            child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+                child: Padding(
+                  padding: PaddingConstant.instance.tabbarPadding2,
+                  child: const CatList(),
+                )),
+          ),
+          Padding(
+            padding: PaddingConstant.instance.tabbarPadding2,
+            child: SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+                child: Padding(
+                  padding: PaddingConstant.instance.tabbarPadding2,
+                  child: const DogList(),
+                )),
+          ),
         ],
       ),
     );
   }
 
-// ignore: non_constant_identifier_names
-  Widget HomeTabBar(BuildContext context) {
+  Widget _homeTabBar(BuildContext context) {
     return SizedBox(
         height: 50.h,
         width: 260.w,
         child: Padding(
-          padding: EdgeInsets.only(
-              top: 2.0.r, bottom: 2.0.r, left: 20.r, right: 2.r),
+          padding: PaddingConstant.instance.tabbarPadding3,
           child: TabBar(
             unselectedLabelColor: ColorConstant.instance.yankeBlue,
             unselectedLabelStyle: TextStyleConstant.instance.textSmallMedium,

@@ -19,13 +19,14 @@ class FeedBackPage extends StatefulWidget {
 }
 
 class _FeedBackPageState extends State<FeedBackPage> {
+  final messageController = TextEditingController();
+  final titleController = TextEditingController();
   String feedbackTitle = '';
   String feedbackMessage = '';
+  String feedbackSender = "";
+  String senderMail = "";
   final _formKey = GlobalKey<FormState>();
 
-  String feedbackSender = "";
-
-  String senderMail = "";
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<FeedBackViewModel>.reactive(
@@ -95,8 +96,15 @@ class _FeedBackPageState extends State<FeedBackPage> {
         onPressed: () async {
           viewModel.feedBack(_formKey, feedbackTitle, feedbackMessage,
               feedbackSender, senderMail, context);
+          setState(() {
+            titleController.clear();
+            messageController.clear();
+          });
         },
-        child: Text(StringConstant.instance.feedBackSend),
+        child: Text(
+          StringConstant.instance.feedBackSend,
+          style: TextStyleConstant.instance.textLargeRegular,
+        ),
         style: ElevatedButton.styleFrom(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -110,6 +118,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
 
   TextFormField _feedBackMesseage() {
     return TextFormField(
+      controller: messageController,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Mesaj boş bırakılamaz';
@@ -133,6 +142,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
 
   TextFormField _feedBackTtle() {
     return TextFormField(
+      controller: titleController,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Başlık boş bırakılamaz';
