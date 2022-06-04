@@ -28,7 +28,7 @@
   
   Uygulamamız sadece hayvan sahiplenmek isteyenlerle sınırlı kalmayacak; hayvanlara alerjisi olan ya da herhangi bir nedenle evde hayvan besleyemeyen kullanıcıların “Koruyucu Aile Ol” özelliği ile reklam izleyerek pati dostlarımıza yardım edebilmesini sağlayacaktır. Bootcamp 3 sprintle sınırlandırıldığından “Koruyucu Aile Ol” özelliği henüz devreye alınamamıştır.
   
-  Sosyal sorumluluk projesi olarak ortaya çıkarılan “Pati Dostum” uygulamasının gelir modeli, bağış/ayni yardım yapamayacak kullanıcılar da düşünülerek banner reklamlar  ve reklam izleme yoluyla bağış şeklinde oluşturulmuştur. Uygulamanın tüm gelirleri uygulamaya entegre barınaklar arasında özellikle sağlık durumu iyi olmayan/tedavi ihtiyacı olan hayvanlar öne alınarak paylaştırılacaktır. Gelirlerin hangi barınaklara aktarıldığı bilgisi şeffaflık açısından “Pati Forum” devreye alındıktan sonra forumda kullanıcılarla paylaşılacaktır.
+  Sosyal sorumluluk projesi olarak ortaya çıkarılan “Pati Dostum” uygulamasının gelir modeli, bağış/ayni yardım yapamayacak kullanıcılar da düşünülerek banner reklamlar  ve reklam izleme yoluyla bağış şeklinde oluşturulmuştur. Uygulamanın tüm gelirleri uygulamaya entegre barınaklar arasında özellikle sağlık durumu iyi olmayan/tedavi ihtiyacı olan hayvanlar öne alınarak paylaştırılacaktır. Gelirlerin hangi barınaklara aktarıldığı bilgisi şeffaflık açısından "Kumbara" özelliğiyle toplanan ve barınaklara aktarılan para miktarı anlık olarak kullanıcılarla paylaşılacaktır. Bootcamp 3 sprintle sınırlandırıldığından “Kumbara” özelliği henüz devreye alınamamıştır.
 
 
 ## Ürün Özellikleri
