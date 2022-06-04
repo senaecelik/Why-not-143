@@ -128,7 +128,7 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
           }
         },
         child: Text(StringConstant.instance.registerSignUp,
-            style: TextStyleConstant.instance.textLargeRegular),
+            style: TextStyleConstant.instance.textLargeMedium),
         style: ButtonStyleConstant.instance.genelButtonStyle,
       ),
     );

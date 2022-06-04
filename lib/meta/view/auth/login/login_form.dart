@@ -65,8 +65,8 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
     );
   }
 
-  Widget _loginButton(
-      _formKey,LoginViewModel viewModel, context, emailController, passwordController) {
+  Widget _loginButton(_formKey, LoginViewModel viewModel, context,
+      emailController, passwordController) {
     return SizedBox(
       height: 58.h,
       width: MediaQuery.of(context).size.height,
@@ -74,12 +74,11 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
           onPressed: () async {
             if (_formKey.currentState!.validate()) {
               viewModel.logInUser(context, emailController, passwordController);
-              
             }
           },
           child: Text(
             StringConstant.instance.loginSignIn,
-            style: TextStyleConstant.instance.textLargeRegular,
+            style: TextStyleConstant.instance.textLargeMedium,
           ),
           style: ButtonStyleConstant.instance.genelButtonStyle),
     );

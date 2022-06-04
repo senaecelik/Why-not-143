@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
       child: TabBarView(
         children: [
           Padding(
-            padding: PaddingConstant.instance.tabbarPadding,
+            padding: PaddingConstant.instance.tabbarPadding2,
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                 )),
           ),
           Padding(
-            padding: PaddingConstant.instance.tabbarPadding,
+            padding: PaddingConstant.instance.tabbarPadding2,
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                 )),
           ),
           Padding(
-            padding: PaddingConstant.instance.tabbarPadding,
+            padding: PaddingConstant.instance.tabbarPadding2,
             child: SizedBox(
                 height: MediaQuery.of(context).size.height / 2,
                 child: Padding(
