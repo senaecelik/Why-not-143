@@ -13,21 +13,20 @@ class GeneralButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: function,
-        child: Flexible(
-          child: Container(
-            width: MediaQuery.of(context).size.height,
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: ColorConstant.instance.yankeBlue),
-            child: Padding(
-              padding: EdgeInsets.all(1.0.r),
-              child: Text(
-                text,
-                style: TextStyleConstant.instance.textLargeMedium
-                    .copyWith(color: ColorConstant.instance.white),
-                textAlign: TextAlign.center,
-              ),
+        child: Container(
+          height: 58.h,
+          width: MediaQuery.of(context).size.height,
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: ColorConstant.instance.yankeBlue),
+          child: Padding(
+            padding: EdgeInsets.all(1.0.r),
+            child: Text(
+              text,
+              style: TextStyleConstant.instance.textSmallMedium
+                  .copyWith(color: ColorConstant.instance.white),
+              textAlign: TextAlign.center,
             ),
           ),
         ));
