@@ -8,11 +8,11 @@
 
 ## Takım Elemanları
 
-- [Muhammed Ali Işık: Product Owner](https://www.linkedin.com/in/isikmuhammedali/)
+- [Sena Ercihan Çelik: Product Owner/Developer](https://www.linkedin.com/in/senaecelik/)
 - [Selda Koçak: Scrum Master](https://www.linkedin.com/in/selda-kocak/)
-- [Ceyda Esen: Team Member/Developer](https://www.linkedin.com/in/ceyda-esen/)
 - [İsmail Çakıcı: Team Member/Developer](https://github.com/ismailcakici)
-- [Sena Ercihan Çelik: Team Member/Developer](https://www.linkedin.com/in/senaecelik/)
+- [Ceyda Esen: Team Member/Developer](https://www.linkedin.com/in/ceyda-esen/)
+- [Muhammed Ali Işık: Team Member/Developer]](https://www.linkedin.com/in/isikmuhammedali/)
 
 ## Ürün İsmi
 # **Pati Dostum**
