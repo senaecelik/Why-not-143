@@ -42,7 +42,7 @@ class _ProfilePageState extends State<ProfilePage> {
       userData = snapshot.data()!;
       setState(() {});
     } catch (e) {
-      showToast(context, e.toString());
+      debugPrint(e.toString());
     }
   }
 
@@ -123,13 +123,13 @@ class _ProfilePageState extends State<ProfilePage> {
     return SizedBox(
       height: 58.h,
       width: MediaQuery.of(context).size.width,
-      child: TextField(
+      child: TextFormField(
         readOnly: true,
         controller: profileNameController,
         decoration: InputDecoration(
-          hintText: _firebaseUser == null
-              ? StringConstant.instance.menuPerson
-              : _firebaseUser.displayName ?? userData['username'],
+          hintText: _firebaseUser != null
+              ? _firebaseUser.displayName ?? userData['username']
+              : StringConstant.instance.menuPerson,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: ColorConstant.instance.neutral300)),

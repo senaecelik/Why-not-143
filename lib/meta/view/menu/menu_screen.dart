@@ -34,12 +34,16 @@ class _MenuScreenState extends State<MenuScreen> {
   }
 
   getData() async {
-    var snapshot = await FirebaseFirestore.instance
-        .collection("Person")
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get();
-    userData = snapshot.data()!;
-    setState(() {});
+    try {
+      var snapshot = await FirebaseFirestore.instance
+          .collection("Person")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+      userData = snapshot.data()!;
+      setState(() {});
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   @override
