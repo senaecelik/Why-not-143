@@ -7,13 +7,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:why_not_143_team/meta/helper/constant/asset_path.dart';
+import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
-import 'package:why_not_143_team/meta/widget/general_button.dart';
 import '../../../core/services/firebase/firebase_auth_method.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -103,17 +103,20 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  SizedBox _logOutButton(BuildContext context) {
+  Widget _logOutButton(BuildContext context) {
     return SizedBox(
       height: 58.h,
-      width: MediaQuery.of(context).size.width,
-      child: GeneralButton(
-          function: () {
-            Navigator.pushReplacementNamed(
-                context, RouteConstant.loginScreenRoute);
-            context.read<FirebaseAuthMethods>().signOut(context);
-          },
-          text: StringConstant.instance.logOut),
+      width: MediaQuery.of(context).size.height,
+      child: ElevatedButton(
+        onPressed: () async {
+          Navigator.pushReplacementNamed(
+              context, RouteConstant.loginScreenRoute);
+          context.read<FirebaseAuthMethods>().signOut(context);
+        },
+        child: Text(StringConstant.instance.logOut,
+            style: TextStyleConstant.instance.textLargeMedium),
+        style: ButtonStyleConstant.instance.genelButtonStyle,
+      ),
     );
   }
 

@@ -46,22 +46,18 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
   }
 
   Widget emailTextFormField(context, emailController, viewModel) {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        controller: emailController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.formEmail,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-        validator: (value) {
-          return viewModel.emailValidatorMethod(value);
-        },
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      controller: emailController,
+      decoration: InputDecoration(
+        hintText: StringConstant.instance.formEmail,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
       ),
+      validator: (value) {
+        return viewModel.emailValidatorMethod(value);
+      },
     );
   }
 
@@ -85,22 +81,18 @@ class UserLoginForm extends HookViewModelWidget<LoginViewModel> {
   }
 
   Widget passTextField(context, passwordController, LoginViewModel viewModel) {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: TextFormField(
-        obscureText: true,
-        controller: passwordController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.formTextFieldPassword,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-        validator: (value) {
-          return viewModel.passwordValidation(value);
-        },
+    return TextFormField(
+      obscureText: true,
+      controller: passwordController,
+      decoration: InputDecoration(
+        hintText: StringConstant.instance.formTextFieldPassword,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
       ),
+      validator: (value) {
+        return viewModel.passwordValidation(value);
+      },
     );
   }
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
+import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/padding_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/string.dart';
@@ -89,6 +90,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
 
   SizedBox _feedBackSendButton(
       BuildContext context, FeedBackViewModel viewModel) {
+        
     return SizedBox(
       height: 58.h,
       width: MediaQuery.of(context).size.height,
@@ -105,13 +107,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
           StringConstant.instance.feedBackSend,
           style: TextStyleConstant.instance.textLargeRegular,
         ),
-        style: ElevatedButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          primary: ColorConstant.instance.yankeBlue,
-          onPrimary: ColorConstant.instance.white,
-          side: BorderSide(width: 1.0, color: ColorConstant.instance.yankeBlue),
-        ),
+        style: ButtonStyleConstant.instance.genelButtonStyle,
       ),
     );
   }

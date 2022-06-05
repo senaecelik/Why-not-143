@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
   Widget _homeTabBar(BuildContext context) {
     return SizedBox(
         height: 50.h,
-        width: 260.w,
+        width: 280.w,
         child: Padding(
           padding: PaddingConstant.instance.tabbarPadding3,
           child: TabBar(

@@ -55,62 +55,50 @@ class UserRegisterForm extends HookViewModelWidget<RegisterViewModel> {
   }
 
   Widget passTextField(context, registerPasswordController, viewModel) {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: TextFormField(
-        obscureText: true,
-        controller: registerPasswordController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.formTextFieldPassword,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-        validator: (value) {
-          return viewModel.emptyValidation(value);
-        },
+    return TextFormField(
+      obscureText: true,
+      controller: registerPasswordController,
+      decoration: InputDecoration(
+        hintText: StringConstant.instance.formTextFieldPassword,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
       ),
+      validator: (value) {
+        return viewModel.emptyValidation(value);
+      },
     );
   }
 
   Widget mailTextField(
       context, registerEmailController, RegisterViewModel viewModel) {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        controller: registerEmailController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.formTextFieldMail,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-        validator: (value) {
-          return viewModel.emailValidatorMethod(value);
-        },
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      controller: registerEmailController,
+      decoration: InputDecoration(
+        hintText: StringConstant.instance.formTextFieldMail,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
       ),
+      validator: (value) {
+        return viewModel.emailValidatorMethod(value);
+      },
     );
   }
 
   Widget nameTextField(context, registerNameController, viewModel) {
-    return SizedBox(
-      height: 58.h,
-      width: MediaQuery.of(context).size.height,
-      child: TextFormField(
-        controller: registerNameController,
-        decoration: InputDecoration(
-          hintText: StringConstant.instance.formregisterName,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
-        ),
-        validator: (value) {
-          return viewModel.emptyValidation(value);
-        },
+    return TextFormField(
+      controller: registerNameController,
+      decoration: InputDecoration(
+        hintText: StringConstant.instance.formregisterName,
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: ColorConstant.instance.neutral300)),
       ),
+      validator: (value) {
+        return viewModel.emptyValidation(value);
+      },
     );
   }
 
