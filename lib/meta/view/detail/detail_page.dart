@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:why_not_143_team/core/services/firebase/firebase_auth_method.dart';
 import 'package:why_not_143_team/meta/helper/constant/button_style.dart';
 import 'package:why_not_143_team/meta/helper/constant/color_constant.dart';
 import 'package:why_not_143_team/meta/helper/constant/empty_constant.dart';
@@ -206,8 +207,8 @@ class _DetailPageState extends State<DetailPage> {
               Navigator.pushNamed(context, RouteConstant.formScreenRoute);
             } else {
               showToast(context, StringConstant.instance.loginMess);
-
               Navigator.pushNamed(context, RouteConstant.loginScreenRoute);
+              context.read<FirebaseAuthMethods>().signOut(context);
             }
           },
           child: Text(

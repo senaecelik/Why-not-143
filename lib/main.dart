@@ -82,6 +82,9 @@ class AuthWrapper extends StatelessWidget {
     final firebaseUser = context.watch<User?>();
 
     if (firebaseUser != null) {
+      if (firebaseUser.isAnonymous) {
+        context.read<FirebaseAuthMethods>().signOut(context);
+      }
       return const DrawerPage();
     }
     return const SplashView();

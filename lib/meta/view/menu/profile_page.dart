@@ -14,7 +14,6 @@ import 'package:why_not_143_team/meta/helper/constant/string.dart';
 import 'package:why_not_143_team/meta/helper/constant/text_style.dart';
 import 'package:why_not_143_team/meta/helper/route/route_constant.dart';
 import 'package:why_not_143_team/meta/widget/general_button.dart';
-
 import '../../../core/services/firebase/firebase_auth_method.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -33,12 +32,16 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   getData() async {
-    var snapshot = await FirebaseFirestore.instance
-        .collection("Person")
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get();
-    userData = snapshot.data()!;
-    setState(() {});
+    try {
+      var snapshot = await FirebaseFirestore.instance
+          .collection("Person")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+      userData = snapshot.data()!;
+      setState(() {});
+    } catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   final profileNameController = TextEditingController();
