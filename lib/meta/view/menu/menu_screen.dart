@@ -39,9 +39,7 @@ class _MenuScreenState extends State<MenuScreen> {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
     userData = snapshot.data()!;
-    setState(() {
-      userData;
-    });
+    setState(() {});
   }
 
   @override
