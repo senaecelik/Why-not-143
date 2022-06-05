@@ -12,7 +12,7 @@
 - [Selda Koçak: Scrum Master](https://www.linkedin.com/in/selda-kocak/)
 - [İsmail Çakıcı: Team Member/Developer](https://github.com/ismailcakici)
 - [Ceyda Esen: Team Member/Developer](https://www.linkedin.com/in/ceyda-esen/)
-- [Muhammed Ali Işık: Team Member/Developer]](https://www.linkedin.com/in/isikmuhammedali/)
+- [Muhammed Ali Işık: Team Member/Developer](https://www.linkedin.com/in/isikmuhammedali/)
 
 ## Ürün İsmi
 # **Pati Dostum**
