@@ -73,7 +73,7 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 
 ## Product Backlog URL
 
-[Trello Backlog Board_Sprint_1]()
+[Trello Backlog Board_Sprint_1](https://trello.com/invite/b/YdTjWql2/5c76480dbd8c024a4fa257ac269704f5/why-not-143)
 
 # Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
   
@@ -169,7 +169,7 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 
 ## Product Backlog URL
 
-[Trello Backlog Board_Sprint_2]()
+[Trello Backlog Board_Sprint_2](https://trello.com/invite/b/YQMhrba8/ed65595cab7555b009276ce682b50d7e/why-not-143-sprint-2)
 
 # Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
   
@@ -260,7 +260,7 @@ Story'ler yapılacak işlere (task'lere) bölünmüştür.Trello why not 143? - 
 
 ## Product Backlog URL
 
-[Trello Backlog Board_Sprint_3]()
+[Trello Backlog Board_Sprint_3](https://trello.com/invite/b/7J9omTtY/cf6c0f09993c8ad4e9ea8bc4b0a93681/why-not-143-sprint-3)
 
 # Burndown Chart (Trello içinde de aynı başlıkla yer almaktadır.)
   
